@@ -13,10 +13,11 @@ class User :
     
 
 class Task :
-    def __init__(self, name_topic, detail, due_date) :
+    def __init__(self, name_topic, detail, due_date, time) :
         self.name_topic = name_topic
         self.detail = detail
         self.due_date = due_date
+        self.time = time
         self.is_completed = False
 
 
