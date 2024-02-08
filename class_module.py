@@ -1,3 +1,8 @@
+import datetime
+from email.message import EmailMessage
+import smtplib
+import ssl
+
 class User :
     def __init__(self, name, password, email) :
         self.name = name
@@ -57,6 +62,10 @@ class Task :
     
     def get_due_date(self) :
         return self.due_date
+    
+    def get_time_left(self) :
+        time_now = datetime.datetime.now()
+        return self.due_date - time_now
 
 
 
@@ -79,3 +88,23 @@ class MultiTask(Task) :
 
         if self.progress == 100 :
             self.is_completed = True
+
+
+
+class Notification:
+    def __init__(self, app_email, app_password) :
+        self.app_email = app_email
+        self.app_password = app_password
+    
+    def send_email(self, user , subject, message) :
+        msg = EmailMessage()
+        msg['Subject'] = subject
+        msg['From'] = self.app_email
+        msg['To'] = user.get_email_data()['email']
+        msg.set_content(message)
+
+        context = ssl.create_default_context()
+
+        with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as smtp :
+            smtp.login(self.app_email, self.app_password)
+            smtp.sendmail(self.app_email, user.get_email_data()['email'], msg.as_string())
