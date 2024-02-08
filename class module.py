@@ -11,6 +11,18 @@ class User :
             'email' : self.email
         }
     
+    def get_task(self, name_topic) :
+        for task in self.user_tasks :
+            if task.get_name_topic() == name_topic :
+                return task
+        return None
+    
+    def get_task_due_date_by_name(self, name_topic) :
+        for task in self.user_tasks :
+            if task.get_name_topic() == name_topic :
+                return task.get_due_date(), task.get_time()
+        return None
+    
     def add_task(self, task) :
         self.user_tasks.append(task)
 
@@ -36,6 +48,15 @@ class Task :
         self.due_date = due_date
         self.time = time
         self.is_completed = False
+
+    def get_name_topic(self) :
+        return self.name_topic
+
+    def get_time(self) :
+        return self.time
+    
+    def get_due_date(self) :
+        return self.due_date
 
 
 
