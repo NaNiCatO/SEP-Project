@@ -11,6 +11,23 @@ class User :
             'email' : self.email
         }
     
+    def add_task(self, task) :
+        self.user_tasks.append(task)
+
+    def remove_task(self, task) :
+        self.user_tasks.remove(task)
+
+    def get_user_tasks(self) :
+        return self.user_tasks
+    
+    def change_email(self, new_email) :
+        self.email = new_email
+
+    def login(self, password) :
+        if self.password == password :
+            return True
+        return False
+    
 
 class Task :
     def __init__(self, name_topic, detail, due_date, time) :
