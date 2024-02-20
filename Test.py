@@ -1,12 +1,7 @@
 import sys
 from PySide6.QtWidgets import *
 from PySide6.QtCore import *
-from scroll import Ui_MainWindow
-
-# Create a model
-# 1 element have
-# Name : nameTask(string)
-# description : text(string)
+from output import Ui_MainWindow
 
 class Task:
     def __init__(self, name, description, persentage):
