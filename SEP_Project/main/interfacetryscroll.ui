@@ -1101,7 +1101,7 @@ border-radius: 10px
                </layout>
               </widget>
              </item>
-             <item row="1" column="0">
+             <item row="1" column="0" alignment="Qt::AlignVCenter">
               <widget class="QScrollArea" name="scrollArea">
                <property name="minimumSize">
                 <size>
@@ -1124,28 +1124,28 @@ border-radius: 10px
                <widget class="QWidget" name="scrollAreaWidgetContents">
                 <property name="geometry">
                  <rect>
-                  <x>0</x>
+                  <x>-2</x>
                   <y>0</y>
                   <width>214</width>
                   <height>314</height>
                  </rect>
                 </property>
                 <layout class="QGridLayout" name="gridLayout_5">
-                 <item row="0" column="0">
+                 <item row="0" column="0" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
                   <widget class="QFrame" name="todayMainTask">
                    <property name="enabled">
                     <bool>false</bool>
                    </property>
                    <property name="sizePolicy">
-                    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                    <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
                      <horstretch>0</horstretch>
                      <verstretch>0</verstretch>
                     </sizepolicy>
                    </property>
                    <property name="minimumSize">
                     <size>
-                     <width>0</width>
-                     <height>0</height>
+                     <width>190</width>
+                     <height>290</height>
                     </size>
                    </property>
                    <property name="styleSheet">
@@ -1153,7 +1153,6 @@ border-radius: 10px
 background-color:#ffffff; 
 border : 2px solid #2596be; 
 border-radius:15px 15px 15px 15px; 
-
 
 } </string>
                    </property>
@@ -1302,15 +1301,15 @@ border-radius: 10px
                     <bool>false</bool>
                    </property>
                    <property name="sizePolicy">
-                    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                    <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
                      <horstretch>0</horstretch>
                      <verstretch>0</verstretch>
                     </sizepolicy>
                    </property>
                    <property name="minimumSize">
                     <size>
-                     <width>0</width>
-                     <height>0</height>
+                     <width>190</width>
+                     <height>290</height>
                     </size>
                    </property>
                    <property name="styleSheet">
@@ -1460,8 +1459,8 @@ border-radius: 10px
                  <rect>
                   <x>0</x>
                   <y>0</y>
-                  <width>228</width>
-                  <height>241</height>
+                  <width>214</width>
+                  <height>314</height>
                  </rect>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_15">
@@ -1471,15 +1470,15 @@ border-radius: 10px
                     <bool>true</bool>
                    </property>
                    <property name="sizePolicy">
-                    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                    <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
                      <horstretch>0</horstretch>
                      <verstretch>0</verstretch>
                     </sizepolicy>
                    </property>
                    <property name="minimumSize">
                     <size>
-                     <width>0</width>
-                     <height>0</height>
+                     <width>190</width>
+                     <height>290</height>
                     </size>
                    </property>
                    <property name="maximumSize">
