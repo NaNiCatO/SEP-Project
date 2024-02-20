@@ -1,7 +1,7 @@
 import sys
 from PySide6.QtWidgets import *
 from PySide6.QtCore import *
-from matt import Ui_MainWindow
+from scroll import Ui_MainWindow
 
 # Create a model
 # 1 element have
@@ -68,13 +68,18 @@ class MainWindow(QMainWindow):
             Task("Task 2", "Description 2", 75),
             Task("Task 3", "Description 3", 25),
             Task("Task 4", "Description 4", 10),
-            Task("Task 5", "Description 5", 80)
+            Task("Task 5", "Description 5", 80),
+            Task("Task 6", "Description 6", 90),
+            Task("Task 7", "Description 7", 100),
+            Task("Task 8", "Description 8", 0),
+            Task("Task 9", "Description 9", 50),
+            Task("Task 10", "Description 10", 75),
         ]
 
 
-        self.ui.label_2.setText(str(len(tasks)) + " Task")
+        self.ui.todayTask.setText(str(len(tasks)) + " Task")
         # self.ui.listView.clicked.connect(self.clicked)
-        container_layout = QVBoxLayout(self.ui.frame_13)
+        container_layout = QVBoxLayout(self.ui.todayMainTask)
 
         for task in tasks:
             task_frame  = ClickableTaskFrame(task)
@@ -100,6 +105,11 @@ class MainWindow(QMainWindow):
         # print(index.data())
         print(f"Clicked on task: {index.name}")
 
+    #get text
+    def seach_bar(self):
+        text = self.ui.lineEdit.text()
+        print(text)
+
 
 if __name__ == "__main__":
     # testing the model using Mainwindow
@@ -110,5 +120,5 @@ if __name__ == "__main__":
     # window.ui.listView.setModel(model)
     window.show()
     sys.exit(app.exec())
-    
+
 
