@@ -2,6 +2,8 @@ import sys
 from PySide6.QtWidgets import *
 from PySide6.QtCore import *
 from output import Ui_MainWindow
+import class_module
+import datetime
 
 # Create a model
 # 1 element have
@@ -58,52 +60,65 @@ class ClickableTaskFrame(QFrame):
 
 
 class MainWindow(QMainWindow):
-    def __init__(self):
+    def __init__(self, tasks=None):
         super(MainWindow, self).__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
-        tasks = [
-            Task("Task 1", "Description 1", 50),
-            Task("Task 2", "Description 2", 75),
-            Task("Task 3", "Description 3", 25),
-            Task("Task 4", "Description 4", 10),
-            Task("Task 5", "Description 5", 80),
-            Task("Task 6", "Description 6", 90),
-            Task("Task 7", "Description 7", 100),
-            Task("Task 8", "Description 8", 0),
-            Task("Task 9", "Description 9", 50),
-            Task("Task 10", "Description 10", 75),
-        ]
 
+        # tasks = [
+        #     Task("Task 1", "Description 1", 50),
+        #     Task("Task 2", "Description 2", 75),
+        #     Task("Task 3", "Description 3", 25),
+        #     Task("Task 4", "Description 4", 10),
+        #     Task("Task 5", "Description 5", 80),
+        #     Task("Task 6", "Description 6", 90),
+        #     Task("Task 7", "Description 7", 100),
+        #     Task("Task 8", "Description 8", 0),
+        #     Task("Task 9", "Description 9", 50),
+        #     Task("Task 10", "Description 10", 75),
+        # ]
 
-        self.ui.todayTask.setText(str(len(tasks)) + " Task")
+        today_tasks = tasks.get_today_tasks()
+        urgent_tasks = tasks.get_urgent_tasks()
+        # upcoming_tasks = tasks.get_upcoming_tasks()
+        completed_tasks = tasks.get_completed_tasks()
+        self.ui.todayTask.setText(str(len(today_tasks)) + " Task")
+        self.ui.urgentTask.setText(str(len(urgent_tasks)) + " Task")
+        self.ui.allTask.setText(str(len(tasks.Tasks)) + " Task")
+        
         # self.ui.listView.clicked.connect(self.clicked)
-        container_layout = QVBoxLayout(self.ui.todayMainTask)
+        task_arr = [today_tasks, urgent_tasks, completed_tasks]
+        container_arr = [self.ui.todayMainTask, self.ui.urgentMainTask, self.ui.completedMainTask]
 
-        for task in tasks:
-            task_frame  = ClickableTaskFrame(task)
-            task_frame_layout = QHBoxLayout(task_frame)
+        for i in range(len(task_arr)):
+            self.container_layout = QVBoxLayout(container_arr[i])
+            for task in task_arr[i]:
+                self.task_frame  = ClickableTaskFrame(task)
+                self.task_frame_layout = QHBoxLayout(self.task_frame)
 
-            name_desc_layout = QVBoxLayout()
-            task_label_name = QLabel(f"Name: {task.name}")
-            task_label_description = QLabel(f"Description: {task.description}")
-            name_desc_layout.addWidget(task_label_name)
-            name_desc_layout.addWidget(task_label_description)
+                self.name_desc_layout = QVBoxLayout()
+                self.task_label_name = QLabel(f"Name: {task.name_topic}")
+                self.task_label_description = QLabel(f"Description: {task.detail}")
+                self.name_desc_layout.addWidget(self.task_label_name)
+                self.name_desc_layout.addWidget(self.task_label_description)
 
-            percentage_layout = QVBoxLayout()
-            task_label_percentage = QLabel(f"{task.persentage}%")
-            percentage_layout.addWidget(task_label_percentage)
+                self.percentage_layout = QVBoxLayout()
+                if hasattr(task, 'persentage'):
+                    self.task_label_percentage = QLabel(f"{task.persentage}%")
+                    self.percentage_layout.addWidget(self.task_label_percentage)
 
-            task_frame_layout.addLayout(name_desc_layout)
-            task_frame_layout.addLayout(percentage_layout)
+                self.task_frame_layout.addLayout(self.name_desc_layout)
+                self.task_frame_layout.addLayout(self.percentage_layout)
 
-            task_frame.clicked.connect(self.clicked)
-            container_layout.addWidget(task_frame)
+                self.task_frame.clicked.connect(self.clicked)
+                self.container_layout.addWidget(self.task_frame)
+
+        
 
     def clicked(self, index):
         # print(index.data())
-        print(f"Clicked on task: {index.name}")
+        print(f"Clicked on task: {index.name_topic}")
 
     #get text
     def seach_bar(self):
@@ -112,12 +127,40 @@ class MainWindow(QMainWindow):
 
 
 if __name__ == "__main__":
-    # testing the model using Mainwindow
+    # today
+    print(datetime.datetime.today())
     app = QApplication(sys.argv)
-    # tasks = [Task("Task 1", "Description 1"), Task("Task 2", "Description 2")]
-    # model = TaskList(tasks)
-    window = MainWindow()
-    # window.ui.listView.setModel(model)
+    #testing class_module
+    # Task(name_topic, detail, due_date, time, urgent)
+    task1 = class_module.Task("Math", "Do exercise 1-5", "2024-2-21", "20:00")
+    task2 = class_module.Task("Physics", "Do exercise 1-5", "2024-2-20", "20:00", True)
+    task3 = class_module.Task("Chemistry", "Do exercise 1-5", "2024-2-20", "20:00")
+    task4 = class_module.Task("English", "Do exercise 1-5", "2024-2-25", "20:00", True)
+    task5 = class_module.Task("History", "Do exercise 1-5", "2024-2-24", "20:00")
+
+    # MultiTask(name_topic, detail, due_date)
+    multi_task1 = class_module.MultiTask("Study", "Do exercise", "2024-2-20", "20:00")
+    multi_task1.add_task(task1)
+    multi_task1.add_task(task2)
+    multi_task1.add_task(task3)
+    multi_task1.add_task(task4)
+
+    user = class_module.User("Arm", "123", "armfiba@gmail.com")
+    user.add_task(task1)
+    user.add_task(task2)
+    user.add_task(task3)
+    user.add_task(task4)
+    user.add_task(task5)
+    user.add_task(multi_task1)
+
+    print(task2.get_day_left().days)
+
+    type_task = class_module.Task_handlers(user.get_user_tasks())
+    type_task.update_tasks()
+
+    
+    
+    window = MainWindow(type_task)
     window.show()
     sys.exit(app.exec())
 

@@ -50,9 +50,9 @@ class Task :
     def __init__(self, name_topic, detail, due_date, time, urgent=False) :
         self.name_topic = name_topic
         self.detail = detail
-        self.due_date = due_date
+        self.due_date = datetime.datetime.strptime(due_date, '%Y-%m-%d')
         self.time = time
-        urgent = urgent
+        self.urgent = urgent
         self.is_completed = False
 
     def get_name_topic(self) :
@@ -64,15 +64,16 @@ class Task :
     def get_due_date(self) :
         return self.due_date
     
-    def get_time_left(self) :
-        time_now = datetime.datetime.now()
-        return self.due_date - time_now
+    def get_day_left(self) :
+        #format: YYYY-MM-DD find the difference between today and due date
+        today = datetime.datetime.today()
+        return self.due_date - today
 
 
 
 class MultiTask(Task) :
-    def __init__(self, name_topic, detail, due_date) :
-        super().__init__(name_topic, detail, due_date)
+    def __init__(self, name_topic, detail, due_date, time, urgent=False) :
+        super().__init__(name_topic, detail, due_date, time, urgent)
         self.progress = 0 # 0%-100%
         self.tasks = []
 
@@ -91,7 +92,7 @@ class MultiTask(Task) :
             self.is_completed = True
 
 
-class task_handlers :
+class Task_handlers :
     def __init__(self, Tasks) :
         self.Tasks = Tasks
         self.Today_tasks = []
@@ -113,12 +114,12 @@ class task_handlers :
     
     def update_tasks(self) :
         for task in self.Tasks :
-            if task.get_time_left().days == 0 :
-                self.Today_tasks.append(task)
-            elif task.get_time_left().days < 0 :
+            if task.is_completed :
                 self.Completed_tasks.append(task)
-            elif task.get_time_left().days < 3 :
+            elif task.urgent :
                 self.Urgent_tasks.append(task)
+            elif task.get_day_left().days == -1 :
+                self.Today_tasks.append(task)
             else :
                 self.Upcoming_tasks.append(task)
 
