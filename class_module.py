@@ -47,11 +47,12 @@ class User :
     
 
 class Task :
-    def __init__(self, name_topic, detail, due_date, time) :
+    def __init__(self, name_topic, detail, due_date, time, urgent=False) :
         self.name_topic = name_topic
         self.detail = detail
         self.due_date = due_date
         self.time = time
+        urgent = urgent
         self.is_completed = False
 
     def get_name_topic(self) :
@@ -90,6 +91,36 @@ class MultiTask(Task) :
             self.is_completed = True
 
 
+class task_handlers :
+    def __init__(self, Tasks) :
+        self.Tasks = Tasks
+        self.Today_tasks = []
+        self.Urgent_tasks = []
+        self.Upcoming_tasks = []
+        self.Completed_tasks = []
+
+    def get_today_tasks(self) :
+        return self.Today_tasks
+    
+    def get_urgent_tasks(self) :
+        return self.Urgent_tasks
+    
+    def get_upcoming_tasks(self) :
+        return self.Upcoming_tasks
+    
+    def get_completed_tasks(self) :
+        return self.Completed_tasks
+    
+    def update_tasks(self) :
+        for task in self.Tasks :
+            if task.get_time_left().days == 0 :
+                self.Today_tasks.append(task)
+            elif task.get_time_left().days < 0 :
+                self.Completed_tasks.append(task)
+            elif task.get_time_left().days < 3 :
+                self.Urgent_tasks.append(task)
+            else :
+                self.Upcoming_tasks.append(task)
 
 class Notification:
     def __init__(self, app_email, app_password) :
