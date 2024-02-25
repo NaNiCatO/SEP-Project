@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="icons">
+    <file>important-dates-svgrepo-com.svg</file>
+    <file>chart-svgrepo-com.svg</file>
     <file>assets/icons/activity.svg</file>
     <file>assets/icons/airplay.svg</file>
     <file>assets/icons/alert-circle.svg</file>
@@ -57,6 +59,10 @@
     <file>assets/icons/chrome.svg</file>
   </qresource>
   <qresource prefix="icons_v2">
+    <file>last-24-hours-svgrepo-com.svg</file>
+    <file>urgent-svgrepo-com.svg</file>
+    <file>history-svgrepo-com.svg</file>
+    <file>analysis-svgrepo-com.svg</file>
     <file>activity.svg</file>
     <file>airplay.svg</file>
     <file>alert-circle.svg</file>
