@@ -1,17 +1,19 @@
-import sys
 from PySide6.QtWidgets import *
 from PySide6.QtCore import *
-import datetime
 from class_module import MultiTask
 
 
 class ClickableTaskFrame(QFrame):
+    # Define a custom clicked signal
     clicked = Signal(object)
+
     def __init__(self, task, *args, **kwargs):
         super(ClickableTaskFrame, self).__init__(*args, **kwargs)
         self.task = task
 
     def mousePressEvent(self, event):
+        # Emit the custom clicked signal with the task object
+        print("Mouse Press Event Triggered")
         self.clicked.emit(self.task)
 
     def enterEvent(self, event):
@@ -24,14 +26,15 @@ class ClickableTaskFrame(QFrame):
 class Home_page():
     def __init__(self, ui, tasks=None):
         self.ui = ui
+        self.tasks = tasks
 
-        today_tasks = tasks.get_today_tasks()
-        urgent_tasks = tasks.get_urgent_tasks()
+        today_tasks = self.tasks.get_today_tasks()
+        urgent_tasks = self.tasks.get_urgent_tasks()
         # upcoming_tasks = tasks.get_upcoming_tasks()
-        completed_tasks = tasks.get_completed_tasks()
+        completed_tasks = self.tasks.get_completed_tasks()
         self.ui.todayTask.setText(str(len(today_tasks)) + " Task")
         self.ui.urgentTask.setText(str(len(urgent_tasks)) + " Task")
-        self.ui.allTask.setText(str(len(tasks.Tasks)) + " Task")
+        self.ui.allTask.setText(str(len(self.tasks.Tasks)) + " Task")
         
         # self.listView.clicked.connect(self.clicked)
         task_arr = [today_tasks, urgent_tasks, completed_tasks]
