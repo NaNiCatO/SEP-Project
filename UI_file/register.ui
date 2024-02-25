@@ -6,42 +6,51 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>783</width>
-    <height>503</height>
+    <width>804</width>
+    <height>524</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QWidget" name="widget" native="true">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>780</width>
-     <height>500</height>
-    </rect>
+  <layout class="QGridLayout" name="gridLayout_3">
+   <property name="leftMargin">
+    <number>0</number>
    </property>
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-     <horstretch>0</horstretch>
-     <verstretch>0</verstretch>
-    </sizepolicy>
+   <property name="topMargin">
+    <number>0</number>
    </property>
-   <property name="minimumSize">
-    <size>
-     <width>780</width>
-     <height>500</height>
-    </size>
+   <property name="rightMargin">
+    <number>0</number>
    </property>
-   <property name="maximumSize">
-    <size>
-     <width>16777215</width>
-     <height>16777215</height>
-    </size>
+   <property name="bottomMargin">
+    <number>0</number>
    </property>
-   <property name="styleSheet">
-    <string notr="true">#widget{
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <item row="0" column="0">
+    <widget class="QWidget" name="widget" native="true">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>780</width>
+       <height>500</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#widget{
 background-color: #ffffff;
 border-radius: 25px 25px 25px 25px;
 }
@@ -49,239 +58,159 @@ border-radius: 25px 25px 25px 25px;
 *{
 border: none;
 }</string>
-   </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <item>
-     <widget class="QFrame" name="frame">
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <property name="leftMargin">
+       <number>0</number>
       </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
+      <property name="topMargin">
+       <number>0</number>
       </property>
-      <widget class="QLabel" name="loginHeader">
-       <property name="geometry">
-        <rect>
-         <x>350</x>
-         <y>10</y>
-         <width>101</width>
-         <height>51</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>26</pointsize>
-         <italic>false</italic>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">#loginHeader{
-color : #1e1e1e;
-}</string>
-       </property>
-       <property name="text">
-        <string>Register</string>
-       </property>
-      </widget>
-     </widget>
-    </item>
-    <item>
-     <widget class="QFrame" name="frame_5">
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
+      <property name="rightMargin">
+       <number>0</number>
       </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
+      <property name="bottomMargin">
+       <number>0</number>
       </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_2">
-       <item>
-        <widget class="QLineEdit" name="userInput">
-         <property name="minimumSize">
-          <size>
-           <width>400</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">#userInput{
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <item row="3" column="0">
+       <widget class="QFrame" name="frame_2">
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QLineEdit" name="passwordInput">
+           <property name="minimumSize">
+            <size>
+             <width>400</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">#passwordInput{
 background-color:rgba(0,0,0,0);
 border: none;
 border-bottom: 2px solid #1e1e1e;
 padding-bottom: 7px;
 color: #1e1e1e;
 }</string>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="placeholderText">
-          <string>Username</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </item>
-    <item>
-     <widget class="QFrame" name="frame_2">
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout">
-       <item>
-        <widget class="QLineEdit" name="passwordInput">
-         <property name="minimumSize">
-          <size>
-           <width>400</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">#passwordInput{
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="echoMode">
+            <enum>QLineEdit::Normal</enum>
+           </property>
+           <property name="placeholderText">
+            <string>Password</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QFrame" name="frame_7">
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_5">
+         <item>
+          <widget class="QLineEdit" name="emailInput">
+           <property name="minimumSize">
+            <size>
+             <width>400</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">#emailInput{
 background-color:rgba(0,0,0,0);
 border: none;
 border-bottom: 2px solid #1e1e1e;
 padding-bottom: 7px;
 color: #1e1e1e;
 }</string>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="echoMode">
-          <enum>QLineEdit::Normal</enum>
-         </property>
-         <property name="placeholderText">
-          <string>Password</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </item>
-    <item>
-     <widget class="QFrame" name="frame_3">
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout_2">
-       <item>
-        <widget class="QLineEdit" name="confirmPassword">
-         <property name="font">
-          <font>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">#confirmPassword{
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="echoMode">
+            <enum>QLineEdit::Normal</enum>
+           </property>
+           <property name="placeholderText">
+            <string>Email</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QFrame" name="frame_3">
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <widget class="QLineEdit" name="confirmPassword">
+           <property name="font">
+            <font>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">#confirmPassword{
 background-color:rgba(0,0,0,0);
 border: none;
 border-bottom: 2px solid #1e1e1e;
 padding-bottom: 7px;
 color: #1e1e1e;
 }</string>
-         </property>
-         <property name="placeholderText">
-          <string>Confirm Password</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </item>
-    <item>
-     <widget class="QFrame" name="frame_6">
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <widget class="QLabel" name="label">
-       <property name="geometry">
-        <rect>
-         <x>630</x>
-         <y>0</y>
-         <width>120</width>
-         <height>30</height>
-        </rect>
-       </property>
-       <property name="minimumSize">
-        <size>
-         <width>120</width>
-         <height>30</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>16</pointsize>
-         <bold>true</bold>
-         <underline>true</underline>
-        </font>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="createAccountButton">
-       <property name="geometry">
-        <rect>
-         <x>630</x>
-         <y>0</y>
-         <width>120</width>
-         <height>32</height>
-        </rect>
-       </property>
-       <property name="minimumSize">
-        <size>
-         <width>120</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <bold>true</bold>
-         <underline>true</underline>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">#createAccountButton{
-border: none;
-color: #1e1e1e;
-}</string>
-       </property>
-       <property name="text">
-        <string>Create account</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="loginButton">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>0</y>
-         <width>732</width>
-         <height>39</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton {
+           </property>
+           <property name="placeholderText">
+            <string>Confirm Password</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QFrame" name="frame_6">
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_4">
+         <item row="0" column="0">
+          <widget class="QPushButton" name="loginButton">
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
     padding: 10px 20px;
     font-size: 16px;
     font-weight: bold;
@@ -298,25 +227,207 @@ QPushButton:hover {
     background-color: #ff6347; 
 }
 </string>
-       </property>
-       <property name="text">
-        <string>Create Account</string>
-       </property>
-      </widget>
-     </widget>
-    </item>
-    <item>
-     <widget class="QFrame" name="frame_4">
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
+           </property>
+           <property name="text">
+            <string>Create Account</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0" alignment="Qt::AlignHCenter">
+          <widget class="QFrame" name="frame_4">
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item alignment="Qt::AlignRight">
+             <widget class="QFrame" name="frame_8">
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_6">
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <item row="0" column="0" alignment="Qt::AlignHCenter">
+                <widget class="QLabel" name="haveAccountHeader">
+                 <property name="styleSheet">
+                  <string notr="true">#haveAccountHeader{
+   color: #1e1e1e;
+}</string>
+                 </property>
+                 <property name="text">
+                  <string>Already have account? </string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item alignment="Qt::AlignLeft">
+             <widget class="QFrame" name="frame_9">
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_5">
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <item row="0" column="0">
+                <widget class="QPushButton" name="signInButton">
+                 <property name="font">
+                  <font>
+                   <bold>true</bold>
+                   <underline>true</underline>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">#signInButton {
+    color: #1e1e1e;
+}
+
+#signInButton:hover {
+/*    background-color: #F5FAFE;*/
+    color: #1F95EF;
+    font-weight: bold; 
+}
+</string>
+                 </property>
+                 <property name="text">
+                  <string>Sign in.</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QFrame" name="frame">
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_2">
+         <item row="0" column="0" alignment="Qt::AlignHCenter">
+          <widget class="QLabel" name="loginHeader">
+           <property name="font">
+            <font>
+             <pointsize>26</pointsize>
+             <italic>false</italic>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">#loginHeader{
+color : #1e1e1e;
+}</string>
+           </property>
+           <property name="text">
+            <string>Register</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QFrame" name="frame_5">
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <widget class="QLineEdit" name="userInput">
+           <property name="minimumSize">
+            <size>
+             <width>400</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">#userInput{
+background-color:rgba(0,0,0,0);
+border: none;
+border-bottom: 2px solid #1e1e1e;
+padding-bottom: 7px;
+color: #1e1e1e;
+}</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="placeholderText">
+            <string>Username</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
  </widget>
  <resources/>
  <connections/>

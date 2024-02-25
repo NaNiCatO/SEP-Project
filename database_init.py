@@ -15,3 +15,6 @@ root.task_handlers = BTrees.OOBTree.BTree()
 
 
 root.notification['notification'] = Notification('sep.todoapp@gmail.com', 'Septodolist')
+
+transaction.commit()
+connection.close()

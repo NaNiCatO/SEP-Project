@@ -2,8 +2,9 @@ import datetime
 from email.message import EmailMessage
 import smtplib
 import ssl
+import persistent
 
-class User :
+class User(persistent.Persistent):
     def __init__(self, name, password, email) :
         self.name = name
         self.password = password
@@ -46,7 +47,7 @@ class User :
         return False
     
 
-class Task :
+class Task(persistent.Persistent):
     def __init__(self, name_topic, detail, due_date, time, urgent=False) :
         self.name_topic = name_topic
         self.detail = detail
@@ -71,7 +72,7 @@ class Task :
 
 
 
-class MultiTask(Task) :
+class MultiTask(Task, persistent.Persistent) :
     def __init__(self, name_topic, detail, due_date, time, urgent=False) :
         super().__init__(name_topic, detail, due_date, time, urgent)
         self.progress = 0 # 0%-100%
@@ -92,7 +93,7 @@ class MultiTask(Task) :
             self.is_completed = True
 
 
-class Task_handlers :
+class Task_handlers(persistent.Persistent) :
     def __init__(self, Tasks) :
         self.Tasks = Tasks
         self.Today_tasks = []
@@ -123,7 +124,7 @@ class Task_handlers :
             else :
                 self.Upcoming_tasks.append(task)
 
-class Notification:
+class Notification(persistent.Persistent):
     def __init__(self, app_email, app_password) :
         self.app_email = app_email
         self.app_password = app_password
