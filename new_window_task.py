@@ -3,6 +3,7 @@ from PySide6.QtWidgets import *
 from PySide6.QtCore import *
 from new_window_task_ui import Ui_MainWindow
 import class_module
+from new_window_create import New_MainWindow_create, New_MainWindow_edit
 
 
 ############################################################################################################
@@ -97,17 +98,31 @@ class New_MainWindow_task(QMainWindow, Ui_MainWindow):
 
 
     def create_task(self):
-        pass
+        if isinstance(self.listTask, class_module.MultiTask):
+            self.new_window = New_MainWindow_create(self.ui, self, self.listTask)
+        else:
+            self.new_window = New_MainWindow_create(self.ui)
+        self.new_window.show()
 
     def delete_task(self):
-        self.mode = "Delete Task"
-        if self.name:
-            self.homeHeader_5.setText(f"Task Name: {self.name} : {self.mode}")
+        if self.mode == "Delete Task":
+            self.mode = "View Task"
         else:
-            self.homeHeader_5.setText(f"Task Name: {self.task.name_topic} : {self.mode}")
+            self.mode = "Delete Task"
+            if self.name:
+                self.homeHeader_5.setText(f"Task Name: {self.name} : {self.mode}")
+            else:
+                self.homeHeader_5.setText(f"Task Name: {self.task.name_topic} : {self.mode}")
 
     def edit_task(self):
-        pass
+        if self.mode == "Edit Task":
+            self.mode = "View Task"
+        else:
+            self.mode = "Edit Task"
+            if self.name:
+                self.homeHeader_5.setText(f"Task Name: {self.name} : {self.mode}")
+            else:    
+                self.homeHeader_5.setText(f"Task Name: {self.task.name_topic} : {self.mode}")
 
     def update_ui(self):
         for i in reversed(range(self.container_layout.count())):
@@ -140,6 +155,12 @@ class New_MainWindow_task(QMainWindow, Ui_MainWindow):
             self.ui.user.remove_task(task)
             self.task.remove(task)
             self.update_ui()
+        elif self.mode == "Edit Task":
+            if isinstance(self.listTask, class_module.MultiTask):
+                self.new_window = New_MainWindow_edit(self.ui, task, self)
+            else:
+                self.new_window = New_MainWindow_edit(self.ui, task)
+            self.new_window.show()
 
 
     def radio_button_clicked(self, task):

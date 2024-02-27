@@ -94,6 +94,12 @@ class MultiTask(Task) :
         if self.progress == 100 :
             self.is_completed = True
 
+    def get_task(self, name_topic) :
+        for task in self.tasks :
+            if task.get_name_topic() == name_topic :
+                return task
+        return None
+
 
 class Task_handlers :
     def __init__(self, Tasks) :

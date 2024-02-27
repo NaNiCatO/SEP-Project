@@ -3,6 +3,7 @@ from PySide6.QtWidgets import *
 from PySide6.QtCore import *
 from new_window_create_ui import Ui_Form
 import class_module
+from datetime import datetime
 
 
 ############################################################################################################
@@ -33,9 +34,11 @@ user.add_task(multi_task1)
 
 
 class New_MainWindow_create(QWidget, Ui_Form):
-    def __init__(self, ui):
+    def __init__(self, ui, new_window = None, MultiTask=None):
         super().__init__()
         self.ui = ui
+        self.MultiTask = MultiTask
+        self.new_window = new_window
         self.setupUi(self)
         self.confirm_button.accepted.connect(self.accept)
         self.confirm_button.rejected.connect(self.reject)
@@ -44,7 +47,7 @@ class New_MainWindow_create(QWidget, Ui_Form):
         name_topic = self.topic_lineEdit.text()
         detail = self.detail_lineEdit.text()
         due_date = self.calendarWidget.selectedDate().toString("yyyy-M-d")
-        time = self.timeEdit.time().toString()
+        time = self.timeEdit.time().toString("hh:mm")
         urgent = self.urgent_task_check_box.isChecked()
         print(name_topic, detail, due_date, time, urgent)
         if self.sub_task_check_box.isChecked():
@@ -52,7 +55,10 @@ class New_MainWindow_create(QWidget, Ui_Form):
         else:
             task = class_module.Task(name_topic, detail, due_date, time, urgent)
 
-        self.ui.user.add_task(task)
+        if self.MultiTask:
+            self.MultiTask.add_task(task)
+        else:
+            self.ui.user.add_task(task)
         self.close()
 
     def reject(self):
@@ -63,9 +69,67 @@ class New_MainWindow_create(QWidget, Ui_Form):
         self.ui.categorized_task.update_tasks()
         for i in self.ui.arr_update:
             i.update_ui()
+        if self.new_window:
+            self.new_window.update_ui()
         event.accept()
 
+class New_MainWindow_edit(QWidget, Ui_Form):
+    def __init__(self, ui, task,  new_window = None):
+        super().__init__()
+        self.ui = ui
+        self.task = task
+        self.new_window = new_window
+        self.setupUi(self)
+        self.set_values()
+        self.confirm_button.accepted.connect(self.accept)
+        self.confirm_button.rejected.connect(self.reject)
 
+    def set_values(self):
+        self.topic_lineEdit.setText(self.task.name_topic)
+        self.detail_lineEdit.setText(self.task.detail)
+        self.urgent_task_check_box.setChecked(self.task.urgent)
+
+        parts = self.task.time.split(':')
+        if len(parts) == 2:
+            hours = int(parts[0])
+            minutes = int(parts[1])
+
+            # Create a QTime object from the parsed values
+            selected_time = QTime(hours, minutes)
+
+            # Set the selected time in the time edit widget
+            self.timeEdit.setTime(selected_time)
+
+        parts = self.task.due_date.strftime("%Y-%m-%d").split('-')
+        if len(parts) == 3:
+            year = int(parts[0])
+            month = int(parts[1])
+            day = int(parts[2])
+            # Create a QDate object from the parsed values
+            selected_date = QDate(year, month, day)
+            # Set the selected date in the calendar widget
+            self.calendarWidget.setSelectedDate(selected_date)
+
+
+    def accept(self):
+        self.task.name_topic = self.topic_lineEdit.text()
+        self.task.detail = self.detail_lineEdit.text()
+        self.task.due_date = datetime.strptime(self.calendarWidget.selectedDate().toString("yyyy-M-d"),'%Y-%m-%d')
+        self.task.time = self.timeEdit.time().toString("hh:mm")
+        self.task.urgent = self.urgent_task_check_box.isChecked()
+        self.close()
+
+    def reject(self):
+        self.close()
+
+    def closeEvent(self, event):
+        print("UI is closed")
+        self.ui.categorized_task.update_tasks()
+        for i in self.ui.arr_update:
+            i.update_ui()
+        if self.new_window:
+            self.new_window.update_ui()
+        event.accept()
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
