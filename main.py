@@ -91,6 +91,8 @@ class Sidebar(QMainWindow, Ui_MainWindow):
         self.home_page = Home_page(self, self.categorized_task)
         self.todayButton.clicked.connect(self.switch_to_today)
         self.urgentButton.clicked.connect(self.switch_to_urgent)
+        self.completedButton.clicked.connect(self.switch_to_completed)
+
 
         
     def switch_to_today(self):
@@ -98,10 +100,14 @@ class Sidebar(QMainWindow, Ui_MainWindow):
         self.new_MainWindow_task_page.show()
         
 
-
     def switch_to_urgent(self):
-        self.task_page = New_MainWindow_task(self, self.categorized_task.get_urgent_tasks(), "Urgent")
-        self.task_page.show()
+        self.new_MainWindow_task_page = New_MainWindow_task(self, self.categorized_task.get_urgent_tasks(), "Urgent")
+        self.new_MainWindow_task_page.show()
+        self.home_page.update_ui()
+
+    def switch_to_completed(self):
+        self.new_MainWindow_task_page = New_MainWindow_task(self, self.categorized_task.get_completed_tasks(), "Completed")
+        self.new_MainWindow_task_page.show()
         self.home_page.update_ui()
 
     

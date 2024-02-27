@@ -3,6 +3,7 @@ from PySide6.QtWidgets import *
 from PySide6.QtCore import *
 from new_window_task_ui import Ui_MainWindow
 import class_module
+from new_window_create import New_MainWindow_create, New_MainWindow_edit
 
 
 ############################################################################################################
@@ -53,7 +54,12 @@ class New_MainWindow_task(QMainWindow, Ui_MainWindow):
     def __init__(self, ui, task, name=None):
         super().__init__()
         self.ui = ui
-        self.task = task
+        if isinstance(task, class_module.MultiTask):
+            self.listTask = task
+            self.task = task.tasks
+        else:
+            self.listTask = None
+            self.task = task
         self.name = name
         self.mode = "View Task"
         self.setupUi(self)
@@ -92,18 +98,31 @@ class New_MainWindow_task(QMainWindow, Ui_MainWindow):
 
 
     def create_task(self):
-        pass
+        if isinstance(self.listTask, class_module.MultiTask):
+            self.new_window = New_MainWindow_create(self.ui, self, self.listTask)
+        else:
+            self.new_window = New_MainWindow_create(self.ui)
+        self.new_window.show()
 
     def delete_task(self):
-        self.mode = "Delete Task"
-        if self.name:
-            print(f"Task Name: {self.name} : Delete Task")
-            self.homeHeader_5.setText(f"Task Name: {self.name} : {self.mode}")
+        if self.mode == "Delete Task":
+            self.mode = "View Task"
         else:
-            self.homeHeader_5.setText(f"Task Name: {self.task.name_topic} : {self.mode}")
+            self.mode = "Delete Task"
+            if self.name:
+                self.homeHeader_5.setText(f"Task Name: {self.name} : {self.mode}")
+            else:
+                self.homeHeader_5.setText(f"Task Name: {self.task.name_topic} : {self.mode}")
 
     def edit_task(self):
-        pass
+        if self.mode == "Edit Task":
+            self.mode = "View Task"
+        else:
+            self.mode = "Edit Task"
+            if self.name:
+                self.homeHeader_5.setText(f"Task Name: {self.name} : {self.mode}")
+            else:    
+                self.homeHeader_5.setText(f"Task Name: {self.task.name_topic} : {self.mode}")
 
     def update_ui(self):
         for i in reversed(range(self.container_layout.count())):
@@ -136,9 +155,13 @@ class New_MainWindow_task(QMainWindow, Ui_MainWindow):
             self.ui.user.remove_task(task)
             self.task.remove(task)
             self.update_ui()
-            print(f"Deleted task: {task.name_topic}")
+        elif self.mode == "Edit Task":
+            if isinstance(self.listTask, class_module.MultiTask):
+                self.new_window = New_MainWindow_edit(self.ui, task, self)
+            else:
+                self.new_window = New_MainWindow_edit(self.ui, task)
+            self.new_window.show()
 
-        print(f"Clicked on task: {task.name_topic}")
 
     def radio_button_clicked(self, task):
         def on_toggled(checked):
@@ -147,10 +170,13 @@ class New_MainWindow_task(QMainWindow, Ui_MainWindow):
         return on_toggled
     
     def closeEvent(self, event):
-            print("UI is closed")
-            for i in self.ui.arr_update:
-                i.update_ui()
-            event.accept()
+        print("UI is closed")
+        if self.listTask:
+            self.listTask.update_progress()
+        self.ui.categorized_task.update_tasks()
+        for i in self.ui.arr_update:
+            i.update_ui()
+        event.accept()
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

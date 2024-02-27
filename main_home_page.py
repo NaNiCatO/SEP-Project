@@ -6,6 +6,7 @@ from PySide6.QtGui import QMouseEvent
 import sys
 import class_module
 from main_stack import Ui_MainWindow
+from new_window_task import New_MainWindow_task
 
 
 
@@ -69,6 +70,7 @@ class Home_page():
         self.ui.todayTask.setText(str(len(today_tasks)) + " Task")
         self.ui.urgentTask.setText(str(len(urgent_tasks)) + " Task")
         self.ui.allTask.setText(str(len(self.tasks.Tasks)) + " Task")
+        self.ui.cancelTask.setText(str(len(self.tasks.Late_tasks)) + " Task")
         
         # self.listView.clicked.connect(self.clicked)
         task_arr = [today_tasks, urgent_tasks, completed_tasks]
@@ -90,6 +92,11 @@ class Home_page():
                 if isinstance(task, MultiTask):
                     self.task_label_percentage = QLabel(f"{task.progress}%")
                     self.percentage_layout.addWidget(self.task_label_percentage)
+                else:
+                    self.radio_button = QRadioButton("Complete")
+                    self.radio_button.toggled.connect(self.radio_button_clicked(task))
+                    self.radio_button.setChecked(task.is_completed)
+                    self.percentage_layout.addWidget(self.radio_button)
 
                 self.task_frame_layout.addLayout(self.name_desc_layout)
                 self.task_frame_layout.addLayout(self.percentage_layout)
@@ -100,7 +107,17 @@ class Home_page():
 
     def clicked(self, task):
         print(f"Clicked on task: {task.name_topic}")
+        if isinstance(task, MultiTask):
+            self.new_window = New_MainWindow_task(self.ui, task, task.name_topic)
+            self.new_window.show()
 
+
+    def radio_button_clicked(self, task):
+        def on_toggled(checked):
+            task.is_completed = checked
+            print(f"Task {task.name_topic} is_completed = {task.is_completed}")
+        return on_toggled
+    
     # get text
     def seach_bar(self):
         text = self.lineEdit.text()
@@ -113,6 +130,7 @@ class Home_page():
         self.ui.todayTask.setText(str(len(today_tasks)) + " Task")
         self.ui.urgentTask.setText(str(len(urgent_tasks)) + " Task")
         self.ui.allTask.setText(str(len(self.tasks.Tasks)) + " Task")
+        self.ui.cancelTask.setText(str(len(self.tasks.Late_tasks)) + " Task")
 
         task_arr = [today_tasks, urgent_tasks, completed_tasks]
 

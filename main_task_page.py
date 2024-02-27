@@ -2,7 +2,8 @@ import sys
 from PySide6.QtWidgets import *
 from PySide6.QtCore import *
 from class_module import MultiTask
-
+from new_window_create import New_MainWindow_create, New_MainWindow_edit
+from new_window_task import New_MainWindow_task
 
 class ClickableTaskFrame(QFrame):
     clicked = Signal(object)
@@ -63,7 +64,8 @@ class Task_page():
 
 
     def add_task(self):
-        pass
+        self.new_window = New_MainWindow_create(self.ui)
+        self.new_window.show()
 
     def delete_task(self):
         if self.mode == "Delete Task":
@@ -73,8 +75,10 @@ class Task_page():
         self.ui.homeHeader_5.setText(self.mode)
 
     def edit_task(self):
-
-        self.mode = "Edit Task"
+        if self.mode == "Edit Task":
+            self.mode = "View Task"
+        else:
+            self.mode = "Edit Task"
         self.ui.homeHeader_5.setText(self.mode)
 
     def clicked(self, task):
@@ -82,6 +86,13 @@ class Task_page():
             self.ui.user.remove_task(task)
             self.update_ui()
             print(f"Deleted task: {task.name_topic}")
+        elif self.mode == "Edit Task":
+            self.new_window = New_MainWindow_edit(self.ui, task)
+            self.new_window.show()
+        else:
+            if isinstance(task, MultiTask):
+                self.new_window = New_MainWindow_task(self.ui, task, task.name_topic)
+                self.new_window.show()
 
         print(f"Clicked on task: {task.name_topic}")
         

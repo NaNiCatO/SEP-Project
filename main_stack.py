@@ -244,6 +244,8 @@ class Ui_MainWindow(object):
         self.todayCard.setObjectName(u"todayCard")
         self.todayCard.setMinimumSize(QSize(180, 80))
         self.todayCard.setMaximumSize(QSize(160, 90))
+        self.todayCard.setMouseTracking(False)
+        self.todayCard.setFocusPolicy(Qt.NoFocus)
         self.todayCard.setStyleSheet(u"#todayCard{\n"
 "background-color: #ffc148;\n"
 "}")
@@ -393,6 +395,8 @@ class Ui_MainWindow(object):
         self.cancleCard.setObjectName(u"cancleCard")
         self.cancleCard.setMinimumSize(QSize(180, 80))
         self.cancleCard.setMaximumSize(QSize(160, 90))
+        self.cancleCard.setMouseTracking(False)
+        self.cancleCard.setFocusPolicy(Qt.NoFocus)
         self.cancleCard.setStyleSheet(u"#cancleCard{\n"
 "background-color: #52c1c4;\n"
 "}")
@@ -978,7 +982,7 @@ class Ui_MainWindow(object):
         self.scrollArea_5.setWidgetResizable(True)
         self.scrollAreaWidgetContents_5 = QWidget()
         self.scrollAreaWidgetContents_5.setObjectName(u"scrollAreaWidgetContents_5")
-        self.scrollAreaWidgetContents_5.setGeometry(QRect(0, 0, 100, 30))
+        self.scrollAreaWidgetContents_5.setGeometry(QRect(0, 0, 875, 469))
         self.gridLayout_25 = QGridLayout(self.scrollAreaWidgetContents_5)
         self.gridLayout_25.setObjectName(u"gridLayout_25")
         self.scrollArea_5.setWidget(self.scrollAreaWidgetContents_5)
@@ -1055,7 +1059,7 @@ class Ui_MainWindow(object):
         self.scrollArea_4.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 875, 419))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 100, 30))
         self.gridLayout_28 = QGridLayout(self.scrollAreaWidgetContents_2)
         self.gridLayout_28.setObjectName(u"gridLayout_28")
         self.taskList_frame = QFrame(self.scrollAreaWidgetContents_2)

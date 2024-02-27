@@ -84,12 +84,21 @@ class MultiTask(Task) :
         self.tasks.remove(task)
     
     def update_progress(self) :
-        for task in self.tasks :
-            if task.is_completed :
-                self.progress += 100/len(self.tasks)
-
+        self.progress = 0
+        if len(self.tasks) == 0 :
+            self.progress = 0
+        else :
+            for task in self.tasks :
+                if task.is_completed :
+                    self.progress += 100/len(self.tasks)
         if self.progress == 100 :
             self.is_completed = True
+
+    def get_task(self, name_topic) :
+        for task in self.tasks :
+            if task.get_name_topic() == name_topic :
+                return task
+        return None
 
 
 class Task_handlers :
@@ -99,6 +108,7 @@ class Task_handlers :
         self.Urgent_tasks = []
         self.Upcoming_tasks = []
         self.Completed_tasks = []
+        self.Late_tasks = []
         self.update_tasks()
 
     def get_today_tasks(self) :
@@ -118,6 +128,7 @@ class Task_handlers :
         self.Urgent_tasks = []
         self.Upcoming_tasks = []
         self.Completed_tasks = []
+        self.Late_tasks = []
         for task in self.Tasks :
             if task.is_completed :
                 self.Completed_tasks.append(task)
@@ -125,6 +136,8 @@ class Task_handlers :
                 self.Urgent_tasks.append(task)
             elif task.get_day_left().days == -1 :
                 self.Today_tasks.append(task)
+            elif task.get_day_left().days < -1 :
+                self.Late_tasks.append(task)
             else :
                 self.Upcoming_tasks.append(task)
 
