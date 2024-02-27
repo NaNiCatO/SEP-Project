@@ -17,7 +17,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QAbstractButton, QApplication, QCalendarWidget, QCheckBox,
     QDialogButtonBox, QFrame, QGridLayout, QHBoxLayout,
-    QLabel, QLineEdit, QPushButton, QSizePolicy,
+    QLabel, QLineEdit, QSizePolicy, QTimeEdit,
     QVBoxLayout, QWidget)
 import icons_rc
 
@@ -25,16 +25,21 @@ class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
-        Form.resize(1060, 576)
+        Form.resize(697, 444)
         self.gridLayout = QGridLayout(Form)
+        self.gridLayout.setSpacing(0)
         self.gridLayout.setObjectName(u"gridLayout")
+        self.gridLayout.setContentsMargins(0, 0, 0, 0)
         self.main_create_task_frame = QFrame(Form)
         self.main_create_task_frame.setObjectName(u"main_create_task_frame")
         self.main_create_task_frame.setStyleSheet(u"*{\n"
 "color: #000;\n"
 "border : none;\n"
 "}\n"
-"\n"
+"QLineEdit:focus {\n"
+"    border-color: #007bff; /* Blue border when focused */\n"
+"    border-style: solid;\n"
+"}\n"
 "#main_create_task_frame{\n"
 "background-color: #d9d9d9;\n"
 "}\n"
@@ -74,7 +79,8 @@ class Ui_Form(object):
 "\n"
 "#detail_lineEdit, #topic_lineEdit{\n"
 "border-radius: 10px;\n"
-"margin: 5px;\n"
+""
+                        "margin: 5px;\n"
 "border : 2px solid #f26e56;\n"
 "}\n"
 "\n"
@@ -82,8 +88,7 @@ class Ui_Form(object):
 "margin-right: 35px;\n"
 "}\n"
 "\n"
-""
-                        "#topicNameHeadline{\n"
+"#topicNameHeadline{\n"
 "margin-right: 3px;\n"
 "}\n"
 "")
@@ -106,18 +111,6 @@ class Ui_Form(object):
         self.mainMenuButton_4.setObjectName(u"mainMenuButton_4")
         self.horizontalLayout_35 = QHBoxLayout(self.mainMenuButton_4)
         self.horizontalLayout_35.setObjectName(u"horizontalLayout_35")
-        self.menuButton_5 = QPushButton(self.mainMenuButton_4)
-        self.menuButton_5.setObjectName(u"menuButton_5")
-        self.menuButton_5.setMinimumSize(QSize(30, 30))
-        self.menuButton_5.setMaximumSize(QSize(30, 30))
-        self.menuButton_5.setSizeIncrement(QSize(10, 10))
-        self.menuButton_5.setStyleSheet(u"image: url(:/icons/assets/icons/align-justify.svg);\n"
-"magin-left: 3px")
-        self.menuButton_5.setIconSize(QSize(18, 18))
-        self.menuButton_5.setCheckable(True)
-
-        self.horizontalLayout_35.addWidget(self.menuButton_5, 0, Qt.AlignHCenter)
-
         self.homeHeader_5 = QLabel(self.mainMenuButton_4)
         self.homeHeader_5.setObjectName(u"homeHeader_5")
         font = QFont()
@@ -167,10 +160,8 @@ class Ui_Form(object):
         self.frame_6.setObjectName(u"frame_6")
         self.frame_6.setFrameShape(QFrame.StyledPanel)
         self.frame_6.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_3 = QVBoxLayout(self.frame_6)
-        self.verticalLayout_3.setSpacing(0)
-        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.gridLayout_7 = QGridLayout(self.frame_6)
+        self.gridLayout_7.setObjectName(u"gridLayout_7")
         self.frame_9 = QFrame(self.frame_6)
         self.frame_9.setObjectName(u"frame_9")
         self.frame_9.setFrameShape(QFrame.StyledPanel)
@@ -186,11 +177,15 @@ class Ui_Form(object):
 
         self.topic_lineEdit = QLineEdit(self.frame_9)
         self.topic_lineEdit.setObjectName(u"topic_lineEdit")
+        self.topic_lineEdit.setStyleSheet(u"QLineEdit:focus {\n"
+"    border-color: #007bff; /* Blue border when focused */\n"
+"    border-style: solid;\n"
+"}")
 
         self.gridLayout_4.addWidget(self.topic_lineEdit, 0, 1, 1, 1)
 
 
-        self.verticalLayout_3.addWidget(self.frame_9)
+        self.gridLayout_7.addWidget(self.frame_9, 0, 0, 1, 1)
 
         self.frame_10 = QFrame(self.frame_6)
         self.frame_10.setObjectName(u"frame_10")
@@ -208,56 +203,164 @@ class Ui_Form(object):
 
         self.detail_lineEdit = QLineEdit(self.frame_10)
         self.detail_lineEdit.setObjectName(u"detail_lineEdit")
+        self.detail_lineEdit.setStyleSheet(u"QLineEdit:focus {\n"
+"    border-color: #007bff; /* Blue border when focused */\n"
+"    border-style: solid;\n"
+"}")
 
         self.horizontalLayout_6.addWidget(self.detail_lineEdit)
 
 
-        self.verticalLayout_3.addWidget(self.frame_10)
+        self.gridLayout_7.addWidget(self.frame_10, 1, 0, 1, 1)
 
-        self.frame_11 = QFrame(self.frame_6)
-        self.frame_11.setObjectName(u"frame_11")
-        self.frame_11.setFrameShape(QFrame.StyledPanel)
-        self.frame_11.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_7 = QHBoxLayout(self.frame_11)
-        self.horizontalLayout_7.setSpacing(0)
-        self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
-        self.horizontalLayout_7.setContentsMargins(12, 0, 0, 0)
-        self.subTaskHeadline = QLabel(self.frame_11)
-        self.subTaskHeadline.setObjectName(u"subTaskHeadline")
-        self.subTaskHeadline.setMargin(5)
+        self.frame_12 = QFrame(self.frame_6)
+        self.frame_12.setObjectName(u"frame_12")
+        self.frame_12.setFrameShape(QFrame.StyledPanel)
+        self.frame_12.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_4 = QHBoxLayout(self.frame_12)
+        self.horizontalLayout_4.setSpacing(0)
+        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
+        self.horizontalLayout_4.setContentsMargins(0, 0, 0, 0)
+        self.frame_17 = QFrame(self.frame_12)
+        self.frame_17.setObjectName(u"frame_17")
+        self.frame_17.setFrameShape(QFrame.StyledPanel)
+        self.frame_17.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_9 = QHBoxLayout(self.frame_17)
+        self.horizontalLayout_9.setSpacing(0)
+        self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
+        self.horizontalLayout_9.setContentsMargins(0, 0, 0, 0)
+        self.label = QLabel(self.frame_17)
+        self.label.setObjectName(u"label")
+        self.label.setStyleSheet(u"margin-left: 10px;\n"
+"margin-right: 25px;")
 
-        self.horizontalLayout_7.addWidget(self.subTaskHeadline, 0, Qt.AlignLeft)
+        self.horizontalLayout_9.addWidget(self.label, 0, Qt.AlignLeft)
 
-        self.subTask_checkBox_2 = QCheckBox(self.frame_11)
-        self.subTask_checkBox_2.setObjectName(u"subTask_checkBox_2")
+        self.timeEdit = QTimeEdit(self.frame_17)
+        self.timeEdit.setObjectName(u"timeEdit")
+        sizePolicy1 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.timeEdit.sizePolicy().hasHeightForWidth())
+        self.timeEdit.setSizePolicy(sizePolicy1)
+        self.timeEdit.setMinimumSize(QSize(200, 0))
+        self.timeEdit.setStyleSheet(u"QTimeEdit {\n"
+"    background-color: #f0f0f0; \n"
+"    border: 2px solid #f26e56; \n"
+"    border-radius: 10px;\n"
+"    padding: 8px;\n"
+"    selection-background-color: #007bff;  \n"
+"    selection-color: #ffffff; \n"
+"}\n"
+"\n"
+"QTimeEdit:focus {\n"
+"    border-color: #007bff; \n"
+"    border-style: solid;\n"
+"}\n"
+"\n"
+"QTimeEdit::up-button {\n"
+"    width: 30px; \n"
+"    height: 20px; \n"
+"    subcontrol-origin: padding;\n"
+"    subcontrol-position: top right; \n"
+"}\n"
+"\n"
+"QTimeEdit::down-button {\n"
+"    width: 30px; \n"
+"    height: 20px; \n"
+"    subcontrol-origin: padding;\n"
+"    subcontrol-position: bottom right; \n"
+"}\n"
+"")
+        self.timeEdit.setLocale(QLocale(QLocale.English, QLocale.UnitedStates))
 
-        self.horizontalLayout_7.addWidget(self.subTask_checkBox_2)
+        self.horizontalLayout_9.addWidget(self.timeEdit)
 
 
-        self.verticalLayout_3.addWidget(self.frame_11, 0, Qt.AlignLeft)
+        self.horizontalLayout_4.addWidget(self.frame_17, 0, Qt.AlignLeft)
+
+
+        self.gridLayout_7.addWidget(self.frame_12, 2, 0, 1, 1)
 
 
         self.verticalLayout.addWidget(self.frame_6)
 
-        self.frame_7 = QFrame(self.frame_2)
+        self.frame_8 = QFrame(self.frame_2)
+        self.frame_8.setObjectName(u"frame_8")
+        self.frame_8.setFrameShape(QFrame.StyledPanel)
+        self.frame_8.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_4 = QVBoxLayout(self.frame_8)
+        self.verticalLayout_4.setSpacing(0)
+        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
+        self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
+        self.frame_7 = QFrame(self.frame_8)
         self.frame_7.setObjectName(u"frame_7")
         self.frame_7.setFrameShape(QFrame.StyledPanel)
         self.frame_7.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_3 = QHBoxLayout(self.frame_7)
         self.horizontalLayout_3.setSpacing(0)
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
-        self.horizontalLayout_3.setContentsMargins(12, 0, 0, 0)
+        self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.frame_13 = QFrame(self.frame_7)
+        self.frame_13.setObjectName(u"frame_13")
+        self.frame_13.setFrameShape(QFrame.StyledPanel)
+        self.frame_13.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_5 = QVBoxLayout(self.frame_13)
+        self.verticalLayout_5.setSpacing(0)
+        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
+        self.verticalLayout_5.setContentsMargins(0, 0, 0, 0)
+        self.frame_11 = QFrame(self.frame_13)
+        self.frame_11.setObjectName(u"frame_11")
+        self.frame_11.setFrameShape(QFrame.StyledPanel)
+        self.frame_11.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_7 = QHBoxLayout(self.frame_11)
+        self.horizontalLayout_7.setSpacing(6)
+        self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
+        self.horizontalLayout_7.setContentsMargins(12, 0, 0, 0)
+        self.subTaskHeadline = QLabel(self.frame_11)
+        self.subTaskHeadline.setObjectName(u"subTaskHeadline")
+        self.subTaskHeadline.setStyleSheet(u"margin-left: 10px;")
+        self.subTaskHeadline.setMargin(5)
 
-        self.verticalLayout.addWidget(self.frame_7)
+        self.horizontalLayout_7.addWidget(self.subTaskHeadline, 0, Qt.AlignLeft)
 
-        self.frame_8 = QFrame(self.frame_2)
-        self.frame_8.setObjectName(u"frame_8")
-        self.frame_8.setFrameShape(QFrame.StyledPanel)
-        self.frame_8.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_4 = QHBoxLayout(self.frame_8)
-        self.horizontalLayout_4.setSpacing(0)
-        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
-        self.horizontalLayout_4.setContentsMargins(12, 0, 0, 0)
+        self.sub_task_check_box = QCheckBox(self.frame_11)
+        self.sub_task_check_box.setObjectName(u"sub_task_check_box")
+
+        self.horizontalLayout_7.addWidget(self.sub_task_check_box, 0, Qt.AlignLeft)
+
+
+        self.verticalLayout_5.addWidget(self.frame_11, 0, Qt.AlignLeft)
+
+        self.frame_14 = QFrame(self.frame_13)
+        self.frame_14.setObjectName(u"frame_14")
+        self.frame_14.setFrameShape(QFrame.StyledPanel)
+        self.frame_14.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_8 = QHBoxLayout(self.frame_14)
+        self.horizontalLayout_8.setSpacing(1)
+        self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
+        self.horizontalLayout_8.setContentsMargins(0, 0, 0, 0)
+        self.subTaskHeadline_2 = QLabel(self.frame_14)
+        self.subTaskHeadline_2.setObjectName(u"subTaskHeadline_2")
+        self.subTaskHeadline_2.setStyleSheet(u"margin-left: 20px;")
+        self.subTaskHeadline_2.setMargin(5)
+
+        self.horizontalLayout_8.addWidget(self.subTaskHeadline_2, 0, Qt.AlignLeft)
+
+        self.urgent_task_check_box = QCheckBox(self.frame_14)
+        self.urgent_task_check_box.setObjectName(u"urgent_task_check_box")
+
+        self.horizontalLayout_8.addWidget(self.urgent_task_check_box)
+
+
+        self.verticalLayout_5.addWidget(self.frame_14, 0, Qt.AlignLeft)
+
+
+        self.horizontalLayout_3.addWidget(self.frame_13)
+
+
+        self.verticalLayout_4.addWidget(self.frame_7)
+
 
         self.verticalLayout.addWidget(self.frame_8)
 
@@ -293,6 +396,7 @@ class Ui_Form(object):
 "border-bottom: 0px;\n"
 "border-top-left-radius: 5px;\n"
 "border-top-right-radius: 5px;\n"
+"\n"
 "}\n"
 "\n"
 "#qt_calendar_prevmonth, #qt_calendar_nextmonth{\n"
@@ -305,6 +409,7 @@ class Ui_Form(object):
 "border-radius: 5px;\n"
 "background-color: transparent;\n"
 "padding: 5px;\n"
+"\n"
 "\n"
 "}\n"
 "\n"
@@ -320,15 +425,17 @@ class Ui_Form(object):
 "\n"
 "#qt_calendar_nextmonth:hover,#qt_calendar_prevmonth:hover{\n"
 "background-color: #f8edeb;\n"
+"margin-right: 10px;\n"
+"\n"
 "\n"
 "}\n"
 "\n"
 "#qt_calendar_nextmonth:pressd,#qt_calendar_prevmonth:pressd{\n"
-"background-color: #fcd5ce;\n"
+"background-color: #f"
+                        "cd5ce;\n"
 "}\n"
 "\n"
-"#qt_calendar_year"
-                        "button{\n"
+"#qt_calendar_yearbutton{\n"
 "color: #000;\n"
 "margin: 5px;\n"
 "border-radius: 5px;\n"
@@ -340,9 +447,11 @@ class Ui_Form(object):
 "width: 110px;\n"
 "color: #000;\n"
 "font-size: 13px;\n"
-"margin: 5px 0;\n"
+"margin: 5px 8px;\n"
 "border-radius: 5px;\n"
-"padding: 0px 2px;\n"
+"padding: 0px 4px;\n"
+"\n"
+"\n"
 "}\n"
 "\n"
 "#qt_calendar_yearbutton:hover, #qt_calendar_monthbutton:hover{\n"
@@ -369,17 +478,21 @@ class Ui_Form(object):
 "#qt_calendar_yearedit::up-button{\n"
 "	image: url(:/icons/icons_black/arrow-right.svg);\n"
 "subcontrol-position:left;\n"
+"\n"
 "}\n"
 "\n"
-"#qt_calendar_yearedit::down-button,#qt_calendar_yearedit::up-button{\n"
+"#qt_calendar_yearedit::down-button,#qt_calend"
+                        "ar_yearedit::up-button{\n"
 "width:10px;\n"
-"padding: 0px"
-                        " 5px;\n"
+"padding: 0px 5px;\n"
 "border-radius: 3px;\n"
+"\n"
 "}\n"
 "\n"
 "#qt_calendar_yearedit::down-button,#qt_calendar_yearedit::up-button{\n"
 "background-color: #55aaff;\n"
+"margin-right: 10px;\n"
+"\n"
 "}\n"
 "\n"
 "#calendarWidgetQToolButton QMenu{\n"
@@ -417,7 +530,8 @@ class Ui_Form(object):
 "\n"
 "#qt_calendar_calendarview::item:selected{\n"
 "border-radius: 5px;\n"
-"color:#1e1e1e;\n"
+"c"
+                        "olor:#1e1e1e;\n"
 "background-color: #ffddd2;\n"
 "\n"
 "}\n"
@@ -442,6 +556,53 @@ class Ui_Form(object):
         self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
         self.confirm_button = QDialogButtonBox(self.frame_5)
         self.confirm_button.setObjectName(u"confirm_button")
+        self.confirm_button.setStyleSheet(u"QDialog {\n"
+"    background-color: #f0f0f0;\n"
+"    border: 2px solid #007bff;\n"
+"    border-radius: 5px;\n"
+"    padding: 10px;\n"
+"}\n"
+"\n"
+"QDialogButtonBox {\n"
+"    background-color: transparent;\n"
+"    spacing: 10px;\n"
+"}\n"
+"\n"
+"QDialogButtonBox QPushButton {\n"
+"    background-color: #cce5ff; \n"
+"    color: #333333;\n"
+"    border: 1px solid #007bff;\n"
+"    padding: 4px 8px;\n"
+"    border-radius: 5px;\n"
+"    transition: background-color 0.3s ease; \n"
+"}\n"
+"\n"
+"QDialogButtonBox QPushButton:hover {\n"
+"    background-color: #b3d1ff; \n"
+"}\n"
+"\n"
+"QDialogButtonBox QPushButton:flat {\n"
+"    border: none;\n"
+"}\n"
+"\n"
+"QDialogButtonBox QPushButton:default {\n"
+"    background-color: #66b3ff; /* Pastel blue darker */\n"
+"}\n"
+"\n"
+"QDialogButtonBox QPushButton:primary {\n"
+"    background-color: #3366ff; /* Deeper blue for primary */\n"
+"}\n"
+"\n"
+"QDialogButtonBox QPushButton:destructive {\n"
+"    background-color: #ff9999; \n"
+"}\n"
+"\n"
+"QDialog QLabel {\n"
+"    color: #333333;\n"
+"    fo"
+                        "nt-size: 16px;\n"
+"}\n"
+"")
         self.confirm_button.setStandardButtons(QDialogButtonBox.Cancel|QDialogButtonBox.Ok)
 
         self.horizontalLayout_5.addWidget(self.confirm_button)
@@ -469,11 +630,13 @@ class Ui_Form(object):
 
     def retranslateUi(self, Form):
         Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
-        self.menuButton_5.setText("")
         self.homeHeader_5.setText(QCoreApplication.translate("Form", u"View Task", None))
-        self.topicNameHeadline.setText(QCoreApplication.translate("Form", u"Topic Name :", None))
-        self.detailHeadline.setText(QCoreApplication.translate("Form", u"Detail :", None))
-        self.subTaskHeadline.setText(QCoreApplication.translate("Form", u"Sub Task :", None))
-        self.subTask_checkBox_2.setText("")
+        self.topicNameHeadline.setText(QCoreApplication.translate("Form", u"Topic Name ", None))
+        self.detailHeadline.setText(QCoreApplication.translate("Form", u"Detail ", None))
+        self.label.setText(QCoreApplication.translate("Form", u"Time         ", None))
+        self.subTaskHeadline.setText(QCoreApplication.translate("Form", u"Sub Task  ", None))
+        self.sub_task_check_box.setText("")
+        self.subTaskHeadline_2.setText(QCoreApplication.translate("Form", u"Urgent task", None))
+        self.urgent_task_check_box.setText("")
     # retranslateUi
 

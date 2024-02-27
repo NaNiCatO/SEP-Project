@@ -151,7 +151,7 @@ background-color: #F5FAFE;
           </sizepolicy>
          </property>
          <property name="currentIndex">
-          <number>2</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="a_homePage">
           <property name="sizePolicy">
@@ -450,6 +450,12 @@ magin-left: 3px</string>
                         <width>160</width>
                         <height>90</height>
                        </size>
+                      </property>
+                      <property name="mouseTracking">
+                       <bool>false</bool>
+                      </property>
+                      <property name="focusPolicy">
+                       <enum>Qt::NoFocus</enum>
                       </property>
                       <property name="styleSheet">
                        <string notr="true">#todayCard{
@@ -774,6 +780,12 @@ border-radius:15px;
                         <height>90</height>
                        </size>
                       </property>
+                      <property name="mouseTracking">
+                       <bool>false</bool>
+                      </property>
+                      <property name="focusPolicy">
+                       <enum>Qt::NoFocus</enum>
+                      </property>
                       <property name="styleSheet">
                        <string notr="true">#cancleCard{
 background-color: #52c1c4;
@@ -1004,8 +1016,8 @@ border-radius: 10px
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>228</width>
-                            <height>30</height>
+                            <width>268</width>
+                            <height>322</height>
                            </rect>
                           </property>
                           <layout class="QGridLayout" name="gridLayout_5">
@@ -1169,8 +1181,8 @@ border-radius: 10px
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>228</width>
-                            <height>30</height>
+                            <width>267</width>
+                            <height>317</height>
                            </rect>
                           </property>
                           <layout class="QGridLayout" name="gridLayout_4">
@@ -1338,8 +1350,8 @@ border-radius: 10px
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>228</width>
-                            <height>30</height>
+                            <width>268</width>
+                            <height>317</height>
                            </rect>
                           </property>
                           <layout class="QVBoxLayout" name="verticalLayout_15">
@@ -1502,8 +1514,8 @@ background-color: transparent;
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>875</width>
-                      <height>435</height>
+                      <width>100</width>
+                      <height>30</height>
                      </rect>
                     </property>
                     <widget class="QFrame" name="view_frame_3">
@@ -2038,8 +2050,8 @@ background-color: transparent;
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>875</width>
-                      <height>419</height>
+                      <width>100</width>
+                      <height>30</height>
                      </rect>
                     </property>
                     <layout class="QGridLayout" name="gridLayout_28">
