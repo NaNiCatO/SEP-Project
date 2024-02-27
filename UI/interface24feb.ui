@@ -151,7 +151,7 @@ background-color: #F5FAFE;
           </sizepolicy>
          </property>
          <property name="currentIndex">
-          <number>3</number>
+          <number>2</number>
          </property>
          <widget class="QWidget" name="a_homePage">
           <property name="sizePolicy">
@@ -1012,7 +1012,7 @@ border-radius: 10px
                            <item row="0" column="0">
                             <widget class="QFrame" name="todayMainTask">
                              <property name="enabled">
-                              <bool>false</bool>
+                              <bool>true</bool>
                              </property>
                              <property name="sizePolicy">
                               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -1177,7 +1177,7 @@ border-radius: 10px
                            <item row="0" column="0">
                             <widget class="QFrame" name="urgentMainTask">
                              <property name="enabled">
-                              <bool>false</bool>
+                              <bool>true</bool>
                              </property>
                              <property name="sizePolicy">
                               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -1345,9 +1345,6 @@ border-radius: 10px
                           <layout class="QVBoxLayout" name="verticalLayout_15">
                            <item>
                             <widget class="QFrame" name="completedMainTask">
-                             <property name="enabled">
-                              <bool>true</bool>
-                             </property>
                              <property name="sizePolicy">
                               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                                <horstretch>0</horstretch>
@@ -1505,8 +1502,8 @@ background-color: transparent;
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>100</width>
-                      <height>30</height>
+                      <width>875</width>
+                      <height>435</height>
                      </rect>
                     </property>
                     <widget class="QFrame" name="view_frame_3">
@@ -1916,8 +1913,8 @@ magin-left: 3px</string>
                         <rect>
                          <x>0</x>
                          <y>0</y>
-                         <width>100</width>
-                         <height>30</height>
+                         <width>875</width>
+                         <height>469</height>
                         </rect>
                        </property>
                        <layout class="QGridLayout" name="gridLayout_25"/>
@@ -3204,7 +3201,7 @@ background_color: #ffffff;
            </widget>
           </item>
           <item row="1" column="0">
-           <widget class="QPushButton" name="historyMiniButton">
+           <widget class="QPushButton" name="analysisMiniButton">
             <property name="font">
              <font>
               <pointsize>15</pointsize>
@@ -3232,7 +3229,7 @@ background_color: #ffffff;
            </widget>
           </item>
           <item row="2" column="0">
-           <widget class="QPushButton" name="taskMiniButton">
+           <widget class="QPushButton" name="calendarMiniButton">
             <property name="font">
              <font>
               <pointsize>15</pointsize>
@@ -3260,7 +3257,7 @@ background_color: #ffffff;
            </widget>
           </item>
           <item row="3" column="0">
-           <widget class="QPushButton" name="calendarMiniButton">
+           <widget class="QPushButton" name="historyMiniButton">
             <property name="font">
              <font>
               <pointsize>15</pointsize>
@@ -3288,7 +3285,7 @@ background_color: #ffffff;
            </widget>
           </item>
           <item row="4" column="0">
-           <widget class="QPushButton" name="analysisMiniButton">
+           <widget class="QPushButton" name="taskMiniButton">
             <property name="font">
              <font>
               <pointsize>15</pointsize>
@@ -3633,7 +3630,7 @@ border : 1px solid #1e1e1e;
    </hints>
   </connection>
   <connection>
-   <sender>historyMiniButton</sender>
+   <sender>analysisMiniButton</sender>
    <signal>toggled(bool)</signal>
    <receiver>analysisButton</receiver>
    <slot>setChecked(bool)</slot>
@@ -3651,7 +3648,7 @@ border : 1px solid #1e1e1e;
   <connection>
    <sender>calendarButton</sender>
    <signal>toggled(bool)</signal>
-   <receiver>taskMiniButton</receiver>
+   <receiver>calendarMiniButton</receiver>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -3665,7 +3662,7 @@ border : 1px solid #1e1e1e;
    </hints>
   </connection>
   <connection>
-   <sender>analysisMiniButton</sender>
+   <sender>taskMiniButton</sender>
    <signal>toggled(bool)</signal>
    <receiver>taskButton</receiver>
    <slot>setChecked(bool)</slot>
@@ -3683,7 +3680,7 @@ border : 1px solid #1e1e1e;
   <connection>
    <sender>taskButton</sender>
    <signal>toggled(bool)</signal>
-   <receiver>analysisMiniButton</receiver>
+   <receiver>taskMiniButton</receiver>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -3713,7 +3710,7 @@ border : 1px solid #1e1e1e;
    </hints>
   </connection>
   <connection>
-   <sender>taskMiniButton</sender>
+   <sender>calendarMiniButton</sender>
    <signal>toggled(bool)</signal>
    <receiver>calendarButton</receiver>
    <slot>setChecked(bool)</slot>
@@ -3731,7 +3728,7 @@ border : 1px solid #1e1e1e;
   <connection>
    <sender>analysisButton</sender>
    <signal>toggled(bool)</signal>
-   <receiver>historyMiniButton</receiver>
+   <receiver>analysisMiniButton</receiver>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -3745,7 +3742,7 @@ border : 1px solid #1e1e1e;
    </hints>
   </connection>
   <connection>
-   <sender>calendarMiniButton</sender>
+   <sender>historyMiniButton</sender>
    <signal>toggled(bool)</signal>
    <receiver>historyButton</receiver>
    <slot>setChecked(bool)</slot>
@@ -3763,7 +3760,7 @@ border : 1px solid #1e1e1e;
   <connection>
    <sender>historyButton</sender>
    <signal>toggled(bool)</signal>
-   <receiver>calendarMiniButton</receiver>
+   <receiver>historyMiniButton</receiver>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">

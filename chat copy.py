@@ -36,12 +36,6 @@ type_task.update_tasks()
 
 
 
-class Task:
-    def __init__(self, name, description):
-        self.name = name
-        self.description = description
-
-
 class ClickableTaskFrame(QFrame):
     clicked = Signal(object)
 
@@ -59,51 +53,60 @@ class ClickableTaskFrame(QFrame):
         self.setStyleSheet("background-color: none;")
 
 class MainWindow(QMainWindow):
-    def __init__(self, ui, tasks):
-        super().__init__()
-        ui.setupUi(self)
+    def __init__(self, tasks):
+        super(MainWindow, self).__init__()
+        self.ui = Ui_MainWindow()
+        self.ui.setupUi(self)
         self.tasks = tasks
-
 
         # Create a container frame
         self.container_frame = QFrame()
         self.container_frame.setObjectName("container")
-        ui.stackedWidget.setCurrentIndex(0)
+        self.setCentralWidget(self.container_frame)
 
         # Create a layout for the container frame
-        self.container_layout = QVBoxLayout(ui.urgentMainTask)
+        self.container_layout = QVBoxLayout(self.container_frame)
 
         # Add tasks to the container layout
         for task in self.tasks.get_urgent_tasks():
-                self.task_frame  = ClickableTaskFrame(task)
-                self.task_frame_layout = QHBoxLayout(self.task_frame)
+            task_frame = ClickableTaskFrame(task)
+            task_frame.clicked.connect(self.clicked)
 
-                self.name_desc_layout = QVBoxLayout()
-                self.task_label_name = QLabel(f"Name: {task.name_topic}")
-                self.task_label_description = QLabel(f"Description: {task.detail}")
-                self.name_desc_layout.addWidget(self.task_label_name)
-                self.name_desc_layout.addWidget(self.task_label_description)
+            task_layout = QHBoxLayout(task_frame)
 
-                self.percentage_layout = QVBoxLayout()
-                if isinstance(task, MultiTask):
-                    self.task_label_percentage = QLabel(f"{task.progress}%")
-                    self.percentage_layout.addWidget(self.task_label_percentage)
-                self.print_button = QPushButton("Print")
-                self.print_button.clicked.connect(self.clicked)
-                self.percentage_layout.addWidget(self.print_button)
+            name_desc_layout = QVBoxLayout()
+            task_label_name = QLabel(f"Name: {task.name_topic}")
+            task_label_description = QLabel(f"Description: {task.detail}")
+            name_desc_layout.addWidget(task_label_name)
+            name_desc_layout.addWidget(task_label_description)
 
+            percentage_layout = QVBoxLayout()
+            if isinstance(task, MultiTask):
+                task_label_percentage = QLabel(f"{task.progress}%")
+                percentage_layout.addWidget(task_label_percentage)
 
-                self.task_frame_layout.addLayout(self.name_desc_layout)
-                self.task_frame_layout.addLayout(self.percentage_layout)
+            radio_button = QRadioButton("Complete")
+            radio_button.toggled.connect(self.radio_button_clicked(task))
+            
+            percentage_layout.addWidget(radio_button)
 
-                self.task_frame.clicked.connect(self.clicked)
-                self.container_layout.addWidget(self.task_frame)
+            task_layout.addLayout(name_desc_layout)
+            task_layout.addLayout(percentage_layout)
+
+            self.container_layout.addWidget(task_frame)
 
     def clicked(self, task):
-        print(f"Clicked on task: {task.name_topic}")
+        print(f"Clicked on task: {task.name_topic} is_completed = {task.is_completed}")
+
+    def radio_button_clicked(self, task):
+        def on_toggled(checked):
+            task.is_completed = checked
+            print(f"Task {task.name_topic} is_completed = {task.is_completed}")
+        return on_toggled
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    window = MainWindow(Ui_MainWindow() ,type_task)
+    window = MainWindow(type_task)
     window.show()
     sys.exit(app.exec())

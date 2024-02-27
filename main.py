@@ -2,20 +2,22 @@ from PySide6.QtWidgets import *
 from PySide6.QtCore import *
 from main_stack import Ui_MainWindow
 import class_module
-from home_page import Home_page
-from task_page import Task_page
+from main_home_page import Home_page
+from main_task_page import Task_page
+from new_window_task import New_MainWindow_task
+import sys
 
 ############################################################################################################
 
-task1 = class_module.Task("Math", "Do exercise 1-5", "2024-2-25", "20:00")
-task2 = class_module.Task("Physics", "Do exercise 1-5", "2024-2-25", "20:00", True)
-task3 = class_module.Task("Chemistry", "Do exercise 1-5", "2024-2-26", "20:00")
-task4 = class_module.Task("English", "Do exercise 1-5", "2024-2-26", "20:00", True)
-task5 = class_module.Task("History", "Do exercise 1-5", "2024-2-27", "20:00")
-task6 = class_module.Task("Biology", "Do exercise 1-5", "2024-2-27", "20:00", True)
+task1 = class_module.Task("Math", "Do exercise 1-5", "2024-2-26", "20:00")
+task2 = class_module.Task("Physics", "Do exercise 1-5", "2024-2-26", "20:00", True)
+task3 = class_module.Task("Chemistry", "Do exercise 1-5", "2024-2-27", "20:00")
+task4 = class_module.Task("English", "Do exercise 1-5", "2024-2-27", "20:00", True)
+task5 = class_module.Task("History", "Do exercise 1-5", "2024-2-28", "20:00")
+task6 = class_module.Task("Biology", "Do exercise 1-5", "2024-2-28", "20:00", True)
 
 # MultiTask(name_topic, detail, due_date)
-multi_task1 = class_module.MultiTask("Study", "Do exercise", "2024-2-25", "20:00")
+multi_task1 = class_module.MultiTask("Study", "Do exercise", "2024-2-26", "20:00")
 multi_task1.add_task(task1)
 multi_task1.add_task(task2)
 multi_task1.add_task(task3)
@@ -30,48 +32,83 @@ user.add_task(task5)
 user.add_task(task6)
 user.add_task(multi_task1)
 
-print(task2.get_day_left().days)
 
-type_task = class_module.Task_handlers(user.get_user_tasks())
-type_task.update_tasks()
 
 ############################################################################################################
 
 
 class Sidebar(QMainWindow, Ui_MainWindow):
-    def __init__(self):
+    def __init__(self, user):
         super().__init__()
-        self.setupUi(self)
+        self.setupUi(self) 
+        self.user = user
+        self.categorized_task = class_module.Task_handlers(self.user.get_user_tasks())
 
-        self.home_page = Home_page(self, type_task)
-        self.task_page = Task_page(self, type_task.Tasks)
-        print(type_task.Tasks)
+        # set home page as default 
+        self.stackedWidget.setCurrentIndex(0)
 
+        self.setup_home_page()
+        self.task_page = Task_page(self, self.categorized_task.Tasks)
+
+        self.arr_update = [self.home_page, self.task_page]
 
         self.homeButton.clicked.connect(self.switch_to_home)
+        self.homeMiniButton.clicked.connect(self.switch_to_home)
         self.analysisButton.clicked.connect(self.switch_to_analysis)
+        self.analysisMiniButton.clicked.connect(self.switch_to_analysis)
         self.calendarButton.clicked.connect(self.switch_to_calendar)
+        self.calendarMiniButton.clicked.connect(self.switch_to_calendar)
         self.historyButton.clicked.connect(self.switch_to_history)
+        self.historyMiniButton.clicked.connect(self.switch_to_history)
         self.taskButton.clicked.connect(self.switch_to_view_task)
+        self.taskMiniButton.clicked.connect(self.switch_to_view_task)
 
     def switch_to_home(self):
+        # self.update_ui()
+        self.categorized_task.update_tasks()
+        self.home_page.update_ui()
         self.stackedWidget.setCurrentIndex(0)
 
     def switch_to_analysis(self):
+        # self.update_ui()
         self.stackedWidget.setCurrentIndex(4)
 
     def switch_to_calendar(self):
+        # self.update_ui()
         self.stackedWidget.setCurrentIndex(1)
 
     def switch_to_history(self):
+        # self.update_ui()
         self.stackedWidget.setCurrentIndex(2)
 
     def switch_to_view_task(self):
+        # self.update_ui()
+        self.categorized_task.update_tasks()
+        self.task_page.update_ui()
         self.stackedWidget.setCurrentIndex(3)
+
+    def setup_home_page(self):
+        self.home_page = Home_page(self, self.categorized_task)
+        self.todayButton.clicked.connect(self.switch_to_today)
+        self.urgentButton.clicked.connect(self.switch_to_urgent)
+
+        
+    def switch_to_today(self):
+        self.new_MainWindow_task_page = New_MainWindow_task(self, self.categorized_task.get_today_tasks(), "Today")
+        self.new_MainWindow_task_page.show()
+        
+
+
+    def switch_to_urgent(self):
+        self.task_page = New_MainWindow_task(self, self.categorized_task.get_urgent_tasks(), "Urgent")
+        self.task_page.show()
+        self.home_page.update_ui()
+
+    
 
 
 if __name__ == "__main__":
-    app = QApplication([])
-    window = Sidebar() 
+    app = QApplication(sys.argv)
+    window = Sidebar(user) 
     window.show()
-    app.exec()
+    sys.exit(app.exec())
