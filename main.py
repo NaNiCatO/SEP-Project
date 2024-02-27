@@ -1,124 +1,114 @@
-import sys
 from PySide6.QtWidgets import *
 from PySide6.QtCore import *
-from output import Ui_MainWindow
+from main_stack import Ui_MainWindow
+import class_module
+from main_home_page import Home_page
+from main_task_page import Task_page
+from new_window_task import New_MainWindow_task
+import sys
 
-# Create a model
-# 1 element have
-# Name : nameTask(string)
-# description : text(string)
+############################################################################################################
 
-class Task:
-    def __init__(self, name, description, persentage):
-        self.name = name
-        self.description = description
-        self.persentage = persentage
+task1 = class_module.Task("Math", "Do exercise 1-5", "2024-2-26", "20:00")
+task2 = class_module.Task("Physics", "Do exercise 1-5", "2024-2-26", "20:00", True)
+task3 = class_module.Task("Chemistry", "Do exercise 1-5", "2024-2-27", "20:00")
+task4 = class_module.Task("English", "Do exercise 1-5", "2024-2-27", "20:00", True)
+task5 = class_module.Task("History", "Do exercise 1-5", "2024-2-28", "20:00")
+task6 = class_module.Task("Biology", "Do exercise 1-5", "2024-2-28", "20:00", True)
 
-class TaskList(QAbstractListModel):
-    def __init__(self, tasks):
-        super(TaskList, self).__init__()
-        self.tasks = tasks
+# MultiTask(name_topic, detail, due_date)
+multi_task1 = class_module.MultiTask("Study", "Do exercise", "2024-2-26", "20:00")
+multi_task1.add_task(task1)
+multi_task1.add_task(task2)
+multi_task1.add_task(task3)
+multi_task1.add_task(task4)
 
-    def data(self, index, role):
-        if role == Qt.DisplayRole:
-            value = self.tasks[index.row()]
-            return f"Name: {value.name}\nDescription: {value.description}"
+user = class_module.User("Arm", "123", "armfiba@gmail.com")
+user.add_task(task1)
+user.add_task(task2)
+user.add_task(task3)
+user.add_task(task4)
+user.add_task(task5)
+user.add_task(task6)
+user.add_task(multi_task1)
 
-    def rowCount(self, index):
-        return len(self.tasks)
 
-    def addTask(self, task):
-        self.beginInsertRows(QModelIndex(), 0, 0)
-        self.tasks.append(task)
-        self.endInsertRows()
 
-    def removeTask(self, index):
-        self.beginRemoveRows(QModelIndex(), index, index)
-        del self.tasks[index]
-        self.endRemoveRows()
+############################################################################################################
 
-    def flags(self, index):
-        return Qt.ItemIsEnabled | Qt.ItemIsSelectable
+
+class Sidebar(QMainWindow, Ui_MainWindow):
+    def __init__(self, user):
+        super().__init__()
+        self.setupUi(self) 
+        self.user = user
+        self.categorized_task = class_module.Task_handlers(self.user.get_user_tasks())
+
+        # set home page as default 
+        self.stackedWidget.setCurrentIndex(0)
+
+        self.setup_home_page()
+        self.task_page = Task_page(self, self.categorized_task.Tasks)
+
+        self.arr_update = [self.home_page, self.task_page]
+
+        self.homeButton.clicked.connect(self.switch_to_home)
+        self.homeMiniButton.clicked.connect(self.switch_to_home)
+        self.analysisButton.clicked.connect(self.switch_to_analysis)
+        self.analysisMiniButton.clicked.connect(self.switch_to_analysis)
+        self.calendarButton.clicked.connect(self.switch_to_calendar)
+        self.calendarMiniButton.clicked.connect(self.switch_to_calendar)
+        self.historyButton.clicked.connect(self.switch_to_history)
+        self.historyMiniButton.clicked.connect(self.switch_to_history)
+        self.taskButton.clicked.connect(self.switch_to_view_task)
+        self.taskMiniButton.clicked.connect(self.switch_to_view_task)
+
+    def switch_to_home(self):
+        # self.update_ui()
+        self.categorized_task.update_tasks()
+        self.home_page.update_ui()
+        self.stackedWidget.setCurrentIndex(0)
+
+    def switch_to_analysis(self):
+        # self.update_ui()
+        self.stackedWidget.setCurrentIndex(4)
+
+    def switch_to_calendar(self):
+        # self.update_ui()
+        self.stackedWidget.setCurrentIndex(1)
+
+    def switch_to_history(self):
+        # self.update_ui()
+        self.stackedWidget.setCurrentIndex(2)
+
+    def switch_to_view_task(self):
+        # self.update_ui()
+        self.categorized_task.update_tasks()
+        self.task_page.update_ui()
+        self.stackedWidget.setCurrentIndex(3)
+
+    def setup_home_page(self):
+        self.home_page = Home_page(self, self.categorized_task)
+        self.todayButton.clicked.connect(self.switch_to_today)
+        self.urgentButton.clicked.connect(self.switch_to_urgent)
+
+        
+    def switch_to_today(self):
+        self.new_MainWindow_task_page = New_MainWindow_task(self, self.categorized_task.get_today_tasks(), "Today")
+        self.new_MainWindow_task_page.show()
+        
+
+
+    def switch_to_urgent(self):
+        self.task_page = New_MainWindow_task(self, self.categorized_task.get_urgent_tasks(), "Urgent")
+        self.task_page.show()
+        self.home_page.update_ui()
+
     
-
-class ClickableTaskFrame(QFrame):
-    clicked = Signal(object)
-    def __init__(self, task, *args, **kwargs):
-        super(ClickableTaskFrame, self).__init__(*args, **kwargs)
-        self.task = task
-
-    def mousePressEvent(self, event):
-        self.clicked.emit(self.task)
-
-    def enterEvent(self, event):
-        self.setStyleSheet("background-color: lightgray;")
-
-    def leaveEvent(self, event):
-        self.setStyleSheet("background-color: none;")
-
-
-class MainWindow(QMainWindow):
-    def __init__(self):
-        super(MainWindow, self).__init__()
-        self.ui = Ui_MainWindow()
-        self.ui.setupUi(self)
-
-        tasks = [
-            Task("Task 1", "Description 1", 50),
-            Task("Task 2", "Description 2", 75),
-            Task("Task 3", "Description 3", 25),
-            Task("Task 4", "Description 4", 10),
-            Task("Task 5", "Description 5", 80),
-            Task("Task 6", "Description 6", 90),
-            Task("Task 7", "Description 7", 100),
-            Task("Task 8", "Description 8", 0),
-            Task("Task 9", "Description 9", 50),
-            Task("Task 10", "Description 10", 75),
-        ]
-
-
-        self.ui.todayTask.setText(str(len(tasks)) + " Task")
-        # self.ui.listView.clicked.connect(self.clicked)
-        container_layout = QVBoxLayout(self.ui.todayMainTask)
-
-        for task in tasks:
-            task_frame  = ClickableTaskFrame(task)
-            task_frame_layout = QHBoxLayout(task_frame)
-
-            name_desc_layout = QVBoxLayout()
-            task_label_name = QLabel(f"Name: {task.name}")
-            task_label_description = QLabel(f"Description: {task.description}")
-            name_desc_layout.addWidget(task_label_name)
-            name_desc_layout.addWidget(task_label_description)
-
-            percentage_layout = QVBoxLayout()
-            task_label_percentage = QLabel(f"{task.persentage}%")
-            percentage_layout.addWidget(task_label_percentage)
-
-            task_frame_layout.addLayout(name_desc_layout)
-            task_frame_layout.addLayout(percentage_layout)
-
-            task_frame.clicked.connect(self.clicked)
-            container_layout.addWidget(task_frame)
-
-    def clicked(self, index):
-        # print(index.data())
-        print(f"Clicked on task: {index.name}")
-
-    #get text
-    def seach_bar(self):
-        text = self.ui.lineEdit.text()
-        print(text)
 
 
 if __name__ == "__main__":
-    # testing the model using Mainwindow
     app = QApplication(sys.argv)
-    # tasks = [Task("Task 1", "Description 1"), Task("Task 2", "Description 2")]
-    # model = TaskList(tasks)
-    window = MainWindow()
-    # window.ui.listView.setModel(model)
+    window = Sidebar(user) 
     window.show()
     sys.exit(app.exec())
-
-

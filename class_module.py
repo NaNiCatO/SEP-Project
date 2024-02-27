@@ -99,6 +99,7 @@ class Task_handlers :
         self.Urgent_tasks = []
         self.Upcoming_tasks = []
         self.Completed_tasks = []
+        self.update_tasks()
 
     def get_today_tasks(self) :
         return self.Today_tasks
@@ -113,6 +114,10 @@ class Task_handlers :
         return self.Completed_tasks
     
     def update_tasks(self) :
+        self.Today_tasks = []
+        self.Urgent_tasks = []
+        self.Upcoming_tasks = []
+        self.Completed_tasks = []
         for task in self.Tasks :
             if task.is_completed :
                 self.Completed_tasks.append(task)
