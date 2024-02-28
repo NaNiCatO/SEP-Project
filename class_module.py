@@ -4,6 +4,7 @@ import smtplib
 import ssl
 import persistent
 
+
 class User(persistent.Persistent):
     def __init__(self, name, password, email) :
         self.name = name

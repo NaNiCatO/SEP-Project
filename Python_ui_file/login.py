@@ -15,24 +15,27 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
-    QLineEdit, QPushButton, QSizePolicy, QVBoxLayout,
-    QWidget)
+from PySide6.QtWidgets import (QApplication, QFrame, QGridLayout, QHBoxLayout,
+    QLabel, QLineEdit, QPushButton, QSizePolicy,
+    QVBoxLayout, QWidget)
 
 class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
-        Form.resize(909, 503)
+        Form.resize(910, 525)
+        self.gridLayout = QGridLayout(Form)
+        self.gridLayout.setSpacing(0)
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.gridLayout.setContentsMargins(0, 0, 0, 0)
         self.widget = QWidget(Form)
         self.widget.setObjectName(u"widget")
-        self.widget.setGeometry(QRect(0, 0, 900, 500))
         sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.widget.sizePolicy().hasHeightForWidth())
         self.widget.setSizePolicy(sizePolicy)
-        self.widget.setMinimumSize(QSize(900, 500))
+        self.widget.setMinimumSize(QSize(0, 0))
         self.widget.setMaximumSize(QSize(16777215, 16777215))
         self.widget.setStyleSheet(u"#widget{\n"
 "background-color: #ffffff;\n"
@@ -43,13 +46,18 @@ class Ui_Form(object):
 "border: none;\n"
 "}")
         self.verticalLayout = QVBoxLayout(self.widget)
+        self.verticalLayout.setSpacing(0)
         self.verticalLayout.setObjectName(u"verticalLayout")
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.frame = QFrame(self.widget)
         self.frame.setObjectName(u"frame")
+        self.frame.setMinimumSize(QSize(0, 0))
         self.frame.setFrameShape(QFrame.StyledPanel)
         self.frame.setFrameShadow(QFrame.Raised)
         self.verticalLayout_3 = QVBoxLayout(self.frame)
+        self.verticalLayout_3.setSpacing(0)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
         self.loginHeader = QLabel(self.frame)
         self.loginHeader.setObjectName(u"loginHeader")
         font = QFont()
@@ -74,7 +82,7 @@ class Ui_Form(object):
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.userInput = QLineEdit(self.frame_5)
         self.userInput.setObjectName(u"userInput")
-        self.userInput.setMinimumSize(QSize(400, 0))
+        self.userInput.setMinimumSize(QSize(0, 0))
         font1 = QFont()
         font1.setBold(True)
         self.userInput.setFont(font1)
@@ -99,7 +107,7 @@ class Ui_Form(object):
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.passwordInput = QLineEdit(self.frame_2)
         self.passwordInput.setObjectName(u"passwordInput")
-        self.passwordInput.setMinimumSize(QSize(400, 0))
+        self.passwordInput.setMinimumSize(QSize(0, 0))
         self.passwordInput.setFont(font1)
         self.passwordInput.setStyleSheet(u"#passwordInput{\n"
 "background-color:rgba(0,0,0,0);\n"
@@ -154,21 +162,27 @@ class Ui_Form(object):
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
         self.createAccountButton = QPushButton(self.frame_6)
         self.createAccountButton.setObjectName(u"createAccountButton")
-        self.createAccountButton.setMinimumSize(QSize(120, 0))
+        self.createAccountButton.setMinimumSize(QSize(0, 0))
         font2 = QFont()
         font2.setBold(True)
         font2.setUnderline(True)
         self.createAccountButton.setFont(font2)
-        self.createAccountButton.setStyleSheet(u"#createAccountButton{\n"
-"border: none;\n"
-"color: #1e1e1e;\n"
-"}")
+        self.createAccountButton.setStyleSheet(u"#createAccountButton {\n"
+"    color: #1e1e1e;\n"
+"}\n"
+"\n"
+"#createAccountButton:hover {\n"
+"/*    background-color: #F5FAFE;*/\n"
+"    color: #1F95EF;\n"
+"    font-weight: bold; \n"
+"}\n"
+"")
 
         self.verticalLayout_4.addWidget(self.createAccountButton, 0, Qt.AlignRight)
 
         self.label = QLabel(self.frame_6)
         self.label.setObjectName(u"label")
-        self.label.setMinimumSize(QSize(120, 30))
+        self.label.setMinimumSize(QSize(0, 0))
         font3 = QFont()
         font3.setPointSize(16)
         font3.setBold(True)
@@ -188,6 +202,9 @@ class Ui_Form(object):
         self.verticalLayout.addWidget(self.frame_4)
 
 
+        self.gridLayout.addWidget(self.widget, 0, 0, 1, 1)
+
+
         self.retranslateUi(Form)
 
         QMetaObject.connectSlotsByName(Form)
@@ -205,11 +222,3 @@ class Ui_Form(object):
         self.label.setText("")
     # retranslateUi
 
-if __name__ == "__main__":
-    import sys
-    app = QApplication(sys.argv)
-    Form = QWidget()
-    ui = Ui_Form()
-    ui.setupUi(Form)
-    Form.show()
-    sys.exit(app.exec_())

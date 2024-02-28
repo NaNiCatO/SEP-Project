@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'register.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.6.1
+## Created by: Qt User Interface Compiler version 6.6.0
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -23,7 +23,7 @@ class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
-        Form.resize(804, 524)
+        Form.resize(910, 525)
         self.gridLayout_3 = QGridLayout(Form)
         self.gridLayout_3.setSpacing(0)
         self.gridLayout_3.setObjectName(u"gridLayout_3")
@@ -127,9 +127,9 @@ class Ui_Form(object):
         self.frame_6.setFrameShadow(QFrame.Raised)
         self.gridLayout_4 = QGridLayout(self.frame_6)
         self.gridLayout_4.setObjectName(u"gridLayout_4")
-        self.CreateAccountButton = QPushButton(self.frame_6)
-        self.CreateAccountButton.setObjectName(u"CreateAccountButton")
-        self.CreateAccountButton.setStyleSheet(u"QPushButton {\n"
+        self.CreateButton = QPushButton(self.frame_6)
+        self.CreateButton.setObjectName(u"CreateButton")
+        self.CreateButton.setStyleSheet(u"QPushButton {\n"
 "    padding: 10px 20px;\n"
 "    font-size: 16px;\n"
 "    font-weight: bold;\n"
@@ -147,7 +147,7 @@ class Ui_Form(object):
 "}\n"
 "")
 
-        self.gridLayout_4.addWidget(self.CreateAccountButton, 0, 0, 1, 1)
+        self.gridLayout_4.addWidget(self.CreateButton, 0, 0, 1, 1)
 
         self.frame_4 = QFrame(self.frame_6)
         self.frame_4.setObjectName(u"frame_4")
@@ -211,28 +211,6 @@ class Ui_Form(object):
 
         self.gridLayout.addWidget(self.frame_6, 5, 0, 1, 1)
 
-        self.frame = QFrame(self.widget)
-        self.frame.setObjectName(u"frame")
-        self.frame.setFrameShape(QFrame.StyledPanel)
-        self.frame.setFrameShadow(QFrame.Raised)
-        self.gridLayout_2 = QGridLayout(self.frame)
-        self.gridLayout_2.setObjectName(u"gridLayout_2")
-        self.loginHeader = QLabel(self.frame)
-        self.loginHeader.setObjectName(u"loginHeader")
-        font2 = QFont()
-        font2.setPointSize(26)
-        font2.setBold(True)
-        font2.setItalic(False)
-        self.loginHeader.setFont(font2)
-        self.loginHeader.setStyleSheet(u"#loginHeader{\n"
-"color : #1e1e1e;\n"
-"}")
-
-        self.gridLayout_2.addWidget(self.loginHeader, 0, 0, 1, 1, Qt.AlignHCenter)
-
-
-        self.gridLayout.addWidget(self.frame, 0, 0, 1, 1)
-
         self.frame_5 = QFrame(self.widget)
         self.frame_5.setObjectName(u"frame_5")
         self.frame_5.setFrameShape(QFrame.StyledPanel)
@@ -256,6 +234,30 @@ class Ui_Form(object):
 
         self.gridLayout.addWidget(self.frame_5, 2, 0, 1, 1)
 
+        self.frame = QFrame(self.widget)
+        self.frame.setObjectName(u"frame")
+        self.frame.setFrameShape(QFrame.StyledPanel)
+        self.frame.setFrameShadow(QFrame.Raised)
+        self.gridLayout_2 = QGridLayout(self.frame)
+        self.gridLayout_2.setSpacing(0)
+        self.gridLayout_2.setObjectName(u"gridLayout_2")
+        self.gridLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.loginHeader = QLabel(self.frame)
+        self.loginHeader.setObjectName(u"loginHeader")
+        font2 = QFont()
+        font2.setPointSize(26)
+        font2.setBold(True)
+        font2.setItalic(False)
+        self.loginHeader.setFont(font2)
+        self.loginHeader.setStyleSheet(u"#loginHeader{\n"
+"color : #1e1e1e;\n"
+"}")
+
+        self.gridLayout_2.addWidget(self.loginHeader, 0, 0, 1, 1, Qt.AlignHCenter)
+
+
+        self.gridLayout.addWidget(self.frame, 0, 0, 1, 1)
+
 
         self.gridLayout_3.addWidget(self.widget, 0, 0, 1, 1)
 
@@ -272,19 +274,11 @@ class Ui_Form(object):
         self.emailInput.setText("")
         self.emailInput.setPlaceholderText(QCoreApplication.translate("Form", u"Email", None))
         self.confirmPassword.setPlaceholderText(QCoreApplication.translate("Form", u"Confirm Password", None))
-        self.CreateAccountButton.setText(QCoreApplication.translate("Form", u"Create Account", None))
+        self.CreateButton.setText(QCoreApplication.translate("Form", u"Create Account", None))
         self.haveAccountHeader.setText(QCoreApplication.translate("Form", u"Already have account? ", None))
         self.signInButton.setText(QCoreApplication.translate("Form", u"Sign in.", None))
-        self.loginHeader.setText(QCoreApplication.translate("Form", u"Register", None))
         self.userInput.setText("")
         self.userInput.setPlaceholderText(QCoreApplication.translate("Form", u"Username", None))
+        self.loginHeader.setText(QCoreApplication.translate("Form", u"Register", None))
     # retranslateUi
 
-if __name__ == "__main__":
-    import sys
-    app = QApplication(sys.argv)
-    Form = QWidget()
-    ui = Ui_Form()
-    ui.setupUi(Form)
-    Form.show()
-    sys.exit(app.exec_())

@@ -1,3 +1,4 @@
+from PySide6.QtGui import QCloseEvent
 from Python_ui_file import login as login
 from Python_ui_file import register as register
 import sys
@@ -15,7 +16,7 @@ connection = db.open()
 root = connection.root()
 
 
-class LoginWindow(QMainWindow):
+class LoginWindow(QWidget):
     def __init__(self):
         super().__init__()
         self.ui = login.Ui_Form()
@@ -34,7 +35,7 @@ class LoginWindow(QMainWindow):
             else:
                 print("Username does not exist")
 
-class RegisterWindow(QMainWindow):
+class RegisterWindow(QWidget):
     def __init__(self):
         super().__init__()
         self.ui = register.Ui_Form()
@@ -72,43 +73,43 @@ class RegisterWindow(QMainWindow):
                 return False
         return True
 
-
-
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("Login/Register")
-        self.resize(400, 300) # width, height
-        
-        self.central_widget = QWidget()
+
+        self.central_widget = QWidget(self)
         self.setCentralWidget(self.central_widget)
-        
+
         self.layout = QVBoxLayout(self.central_widget)
-        
+
         self.login_window = LoginWindow()
         self.register_window = RegisterWindow()
-        
+
         self.layout.addWidget(self.login_window)
         self.layout.addWidget(self.register_window)
-        
+
         self.register_window.hide()
-        
+
         self.login_window.ui.createAccountButton.clicked.connect(self.show_register)
         self.register_window.ui.signInButton.clicked.connect(self.show_login)
-        self.register_window.ui.CreateAccountButton.clicked.connect(self.check_create_success)
-    
+        self.register_window.ui.CreateButton.clicked.connect(self.check_create_success)
+
     def check_create_success(self):
         if self.register_window.create_account():
             self.show_login()
-        
+
     def show_login(self):
         self.login_window.show()
         self.register_window.hide()
-        
+
     def show_register(self):
         self.login_window.hide()
         self.register_window.show()
-
+    
+    def closeEvent(self, event):
+        transaction.commit()
+        connection.close()
+        
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

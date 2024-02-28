@@ -35,6 +35,15 @@ user.add_task(multi_task1)
 
 
 ############################################################################################################
+import ZODB , ZODB.FileStorage
+import transaction
+mystorage = ZODB.FileStorage.FileStorage('mydata.fs')
+db = ZODB.DB(mystorage)
+connection = db.open()
+root = connection.root()
+
+
+############################################################################################################
 
 
 class Sidebar(QMainWindow, Ui_MainWindow):
