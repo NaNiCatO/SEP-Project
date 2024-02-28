@@ -188,3 +188,12 @@ class Ui_MainWindow(object):
         self.homeHeader_5.setText(QCoreApplication.translate("MainWindow", u"View Task", None))
     # retranslateUi
 
+if __name__ == "__main__":
+    import sys
+    app = QApplication(sys.argv)
+    MainWindow = QMainWindow()
+    ui = Ui_MainWindow()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
+    sys.exit(app.exec_())
+    

@@ -11,6 +11,7 @@ class User(persistent.Persistent):
         self.password = password
         self.email = email
         self.user_tasks = []
+        self.all_complete_tasks = []
 
     def get_email_data(self) :
         return {
@@ -46,6 +47,14 @@ class User(persistent.Persistent):
         if self.password == password :
             return True
         return False
+
+    def get_all_complete_tasks(self) :
+        # For History / Log
+        return self.all_complete_tasks 
+    
+    def complete_task(self, task) :
+        task.is_completed = True
+        self.all_complete_tasks.append(task)
     
 
 class Task(persistent.Persistent):
@@ -56,6 +65,7 @@ class Task(persistent.Persistent):
         self.time = time
         self.urgent = urgent
         self.is_completed = False
+        self.start_date = datetime.datetime.today()
 
     def get_name_topic(self) :
         return self.name_topic
@@ -70,8 +80,6 @@ class Task(persistent.Persistent):
         #format: YYYY-MM-DD find the difference between today and due date
         today = datetime.datetime.today()
         return self.due_date - today
-
-
 
 class MultiTask(Task, persistent.Persistent) :
     def __init__(self, name_topic, detail, due_date, time, urgent=False) :
@@ -160,3 +168,4 @@ class Notification(persistent.Persistent):
         with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as smtp :
             smtp.login(self.app_email, self.app_password)
             smtp.sendmail(self.app_email, user.get_email_data()['email'], msg.as_string())
+

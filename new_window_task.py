@@ -8,27 +8,34 @@ from new_window_create import New_MainWindow_create, New_MainWindow_edit
 
 ############################################################################################################
 
-task1 = class_module.Task("Math", "Do exercise 1-5", "2024-2-26", "20:00")
-task2 = class_module.Task("Physics", "Do exercise 1-5", "2024-2-26", "20:00", True)
-task3 = class_module.Task("Chemistry", "Do exercise 1-5", "2024-2-27", "20:00")
-task4 = class_module.Task("English", "Do exercise 1-5", "2024-2-27", "20:00", True)
-task5 = class_module.Task("History", "Do exercise 1-5", "2024-2-28", "20:00")
-task6 = class_module.Task("Biology", "Do exercise 1-5", "2024-2-28", "20:00", True)
+# task1 = class_module.Task("Math", "Do exercise 1-5", "2024-2-26", "20:00")
+# task2 = class_module.Task("Physics", "Do exercise 1-5", "2024-2-26", "20:00", True)
+# task3 = class_module.Task("Chemistry", "Do exercise 1-5", "2024-2-27", "20:00")
+# task4 = class_module.Task("English", "Do exercise 1-5", "2024-2-27", "20:00", True)
+# task5 = class_module.Task("History", "Do exercise 1-5", "2024-2-28", "20:00")
+# task6 = class_module.Task("Biology", "Do exercise 1-5", "2024-2-28", "20:00", True)
 
-# MultiTask(name_topic, detail, due_date)
-multi_task1 = class_module.MultiTask("Study", "Do exercise", "2024-2-26", "20:00")
-multi_task1.add_task(task1)
-multi_task1.add_task(task2)
-multi_task1.add_task(task3)
-multi_task1.add_task(task4)
-multi_task1.add_task(task5)
-multi_task1.add_task(task6)
+# # MultiTask(name_topic, detail, due_date)
+# multi_task1 = class_module.MultiTask("Study", "Do exercise", "2024-2-26", "20:00")
+# multi_task1.add_task(task1)
+# multi_task1.add_task(task2)
+# multi_task1.add_task(task3)
+# multi_task1.add_task(task4)
+# multi_task1.add_task(task5)
+# multi_task1.add_task(task6)
 
-user = class_module.User("Arm", "123", "armfiba@gmail.com")
+# user = class_module.User("Arm", "123", "armfiba@gmail.com")
 
-user.add_task(multi_task1)
+# user.add_task(multi_task1)
 
+from database_init import init_database
 
+connection = init_database()
+root = connection.root()
+user = root.user['Arm']
+
+type_task = class_module.Task_handlers(user.get_user_tasks())
+type_task.update_tasks()
 
 ############################################################################################################
 

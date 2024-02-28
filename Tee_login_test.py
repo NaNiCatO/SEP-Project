@@ -8,11 +8,9 @@ from PySide6.QtGui import *
 from class_module import *
 
 # ******************************  Connect to database  ********************************
-import ZODB , ZODB.FileStorage
-import transaction
-mystorage = ZODB.FileStorage.FileStorage('mydata.fs')
-db = ZODB.DB(mystorage)
-connection = db.open()
+from database_init import init_database
+
+connection = init_database()
 root = connection.root()
 
 
@@ -109,7 +107,7 @@ class MainWindow(QMainWindow):
     def closeEvent(self, event):
         transaction.commit()
         connection.close()
-        
+        db.close()
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

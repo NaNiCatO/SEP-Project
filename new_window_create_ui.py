@@ -640,3 +640,11 @@ class Ui_Form(object):
         self.urgent_task_check_box.setText("")
     # retranslateUi
 
+if __name__ == "__main__":
+    import sys
+    app = QApplication(sys.argv)
+    Form = QWidget()
+    ui = Ui_Form()
+    ui.setupUi(Form)
+    Form.show()
+    sys.exit(app.exec_())
