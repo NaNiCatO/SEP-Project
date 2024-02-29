@@ -90,7 +90,7 @@ class CircularProgressBar(QWidget):
         painter.drawPath(highlight_path)
 
         # Percentage text
-        painter.setFont(QFont('Arial', 36, QFont.Bold))
+        painter.setFont(QFont('Arial', 32, QFont.Bold))
         painter.drawText(width / 2 - circle_radius, height / 2 - circle_radius, circle_radius * 2, circle_radius * 2, Qt.AlignCenter, f'{self.progress}%')
 
     def calculate_highlight_color(self):
@@ -124,10 +124,9 @@ class CircularProgressBarExample(QWidget):
         # Calculate increment value based on target progress
         self.increment_value = 1 if self.progress_target <= 50 else (self.progress_target - 50) / 50
 
-        # Start timer to gradually increase the progress
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.update_progress)
-        self.timer.start(60)  # Update progress every 60 milliseconds
+        self.timer.start(60)  
 
     def update_progress(self):
         # Increase progress
@@ -135,7 +134,7 @@ class CircularProgressBarExample(QWidget):
             new_progress = self.circular_progress_bar.progress + 1
             self.circular_progress_bar.set_progress(min(new_progress, self.progress_target))
         else:
-            self.timer.stop()  # Stop the timer once progress reaches the target
+            self.timer.stop()  
 
 
 if __name__ == "__main__":

@@ -29,7 +29,7 @@ background-color:#f26e56;
 }
 
 #frame_10{
-background-color:#f26e56;
+background-color:#FAC898;
 
 }
 
@@ -38,12 +38,13 @@ background-color: transparent;
 }
 
 #searchFrame{
+background-color: none;
 border-radius: 10px;
-border : 2px solid #2596be;
+border : 2px solid #1e1e1e;
 }
 
 #homeHeader{
-color : #f26e56;
+color : #1e1e1e;
 }
 
 #allTaskCard, #todayCard, #urgentCard, #cancleCard{
@@ -238,6 +239,9 @@ background-color: #F5FAFE;
                  </property>
                  <item alignment="Qt::AlignTop">
                   <widget class="QWidget" name="headerFrame" native="true">
+                   <property name="styleSheet">
+                    <string notr="true">background-color:#FAC898;</string>
+                   </property>
                    <layout class="QHBoxLayout" name="horizontalLayout_2">
                     <property name="spacing">
                      <number>0</number>
@@ -323,6 +327,9 @@ magin-left: 3px</string>
                     </item>
                     <item alignment="Qt::AlignHCenter">
                      <widget class="QWidget" name="mainSearchFrame" native="true">
+                      <property name="styleSheet">
+                       <string notr="true"/>
+                      </property>
                       <layout class="QHBoxLayout" name="horizontalLayout_4">
                        <item alignment="Qt::AlignTop">
                         <widget class="QFrame" name="searchFrame">
@@ -331,6 +338,10 @@ magin-left: 3px</string>
                            <width>240</width>
                            <height>0</height>
                           </size>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">background-color:#fff;
+</string>
                          </property>
                          <property name="frameShape">
                           <enum>QFrame::StyledPanel</enum>
@@ -384,6 +395,9 @@ magin-left: 3px</string>
                           </item>
                           <item>
                            <widget class="QLineEdit" name="lineEdit">
+                            <property name="styleSheet">
+                             <string notr="true"/>
+                            </property>
                             <property name="placeholderText">
                              <string>Search Task</string>
                             </property>
@@ -1042,7 +1056,7 @@ QScrollBar::sub-line:vertical {
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>226</width>
+                            <width>245</width>
                             <height>271</height>
                            </rect>
                           </property>
@@ -1252,7 +1266,7 @@ QScrollBar::sub-line:vertical {
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>226</width>
+                            <width>245</width>
                             <height>270</height>
                            </rect>
                           </property>
@@ -1466,7 +1480,7 @@ QScrollBar::sub-line:vertical {
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>226</width>
+                            <width>245</width>
                             <height>270</height>
                            </rect>
                           </property>
@@ -1694,8 +1708,8 @@ background-color: transparent;
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>304</width>
-                      <height>176</height>
+                      <width>845</width>
+                      <height>422</height>
                      </rect>
                     </property>
                     <layout class="QGridLayout" name="gridLayout_36">
@@ -1916,6 +1930,10 @@ background-color: #ffddd2;
                   <height>50</height>
                  </size>
                 </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color:#FAC898;
+</string>
+                </property>
                 <property name="frameShape">
                  <enum>QFrame::StyledPanel</enum>
                 </property>
@@ -2120,6 +2138,10 @@ margin-right: 3px;
                   <height>50</height>
                  </size>
                 </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color:#FAC898;
+</string>
+                </property>
                 <property name="frameShape">
                  <enum>QFrame::StyledPanel</enum>
                 </property>
@@ -2322,8 +2344,8 @@ QScrollBar::sub-line:vertical {
                         <rect>
                          <x>0</x>
                          <y>0</y>
-                         <width>74</width>
-                         <height>24</height>
+                         <width>831</width>
+                         <height>432</height>
                         </rect>
                        </property>
                        <layout class="QGridLayout" name="gridLayout_25"/>
@@ -2509,8 +2531,8 @@ QScrollBar::sub-line:vertical {
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>74</width>
-                      <height>34</height>
+                      <width>831</width>
+                      <height>391</height>
                      </rect>
                     </property>
                     <layout class="QGridLayout" name="gridLayout_28">
@@ -2571,6 +2593,10 @@ QScrollBar::sub-line:vertical {
                   <width>0</width>
                   <height>50</height>
                  </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color:#FAC898;
+</string>
                 </property>
                 <property name="frameShape">
                  <enum>QFrame::StyledPanel</enum>
@@ -2730,6 +2756,9 @@ magin-left: 3px</string>
                   <height>0</height>
                  </size>
                 </property>
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
                 <layout class="QVBoxLayout" name="verticalLayout_21">
                  <property name="spacing">
                   <number>0</number>
@@ -2748,6 +2777,9 @@ magin-left: 3px</string>
                  </property>
                  <item alignment="Qt::AlignTop">
                   <widget class="QWidget" name="headerFrame_3" native="true">
+                   <property name="styleSheet">
+                    <string notr="true">background-color: #FAC898;</string>
+                   </property>
                    <layout class="QHBoxLayout" name="horizontalLayout_30">
                     <property name="spacing">
                      <number>0</number>
@@ -2863,6 +2895,9 @@ magin-left: 3px</string>
                      <width>16777215</width>
                      <height>16777215</height>
                     </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">background-color: #ffff;</string>
                    </property>
                    <layout class="QHBoxLayout" name="horizontalLayout_40">
                     <item>
@@ -3076,59 +3111,6 @@ border-radius: 10px
                               </widget>
                              </item>
                             </layout>
-                           </widget>
-                          </item>
-                         </layout>
-                        </widget>
-                       </item>
-                       <item>
-                        <widget class="QFrame" name="all_time_header">
-                         <property name="maximumSize">
-                          <size>
-                           <width>120</width>
-                           <height>30</height>
-                          </size>
-                         </property>
-                         <property name="styleSheet">
-                          <string notr="true">#all_time_header{
-border: 2px solid #1e1e1e;
-border-radius: 10px;
-margin: 3px;
-
-}</string>
-                         </property>
-                         <property name="frameShape">
-                          <enum>QFrame::StyledPanel</enum>
-                         </property>
-                         <property name="frameShadow">
-                          <enum>QFrame::Raised</enum>
-                         </property>
-                         <layout class="QGridLayout" name="gridLayout_17">
-                          <property name="leftMargin">
-                           <number>5</number>
-                          </property>
-                          <property name="topMargin">
-                           <number>0</number>
-                          </property>
-                          <property name="rightMargin">
-                           <number>0</number>
-                          </property>
-                          <property name="bottomMargin">
-                           <number>0</number>
-                          </property>
-                          <property name="spacing">
-                           <number>0</number>
-                          </property>
-                          <item row="0" column="0" alignment="Qt::AlignLeft">
-                           <widget class="QLabel" name="label">
-                            <property name="font">
-                             <font>
-                              <bold>true</bold>
-                             </font>
-                            </property>
-                            <property name="text">
-                             <string>All time analyze</string>
-                            </property>
                            </widget>
                           </item>
                          </layout>
@@ -3377,7 +3359,7 @@ border-radius: 10px*/
                                 </font>
                                </property>
                                <property name="text">
-                                <string>Completed %</string>
+                                <string>Completed Task %</string>
                                </property>
                               </widget>
                              </item>
@@ -3496,7 +3478,7 @@ border-radius: 10px*/
                                 </font>
                                </property>
                                <property name="text">
-                                <string>Completed %</string>
+                                <string>Delay Task %</string>
                                </property>
                               </widget>
                              </item>
@@ -3985,7 +3967,7 @@ border-radius: 1px solid #1e1e1e;</string>
       </property>
       <property name="styleSheet">
        <string notr="true">#frame_10{
-background_color: #ffffff;
+background_color: #FAC898;
 }</string>
       </property>
       <property name="frameShape">
