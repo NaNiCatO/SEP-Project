@@ -15,18 +15,17 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QFrame, QGridLayout, QHBoxLayout,
-    QLabel, QLineEdit, QMainWindow, QMenuBar,
-    QPushButton, QScrollArea, QSizePolicy, QStackedWidget,
-    QStatusBar, QVBoxLayout, QWidget)
-import resources_rc
+from PySide6.QtWidgets import (QApplication, QCalendarWidget, QFrame, QGridLayout,
+    QHBoxLayout, QLabel, QLineEdit, QMainWindow,
+    QMenuBar, QPushButton, QScrollArea, QSizePolicy,
+    QStackedWidget, QStatusBar, QVBoxLayout, QWidget)
 import resources_rc
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1069, 580)
+        MainWindow.resize(1012, 564)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.centralwidget.setStyleSheet(u"*{\n"
@@ -244,8 +243,6 @@ class Ui_MainWindow(object):
         self.todayCard.setObjectName(u"todayCard")
         self.todayCard.setMinimumSize(QSize(180, 80))
         self.todayCard.setMaximumSize(QSize(160, 90))
-        self.todayCard.setMouseTracking(False)
-        self.todayCard.setFocusPolicy(Qt.NoFocus)
         self.todayCard.setStyleSheet(u"#todayCard{\n"
 "background-color: #ffc148;\n"
 "}")
@@ -258,8 +255,8 @@ class Ui_MainWindow(object):
         self.todayTaskBG.setMinimumSize(QSize(0, 0))
         self.todayTaskBG.setMaximumSize(QSize(40, 40))
         self.todayTaskBG.setStyleSheet(u"#todayTaskBG {\n"
-"background-color: #d89c25;\n"
-"border-radius:15px;\n"
+"/*background-color: #d89c25;\n"
+"border-radius:15px;*/\n"
 " \n"
 "}")
         self.todayTaskBG.setPixmap(QPixmap(u":/icons_v2/last-24-hours-svgrepo-com.svg"))
@@ -395,8 +392,6 @@ class Ui_MainWindow(object):
         self.cancleCard.setObjectName(u"cancleCard")
         self.cancleCard.setMinimumSize(QSize(180, 80))
         self.cancleCard.setMaximumSize(QSize(160, 90))
-        self.cancleCard.setMouseTracking(False)
-        self.cancleCard.setFocusPolicy(Qt.NoFocus)
         self.cancleCard.setStyleSheet(u"#cancleCard{\n"
 "background-color: #52c1c4;\n"
 "}")
@@ -497,6 +492,44 @@ class Ui_MainWindow(object):
         self.scrollArea.setStyleSheet(u"#scrollArea QWidget {\n"
 "    background-color: transparent;\n"
 "}\n"
+"QScrollArea {\n"
+"    background-color: #ffffff;\n"
+"    border: 1px solid #cccccc;\n"
+"    border-radius: 5px;\n"
+"}\n"
+"\n"
+"QScrollBar:vertical {\n"
+"    border: none;\n"
+"    background: #f0f0f0;\n"
+"    width: 12px;\n"
+"    margin: 0px 0px 0px 0px;\n"
+"}\n"
+"\n"
+"QScrollBar::handle:vertical {\n"
+"    background: #cccccc;\n"
+"    min-height: 20px;\n"
+"    border-radius: 6px;\n"
+"}\n"
+"\n"
+"QScrollBar::handle:vertical:hover {\n"
+"    background: #b3b3b3;\n"
+"}\n"
+"\n"
+"QScrollBar::handle:vertical:pressed {\n"
+"    background: #999999;\n"
+"}\n"
+"\n"
+"QScrollBar::add-line:vertical {\n"
+"    height: 0px;\n"
+"    subcontrol-position: bottom;\n"
+"    subcontrol-origin: margin;\n"
+"}\n"
+"\n"
+"QScrollBar::sub-line:vertical {\n"
+"    height: 0px;\n"
+"    subcontrol-position: top;\n"
+"    subcontrol-origin: margin;\n"
+"}\n"
 "\n"
 "\n"
 "\n"
@@ -504,18 +537,19 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 268, 322))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 226, 271))
         self.gridLayout_5 = QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout_5.setObjectName(u"gridLayout_5")
         self.todayMainTask = QFrame(self.scrollAreaWidgetContents)
         self.todayMainTask.setObjectName(u"todayMainTask")
-        self.todayMainTask.setEnabled(True)
+        self.todayMainTask.setEnabled(False)
         sizePolicy1.setHeightForWidth(self.todayMainTask.sizePolicy().hasHeightForWidth())
         self.todayMainTask.setSizePolicy(sizePolicy1)
         self.todayMainTask.setMinimumSize(QSize(0, 0))
         self.todayMainTask.setStyleSheet(u"#todayMainTask{ \n"
 "background-color:#ffffff; \n"
-"border : 2px solid #2596be; \n"
+"\n"
+"border : 2px solid #f26e56; \n"
 "border-radius:15px 15px 15px 15px; \n"
 "\n"
 "\n"
@@ -580,22 +614,66 @@ class Ui_MainWindow(object):
 "\n"
 "\n"
 "\n"
+"#scrollArea QWidget {\n"
+"    background-color: transparent;\n"
+"}\n"
+"QScrollArea {\n"
+"    background-color: #ffffff;\n"
+"    border: 1px solid #cccccc;\n"
+"    border-radius: 5px;\n"
+"}\n"
+"\n"
+"QScrollBar:vertical {\n"
+"    border: none;\n"
+"    background: #f0f0f0;\n"
+"    width: 12px;\n"
+"    margin: 0px 0px 0px 0px;\n"
+"}\n"
+"\n"
+"QScrollBar::handle:vertical {\n"
+"    background: #cccccc;\n"
+"    min-height: 20px;\n"
+"    border-radius: 6px;\n"
+"}\n"
+"\n"
+"QScrollBar::handle:vertical:hover {\n"
+"    background: #b3b3b3;\n"
+"}\n"
+"\n"
+"QScrollBar::handle:vertical:pressed {\n"
+"    background: #999999;\n"
+"}\n"
+"\n"
+"QScrollBar::add-line:vertical {\n"
+"    height: 0px;\n"
+"    subcontrol-position: bottom;\n"
+"    subcontrol-origin: margin;\n"
+"}\n"
+"\n"
+"QScrollBar::sub-line:vertical {\n"
+"    height: 0px;\n"
+"    subcontrol-position: top;\n"
+"    subcontrol-origin: margin;\n"
+"}\n"
+"\n"
+"\n"
+"\n"
 "")
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollAreaWidgetContents_3 = QWidget()
         self.scrollAreaWidgetContents_3.setObjectName(u"scrollAreaWidgetContents_3")
-        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 267, 317))
+        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 226, 270))
         self.gridLayout_4 = QGridLayout(self.scrollAreaWidgetContents_3)
         self.gridLayout_4.setObjectName(u"gridLayout_4")
         self.urgentMainTask = QFrame(self.scrollAreaWidgetContents_3)
         self.urgentMainTask.setObjectName(u"urgentMainTask")
-        self.urgentMainTask.setEnabled(True)
+        self.urgentMainTask.setEnabled(False)
         sizePolicy1.setHeightForWidth(self.urgentMainTask.sizePolicy().hasHeightForWidth())
         self.urgentMainTask.setSizePolicy(sizePolicy1)
         self.urgentMainTask.setMinimumSize(QSize(0, 0))
         self.urgentMainTask.setStyleSheet(u"#urgentMainTask{ \n"
 "background-color:#ffffff; \n"
-"border : 2px solid #2596be; \n"
+"border : 2px solid #f26e56; \n"
 "border-radius:15px 15px 15px 15px; \n"
 "} ")
         self.urgentMainTask.setFrameShape(QFrame.StyledPanel)
@@ -619,7 +697,7 @@ class Ui_MainWindow(object):
 "}")
         self.gridLayout_7 = QGridLayout(self.widget_3)
         self.gridLayout_7.setObjectName(u"gridLayout_7")
-        self.gridLayout_7.setHorizontalSpacing(6)
+        self.gridLayout_7.setHorizontalSpacing(-1)
         self.gridLayout_7.setVerticalSpacing(5)
         self.gridLayout_7.setContentsMargins(10, 10, 10, 10)
         self.frame_18 = QFrame(self.widget_3)
@@ -663,24 +741,118 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "\n"
+"#scrollArea QWidget {\n"
+"    background-color: transparent;\n"
+"}\n"
+"QScrollArea {\n"
+"    background-color: #ffffff;\n"
+"    border: 1px solid #cccccc;\n"
+"    border-radius: 5px;\n"
+"}\n"
+"\n"
+"QScrollBar:vertical {\n"
+"    border: none;\n"
+"    background: #f0f0f0;\n"
+"    width: 12px;\n"
+"    margin: 0px 0px 0px 0px;\n"
+"}\n"
+"\n"
+"QScrollBar::handle:vertical {\n"
+"    background: #cccccc;\n"
+"    min-height: 20px;\n"
+"    border-radius: 6px;\n"
+"}\n"
+"\n"
+"QScrollBar::handle:vertical:hover {\n"
+"    background: #b3b3b3;\n"
+"}\n"
+"\n"
+"QScrollBar::handle:vertical:pressed {\n"
+"    background: #999999;\n"
+"}\n"
+"\n"
+"QScrollBar::add-line:vertical {\n"
+"    height: 0px;\n"
+"    subcontrol-position: bottom;\n"
+"    subcontrol-origin: margin;\n"
+"}\n"
+"\n"
+"QScrollBar::sub-line:vertical {\n"
+"    height: 0px;\n"
+"    subcontrol-position: top;"
+                        "\n"
+"    subcontrol-origin: margin;\n"
+"}\n"
+"\n"
+"\n"
+"\n"
+"\n"
 "")
         self.scrollArea_3.setWidgetResizable(True)
         self.scrollAreaWidgetContents_4 = QWidget()
         self.scrollAreaWidgetContents_4.setObjectName(u"scrollAreaWidgetContents_4")
-        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 268, 317))
+        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 226, 270))
         self.verticalLayout_15 = QVBoxLayout(self.scrollAreaWidgetContents_4)
         self.verticalLayout_15.setObjectName(u"verticalLayout_15")
         self.completedMainTask = QFrame(self.scrollAreaWidgetContents_4)
         self.completedMainTask.setObjectName(u"completedMainTask")
+        self.completedMainTask.setEnabled(True)
         sizePolicy1.setHeightForWidth(self.completedMainTask.sizePolicy().hasHeightForWidth())
         self.completedMainTask.setSizePolicy(sizePolicy1)
         self.completedMainTask.setMinimumSize(QSize(0, 0))
         self.completedMainTask.setMaximumSize(QSize(16777215, 16777215))
         self.completedMainTask.setStyleSheet(u"#completedMainTask{ \n"
 "background-color:#ffffff; \n"
-"border : 2px solid #2596be; \n"
+"border : 2px solid #f26e56; \n"
 "border-radius:15px 15px 15px 15px; \n"
-"} ")
+"} \n"
+"\n"
+"#scrollArea QWidget {\n"
+"    background-color: transparent;\n"
+"}\n"
+"QScrollArea {\n"
+"    background-color: #ffffff;\n"
+"    border: 1px solid #cccccc;\n"
+"    border-radius: 5px;\n"
+"}\n"
+"\n"
+"QScrollBar:vertical {\n"
+"    border: none;\n"
+"    background: #f0f0f0;\n"
+"    width: 12px;\n"
+"    margin: 0px 0px 0px 0px;\n"
+"}\n"
+"\n"
+"QScrollBar::handle:vertical {\n"
+"    background: #cccccc;\n"
+"    min-height: 20px;\n"
+"    border-radius: 6px;\n"
+"}\n"
+"\n"
+"QScrollBar::handle:vertical:hover {\n"
+"    background: #b3b3b3;\n"
+"}\n"
+"\n"
+"QScrollBar::handle:vertical:pressed {\n"
+"    background: #999999;\n"
+"}\n"
+"\n"
+"QScrollBar::add-line:vertical {\n"
+"    height: 0px;\n"
+"    subcontrol-position: bottom;\n"
+"    subcontrol-origin: margin;\n"
+"}\n"
+"\n"
+"QScrollBar::sub-line:vertical {\n"
+"    height: 0px;\n"
+"    subcontrol-position: top;\n"
+"    subcontrol-origin: "
+                        "margin;\n"
+"}\n"
+"\n"
+"\n"
+"\n"
+"")
         self.completedMainTask.setFrameShape(QFrame.StyledPanel)
         self.completedMainTask.setFrameShadow(QFrame.Raised)
 
@@ -760,18 +932,180 @@ class Ui_MainWindow(object):
         self.frame_50.setFrameShape(QFrame.StyledPanel)
         self.frame_50.setFrameShadow(QFrame.Raised)
         self.gridLayout_31 = QGridLayout(self.frame_50)
+        self.gridLayout_31.setSpacing(0)
         self.gridLayout_31.setObjectName(u"gridLayout_31")
+        self.gridLayout_31.setContentsMargins(0, 0, 0, 0)
         self.scrollArea_6 = QScrollArea(self.frame_50)
         self.scrollArea_6.setObjectName(u"scrollArea_6")
         self.scrollArea_6.setWidgetResizable(True)
         self.scrollAreaWidgetContents_6 = QWidget()
         self.scrollAreaWidgetContents_6.setObjectName(u"scrollAreaWidgetContents_6")
-        self.scrollAreaWidgetContents_6.setGeometry(QRect(0, 0, 100, 30))
+        self.scrollAreaWidgetContents_6.setGeometry(QRect(0, 0, 304, 176))
+        self.gridLayout_36 = QGridLayout(self.scrollAreaWidgetContents_6)
+        self.gridLayout_36.setSpacing(0)
+        self.gridLayout_36.setObjectName(u"gridLayout_36")
+        self.gridLayout_36.setContentsMargins(0, 0, 0, 0)
         self.view_frame_3 = QFrame(self.scrollAreaWidgetContents_6)
         self.view_frame_3.setObjectName(u"view_frame_3")
-        self.view_frame_3.setGeometry(QRect(10, 140, 801, 301))
         self.view_frame_3.setFrameShape(QFrame.StyledPanel)
         self.view_frame_3.setFrameShadow(QFrame.Raised)
+        self.gridLayout_37 = QGridLayout(self.view_frame_3)
+        self.gridLayout_37.setSpacing(0)
+        self.gridLayout_37.setObjectName(u"gridLayout_37")
+        self.gridLayout_37.setContentsMargins(0, 0, 0, 0)
+        self.calendarWidget = QCalendarWidget(self.view_frame_3)
+        self.calendarWidget.setObjectName(u"calendarWidget")
+        self.calendarWidget.setStyleSheet(u"\n"
+"#calendarWidget QWidget{\n"
+"alternate-background-color: #fec89a;\n"
+"}\n"
+"\n"
+"#qt_calendar_navigationbar{\n"
+"background-color: #f8edeb;\n"
+"border: 2px solid #f8edeb;\n"
+"border-bottom: 0px;\n"
+"border-top-left-radius: 5px;\n"
+"border-top-right-radius: 5px;\n"
+"}\n"
+"\n"
+"#qt_calendar_prevmonth, #qt_calendar_nextmonth{\n"
+"border: none;\n"
+"qproperty-icon: none;\n"
+"min-width: 13px;\n"
+"max-width: 13px;\n"
+"min-height: 13px;\n"
+"max-height: 13px;\n"
+"border-radius: 5px;\n"
+"background-color: transparent;\n"
+"padding: 5px;\n"
+"\n"
+"}\n"
+"\n"
+"#qt_calendar_prevmonth{\n"
+"marigin-right: 5px;\n"
+"	image: url(:/icons/icons_black/arrow-right.svg);\n"
+"}\n"
+"\n"
+"#qt_calendar_nextmonth{\n"
+"marigin-right: 5px;\n"
+"	image: url(:/icons/icons_black/arrow-right.svg);\n"
+"}\n"
+"\n"
+"#qt_calendar_nextmonth:hover,#qt_calendar_prevmonth:hover{\n"
+"background-color: #f8edeb;\n"
+"\n"
+"}\n"
+"\n"
+"#qt_calendar_nextmonth:pressd,#qt_calendar_prevmonth:pressd{\n"
+"background-color: #fcd5ce;\n"
+"}\n"
+"\n"
+"#qt_calendar_year"
+                        "button{\n"
+"color: #000;\n"
+"margin: 5px;\n"
+"border-radius: 5px;\n"
+"font-size: 13px;\n"
+"padding: 0 10px;\n"
+"}\n"
+"\n"
+"#qt_calendar_monthbutton{\n"
+"width: 110px;\n"
+"color: #000;\n"
+"font-size: 13px;\n"
+"margin: 5px 0;\n"
+"border-radius: 5px;\n"
+"padding: 0px 2px;\n"
+"}\n"
+"\n"
+"#qt_calendar_yearbutton:hover, #qt_calendar_monthbutton:hover{\n"
+"background-color: #55aaff;\n"
+"}\n"
+"\n"
+"#qt_calendar_yearbutton:pressed, #qt_calendar_monthbutton:pressed{\n"
+"background-color: rgba(235,235,235,100);\n"
+"}\n"
+"\n"
+"#qt_calendar_yearedit{\n"
+"min-width: 53px;\n"
+"color: #1e1e1e;\n"
+"background: transparent;\n"
+"font-size: 13px;\n"
+"\n"
+"}\n"
+"\n"
+"#qt_calendar_yearedit::down-button{\n"
+"	image: url(:/icons/icons_black/arrow-right.svg);\n"
+"subcontrol-position:right;\n"
+"}\n"
+"\n"
+"#qt_calendar_yearedit::up-button{\n"
+"	image: url(:/icons/icons_black/arrow-right.svg);\n"
+"subcontrol-position:left;\n"
+"}\n"
+"\n"
+"#qt_calendar_yearedit::down-button,#qt_calendar_yearedit::up-button{\n"
+"width:10px;\n"
+"padding: 0px"
+                        " 5px;\n"
+"border-radius: 3px;\n"
+"}\n"
+"\n"
+"#qt_calendar_yearedit::down-button,#qt_calendar_yearedit::up-button{\n"
+"background-color: #55aaff;\n"
+"}\n"
+"\n"
+"#calendarWidgetQToolButton QMenu{\n"
+"background-color: #fff;\n"
+"}\n"
+"\n"
+"#calendarWidgetQToolButton QMenu::item{\n"
+"\n"
+"}\n"
+"\n"
+"#calendarWidgetQToolButton QMenu::item:selected:enable{\n"
+"background-color: #55aaff;\n"
+"}\n"
+"\n"
+"#calendarWidgetQToolButton QToolButtin::menu-indicator{\n"
+"nosubcontrol-origin: margin;\n"
+"sbucontrol-position:right center;\n"
+"margin-top: 10px;\n"
+"width:20px;\n"
+"\n"
+"}\n"
+"\n"
+"#qt_calendar_calendarview{\n"
+"border: 2px solid #fcd5ce;\n"
+"border-top:0px;\n"
+"border-bottom-left-radius: 5px;\n"
+"border-bottom-right-radius: 5px;\n"
+"\n"
+"}\n"
+"\n"
+"#qt_calendar_calendarview::item:hover{\n"
+"border-radius: 5px;\n"
+"background-color: #cdd1d1;\n"
+"}\n"
+"\n"
+"#qt_calendar_calendarview::item:selected{\n"
+"border-radius: 5px;\n"
+"color:#1e1e1e;\n"
+"background-color: #ffddd2;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"\n"
+"\n"
+"\n"
+"")
+
+        self.gridLayout_37.addWidget(self.calendarWidget, 0, 0, 1, 1)
+
+
+        self.gridLayout_36.addWidget(self.view_frame_3, 0, 0, 1, 1)
+
         self.scrollArea_6.setWidget(self.scrollAreaWidgetContents_6)
 
         self.gridLayout_31.addWidget(self.scrollArea_6, 0, 0, 1, 1)
@@ -785,21 +1119,6 @@ class Ui_MainWindow(object):
         self.frame_51.setFrameShadow(QFrame.Raised)
         self.gridLayout_32 = QGridLayout(self.frame_51)
         self.gridLayout_32.setObjectName(u"gridLayout_32")
-        self.delete_Button_2 = QPushButton(self.frame_51)
-        self.delete_Button_2.setObjectName(u"delete_Button_2")
-
-        self.gridLayout_32.addWidget(self.delete_Button_2, 0, 0, 1, 1)
-
-        self.edit_Button_2 = QPushButton(self.frame_51)
-        self.edit_Button_2.setObjectName(u"edit_Button_2")
-
-        self.gridLayout_32.addWidget(self.edit_Button_2, 0, 1, 1, 1)
-
-        self.create_Button_2 = QPushButton(self.frame_51)
-        self.create_Button_2.setObjectName(u"create_Button_2")
-
-        self.gridLayout_32.addWidget(self.create_Button_2, 0, 2, 1, 1)
-
 
         self.gridLayout_30.addWidget(self.frame_51, 2, 0, 1, 1, Qt.AlignRight)
 
@@ -968,7 +1287,9 @@ class Ui_MainWindow(object):
         self.frame_22.setFrameShape(QFrame.StyledPanel)
         self.frame_22.setFrameShadow(QFrame.Raised)
         self.gridLayout_23 = QGridLayout(self.frame_22)
+        self.gridLayout_23.setSpacing(0)
         self.gridLayout_23.setObjectName(u"gridLayout_23")
+        self.gridLayout_23.setContentsMargins(6, 0, 6, 12)
         self.frame_23 = QFrame(self.frame_22)
         self.frame_23.setObjectName(u"frame_23")
         self.frame_23.setFrameShape(QFrame.StyledPanel)
@@ -979,10 +1300,55 @@ class Ui_MainWindow(object):
         self.gridLayout_24.setContentsMargins(0, 0, 0, 0)
         self.scrollArea_5 = QScrollArea(self.frame_23)
         self.scrollArea_5.setObjectName(u"scrollArea_5")
+        self.scrollArea_5.setStyleSheet(u"#scrollArea QWidget {\n"
+"    background-color: transparent;\n"
+"}\n"
+"QScrollArea {\n"
+"    background-color: #ffffff;\n"
+"    border: 1px solid #cccccc;\n"
+"    border-radius: 5px;\n"
+"}\n"
+"\n"
+"QScrollBar:vertical {\n"
+"    border: none;\n"
+"    background: #f0f0f0;\n"
+"    width: 12px;\n"
+"    margin: 0px 0px 0px 0px;\n"
+"}\n"
+"\n"
+"QScrollBar::handle:vertical {\n"
+"    background: #cccccc;\n"
+"    min-height: 20px;\n"
+"    border-radius: 6px;\n"
+"}\n"
+"\n"
+"QScrollBar::handle:vertical:hover {\n"
+"    background: #b3b3b3;\n"
+"}\n"
+"\n"
+"QScrollBar::handle:vertical:pressed {\n"
+"    background: #999999;\n"
+"}\n"
+"\n"
+"QScrollBar::add-line:vertical {\n"
+"    height: 0px;\n"
+"    subcontrol-position: bottom;\n"
+"    subcontrol-origin: margin;\n"
+"}\n"
+"\n"
+"QScrollBar::sub-line:vertical {\n"
+"    height: 0px;\n"
+"    subcontrol-position: top;\n"
+"    subcontrol-origin: margin;\n"
+"}\n"
+"\n"
+"\n"
+"\n"
+"")
         self.scrollArea_5.setWidgetResizable(True)
         self.scrollAreaWidgetContents_5 = QWidget()
         self.scrollAreaWidgetContents_5.setObjectName(u"scrollAreaWidgetContents_5")
-        self.scrollAreaWidgetContents_5.setGeometry(QRect(0, 0, 875, 469))
+        self.scrollAreaWidgetContents_5.setGeometry(QRect(0, 0, 74, 24))
         self.gridLayout_25 = QGridLayout(self.scrollAreaWidgetContents_5)
         self.gridLayout_25.setObjectName(u"gridLayout_25")
         self.scrollArea_5.setWidget(self.scrollAreaWidgetContents_5)
@@ -1053,21 +1419,68 @@ class Ui_MainWindow(object):
         self.frame_15.setFrameShape(QFrame.StyledPanel)
         self.frame_15.setFrameShadow(QFrame.Raised)
         self.gridLayout_12 = QGridLayout(self.frame_15)
+        self.gridLayout_12.setSpacing(0)
         self.gridLayout_12.setObjectName(u"gridLayout_12")
+        self.gridLayout_12.setContentsMargins(6, 0, 6, 0)
         self.scrollArea_4 = QScrollArea(self.frame_15)
         self.scrollArea_4.setObjectName(u"scrollArea_4")
+        self.scrollArea_4.setStyleSheet(u"#scrollArea QWidget {\n"
+"    background-color: transparent;\n"
+"}\n"
+"QScrollArea {\n"
+"    background-color: #ffffff;\n"
+"    border: 1px solid #cccccc;\n"
+"    border-radius: 5px;\n"
+"}\n"
+"\n"
+"QScrollBar:vertical {\n"
+"    border: none;\n"
+"    background: #f0f0f0;\n"
+"    width: 12px;\n"
+"    margin: 0px 0px 0px 0px;\n"
+"}\n"
+"\n"
+"QScrollBar::handle:vertical {\n"
+"    background: #cccccc;\n"
+"    min-height: 20px;\n"
+"    border-radius: 6px;\n"
+"}\n"
+"\n"
+"QScrollBar::handle:vertical:hover {\n"
+"    background: #b3b3b3;\n"
+"}\n"
+"\n"
+"QScrollBar::handle:vertical:pressed {\n"
+"    background: #999999;\n"
+"}\n"
+"\n"
+"QScrollBar::add-line:vertical {\n"
+"    height: 0px;\n"
+"    subcontrol-position: bottom;\n"
+"    subcontrol-origin: margin;\n"
+"}\n"
+"\n"
+"QScrollBar::sub-line:vertical {\n"
+"    height: 0px;\n"
+"    subcontrol-position: top;\n"
+"    subcontrol-origin: margin;\n"
+"}\n"
+"\n"
+"\n"
+"\n"
+"")
         self.scrollArea_4.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 100, 30))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 74, 34))
         self.gridLayout_28 = QGridLayout(self.scrollAreaWidgetContents_2)
         self.gridLayout_28.setObjectName(u"gridLayout_28")
-        self.taskList_frame = QFrame(self.scrollAreaWidgetContents_2)
-        self.taskList_frame.setObjectName(u"taskList_frame")
-        self.taskList_frame.setFrameShape(QFrame.StyledPanel)
-        self.taskList_frame.setFrameShadow(QFrame.Raised)
+        self.view_frame_2 = QFrame(self.scrollAreaWidgetContents_2)
+        self.view_frame_2.setObjectName(u"view_frame_2")
+        self.view_frame_2.setFrameShape(QFrame.StyledPanel)
+        self.view_frame_2.setFrameShadow(QFrame.Raised)
 
-        self.gridLayout_28.addWidget(self.taskList_frame, 0, 0, 1, 1)
+        self.gridLayout_28.addWidget(self.view_frame_2, 0, 0, 1, 1)
 
         self.scrollArea_4.setWidget(self.scrollAreaWidgetContents_2)
 
@@ -1238,147 +1651,317 @@ class Ui_MainWindow(object):
 "border-radius: 10px\n"
 "}")
         self.verticalLayout_22 = QVBoxLayout(self.left_content)
-        self.verticalLayout_22.setSpacing(0)
+        self.verticalLayout_22.setSpacing(5)
         self.verticalLayout_22.setObjectName(u"verticalLayout_22")
         self.verticalLayout_22.setContentsMargins(0, 0, 0, 0)
-        self.frame_28 = QFrame(self.left_content)
-        self.frame_28.setObjectName(u"frame_28")
-        self.frame_28.setFrameShape(QFrame.StyledPanel)
-        self.frame_28.setFrameShadow(QFrame.Raised)
-        self.frame_39 = QFrame(self.frame_28)
-        self.frame_39.setObjectName(u"frame_39")
-        self.frame_39.setGeometry(QRect(40, 50, 120, 80))
-        self.frame_39.setFrameShape(QFrame.StyledPanel)
-        self.frame_39.setFrameShadow(QFrame.Raised)
+        self.remain_task_detail_anal = QFrame(self.left_content)
+        self.remain_task_detail_anal.setObjectName(u"remain_task_detail_anal")
+        self.remain_task_detail_anal.setMinimumSize(QSize(0, 250))
+        self.remain_task_detail_anal.setCursor(QCursor(Qt.ArrowCursor))
+        self.remain_task_detail_anal.setStyleSheet(u"#remain_task_detail_anal{\n"
+"border: 2px solid #1e1e1e;\n"
+"border-radius: 10px\n"
+"}")
+        self.remain_task_detail_anal.setFrameShape(QFrame.StyledPanel)
+        self.remain_task_detail_anal.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_12 = QVBoxLayout(self.remain_task_detail_anal)
+        self.verticalLayout_12.setSpacing(0)
+        self.verticalLayout_12.setObjectName(u"verticalLayout_12")
+        self.verticalLayout_12.setContentsMargins(0, 0, 0, 0)
+        self.frame_30 = QFrame(self.remain_task_detail_anal)
+        self.frame_30.setObjectName(u"frame_30")
+        self.frame_30.setMinimumSize(QSize(0, 0))
+        self.frame_30.setMaximumSize(QSize(400, 60))
+        self.frame_30.setFrameShape(QFrame.StyledPanel)
+        self.frame_30.setFrameShadow(QFrame.Raised)
+        self.gridLayout_41 = QGridLayout(self.frame_30)
+        self.gridLayout_41.setSpacing(0)
+        self.gridLayout_41.setObjectName(u"gridLayout_41")
+        self.gridLayout_41.setContentsMargins(0, 0, 0, 0)
+        self.label_5 = QLabel(self.frame_30)
+        self.label_5.setObjectName(u"label_5")
+        font2 = QFont()
+        font2.setPointSize(18)
+        font2.setBold(True)
+        self.label_5.setFont(font2)
 
-        self.verticalLayout_22.addWidget(self.frame_28)
+        self.gridLayout_41.addWidget(self.label_5, 0, 0, 1, 1, Qt.AlignHCenter|Qt.AlignBottom)
 
-        self.frame_19 = QFrame(self.left_content)
-        self.frame_19.setObjectName(u"frame_19")
-        self.frame_19.setMaximumSize(QSize(16777213, 30))
-        self.frame_19.setFrameShape(QFrame.StyledPanel)
-        self.frame_19.setFrameShadow(QFrame.Raised)
-        self.gridLayout_17 = QGridLayout(self.frame_19)
+
+        self.verticalLayout_12.addWidget(self.frame_30, 0, Qt.AlignHCenter)
+
+        self.frame_32 = QFrame(self.remain_task_detail_anal)
+        self.frame_32.setObjectName(u"frame_32")
+        self.frame_32.setFrameShape(QFrame.StyledPanel)
+        self.frame_32.setFrameShadow(QFrame.Raised)
+        self.gridLayout_38 = QGridLayout(self.frame_32)
+        self.gridLayout_38.setSpacing(0)
+        self.gridLayout_38.setObjectName(u"gridLayout_38")
+        self.gridLayout_38.setContentsMargins(0, 0, 0, 0)
+        self.frame_33 = QFrame(self.frame_32)
+        self.frame_33.setObjectName(u"frame_33")
+        sizePolicy3 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
+        sizePolicy3.setHorizontalStretch(0)
+        sizePolicy3.setVerticalStretch(0)
+        sizePolicy3.setHeightForWidth(self.frame_33.sizePolicy().hasHeightForWidth())
+        self.frame_33.setSizePolicy(sizePolicy3)
+        self.frame_33.setStyleSheet(u"#frame_33 {\n"
+"    background-color: #ffcd69;\n"
+"    border:;\n"
+"    border-radius: 102px;\n"
+"}\n"
+"")
+        self.frame_33.setFrameShape(QFrame.StyledPanel)
+        self.frame_33.setFrameShadow(QFrame.Raised)
+        self.gridLayout_40 = QGridLayout(self.frame_33)
+        self.gridLayout_40.setObjectName(u"gridLayout_40")
+        self.frame_34 = QFrame(self.frame_33)
+        self.frame_34.setObjectName(u"frame_34")
+        sizePolicy3.setHeightForWidth(self.frame_34.sizePolicy().hasHeightForWidth())
+        self.frame_34.setSizePolicy(sizePolicy3)
+        self.frame_34.setMinimumSize(QSize(180, 180))
+        self.frame_34.setStyleSheet(u"#frame_34 {\n"
+"    background-color: #ffffff;\n"
+"    border:;\n"
+"    border-radius: 90px;\n"
+"}\n"
+"")
+        self.frame_34.setFrameShape(QFrame.StyledPanel)
+        self.frame_34.setFrameShadow(QFrame.Raised)
+        self.gridLayout_39 = QGridLayout(self.frame_34)
+        self.gridLayout_39.setObjectName(u"gridLayout_39")
+        self.label_6 = QLabel(self.frame_34)
+        self.label_6.setObjectName(u"label_6")
+
+        self.gridLayout_39.addWidget(self.label_6, 0, 0, 1, 1, Qt.AlignHCenter)
+
+
+        self.gridLayout_40.addWidget(self.frame_34, 0, 0, 1, 1)
+
+
+        self.gridLayout_38.addWidget(self.frame_33, 0, 0, 1, 1, Qt.AlignHCenter)
+
+
+        self.verticalLayout_12.addWidget(self.frame_32)
+
+
+        self.verticalLayout_22.addWidget(self.remain_task_detail_anal)
+
+        self.all_time_header = QFrame(self.left_content)
+        self.all_time_header.setObjectName(u"all_time_header")
+        self.all_time_header.setMaximumSize(QSize(120, 30))
+        self.all_time_header.setStyleSheet(u"#all_time_header{\n"
+"border: 2px solid #1e1e1e;\n"
+"border-radius: 10px;\n"
+"margin: 3px;\n"
+"\n"
+"}")
+        self.all_time_header.setFrameShape(QFrame.StyledPanel)
+        self.all_time_header.setFrameShadow(QFrame.Raised)
+        self.gridLayout_17 = QGridLayout(self.all_time_header)
         self.gridLayout_17.setSpacing(0)
         self.gridLayout_17.setObjectName(u"gridLayout_17")
-        self.gridLayout_17.setContentsMargins(0, 0, 0, 0)
-        self.label = QLabel(self.frame_19)
+        self.gridLayout_17.setContentsMargins(5, 0, 0, 0)
+        self.label = QLabel(self.all_time_header)
         self.label.setObjectName(u"label")
+        font3 = QFont()
+        font3.setBold(True)
+        self.label.setFont(font3)
 
         self.gridLayout_17.addWidget(self.label, 0, 0, 1, 1, Qt.AlignLeft)
 
 
-        self.verticalLayout_22.addWidget(self.frame_19)
+        self.verticalLayout_22.addWidget(self.all_time_header)
 
-        self.frame_27 = QFrame(self.left_content)
-        self.frame_27.setObjectName(u"frame_27")
-        self.frame_27.setFrameShape(QFrame.StyledPanel)
-        self.frame_27.setFrameShadow(QFrame.Raised)
-        self.gridLayout_18 = QGridLayout(self.frame_27)
+        self.all_time_anal = QFrame(self.left_content)
+        self.all_time_anal.setObjectName(u"all_time_anal")
+        self.all_time_anal.setStyleSheet(u"#all_time_anal{\n"
+"border: 2px solid #1e1e1e;\n"
+"border-radius: 10px\n"
+"}\n"
+"\n"
+"#anal1,#anal2, #completed_anal,#pass_due_anal{\n"
+"border: 2px solid #1e1e1e;\n"
+"border-radius: 10px\n"
+"}")
+        self.all_time_anal.setFrameShape(QFrame.StyledPanel)
+        self.all_time_anal.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_10 = QVBoxLayout(self.all_time_anal)
+        self.verticalLayout_10.setObjectName(u"verticalLayout_10")
+        self.frame_19 = QFrame(self.all_time_anal)
+        self.frame_19.setObjectName(u"frame_19")
+        self.frame_19.setFrameShape(QFrame.StyledPanel)
+        self.frame_19.setFrameShadow(QFrame.Raised)
+        self.gridLayout_18 = QGridLayout(self.frame_19)
         self.gridLayout_18.setObjectName(u"gridLayout_18")
-        self.frame_38 = QFrame(self.frame_27)
-        self.frame_38.setObjectName(u"frame_38")
-        self.frame_38.setFrameShape(QFrame.StyledPanel)
-        self.frame_38.setFrameShadow(QFrame.Raised)
-        self.frame_40 = QFrame(self.frame_38)
-        self.frame_40.setObjectName(u"frame_40")
-        self.frame_40.setGeometry(QRect(0, 0, 120, 80))
-        self.frame_40.setFrameShape(QFrame.StyledPanel)
-        self.frame_40.setFrameShadow(QFrame.Raised)
+        self.gridLayout_18.setHorizontalSpacing(3)
+        self.gridLayout_18.setVerticalSpacing(0)
+        self.gridLayout_18.setContentsMargins(0, 0, 0, 0)
+        self.completed_anal = QFrame(self.frame_19)
+        self.completed_anal.setObjectName(u"completed_anal")
+        self.completed_anal.setFrameShape(QFrame.StyledPanel)
+        self.completed_anal.setFrameShadow(QFrame.Raised)
 
-        self.gridLayout_18.addWidget(self.frame_38, 0, 0, 1, 1)
+        self.gridLayout_18.addWidget(self.completed_anal, 0, 0, 1, 1)
 
-        self.frame_37 = QFrame(self.frame_27)
-        self.frame_37.setObjectName(u"frame_37")
-        self.frame_37.setFrameShape(QFrame.StyledPanel)
-        self.frame_37.setFrameShadow(QFrame.Raised)
+        self.pass_due_anal = QFrame(self.frame_19)
+        self.pass_due_anal.setObjectName(u"pass_due_anal")
+        self.pass_due_anal.setFrameShape(QFrame.StyledPanel)
+        self.pass_due_anal.setFrameShadow(QFrame.Raised)
 
-        self.gridLayout_18.addWidget(self.frame_37, 0, 1, 2, 1)
-
-        self.frame_35 = QFrame(self.frame_27)
-        self.frame_35.setObjectName(u"frame_35")
-        self.frame_35.setFrameShape(QFrame.StyledPanel)
-        self.frame_35.setFrameShadow(QFrame.Raised)
-
-        self.gridLayout_18.addWidget(self.frame_35, 1, 0, 2, 1)
-
-        self.frame_36 = QFrame(self.frame_27)
-        self.frame_36.setObjectName(u"frame_36")
-        self.frame_36.setFrameShape(QFrame.StyledPanel)
-        self.frame_36.setFrameShadow(QFrame.Raised)
-
-        self.gridLayout_18.addWidget(self.frame_36, 2, 1, 1, 1)
+        self.gridLayout_18.addWidget(self.pass_due_anal, 0, 1, 1, 1)
 
 
-        self.verticalLayout_22.addWidget(self.frame_27)
+        self.verticalLayout_10.addWidget(self.frame_19)
+
+
+        self.verticalLayout_22.addWidget(self.all_time_anal)
 
 
         self.horizontalLayout_40.addWidget(self.left_content)
 
-        self.mid_content = QWidget(self.subcardFrame_3)
-        self.mid_content.setObjectName(u"mid_content")
-        self.mid_content.setMinimumSize(QSize(240, 0))
-        self.mid_content.setStyleSheet(u"#widget_2{\n"
-"border: 2px solid #1e1e1e;\n"
-"border-radius: 10px\n"
-"}")
-        self.verticalLayout_23 = QVBoxLayout(self.mid_content)
-        self.verticalLayout_23.setObjectName(u"verticalLayout_23")
-        self.verticalLayout_23.setContentsMargins(10, 10, 10, 10)
-        self.frame_31 = QFrame(self.mid_content)
-        self.frame_31.setObjectName(u"frame_31")
-        self.frame_31.setFrameShape(QFrame.StyledPanel)
-        self.frame_31.setFrameShadow(QFrame.Raised)
-
-        self.verticalLayout_23.addWidget(self.frame_31)
-
-        self.frame_29 = QFrame(self.mid_content)
-        self.frame_29.setObjectName(u"frame_29")
-        self.frame_29.setFrameShape(QFrame.StyledPanel)
-        self.frame_29.setFrameShadow(QFrame.Raised)
-
-        self.verticalLayout_23.addWidget(self.frame_29)
-
-        self.frame_30 = QFrame(self.mid_content)
-        self.frame_30.setObjectName(u"frame_30")
-        self.frame_30.setFrameShape(QFrame.StyledPanel)
-        self.frame_30.setFrameShadow(QFrame.Raised)
-
-        self.verticalLayout_23.addWidget(self.frame_30)
-
-
-        self.horizontalLayout_40.addWidget(self.mid_content)
-
         self.right_content = QWidget(self.subcardFrame_3)
         self.right_content.setObjectName(u"right_content")
-        self.right_content.setMinimumSize(QSize(240, 0))
-        self.right_content.setStyleSheet(u"#widget_3{\n"
+        self.right_content.setMinimumSize(QSize(200, 0))
+        self.right_content.setStyleSheet(u"#right_content_detail1 ,#right_content_detail2, #right_content_detail3{\n"
 "border: 2px solid #1e1e1e;\n"
 "border-radius: 10px\n"
+"}\n"
+"\n"
+"#right_content_header{\n"
+"/*border: 2px solid #1e1e1e;\n"
+"border-radius: 10px*/\n"
 "}")
-        self.verticalLayout_24 = QVBoxLayout(self.right_content)
-        self.verticalLayout_24.setObjectName(u"verticalLayout_24")
-        self.verticalLayout_24.setContentsMargins(10, 10, 10, 10)
-        self.frame_34 = QFrame(self.right_content)
-        self.frame_34.setObjectName(u"frame_34")
-        self.frame_34.setFrameShape(QFrame.StyledPanel)
-        self.frame_34.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_8 = QVBoxLayout(self.right_content)
+        self.verticalLayout_8.setSpacing(5)
+        self.verticalLayout_8.setObjectName(u"verticalLayout_8")
+        self.verticalLayout_8.setContentsMargins(0, 0, 0, 0)
+        self.right_content_header = QFrame(self.right_content)
+        self.right_content_header.setObjectName(u"right_content_header")
+        self.right_content_header.setMinimumSize(QSize(130, 0))
+        self.right_content_header.setMaximumSize(QSize(160, 30))
+        self.right_content_header.setFrameShape(QFrame.StyledPanel)
+        self.right_content_header.setFrameShadow(QFrame.Raised)
+        self.gridLayout_35 = QGridLayout(self.right_content_header)
+        self.gridLayout_35.setObjectName(u"gridLayout_35")
+        self.gridLayout_35.setHorizontalSpacing(0)
+        self.gridLayout_35.setContentsMargins(0, 0, 0, 0)
+        self.label_4 = QLabel(self.right_content_header)
+        self.label_4.setObjectName(u"label_4")
+        font4 = QFont()
+        font4.setFamilies([u".AppleSystemUIFont"])
+        font4.setPointSize(16)
+        font4.setBold(True)
+        font4.setUnderline(True)
+        self.label_4.setFont(font4)
 
-        self.verticalLayout_24.addWidget(self.frame_34)
+        self.gridLayout_35.addWidget(self.label_4, 0, 0, 1, 1, Qt.AlignVCenter)
 
-        self.frame_33 = QFrame(self.right_content)
-        self.frame_33.setObjectName(u"frame_33")
-        self.frame_33.setFrameShape(QFrame.StyledPanel)
-        self.frame_33.setFrameShadow(QFrame.Raised)
 
-        self.verticalLayout_24.addWidget(self.frame_33)
+        self.verticalLayout_8.addWidget(self.right_content_header, 0, Qt.AlignLeft)
 
-        self.frame_32 = QFrame(self.right_content)
-        self.frame_32.setObjectName(u"frame_32")
-        self.frame_32.setFrameShape(QFrame.StyledPanel)
-        self.frame_32.setFrameShadow(QFrame.Raised)
+        self.right_content_detail1 = QFrame(self.right_content)
+        self.right_content_detail1.setObjectName(u"right_content_detail1")
+        self.right_content_detail1.setEnabled(True)
+        self.right_content_detail1.setMinimumSize(QSize(0, 140))
+        self.right_content_detail1.setStyleSheet(u"")
+        self.right_content_detail1.setFrameShape(QFrame.StyledPanel)
+        self.right_content_detail1.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_7 = QVBoxLayout(self.right_content_detail1)
+        self.verticalLayout_7.setSpacing(0)
+        self.verticalLayout_7.setObjectName(u"verticalLayout_7")
+        self.verticalLayout_7.setContentsMargins(0, 0, 0, 0)
+        self.frame_35 = QFrame(self.right_content_detail1)
+        self.frame_35.setObjectName(u"frame_35")
+        self.frame_35.setMaximumSize(QSize(16777215, 50))
+        self.frame_35.setStyleSheet(u"item-align:center;")
+        self.frame_35.setFrameShape(QFrame.StyledPanel)
+        self.frame_35.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_13 = QVBoxLayout(self.frame_35)
+        self.verticalLayout_13.setSpacing(0)
+        self.verticalLayout_13.setObjectName(u"verticalLayout_13")
+        self.verticalLayout_13.setContentsMargins(0, 0, 0, 0)
+        self.label_2 = QLabel(self.frame_35)
+        self.label_2.setObjectName(u"label_2")
+        font5 = QFont()
+        font5.setPointSize(21)
+        font5.setBold(True)
+        self.label_2.setFont(font5)
 
-        self.verticalLayout_24.addWidget(self.frame_32)
+        self.verticalLayout_13.addWidget(self.label_2, 0, Qt.AlignHCenter)
+
+
+        self.verticalLayout_7.addWidget(self.frame_35)
+
+        self.frame_25 = QFrame(self.right_content_detail1)
+        self.frame_25.setObjectName(u"frame_25")
+        self.frame_25.setFrameShape(QFrame.StyledPanel)
+        self.frame_25.setFrameShadow(QFrame.Raised)
+        self.gridLayout_34 = QGridLayout(self.frame_25)
+        self.gridLayout_34.setSpacing(0)
+        self.gridLayout_34.setObjectName(u"gridLayout_34")
+        self.gridLayout_34.setContentsMargins(0, 0, 0, 0)
+        self.frame_26 = QFrame(self.frame_25)
+        self.frame_26.setObjectName(u"frame_26")
+        self.frame_26.setFrameShape(QFrame.StyledPanel)
+        self.frame_26.setFrameShadow(QFrame.Raised)
+
+        self.gridLayout_34.addWidget(self.frame_26, 0, 0, 1, 1)
+
+
+        self.verticalLayout_7.addWidget(self.frame_25)
+
+
+        self.verticalLayout_8.addWidget(self.right_content_detail1)
+
+        self.right_content_detail2 = QFrame(self.right_content)
+        self.right_content_detail2.setObjectName(u"right_content_detail2")
+        self.right_content_detail2.setMinimumSize(QSize(150, 140))
+        self.right_content_detail2.setFrameShape(QFrame.StyledPanel)
+        self.right_content_detail2.setFrameShadow(QFrame.Raised)
+        self.gridLayout_29 = QGridLayout(self.right_content_detail2)
+        self.gridLayout_29.setSpacing(0)
+        self.gridLayout_29.setObjectName(u"gridLayout_29")
+        self.gridLayout_29.setContentsMargins(0, 0, 0, 0)
+        self.frame_36 = QFrame(self.right_content_detail2)
+        self.frame_36.setObjectName(u"frame_36")
+        self.frame_36.setMaximumSize(QSize(16777215, 50))
+        self.frame_36.setStyleSheet(u"item-align:center;")
+        self.frame_36.setFrameShape(QFrame.StyledPanel)
+        self.frame_36.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_16 = QVBoxLayout(self.frame_36)
+        self.verticalLayout_16.setSpacing(0)
+        self.verticalLayout_16.setObjectName(u"verticalLayout_16")
+        self.verticalLayout_16.setContentsMargins(0, 0, 0, 0)
+        self.label_3 = QLabel(self.frame_36)
+        self.label_3.setObjectName(u"label_3")
+        self.label_3.setFont(font5)
+
+        self.verticalLayout_16.addWidget(self.label_3, 0, Qt.AlignHCenter)
+
+
+        self.gridLayout_29.addWidget(self.frame_36, 0, 0, 1, 1)
+
+        self.frame_27 = QFrame(self.right_content_detail2)
+        self.frame_27.setObjectName(u"frame_27")
+        self.frame_27.setFrameShape(QFrame.StyledPanel)
+        self.frame_27.setFrameShadow(QFrame.Raised)
+        self.gridLayout_42 = QGridLayout(self.frame_27)
+        self.gridLayout_42.setSpacing(0)
+        self.gridLayout_42.setObjectName(u"gridLayout_42")
+        self.gridLayout_42.setContentsMargins(0, 0, 0, 0)
+        self.frame_28 = QFrame(self.frame_27)
+        self.frame_28.setObjectName(u"frame_28")
+        self.frame_28.setFrameShape(QFrame.StyledPanel)
+        self.frame_28.setFrameShadow(QFrame.Raised)
+
+        self.gridLayout_42.addWidget(self.frame_28, 0, 0, 1, 1)
+
+
+        self.gridLayout_29.addWidget(self.frame_27, 1, 0, 1, 1)
+
+
+        self.verticalLayout_8.addWidget(self.right_content_detail2)
 
 
         self.horizontalLayout_40.addWidget(self.right_content)
@@ -1423,10 +2006,10 @@ class Ui_MainWindow(object):
         self.toDoHeader.setGeometry(QRect(0, 0, 57, 29))
         self.toDoHeader.setMinimumSize(QSize(0, 0))
         self.toDoHeader.setMaximumSize(QSize(16777215, 16777215))
-        font2 = QFont()
-        font2.setPointSize(24)
-        font2.setBold(True)
-        self.toDoHeader.setFont(font2)
+        font6 = QFont()
+        font6.setPointSize(24)
+        font6.setBold(True)
+        self.toDoHeader.setFont(font6)
 
         self.verticalLayout_9.addWidget(self.frame_7)
 
@@ -1435,9 +2018,9 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.frame_14.sizePolicy().hasHeightForWidth())
         self.frame_14.setSizePolicy(sizePolicy)
         self.frame_14.setMinimumSize(QSize(110, 0))
-        font3 = QFont()
-        font3.setPointSize(15)
-        self.frame_14.setFont(font3)
+        font7 = QFont()
+        font7.setPointSize(15)
+        self.frame_14.setFont(font7)
         self.frame_14.setToolTipDuration(0)
         self.frame_14.setFrameShape(QFrame.StyledPanel)
         self.frame_14.setFrameShadow(QFrame.Raised)
@@ -1446,10 +2029,10 @@ class Ui_MainWindow(object):
         self.gridLayout_10.setContentsMargins(0, 0, 5, 0)
         self.homeButton = QPushButton(self.frame_14)
         self.homeButton.setObjectName(u"homeButton")
-        font4 = QFont()
-        font4.setPointSize(15)
-        font4.setBold(True)
-        self.homeButton.setFont(font4)
+        font8 = QFont()
+        font8.setPointSize(15)
+        font8.setBold(True)
+        self.homeButton.setFont(font8)
         icon2 = QIcon()
         icon2.addFile(u":/icons_v2/home.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.homeButton.setIcon(icon2)
@@ -1461,7 +2044,7 @@ class Ui_MainWindow(object):
 
         self.analysisButton = QPushButton(self.frame_14)
         self.analysisButton.setObjectName(u"analysisButton")
-        self.analysisButton.setFont(font4)
+        self.analysisButton.setFont(font8)
         self.analysisButton.setStyleSheet(u"")
         icon3 = QIcon()
         icon3.addFile(u":/icons_v2/pie-chart.svg", QSize(), QIcon.Normal, QIcon.Off)
@@ -1475,7 +2058,7 @@ class Ui_MainWindow(object):
         self.calendarButton = QPushButton(self.frame_14)
         self.calendarButton.setObjectName(u"calendarButton")
         self.calendarButton.setMinimumSize(QSize(0, 0))
-        self.calendarButton.setFont(font4)
+        self.calendarButton.setFont(font8)
         self.calendarButton.setStyleSheet(u"")
         icon4 = QIcon()
         icon4.addFile(u":/icons/assets/icons/calendar.svg", QSize(), QIcon.Normal, QIcon.Off)
@@ -1488,7 +2071,7 @@ class Ui_MainWindow(object):
 
         self.historyButton = QPushButton(self.frame_14)
         self.historyButton.setObjectName(u"historyButton")
-        self.historyButton.setFont(font4)
+        self.historyButton.setFont(font8)
         icon5 = QIcon()
         icon5.addFile(u":/icons_v2/history-svgrepo-com.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.historyButton.setIcon(icon5)
@@ -1500,12 +2083,12 @@ class Ui_MainWindow(object):
 
         self.taskButton = QPushButton(self.frame_14)
         self.taskButton.setObjectName(u"taskButton")
-        sizePolicy3 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed)
-        sizePolicy3.setHorizontalStretch(0)
-        sizePolicy3.setVerticalStretch(0)
-        sizePolicy3.setHeightForWidth(self.taskButton.sizePolicy().hasHeightForWidth())
-        self.taskButton.setSizePolicy(sizePolicy3)
-        self.taskButton.setFont(font4)
+        sizePolicy4 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed)
+        sizePolicy4.setHorizontalStretch(0)
+        sizePolicy4.setVerticalStretch(0)
+        sizePolicy4.setHeightForWidth(self.taskButton.sizePolicy().hasHeightForWidth())
+        self.taskButton.setSizePolicy(sizePolicy4)
+        self.taskButton.setFont(font8)
         icon6 = QIcon()
         icon6.addFile(u":/icons_v2/clipboard.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.taskButton.setIcon(icon6)
@@ -1517,7 +2100,7 @@ class Ui_MainWindow(object):
 
         self.logoutButton = QPushButton(self.frame_14)
         self.logoutButton.setObjectName(u"logoutButton")
-        self.logoutButton.setFont(font4)
+        self.logoutButton.setFont(font8)
         icon7 = QIcon()
         icon7.addFile(u":/icons_v2/log-out.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.logoutButton.setIcon(icon7)
@@ -1583,7 +2166,7 @@ class Ui_MainWindow(object):
         self.gridLayout_27.setContentsMargins(0, 0, 0, 0)
         self.homeMiniButton = QPushButton(self.frame_16)
         self.homeMiniButton.setObjectName(u"homeMiniButton")
-        self.homeMiniButton.setFont(font3)
+        self.homeMiniButton.setFont(font7)
         self.homeMiniButton.setIcon(icon2)
         self.homeMiniButton.setIconSize(QSize(24, 24))
         self.homeMiniButton.setCheckable(True)
@@ -1591,45 +2174,45 @@ class Ui_MainWindow(object):
 
         self.gridLayout_27.addWidget(self.homeMiniButton, 0, 0, 1, 1)
 
-        self.analysisMiniButton = QPushButton(self.frame_16)
-        self.analysisMiniButton.setObjectName(u"analysisMiniButton")
-        self.analysisMiniButton.setFont(font3)
-        self.analysisMiniButton.setIcon(icon3)
-        self.analysisMiniButton.setIconSize(QSize(24, 24))
-        self.analysisMiniButton.setCheckable(True)
-        self.analysisMiniButton.setAutoExclusive(True)
-
-        self.gridLayout_27.addWidget(self.analysisMiniButton, 1, 0, 1, 1)
-
-        self.calendarMiniButton = QPushButton(self.frame_16)
-        self.calendarMiniButton.setObjectName(u"calendarMiniButton")
-        self.calendarMiniButton.setFont(font3)
-        self.calendarMiniButton.setIcon(icon4)
-        self.calendarMiniButton.setIconSize(QSize(24, 24))
-        self.calendarMiniButton.setCheckable(True)
-        self.calendarMiniButton.setAutoExclusive(True)
-
-        self.gridLayout_27.addWidget(self.calendarMiniButton, 2, 0, 1, 1)
-
         self.historyMiniButton = QPushButton(self.frame_16)
         self.historyMiniButton.setObjectName(u"historyMiniButton")
-        self.historyMiniButton.setFont(font3)
-        self.historyMiniButton.setIcon(icon5)
+        self.historyMiniButton.setFont(font7)
+        self.historyMiniButton.setIcon(icon3)
         self.historyMiniButton.setIconSize(QSize(24, 24))
         self.historyMiniButton.setCheckable(True)
         self.historyMiniButton.setAutoExclusive(True)
 
-        self.gridLayout_27.addWidget(self.historyMiniButton, 3, 0, 1, 1)
+        self.gridLayout_27.addWidget(self.historyMiniButton, 1, 0, 1, 1)
 
         self.taskMiniButton = QPushButton(self.frame_16)
         self.taskMiniButton.setObjectName(u"taskMiniButton")
-        self.taskMiniButton.setFont(font3)
-        self.taskMiniButton.setIcon(icon6)
+        self.taskMiniButton.setFont(font7)
+        self.taskMiniButton.setIcon(icon4)
         self.taskMiniButton.setIconSize(QSize(24, 24))
         self.taskMiniButton.setCheckable(True)
         self.taskMiniButton.setAutoExclusive(True)
 
-        self.gridLayout_27.addWidget(self.taskMiniButton, 4, 0, 1, 1)
+        self.gridLayout_27.addWidget(self.taskMiniButton, 2, 0, 1, 1)
+
+        self.calendarMiniButton = QPushButton(self.frame_16)
+        self.calendarMiniButton.setObjectName(u"calendarMiniButton")
+        self.calendarMiniButton.setFont(font7)
+        self.calendarMiniButton.setIcon(icon5)
+        self.calendarMiniButton.setIconSize(QSize(24, 24))
+        self.calendarMiniButton.setCheckable(True)
+        self.calendarMiniButton.setAutoExclusive(True)
+
+        self.gridLayout_27.addWidget(self.calendarMiniButton, 3, 0, 1, 1)
+
+        self.analysisMiniButton = QPushButton(self.frame_16)
+        self.analysisMiniButton.setObjectName(u"analysisMiniButton")
+        self.analysisMiniButton.setFont(font7)
+        self.analysisMiniButton.setIcon(icon6)
+        self.analysisMiniButton.setIconSize(QSize(24, 24))
+        self.analysisMiniButton.setCheckable(True)
+        self.analysisMiniButton.setAutoExclusive(True)
+
+        self.gridLayout_27.addWidget(self.analysisMiniButton, 4, 0, 1, 1)
 
         self.logoutMiniButton = QPushButton(self.frame_16)
         self.logoutMiniButton.setObjectName(u"logoutMiniButton")
@@ -1684,7 +2267,7 @@ class Ui_MainWindow(object):
         self.toDoHeader_2.setEnabled(True)
         self.toDoHeader_2.setMinimumSize(QSize(0, 0))
         self.toDoHeader_2.setMaximumSize(QSize(16777215, 16777215))
-        self.toDoHeader_2.setFont(font2)
+        self.toDoHeader_2.setFont(font6)
 
         self.gridLayout_22.addWidget(self.toDoHeader_2, 0, 0, 1, 1)
 
@@ -1700,7 +2283,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 1069, 22))
+        self.menubar.setGeometry(QRect(0, 0, 1012, 37))
         MainWindow.setMenuBar(self.menubar)
         self.statusBar = QStatusBar(MainWindow)
         self.statusBar.setObjectName(u"statusBar")
@@ -1715,22 +2298,22 @@ class Ui_MainWindow(object):
         self.menuButton_5.toggled.connect(self.frame_10.setHidden)
         self.menuButton_6.toggled.connect(self.frame_5.setVisible)
         self.menuButton_6.toggled.connect(self.frame_10.setHidden)
-        self.analysisMiniButton.toggled.connect(self.analysisButton.setChecked)
-        self.calendarButton.toggled.connect(self.calendarMiniButton.setChecked)
-        self.taskMiniButton.toggled.connect(self.taskButton.setChecked)
-        self.taskButton.toggled.connect(self.taskMiniButton.setChecked)
+        self.historyMiniButton.toggled.connect(self.analysisButton.setChecked)
+        self.calendarButton.toggled.connect(self.taskMiniButton.setChecked)
+        self.analysisMiniButton.toggled.connect(self.taskButton.setChecked)
+        self.taskButton.toggled.connect(self.analysisMiniButton.setChecked)
         self.homeMiniButton.toggled.connect(self.homeButton.setChecked)
-        self.calendarMiniButton.toggled.connect(self.calendarButton.setChecked)
-        self.analysisButton.toggled.connect(self.analysisMiniButton.setChecked)
-        self.historyMiniButton.toggled.connect(self.historyButton.setChecked)
-        self.historyButton.toggled.connect(self.historyMiniButton.setChecked)
+        self.taskMiniButton.toggled.connect(self.calendarButton.setChecked)
+        self.analysisButton.toggled.connect(self.historyMiniButton.setChecked)
+        self.calendarMiniButton.toggled.connect(self.historyButton.setChecked)
+        self.historyButton.toggled.connect(self.calendarMiniButton.setChecked)
         self.homeButton.toggled.connect(self.homeMiniButton.setChecked)
         self.menuButton_8.toggled.connect(self.frame_5.setVisible)
         self.menuButton_8.toggled.connect(self.frame_10.setHidden)
         self.logoutMiniButton.toggled.connect(self.logoutButton.setChecked)
         self.logoutButton.toggled.connect(self.logoutMiniButton.setChecked)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(4)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1760,9 +2343,6 @@ class Ui_MainWindow(object):
         self.urgentButton.setText(QCoreApplication.translate("MainWindow", u"View more", None))
         self.completedHeader.setText(QCoreApplication.translate("MainWindow", u"Completed Task", None))
         self.completedButton.setText(QCoreApplication.translate("MainWindow", u"View more", None))
-        self.delete_Button_2.setText(QCoreApplication.translate("MainWindow", u"Delete", None))
-        self.edit_Button_2.setText(QCoreApplication.translate("MainWindow", u"Edit", None))
-        self.create_Button_2.setText(QCoreApplication.translate("MainWindow", u"Create", None))
         self.menuButton_8.setText("")
         self.homeHeader_8.setText(QCoreApplication.translate("MainWindow", u"Calendar", None))
         self.menuButton_6.setText("")
@@ -1774,7 +2354,12 @@ class Ui_MainWindow(object):
         self.homeHeader_5.setText(QCoreApplication.translate("MainWindow", u"View Task", None))
         self.menuButton_3.setText("")
         self.homeHeader_3.setText(QCoreApplication.translate("MainWindow", u"Analysis", None))
+        self.label_5.setText(QCoreApplication.translate("MainWindow", u"Remaining Task", None))
+        self.label_6.setText(QCoreApplication.translate("MainWindow", u"varaible", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"All time analyze", None))
+        self.label_4.setText(QCoreApplication.translate("MainWindow", u"All time analyze", None))
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u"Completed %", None))
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"Completed %", None))
         self.toDoHeader.setText(QCoreApplication.translate("MainWindow", u"ToDo", None))
         self.homeButton.setText(QCoreApplication.translate("MainWindow", u"Home", None))
         self.analysisButton.setText(QCoreApplication.translate("MainWindow", u"Analysis", None))
@@ -1783,10 +2368,10 @@ class Ui_MainWindow(object):
         self.taskButton.setText(QCoreApplication.translate("MainWindow", u"Task", None))
         self.logoutButton.setText(QCoreApplication.translate("MainWindow", u"Logout", None))
         self.homeMiniButton.setText("")
-        self.analysisMiniButton.setText("")
-        self.calendarMiniButton.setText("")
         self.historyMiniButton.setText("")
         self.taskMiniButton.setText("")
+        self.calendarMiniButton.setText("")
+        self.analysisMiniButton.setText("")
         self.logoutMiniButton.setText("")
         self.toDoHeader_2.setText(QCoreApplication.translate("MainWindow", u"ToDo", None))
     # retranslateUi
