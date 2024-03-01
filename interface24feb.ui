@@ -1083,8 +1083,8 @@ QScrollBar::sub-line:vertical {
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>245</width>
-                            <height>271</height>
+                            <width>214</width>
+                            <height>34</height>
                            </rect>
                           </property>
                           <layout class="QGridLayout" name="gridLayout_5">
@@ -1293,8 +1293,8 @@ QScrollBar::sub-line:vertical {
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>245</width>
-                            <height>270</height>
+                            <width>214</width>
+                            <height>34</height>
                            </rect>
                           </property>
                           <layout class="QGridLayout" name="gridLayout_4">
@@ -1507,8 +1507,8 @@ QScrollBar::sub-line:vertical {
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>245</width>
-                            <height>270</height>
+                            <width>214</width>
+                            <height>34</height>
                            </rect>
                           </property>
                           <layout class="QVBoxLayout" name="verticalLayout_15">
@@ -1735,8 +1735,8 @@ background-color: transparent;
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>845</width>
-                      <height>422</height>
+                      <width>312</width>
+                      <height>176</height>
                      </rect>
                     </property>
                     <layout class="QGridLayout" name="gridLayout_36">
@@ -2371,8 +2371,8 @@ QScrollBar::sub-line:vertical {
                         <rect>
                          <x>0</x>
                          <y>0</y>
-                         <width>831</width>
-                         <height>432</height>
+                         <width>98</width>
+                         <height>28</height>
                         </rect>
                        </property>
                        <layout class="QGridLayout" name="gridLayout_25"/>
@@ -2558,8 +2558,8 @@ QScrollBar::sub-line:vertical {
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>831</width>
-                      <height>391</height>
+                      <width>86</width>
+                      <height>34</height>
                      </rect>
                     </property>
                     <layout class="QGridLayout" name="gridLayout_28">
@@ -2996,7 +2996,7 @@ border-radius: 10px
                           <property name="bottomMargin">
                            <number>0</number>
                           </property>
-                          <item alignment="Qt::AlignHCenter">
+                          <item>
                            <widget class="QFrame" name="frame_30">
                             <property name="minimumSize">
                              <size>
@@ -3247,7 +3247,7 @@ border-radius: 10px
                                    </font>
                                   </property>
                                   <property name="text">
-                                   <string>TextLabel</string>
+                                   <string>Normal Task</string>
                                   </property>
                                  </widget>
                                 </item>
@@ -3287,7 +3287,7 @@ border-radius: 10px
                                    </font>
                                   </property>
                                   <property name="text">
-                                   <string>TextLabel</string>
+                                   <string>Urgent Task</string>
                                   </property>
                                  </widget>
                                 </item>
@@ -3322,7 +3322,7 @@ border-radius: 10px
                               <number>1</number>
                              </property>
                              <item>
-                              <widget class="QFrame" name="pass_due_anal">
+                              <widget class="QFrame" name="urgent_task_anal">
                                <property name="frameShape">
                                 <enum>QFrame::StyledPanel</enum>
                                </property>
@@ -3332,7 +3332,7 @@ border-radius: 10px
                               </widget>
                              </item>
                              <item>
-                              <widget class="QFrame" name="completed_anal">
+                              <widget class="QFrame" name="normal_task_anal">
                                <property name="frameShape">
                                 <enum>QFrame::StyledPanel</enum>
                                </property>
@@ -3385,60 +3385,6 @@ border-radius: 10px*/
                        <property name="bottomMargin">
                         <number>0</number>
                        </property>
-                       <item alignment="Qt::AlignLeft">
-                        <widget class="QFrame" name="right_content_header">
-                         <property name="minimumSize">
-                          <size>
-                           <width>130</width>
-                           <height>0</height>
-                          </size>
-                         </property>
-                         <property name="maximumSize">
-                          <size>
-                           <width>160</width>
-                           <height>30</height>
-                          </size>
-                         </property>
-                         <property name="frameShape">
-                          <enum>QFrame::StyledPanel</enum>
-                         </property>
-                         <property name="frameShadow">
-                          <enum>QFrame::Raised</enum>
-                         </property>
-                         <layout class="QGridLayout" name="gridLayout_35">
-                          <property name="leftMargin">
-                           <number>0</number>
-                          </property>
-                          <property name="topMargin">
-                           <number>0</number>
-                          </property>
-                          <property name="rightMargin">
-                           <number>0</number>
-                          </property>
-                          <property name="bottomMargin">
-                           <number>0</number>
-                          </property>
-                          <property name="horizontalSpacing">
-                           <number>0</number>
-                          </property>
-                          <item row="0" column="0" alignment="Qt::AlignVCenter">
-                           <widget class="QLabel" name="label_4">
-                            <property name="font">
-                             <font>
-                              <family>.AppleSystemUIFont</family>
-                              <pointsize>16</pointsize>
-                              <bold>true</bold>
-                              <underline>true</underline>
-                             </font>
-                            </property>
-                            <property name="text">
-                             <string>All time analyze</string>
-                            </property>
-                           </widget>
-                          </item>
-                         </layout>
-                        </widget>
-                       </item>
                        <item>
                         <widget class="QFrame" name="right_content_detail1">
                          <property name="enabled">

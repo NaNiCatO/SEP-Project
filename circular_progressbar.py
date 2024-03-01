@@ -24,13 +24,13 @@ class MyMainWindow(QMainWindow):
         self.container2.addWidget(circular_progress_widget_2)
 
 
-        circular_progress_widget_3 = CircularProgressBarExample(progress_target=52)
-        self.container3 = QVBoxLayout(self.ui.completed_anal)
+        circular_progress_widget_3 = CircularProgressBarExample(progress_target=45)
+        self.container3 = QVBoxLayout(self.ui.normal_task_anal)
         self.container3.addWidget(circular_progress_widget_3)
 
 
-        circular_progress_widget_4 = CircularProgressBarExample(progress_target=52)
-        self.container4 = QVBoxLayout(self.ui.pass_due_anal)
+        circular_progress_widget_4 = CircularProgressBarExample(progress_target=1)
+        self.container4 = QVBoxLayout(self.ui.urgent_task_anal)
         self.container4.addWidget(circular_progress_widget_4)
 
 
