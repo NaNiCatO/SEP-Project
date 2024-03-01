@@ -6,12 +6,9 @@ from main_home_page import Home_page
 from main_task_page import Task_page
 from new_window_task import New_MainWindow_task
 import sys
-
-from database_init import init_database
-
-connection = init_database()
-root = connection.root()
-user = root.user['Arm']
+from Login_Register import *
+import ZODB , ZODB.FileStorage
+import transaction
 
 ############################################################################################################
 
@@ -45,9 +42,12 @@ user = root.user['Arm']
 ############################################################################################################
 
 
+
 class Sidebar(QMainWindow, Ui_MainWindow):
-    def __init__(self, user):
+    def __init__(self, user,connection):
         super().__init__()
+        self.connection = connection
+        self.root = self.connection.root()
         self.setupUi(self) 
         self.user = user
         self.categorized_task = class_module.Task_handlers(self.user.get_user_tasks())
@@ -56,7 +56,7 @@ class Sidebar(QMainWindow, Ui_MainWindow):
         self.stackedWidget.setCurrentIndex(0)
 
         self.setup_home_page()
-        self.task_page = Task_page(self, self.categorized_task.Tasks)
+        self.task_page = Task_page(self,self.connection, self.categorized_task.Tasks)
 
         self.arr_update = [self.home_page, self.task_page]
 
@@ -123,6 +123,6 @@ class Sidebar(QMainWindow, Ui_MainWindow):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    window = Sidebar(user) 
+    window = Sidebar() 
     window.show()
     sys.exit(app.exec())

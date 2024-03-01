@@ -28,11 +28,7 @@ from new_window_create import New_MainWindow_create, New_MainWindow_edit
 
 # user.add_task(multi_task1)
 
-from database_init import init_database
-
-connection = init_database()
-root = connection.root()
-user = root.user['Arm']
+user = class_module.User("Arm", "123", "123")
 
 type_task = class_module.Task_handlers(user.get_user_tasks())
 type_task.update_tasks()

@@ -8,12 +8,7 @@ import class_module
 from main_stack import Ui_MainWindow
 from new_window_task import New_MainWindow_task
 
-from database_init import init_database
-
-connection = init_database()
-root = connection.root()
-user = root.user['Arm']
-
+user = class_module.User("Arm","123","1")
 type_task = class_module.Task_handlers(user.get_user_tasks())
 type_task.update_tasks()
 

@@ -35,8 +35,8 @@ class Ui_Form(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.widget.sizePolicy().hasHeightForWidth())
         self.widget.setSizePolicy(sizePolicy)
-        self.widget.setMinimumSize(QSize(0, 0))
-        self.widget.setMaximumSize(QSize(16777215, 16777215))
+        self.widget.setMinimumSize(QSize(780, 500))
+        self.widget.setMaximumSize(QSize(1500, 1500))
         self.widget.setStyleSheet(u"#widget{\n"
 "background-color: #ffffff;\n"
 "border-radius: 25px 25px 25px 25px;\n"
@@ -222,3 +222,11 @@ class Ui_Form(object):
         self.label.setText("")
     # retranslateUi
 
+if __name__ == "__main__":
+    import sys
+    app = QApplication(sys.argv)
+    Form = QWidget()
+    ui = Ui_Form()
+    ui.setupUi(Form)
+    Form.show()
+    sys.exit(app.exec_())

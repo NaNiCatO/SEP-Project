@@ -36,7 +36,7 @@ class Ui_Form(object):
         sizePolicy.setHeightForWidth(self.widget.sizePolicy().hasHeightForWidth())
         self.widget.setSizePolicy(sizePolicy)
         self.widget.setMinimumSize(QSize(780, 500))
-        self.widget.setMaximumSize(QSize(16777215, 16777215))
+        self.widget.setMaximumSize(QSize(1500, 1500))
         self.widget.setStyleSheet(u"#widget{\n"
 "background-color: #ffffff;\n"
 "border-radius: 25px 25px 25px 25px;\n"

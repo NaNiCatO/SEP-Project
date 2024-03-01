@@ -4,6 +4,8 @@ from PySide6.QtCore import *
 from class_module import MultiTask
 from new_window_create import New_MainWindow_create, New_MainWindow_edit
 from new_window_task import New_MainWindow_task
+import ZODB, ZODB.FileStorage
+import transaction
 
 class ClickableTaskFrame(QFrame):
     clicked = Signal(object)
@@ -22,7 +24,9 @@ class ClickableTaskFrame(QFrame):
 
 
 class Task_page():
-    def __init__(self, ui, tasks=None):
+    def __init__(self, ui,connection, tasks=None):
+        self.connection = connection
+        self.root = self.connection.root()
         self.mode = "View Task"
         self.ui = ui
         self.tasks = tasks
@@ -64,7 +68,7 @@ class Task_page():
 
 
     def add_task(self):
-        self.new_window = New_MainWindow_create(self.ui)
+        self.new_window = New_MainWindow_create(self.ui,self.connection)
         self.new_window.show()
 
     def delete_task(self):

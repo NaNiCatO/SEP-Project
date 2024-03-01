@@ -6,37 +6,39 @@ from PySide6.QtWidgets import *
 from PySide6.QtCore import *
 from PySide6.QtGui import *
 from class_module import *
+from main import *
 
 # ******************************  Connect to database  ********************************
-from database_init import init_database
-
-connection = init_database()
-root = connection.root()
-
+import ZODB, ZODB.FileStorage
+import transaction
 
 class LoginWindow(QWidget):
-    def __init__(self):
+    def __init__(self,connection):
         super().__init__()
+        self.connection = connection
+        self.root = self.connection.root()
         self.ui = login.Ui_Form()
         self.ui.setupUi(self)
         self.ui.loginButton.clicked.connect(self.login)
 
     def login(self):
-        user_data = root.user
+        user_data = self.root.user
         for user in user_data:
             if user == self.ui.userInput.text():
                 if user_data[user].login(self.ui.passwordInput.text()):
-                    print("Login successful")
+                    print("Login success")
+                    self.username = user
+                    self.sidebar = Sidebar(user_data[user],self.connection)
+                    self.sidebar.show()
                     self.close()
-                else:
-                    print("Login failed")
-            else:
-                print("Username does not exist")
+        return None
 
 class RegisterWindow(QWidget):
-    def __init__(self):
+    def __init__(self,connection):
         super().__init__()
         self.ui = register.Ui_Form()
+        self.connection = connection
+        self.root = self.connection.root()
         self.ui.setupUi(self)
         # self.ui.CreateAccountButton.clicked.connect(self.create_account)
 
@@ -45,7 +47,7 @@ class RegisterWindow(QWidget):
         if self.check_input():
             print("Account created")
             user = User(self.ui.userInput.text(), self.ui.passwordInput.text(), self.ui.emailInput.text())
-            root.user[self.ui.userInput.text()] = user
+            self.root.user[self.ui.userInput.text()] = user
             transaction.commit()
             return True         
         return False
@@ -61,7 +63,7 @@ class RegisterWindow(QWidget):
             return self.check_duplicate()
     
     def check_duplicate(self):
-        user_data = root.user
+        user_data = self.root.user
         for user in user_data:
             if user == self.ui.userInput.text():
                 print("Username already exists")
@@ -71,17 +73,24 @@ class RegisterWindow(QWidget):
                 return False
         return True
 
-class MainWindow(QMainWindow):
+
+    
+
+class SignInWindow(QMainWindow):
     def __init__(self):
         super().__init__()
+        self.mystorage = ZODB.FileStorage.FileStorage('mydata.fs')
+        self.db = ZODB.DB(self.mystorage)
+        self.connection = self.db.open()
+        self.root = self.connection.root()
 
         self.central_widget = QWidget(self)
         self.setCentralWidget(self.central_widget)
 
         self.layout = QVBoxLayout(self.central_widget)
 
-        self.login_window = LoginWindow()
-        self.register_window = RegisterWindow()
+        self.login_window = LoginWindow(self.connection)
+        self.register_window = RegisterWindow(self.connection)
 
         self.layout.addWidget(self.login_window)
         self.layout.addWidget(self.register_window)
@@ -105,14 +114,12 @@ class MainWindow(QMainWindow):
         self.register_window.show()
     
     def closeEvent(self, event):
+        self.root.user[self.login_window.username]._p_changed = True
+        print("Closing")
         transaction.commit()
-        connection.close()
-        db.close()
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    window = MainWindow()
+    window = SignInWindow()
     window.show()
     sys.exit(app.exec())
-
-    
