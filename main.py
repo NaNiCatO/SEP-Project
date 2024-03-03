@@ -44,7 +44,7 @@ import transaction
 
 
 class Sidebar(QMainWindow, Ui_MainWindow):
-    def __init__(self, user,connection):
+    def __init__(self, user, connection):
         super().__init__()
         self.connection = connection
         self.root = self.connection.root()

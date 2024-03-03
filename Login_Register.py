@@ -6,7 +6,7 @@ from PySide6.QtWidgets import *
 from PySide6.QtCore import *
 from PySide6.QtGui import *
 from class_module import *
-from main import *
+from main import Sidebar
 
 # ******************************  Connect to database  ********************************
 import ZODB, ZODB.FileStorage
