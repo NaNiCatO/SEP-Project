@@ -123,6 +123,9 @@ class Task_handlers :
     def get_completed_tasks(self) :
         return self.Completed_tasks
     
+    def get_late_tasks(self) :
+        return self.Late_tasks
+    
     def update_tasks(self) :
         self.Today_tasks = []
         self.Urgent_tasks = []
