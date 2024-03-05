@@ -59,6 +59,7 @@
     <file>assets/icons/chrome.svg</file>
   </qresource>
   <qresource prefix="icons_v2">
+    <file>late.png</file>
     <file>last-24-hours-svgrepo-com.svg</file>
     <file>urgent-svgrepo-com.svg</file>
     <file>history-svgrepo-com.svg</file>

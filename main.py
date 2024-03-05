@@ -1,6 +1,6 @@
 from PySide6.QtWidgets import *
 from PySide6.QtCore import *
-from main_stack import Ui_MainWindow
+from ui_py.main_stack import Ui_MainWindow
 import class_module
 from main_home_page import Home_page
 from main_task_page import Task_page
@@ -9,15 +9,15 @@ import sys
 
 ############################################################################################################
 
-task1 = class_module.Task("Math", "Do exercise 1-5", "2024-2-26", "20:00")
-task2 = class_module.Task("Physics", "Do exercise 1-5", "2024-2-26", "20:00", True)
-task3 = class_module.Task("Chemistry", "Do exercise 1-5", "2024-2-27", "20:00")
-task4 = class_module.Task("English", "Do exercise 1-5", "2024-2-27", "20:00", True)
-task5 = class_module.Task("History", "Do exercise 1-5", "2024-2-28", "20:00")
-task6 = class_module.Task("Biology", "Do exercise 1-5", "2024-2-28", "20:00", True)
+task1 = class_module.Task("Math", "Do exercise 1-5", "2024-3-5", "20:00")
+task2 = class_module.Task("Physics", "Do exercise 1-5", "2024-3-5", "20:00", True)
+task3 = class_module.Task("Chemistry", "Do exercise 1-5", "2024-3-6", "20:00")
+task4 = class_module.Task("English", "Do exercise 1-5", "2024-3-6", "20:00", True)
+task5 = class_module.Task("History", "Do exercise 1-5", "2024-3-7", "20:00")
+task6 = class_module.Task("Biology", "Do exercise 1-5", "2024-3-7", "20:00", True)
 
 # MultiTask(name_topic, detail, due_date)
-multi_task1 = class_module.MultiTask("Study", "Do exercise", "2024-2-26", "20:00")
+multi_task1 = class_module.MultiTask("Study", "Do exercise", "2024-2-5", "20:00")
 multi_task1.add_task(task1)
 multi_task1.add_task(task2)
 multi_task1.add_task(task3)
@@ -48,7 +48,7 @@ class Sidebar(QMainWindow, Ui_MainWindow):
         self.stackedWidget.setCurrentIndex(0)
 
         self.setup_home_page()
-        self.task_page = Task_page(self, self.categorized_task.Tasks)
+        self.task_page = Task_page(self, self.categorized_task)
 
         self.arr_update = [self.home_page, self.task_page]
 
