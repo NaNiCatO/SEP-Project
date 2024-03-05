@@ -553,7 +553,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 260, 381))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 226, 28))
         self.gridLayout_5 = QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout_5.setObjectName(u"gridLayout_5")
         self.todayMainTask = QFrame(self.scrollAreaWidgetContents)
@@ -678,7 +678,7 @@ class Ui_MainWindow(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollAreaWidgetContents_3 = QWidget()
         self.scrollAreaWidgetContents_3.setObjectName(u"scrollAreaWidgetContents_3")
-        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 260, 376))
+        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 226, 28))
         self.gridLayout_4 = QGridLayout(self.scrollAreaWidgetContents_3)
         self.gridLayout_4.setObjectName(u"gridLayout_4")
         self.urgentMainTask = QFrame(self.scrollAreaWidgetContents_3)
@@ -807,7 +807,7 @@ class Ui_MainWindow(object):
         self.scrollArea_3.setWidgetResizable(True)
         self.scrollAreaWidgetContents_4 = QWidget()
         self.scrollAreaWidgetContents_4.setObjectName(u"scrollAreaWidgetContents_4")
-        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 260, 376))
+        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 226, 28))
         self.verticalLayout_15 = QVBoxLayout(self.scrollAreaWidgetContents_4)
         self.verticalLayout_15.setObjectName(u"verticalLayout_15")
         self.completedMainTask = QFrame(self.scrollAreaWidgetContents_4)
@@ -999,12 +999,13 @@ class Ui_MainWindow(object):
 "\n"
 "#qt_calendar_prevmonth{\n"
 "marigin-right: 5px;\n"
-"	image: url(:/icons/icons_black/arrow-right.svg);\n"
+"	image: url(:/icons/assets/icons/arrow-left.svg);\n"
 "}\n"
 "\n"
 "#qt_calendar_nextmonth{\n"
 "marigin-right: 5px;\n"
-"	image: url(:/icons/icons_black/arrow-right.svg);\n"
+"	\n"
+"	image: url(:/icons/assets/icons/arrow-right.svg);\n"
 "}\n"
 "\n"
 "#qt_calendar_nextmonth:hover,#qt_calendar_prevmonth:hover{\n"
@@ -1016,8 +1017,8 @@ class Ui_MainWindow(object):
 "background-color: #fcd5ce;\n"
 "}\n"
 "\n"
-"#qt_calendar_year"
-                        "button{\n"
+"#qt_calend"
+                        "ar_yearbutton{\n"
 "color: #000;\n"
 "margin: 5px;\n"
 "border-radius: 5px;\n"
@@ -1062,8 +1063,8 @@ class Ui_MainWindow(object):
 "\n"
 "#qt_calendar_yearedit::down-button,#qt_calendar_yearedit::up-button{\n"
 "width:10px;\n"
-"padding: 0px"
-                        " 5px;\n"
+"paddi"
+                        "ng: 0px 5px;\n"
 "border-radius: 3px;\n"
 "}\n"
 "\n"
@@ -1116,6 +1117,7 @@ class Ui_MainWindow(object):
 "\n"
 "\n"
 "")
+        self.calendarWidget.setLocale(QLocale(QLocale.English, QLocale.UnitedStates))
 
         self.gridLayout_37.addWidget(self.calendarWidget, 0, 0, 1, 1)
 
@@ -2474,7 +2476,7 @@ class Ui_MainWindow(object):
         self.logoutMiniButton.toggled.connect(self.settingButton.setChecked)
         self.settingButton.toggled.connect(self.logoutMiniButton.setChecked)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(1)
         self.stackedWidget_2.setCurrentIndex(0)
 
 
