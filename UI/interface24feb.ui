@@ -179,7 +179,7 @@ background-color: #F5FAFE;
           </sizepolicy>
          </property>
          <property name="currentIndex">
-          <number>3</number>
+          <number>4</number>
          </property>
          <widget class="QWidget" name="a_homePage">
           <property name="sizePolicy">
@@ -1810,12 +1810,13 @@ padding: 5px;
 
 #qt_calendar_prevmonth{
 marigin-right: 5px;
-	image: url(:/icons/icons_black/arrow-right.svg);
+	image: url(:/icons/assets/icons/arrow-left.svg);
 }
 
 #qt_calendar_nextmonth{
 marigin-right: 5px;
-	image: url(:/icons/icons_black/arrow-right.svg);
+	
+	image: url(:/icons/assets/icons/arrow-right.svg);
 }
 
 #qt_calendar_nextmonth:hover,#qt_calendar_prevmonth:hover{
@@ -1925,6 +1926,9 @@ background-color: #ffddd2;
 
 
 </string>
+                          </property>
+                          <property name="locale">
+                           <locale language="English" country="UnitedStates"/>
                           </property>
                          </widget>
                         </item>
@@ -4692,7 +4696,7 @@ border : 1px solid #1e1e1e;
  </widget>
  <resources>
   <include location="../SEP_Project/resources.qrc"/>
-  <include location="SEP_Project/resources.qrc"/>
+  <include location="../SEP_Project/resources.qrc"/>
  </resources>
  <connections>
   <connection>
