@@ -1,9 +1,10 @@
 from PySide6.QtWidgets import *
 from PySide6.QtCore import *
-from main_stack import Ui_MainWindow
+from ui_py.main_stack import Ui_MainWindow
 import class_module
 from main_home_page import Home_page
 from main_task_page import Task_page
+from circular_progressbar import Analysis_page
 from new_window_task import New_MainWindow_task
 import sys
 from Login_Register import *
@@ -57,6 +58,7 @@ class Sidebar(QMainWindow, Ui_MainWindow):
 
         self.setup_home_page()
         self.task_page = Task_page(self,self.connection, self.categorized_task.Tasks)
+        self.analyse_page = Analysis_page(self,self.connection, self.categorized_task)
 
         self.arr_update = [self.home_page, self.task_page]
 
@@ -79,6 +81,8 @@ class Sidebar(QMainWindow, Ui_MainWindow):
 
     def switch_to_analysis(self):
         # self.update_ui()
+        self.categorized_task.update_tasks()
+        self.analysis_page.update_ui()
         self.stackedWidget.setCurrentIndex(4)
 
     def switch_to_calendar(self):

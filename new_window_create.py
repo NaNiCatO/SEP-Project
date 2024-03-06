@@ -1,7 +1,7 @@
 import sys
 from PySide6.QtWidgets import *
 from PySide6.QtCore import *
-from new_window_create_ui import Ui_Form
+from ui_py.new_window_create_ui import Ui_Form
 import class_module
 from datetime import datetime
 import ZODB, ZODB.FileStorage

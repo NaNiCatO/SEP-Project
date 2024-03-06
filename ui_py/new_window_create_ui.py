@@ -19,7 +19,7 @@ from PySide6.QtWidgets import (QAbstractButton, QApplication, QCalendarWidget, Q
     QDialogButtonBox, QFrame, QGridLayout, QHBoxLayout,
     QLabel, QLineEdit, QSizePolicy, QTimeEdit,
     QVBoxLayout, QWidget)
-import icons_rc
+import ui_py.icons_rc
 
 class Ui_Form(object):
     def setupUi(self, Form):

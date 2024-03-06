@@ -1,10 +1,10 @@
 import sys
 from PySide6.QtWidgets import *
 from PySide6.QtCore import *
-from new_window_task_ui import Ui_MainWindow
+from ui_py.new_window_task_ui import Ui_MainWindow
 import class_module
 from new_window_create import New_MainWindow_create, New_MainWindow_edit
-
+from specialObject import ClickableTaskFrame
 
 ############################################################################################################
 
@@ -36,21 +36,6 @@ type_task.update_tasks()
 ############################################################################################################
 
 
-class ClickableTaskFrame(QFrame):
-    clicked = Signal(object)
-
-    def __init__(self, task, *args, **kwargs):
-        super(ClickableTaskFrame, self).__init__(*args, **kwargs)
-        self.task = task
-
-    def mousePressEvent(self, event):
-        self.clicked.emit(self.task)
-
-    def enterEvent(self, event):
-        self.setStyleSheet("background-color: lightgray;")
-
-    def leaveEvent(self, event):
-        self.setStyleSheet("background-color: none;")
 
 
 class New_MainWindow_task(QMainWindow, Ui_MainWindow):
@@ -90,6 +75,7 @@ class New_MainWindow_task(QMainWindow, Ui_MainWindow):
             self.percentage_layout = QVBoxLayout()
             self.radio_button = QRadioButton("Complete")
             self.radio_button.toggled.connect(self.radio_button_clicked(task))
+            self.radio_button.setStyleSheet(stylesheet)
             self.radio_button.setChecked(task.is_completed)
             self.percentage_layout.addWidget(self.radio_button)
 
@@ -144,6 +130,7 @@ class New_MainWindow_task(QMainWindow, Ui_MainWindow):
             self.percentage_layout = QVBoxLayout()
             self.radio_button = QRadioButton("Complete")
             self.radio_button.toggled.connect(self.radio_button_clicked(task))
+            self.radio_button.setStyleSheet(stylesheet)
             self.radio_button.setChecked(task.is_completed)
             self.percentage_layout.addWidget(self.radio_button)
 
@@ -186,3 +173,46 @@ if __name__ == "__main__":
     window = New_MainWindow_task(multi_task1)
     window.show()
     sys.exit(app.exec())
+
+
+stylesheet = """
+QRadioButton {
+    spacing: 5px; /* spacing between the radio button and the text */
+}
+
+QRadioButton::indicator {
+    width: 20px; /* width of the radio button */
+    height: 20px; /* height of the radio button */
+}
+
+QRadioButton::indicator:checked {
+    background-color: #90EE90; /* background color when checked */
+    border: 2px solid #555; /* border color when checked */
+    border-radius: 10px; /* border radius to make it round */
+}
+
+QRadioButton::indicator:unchecked {
+    background-color: #fff; /* background color when unchecked */
+    border: 2px solid #555; /* border color when unchecked */
+    border-radius: 10px; /* border radius to make it round */
+}
+
+QRadioButton::indicator:checked:hover {
+    border: 2px solid #007bff; /* border color when checked and hovered */
+}
+
+QRadioButton::indicator:unchecked:hover {
+    background-color: #f3f3f3; /* background color when unchecked and hovered */
+    border: 2px solid #555; /* border color when unchecked and hovered */
+}
+
+QRadioButton::indicator:checked:pressed {
+    background-color: #0056b3; /* background color when checked and pressed */
+    border: 2px solid #007bff; /* border color when checked and pressed */
+}
+
+QRadioButton::indicator:unchecked:pressed {
+    background-color: #f3f3f3; /* background color when unchecked and pressed */
+    border: 2px solid #555; /* border color when unchecked and pressed */
+}
+"""
