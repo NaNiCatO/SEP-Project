@@ -1083,8 +1083,8 @@ QScrollBar::sub-line:vertical {
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>260</width>
-                            <height>381</height>
+                            <width>226</width>
+                            <height>28</height>
                            </rect>
                           </property>
                           <layout class="QGridLayout" name="gridLayout_5">
@@ -1293,8 +1293,8 @@ QScrollBar::sub-line:vertical {
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>260</width>
-                            <height>376</height>
+                            <width>226</width>
+                            <height>28</height>
                            </rect>
                           </property>
                           <layout class="QGridLayout" name="gridLayout_4">
@@ -1507,8 +1507,8 @@ QScrollBar::sub-line:vertical {
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>260</width>
-                            <height>376</height>
+                            <width>226</width>
+                            <height>28</height>
                            </rect>
                           </property>
                           <layout class="QVBoxLayout" name="verticalLayout_15">
@@ -1735,8 +1735,8 @@ background-color: transparent;
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>876</width>
-                      <height>530</height>
+                      <width>306</width>
+                      <height>199</height>
                      </rect>
                     </property>
                     <layout class="QGridLayout" name="gridLayout_36">
@@ -2381,7 +2381,7 @@ QScrollBar::sub-line:vertical {
                        </property>
                        <layout class="QGridLayout" name="gridLayout_25">
                         <item row="0" column="0">
-                         <widget class="QFrame" name="frame_41">
+                         <widget class="QFrame" name="history_frame">
                           <property name="frameShape">
                            <enum>QFrame::StyledPanel</enum>
                           </property>
@@ -2851,8 +2851,8 @@ QScrollBar::sub-line:vertical {
                         <rect>
                          <x>0</x>
                          <y>0</y>
-                         <width>874</width>
-                         <height>424</height>
+                         <width>98</width>
+                         <height>28</height>
                         </rect>
                        </property>
                        <layout class="QGridLayout" name="gridLayout_28">
