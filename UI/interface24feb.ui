@@ -179,7 +179,7 @@ background-color: #F5FAFE;
           </sizepolicy>
          </property>
          <property name="currentIndex">
-          <number>4</number>
+          <number>2</number>
          </property>
          <widget class="QWidget" name="a_homePage">
           <property name="sizePolicy">
@@ -2379,7 +2379,18 @@ QScrollBar::sub-line:vertical {
                          <height>534</height>
                         </rect>
                        </property>
-                       <layout class="QGridLayout" name="gridLayout_25"/>
+                       <layout class="QGridLayout" name="gridLayout_25">
+                        <item row="0" column="0">
+                         <widget class="QFrame" name="frame_41">
+                          <property name="frameShape">
+                           <enum>QFrame::StyledPanel</enum>
+                          </property>
+                          <property name="frameShadow">
+                           <enum>QFrame::Raised</enum>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
                       </widget>
                      </widget>
                     </item>

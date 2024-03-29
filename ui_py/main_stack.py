@@ -553,7 +553,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 226, 28))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 260, 381))
         self.gridLayout_5 = QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout_5.setObjectName(u"gridLayout_5")
         self.todayMainTask = QFrame(self.scrollAreaWidgetContents)
@@ -678,7 +678,7 @@ class Ui_MainWindow(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollAreaWidgetContents_3 = QWidget()
         self.scrollAreaWidgetContents_3.setObjectName(u"scrollAreaWidgetContents_3")
-        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 226, 28))
+        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 260, 376))
         self.gridLayout_4 = QGridLayout(self.scrollAreaWidgetContents_3)
         self.gridLayout_4.setObjectName(u"gridLayout_4")
         self.urgentMainTask = QFrame(self.scrollAreaWidgetContents_3)
@@ -807,7 +807,7 @@ class Ui_MainWindow(object):
         self.scrollArea_3.setWidgetResizable(True)
         self.scrollAreaWidgetContents_4 = QWidget()
         self.scrollAreaWidgetContents_4.setObjectName(u"scrollAreaWidgetContents_4")
-        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 226, 28))
+        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 260, 376))
         self.verticalLayout_15 = QVBoxLayout(self.scrollAreaWidgetContents_4)
         self.verticalLayout_15.setObjectName(u"verticalLayout_15")
         self.completedMainTask = QFrame(self.scrollAreaWidgetContents_4)
@@ -1373,6 +1373,13 @@ class Ui_MainWindow(object):
         self.scrollAreaWidgetContents_5.setGeometry(QRect(0, 0, 862, 534))
         self.gridLayout_25 = QGridLayout(self.scrollAreaWidgetContents_5)
         self.gridLayout_25.setObjectName(u"gridLayout_25")
+        self.frame_41 = QFrame(self.scrollAreaWidgetContents_5)
+        self.frame_41.setObjectName(u"frame_41")
+        self.frame_41.setFrameShape(QFrame.StyledPanel)
+        self.frame_41.setFrameShadow(QFrame.Raised)
+
+        self.gridLayout_25.addWidget(self.frame_41, 0, 0, 1, 1)
+
         self.scrollArea_5.setWidget(self.scrollAreaWidgetContents_5)
 
         self.gridLayout_24.addWidget(self.scrollArea_5, 0, 0, 1, 1)
@@ -2476,7 +2483,7 @@ class Ui_MainWindow(object):
         self.logoutMiniButton.toggled.connect(self.settingButton.setChecked)
         self.settingButton.toggled.connect(self.logoutMiniButton.setChecked)
 
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(2)
         self.stackedWidget_2.setCurrentIndex(0)
 
 
