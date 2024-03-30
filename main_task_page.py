@@ -8,14 +8,19 @@ import ZODB, ZODB.FileStorage
 import transaction
 from specialObject import ClickableTaskFrame
 from ui_py.main_stack import Ui_MainWindow
+from class_module import Task_handlers
 
 
 
 class Task_page():
-    def __init__(self,connection, ui : Ui_MainWindow, task=None):
+    def __init__(self, ui : Ui_MainWindow,connection, task=None):
         self.mode = "View Task"
         self.ui = ui
-        self.task = task
+        self.connection = connection
+        self.root = self.connection.root()
+
+        self.task_unhandled = self.root.user[self.ui.user.name].get_user_tasks()
+        self.task = Task_handlers(self.task_unhandled)
         self.arr_container_layout = [QVBoxLayout(self.ui.complete_Task_Frame) ,QVBoxLayout(self.ui.late_Task_Frame) ,QVBoxLayout(self.ui.ongoing_Task_Frame)]
         self.tasks = [self.task.get_completed_tasks(), self.task.get_late_tasks(), self.task.get_urgent_tasks() + self.task.get_today_tasks() + self.task.get_upcoming_tasks()]
         

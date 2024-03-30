@@ -28,10 +28,10 @@ from specialObject import ClickableTaskFrame
 
 # user.add_task(multi_task1)
 
-user = class_module.User("Arm", "123", "123")
+# user = class_module.User("Arm", "123", "123")
 
-type_task = class_module.Task_handlers(user.get_user_tasks())
-type_task.update_tasks()
+# type_task = class_module.Task_handlers(user.get_user_tasks())
+# type_task.update_tasks()
 
 ############################################################################################################
 

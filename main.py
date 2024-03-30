@@ -6,8 +6,8 @@ from main_home_page import Home_page
 from main_task_page import Task_page
 from circular_progressbar import Analysis_page
 from new_window_task import New_MainWindow_task
+from calendar_page import Calendar_page
 import sys
-from Login_Register import *
 import ZODB , ZODB.FileStorage
 import transaction
 
@@ -58,7 +58,7 @@ class Sidebar(QMainWindow, Ui_MainWindow):
 
         self.setup_home_page()
         self.task_page = Task_page(self,self.connection, self.categorized_task.Tasks)
-        self.analyse_page = Analysis_page(self,self.connection, self.categorized_task)
+        self.analyse_page = Analysis_page(self, self.categorized_task)
 
         self.arr_update = [self.home_page, self.task_page]
 
@@ -82,11 +82,12 @@ class Sidebar(QMainWindow, Ui_MainWindow):
     def switch_to_analysis(self):
         # self.update_ui()
         self.categorized_task.update_tasks()
-        self.analysis_page.update_ui()
+        self.analyse_page.update_ui()
         self.stackedWidget.setCurrentIndex(4)
 
     def switch_to_calendar(self):
         # self.update_ui()
+        self.calendar_page = Calendar_page(self, self.categorized_task)
         self.stackedWidget.setCurrentIndex(1)
 
     def switch_to_history(self):
