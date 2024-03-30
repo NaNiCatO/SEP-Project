@@ -20,7 +20,7 @@ root.user['Arm'] = User("Arm", "123", "armfiba@gmail.com")
 
 root.user['Arm'].add_task(Task("Math", "Do exercise 1-5", "2024-2-26", "20:00"))
 
-root.notification['notification'] = Notification('sep.todoapp@gmail.com', 'Septodolist')
+root.notification['notification'] = Notification('sep.todoapp@gmail.com', 'tzuk zziw vigb bshi')
 
 transaction.commit()
 connection.close()

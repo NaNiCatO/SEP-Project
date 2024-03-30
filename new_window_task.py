@@ -5,38 +5,7 @@ from ui_py.new_window_task_ui import Ui_MainWindow
 import class_module
 from new_window_create import New_MainWindow_create, New_MainWindow_edit
 from specialObject import ClickableTaskFrame
-
-############################################################################################################
-
-# task1 = class_module.Task("Math", "Do exercise 1-5", "2024-2-26", "20:00")
-# task2 = class_module.Task("Physics", "Do exercise 1-5", "2024-2-26", "20:00", True)
-# task3 = class_module.Task("Chemistry", "Do exercise 1-5", "2024-2-27", "20:00")
-# task4 = class_module.Task("English", "Do exercise 1-5", "2024-2-27", "20:00", True)
-# task5 = class_module.Task("History", "Do exercise 1-5", "2024-2-28", "20:00")
-# task6 = class_module.Task("Biology", "Do exercise 1-5", "2024-2-28", "20:00", True)
-
-# # MultiTask(name_topic, detail, due_date)
-# multi_task1 = class_module.MultiTask("Study", "Do exercise", "2024-2-26", "20:00")
-# multi_task1.add_task(task1)
-# multi_task1.add_task(task2)
-# multi_task1.add_task(task3)
-# multi_task1.add_task(task4)
-# multi_task1.add_task(task5)
-# multi_task1.add_task(task6)
-
-# user = class_module.User("Arm", "123", "armfiba@gmail.com")
-
-# user.add_task(multi_task1)
-
-# user = class_module.User("Arm", "123", "123")
-
-# type_task = class_module.Task_handlers(user.get_user_tasks())
-# type_task.update_tasks()
-
-############################################################################################################
-
-
-
+import datetime
 
 class New_MainWindow_task(QMainWindow, Ui_MainWindow):
     def __init__(self, ui, task, name=None):
@@ -142,6 +111,7 @@ class New_MainWindow_task(QMainWindow, Ui_MainWindow):
 
     def clicked(self, task):
         if self.mode == "Delete Task":
+            self.user.history.add_history(datetime.now().strftime('%Y-%m-%d'), "Delete", task)
             self.ui.user.remove_task(task)
             self.task.remove(task)
             self.update_ui()

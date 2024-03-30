@@ -7,41 +7,11 @@ from datetime import datetime
 import ZODB, ZODB.FileStorage
 import transaction
 
-
-############################################################################################################
-
-# task1 = class_module.Task("Math", "Do exercise 1-5", "2024-2-26", "20:00")
-# task2 = class_module.Task("Physics", "Do exercise 1-5", "2024-2-26", "20:00", True)
-# task3 = class_module.Task("Chemistry", "Do exercise 1-5", "2024-2-27", "20:00")
-# task4 = class_module.Task("English", "Do exercise 1-5", "2024-2-27", "20:00", True)
-# task5 = class_module.Task("History", "Do exercise 1-5", "2024-2-28", "20:00")
-# task6 = class_module.Task("Biology", "Do exercise 1-5", "2024-2-28", "20:00", True)
-
-# # MultiTask(name_topic, detail, due_date)
-# multi_task1 = class_module.MultiTask("Study", "Do exercise", "2024-2-26", "20:00")
-# multi_task1.add_task(task1)
-# multi_task1.add_task(task2)
-# multi_task1.add_task(task3)
-# multi_task1.add_task(task4)
-# multi_task1.add_task(task5)
-# multi_task1.add_task(task6)
-
-# user = class_module.User("Arm", "123", "armfiba@gmail.com")
-
-# user.add_task(multi_task1)
-
-############################################################################################################
-
-
-############################################################################################################
-
-
 class New_MainWindow_create(QWidget, Ui_Form):
-    def __init__(self, ui,connection, new_window = None, MultiTask=None):
+    def __init__(self, ui, user, new_window = None, MultiTask=None):
         super().__init__()
-        self.connection = connection
-        self.root = self.connection.root()
         self.ui = ui
+        self.user = user
         self.MultiTask = MultiTask
         self.new_window = new_window
         self.setupUi(self)
@@ -68,29 +38,30 @@ class New_MainWindow_create(QWidget, Ui_Form):
             self.MultiTask.add_task(task)
         else:
             print("User: ", self.ui.user.name)
-            self.root.user[self.ui.user.name].add_task(task)
-            # self.ui.user.add_task(task)
+            self.user.add_task(task)
+            print(datetime.now().strftime('%Y-%m-%d'))
+            self.user.add_history(datetime.now().strftime('%Y-%m-%d'), "Create", task)
         self.close()
 
     def reject(self):
         self.close()
 
     def closeEvent(self, event):
-        print("UI is closed")
+        # print("UI is closed")
         self.ui.categorized_task.update_tasks()
         for i in self.ui.arr_update:
             i.update_ui()
         if self.new_window:
             self.new_window.update_ui()
         
-        transaction.commit()
         event.accept()
 
 class New_MainWindow_edit(QWidget, Ui_Form):
-    def __init__(self, ui, task,  new_window = None):
+    def __init__(self, ui, user, task,  new_window = None):
         super().__init__()
         self.ui = ui
         self.task = task
+        self.user = user
         self.new_window = new_window
         self.setupUi(self)
         self.set_values()
@@ -125,12 +96,34 @@ class New_MainWindow_edit(QWidget, Ui_Form):
 
 
     def accept(self):
-        self.task.name_topic = self.topic_lineEdit.text()
-        self.task.detail = self.detail_lineEdit.text()
-        self.task.due_date = datetime.strptime(self.calendarWidget.selectedDate().toString("yyyy-M-d"),'%Y-%m-%d')
-        self.task.time = self.timeEdit.time().toString("hh:mm")
-        self.task.urgent = self.urgent_task_check_box.isChecked()
+        # Check if any changes are made
+        if self.topic_lineEdit.text() != self.task.name_topic :
+            print("Topic changed")
+            print(self.task.name_topic, self.topic_lineEdit.text())
+            self.user.add_history(datetime.now().strftime('%Y-%m-%d'), "topic", self.task, self.task.name_topic, self.topic_lineEdit.text())
+            self.task.name_topic = self.topic_lineEdit.text()
+        if self.detail_lineEdit.text() != self.task.detail :
+            print("Detail changed")
+            print(self.task.detail, self.detail_lineEdit.text())
+            self.user.add_history(datetime.now().strftime('%Y-%m-%d'), "detail", self.task, self.task.detail, self.detail_lineEdit.text())
+            self.task.detail = self.detail_lineEdit.text()
+        if self.urgent_task_check_box.isChecked() != self.task.urgent :
+            print("Urgent changed")
+            print(self.task.urgent, self.urgent_task_check_box.isChecked())
+            self.user.add_history(datetime.now().strftime('%Y-%m-%d'), "urgent", self.task, self.task.urgent, self.urgent_task_check_box.isChecked())
+            self.task.urgent = self.urgent_task_check_box.isChecked()
+        if self.timeEdit.time().toString("hh:mm") != self.task.time :
+            print("Time changed")
+            print(self.task.time, self.timeEdit.time().toString("hh:mm"))
+            self.user.add_history(datetime.now().strftime('%Y-%m-%d'), "time", self.task, self.task.time, self.timeEdit.time().toString("hh:mm"))
+            self.task.time = self.timeEdit.time().toString("hh:mm")
+        if self.calendarWidget.selectedDate().toString("yyyy-M-d") != self.task.due_date.strftime('%Y-%m-%d') :
+            print("Due date changed")
+            print(self.task.due_date.strftime('%Y-%m-%d'), self.calendarWidget.selectedDate().toString("yyyy-M-d"))
+            self.user.add_history(datetime.now().strftime('%Y-%m-%d'), "due_date", self.task, self.task.due_date.strftime('%Y-%m-%d'), self.calendarWidget.selectedDate().toString("yyyy-M-d"))
+            self.task.due_date = datetime.strptime(self.calendarWidget.selectedDate().toString("yyyy-M-d"),'%Y-%m-%d')
         self.close()
+    
 
     def reject(self):
         self.close()

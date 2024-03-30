@@ -28,7 +28,7 @@ class LoginWindow(QWidget):
                 if user_data[user].login(self.ui.passwordInput.text()):
                     print("Login success")
                     self.username = user
-                    self.sidebar = Sidebar(user_data[user],self.connection)
+                    self.sidebar = Sidebar(user_data[user])
                     self.sidebar.show()
                     self.close()
         return None

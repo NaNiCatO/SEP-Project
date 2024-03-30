@@ -30,16 +30,12 @@ class Calendar_page():
     def highlight_format(self,task):
         text_format = self.calendar.dateTextFormat(QDate())
         if task.urgent:
-            print("urgent")
             text_format.setBackground(Qt.red)
         elif task.get_day_left() < datetime.timedelta(days=0):
-            print("late")
             text_format.setBackground(Qt.blue)
         elif task.get_day_left() < datetime.timedelta(days=3):
-            print("upcoming")
             text_format.setBackground(Qt.yellow)
         else:
-            print("normal")
             text_format.setBackground(Qt.green)
             
         return text_format

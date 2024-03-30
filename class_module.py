@@ -12,6 +12,37 @@ class User(persistent.Persistent):
         self.email = email
         self.user_tasks = []
         self.all_complete_tasks = []
+        self.history = {}
+        self.check_date_exist(self.get_date_today())
+        self.check_event_exist(self.get_date_today(), "Create Account")
+        self.history[self.get_date_today()]["Create Account"].append((self.name, self.email))
+    
+    def check_date_exist(self, date) :
+        if date in self.history :
+            return True
+        else:
+            self.history[date] = {}
+    
+    def check_event_exist(self, date, event) :
+        if event in self.history[date] :
+            return True
+        else:
+            self.history[date][event] = []
+    
+    def get_date_today(self) :
+        return datetime.datetime.today().strftime('%Y-%m-%d')
+
+    
+    def add_history(self, date, event, task , old_data = None , new_data = None) :
+        self.check_date_exist(date)
+        self.check_event_exist(date, event)
+        if old_data == None :
+            self.history[date][event].append((task.get_name_topic(), new_data))
+        else :
+            self.history[date][event].append((task.get_name_topic(), old_data, new_data)) 
+    
+    def get_history(self) :
+        return self.history
 
     def get_email_data(self) :
         return {
@@ -55,6 +86,7 @@ class User(persistent.Persistent):
     def complete_task(self, task) :
         task.is_completed = True
         self.all_complete_tasks.append(task)
+    
     
 
 class Task(persistent.Persistent):
@@ -189,4 +221,3 @@ class Notification(persistent.Persistent):
         with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as smtp :
             smtp.login(self.app_email, self.app_password)
             smtp.sendmail(self.app_email, user.get_email_data()['email'], msg.as_string())
-

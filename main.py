@@ -45,19 +45,18 @@ import transaction
 
 
 class Sidebar(QMainWindow, Ui_MainWindow):
-    def __init__(self, user, connection):
+    def __init__(self, user):
         super().__init__()
-        self.connection = connection
-        self.root = self.connection.root()
         self.setupUi(self) 
         self.user = user
+        self.user_tasks = self.user.get_user_tasks()
         self.categorized_task = class_module.Task_handlers(self.user.get_user_tasks())
 
         # set home page as default 
         self.stackedWidget.setCurrentIndex(0)
 
         self.setup_home_page()
-        self.task_page = Task_page(self,self.connection, self.categorized_task.Tasks)
+        self.task_page = Task_page(self, self.user)
         self.analyse_page = Analysis_page(self, self.categorized_task)
 
         self.arr_update = [self.home_page, self.task_page]
