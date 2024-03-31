@@ -103,7 +103,7 @@ class Task_page():
             self.new_window.show()
         else:
             if isinstance(task, MultiTask):
-                self.new_window = New_MainWindow_task(self.ui, task, task.name_topic)
+                self.new_window = New_MainWindow_task(self.ui, self.user, task, task.name_topic)
                 self.new_window.show()
 
         print(f"Clicked on task: {task.name_topic}")

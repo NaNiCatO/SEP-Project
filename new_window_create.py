@@ -8,12 +8,14 @@ import ZODB, ZODB.FileStorage
 import transaction
 
 class New_MainWindow_create(QWidget, Ui_Form):
-    def __init__(self, ui, user, new_window = None, MultiTask=None):
+    update_ui_signal = Signal()
+    
+    def __init__(self, ui, user, MultiTask=None):
         super().__init__()
         self.ui = ui
         self.user = user
         self.MultiTask = MultiTask
-        self.new_window = new_window
+        # self.new_window = new_window
         self.setupUi(self)
         self.confirm_button.accepted.connect(self.accept)
         self.confirm_button.rejected.connect(self.reject)
@@ -36,6 +38,7 @@ class New_MainWindow_create(QWidget, Ui_Form):
 
         if self.MultiTask:
             self.MultiTask.add_task(task)
+            self.user.add_history(datetime.now().strftime('%Y-%m-%d'), "Create Subtask", self.MultiTask, task.name_topic)
         else:
             print("User: ", self.ui.user.name)
             self.user.add_task(task)
@@ -51,12 +54,14 @@ class New_MainWindow_create(QWidget, Ui_Form):
         self.ui.categorized_task.update_tasks()
         for i in self.ui.arr_update:
             i.update_ui()
-        if self.new_window:
-            self.new_window.update_ui()
+        if self.MultiTask:
+            self.update_ui_signal.emit()
         
         event.accept()
 
 class New_MainWindow_edit(QWidget, Ui_Form):
+    update_ui = Signal()
+    
     def __init__(self, ui, user, task,  new_window = None):
         super().__init__()
         self.ui = ui
@@ -133,8 +138,6 @@ class New_MainWindow_edit(QWidget, Ui_Form):
         self.ui.categorized_task.update_tasks()
         for i in self.ui.arr_update:
             i.update_ui()
-        if self.new_window:
-            self.new_window.update_ui()
         event.accept()
 
 

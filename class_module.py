@@ -37,7 +37,7 @@ class User(persistent.Persistent):
         self.check_date_exist(date)
         self.check_event_exist(date, event)
         if old_data == None :
-            self.history[date][event].append((task.get_name_topic(), new_data))
+            self.history[date][event].append((task.get_name_topic(), old_data))
         else :
             self.history[date][event].append((task.get_name_topic(), old_data, new_data)) 
     

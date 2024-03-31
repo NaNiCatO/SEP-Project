@@ -5,18 +5,21 @@ from ui_py.new_window_task_ui import Ui_MainWindow
 import class_module
 from new_window_create import New_MainWindow_create, New_MainWindow_edit
 from specialObject import ClickableTaskFrame
-import datetime
+from datetime import datetime
 
 class New_MainWindow_task(QMainWindow, Ui_MainWindow):
-    def __init__(self, ui, task, name=None):
+    def __init__(self, ui, user, task, name=None):
         super().__init__()
         self.ui = ui
+        
         if isinstance(task, class_module.MultiTask):
+            self.main_task = task
             self.listTask = task
             self.task = task.tasks
         else:
             self.listTask = None
             self.task = task
+        self.user = user
         self.name = name
         self.mode = "View Task"
         self.setupUi(self)
@@ -57,9 +60,10 @@ class New_MainWindow_task(QMainWindow, Ui_MainWindow):
 
     def create_task(self):
         if isinstance(self.listTask, class_module.MultiTask):
-            self.new_window = New_MainWindow_create(self.ui, self, self.listTask)
+            self.new_window = New_MainWindow_create(self.ui, self.user, self.listTask)
+            self.new_window.update_ui_signal.connect(self.update_ui)
         else:
-            self.new_window = New_MainWindow_create(self.ui)
+            self.new_window = New_MainWindow_create(self.ui, self.user)
         self.new_window.show()
 
     def delete_task(self):
@@ -83,6 +87,8 @@ class New_MainWindow_task(QMainWindow, Ui_MainWindow):
                 self.homeHeader_5.setText(f"Task Name: {self.task.name_topic} : {self.mode}")
 
     def update_ui(self):
+        
+              
         for i in reversed(range(self.container_layout.count())):
             self.container_layout.itemAt(i).widget().setParent(None)
 
@@ -111,15 +117,19 @@ class New_MainWindow_task(QMainWindow, Ui_MainWindow):
 
     def clicked(self, task):
         if self.mode == "Delete Task":
-            self.user.history.add_history(datetime.now().strftime('%Y-%m-%d'), "Delete", task)
-            self.ui.user.remove_task(task)
-            self.task.remove(task)
+            if self.listTask:
+                self.listTask.remove_task(task)
+                self.user.add_history(datetime.now().strftime('%Y-%m-%d'), "Delete Subtask", self.main_task , task.name_topic)
+            else:
+                self.user.add_history(datetime.now().strftime('%Y-%m-%d'), "Delete", self.task)
+                self.ui.user.remove_task(task)
+                self.task.remove(task)
             self.update_ui()
         elif self.mode == "Edit Task":
             if isinstance(self.listTask, class_module.MultiTask):
-                self.new_window = New_MainWindow_edit(self.ui, task, self)
+                self.new_window = New_MainWindow_edit(self.ui, self.user, task, self)
             else:
-                self.new_window = New_MainWindow_edit(self.ui, task)
+                self.new_window = New_MainWindow_edit(self.ui, self.user, task)
             self.new_window.show()
 
 
@@ -137,12 +147,6 @@ class New_MainWindow_task(QMainWindow, Ui_MainWindow):
         for i in self.ui.arr_update:
             i.update_ui()
         event.accept()
-
-if __name__ == "__main__":
-    app = QApplication(sys.argv)
-    window = New_MainWindow_task(multi_task1)
-    window.show()
-    sys.exit(app.exec())
 
 
 stylesheet = """

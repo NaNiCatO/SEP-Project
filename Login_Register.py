@@ -19,7 +19,6 @@ class LoginWindow(QWidget):
         self.root = self.connection.root()
         self.ui = login.Ui_Form()
         self.ui.setupUi(self)
-        self.ui.loginButton.clicked.connect(self.login)
 
     def login(self):
         user_data = self.root.user
@@ -30,8 +29,9 @@ class LoginWindow(QWidget):
                     self.username = user
                     self.sidebar = Sidebar(user_data[user])
                     self.sidebar.show()
-                    self.close()
-        return None
+                    return True
+                    
+        return False
 
 class RegisterWindow(QWidget):
     def __init__(self,connection):
@@ -84,11 +84,12 @@ class SignInWindow(QMainWindow):
         self.connection = self.db.open()
         self.root = self.connection.root()
 
+        
         self.central_widget = QWidget(self)
         self.setCentralWidget(self.central_widget)
 
-        self.layout = QVBoxLayout(self.central_widget)
-
+        self.layout = QStackedLayout(self.central_widget)
+        
         self.login_window = LoginWindow(self.connection)
         self.register_window = RegisterWindow(self.connection)
 
@@ -96,22 +97,36 @@ class SignInWindow(QMainWindow):
         self.layout.addWidget(self.register_window)
 
         self.register_window.hide()
+        
 
         self.login_window.ui.createAccountButton.clicked.connect(self.show_register)
         self.register_window.ui.signInButton.clicked.connect(self.show_login)
         self.register_window.ui.CreateButton.clicked.connect(self.check_create_success)
+        self.login_window.ui.loginButton.clicked.connect(self.check_login_success)
+        
+    def check_login_success(self):
+        if self.login_window.login():
+            self.hide()
+            self.login_window.sidebar.abouttoclose.connect(self.close)
+            self.login_window.sidebar.logoutsignal.connect(self.logged_out)
+    
+    def logged_out(self):
+        self.show()
+        self.login_window.ui.userInput.clear()
+        self.login_window.ui.passwordInput.clear()
+        
 
     def check_create_success(self):
         if self.register_window.create_account():
             self.show_login()
+            self.login_window.sidebar.abouttoclose.connect(self.close())
+            
 
     def show_login(self):
-        self.login_window.show()
-        self.register_window.hide()
+        self.layout.setCurrentWidget(self.login_window)
 
     def show_register(self):
-        self.login_window.hide()
-        self.register_window.show()
+        self.layout.setCurrentWidget(self.register_window)
     
     def closeEvent(self, event):
         self.root.user[self.login_window.username]._p_changed = True

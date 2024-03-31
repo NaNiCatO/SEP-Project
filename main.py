@@ -1,5 +1,7 @@
+from PySide6.QtGui import QCloseEvent
 from PySide6.QtWidgets import *
 from PySide6.QtCore import *
+from PySide6 import QtCore
 from ui_py.main_stack import Ui_MainWindow
 import class_module
 from main_home_page import Home_page
@@ -8,46 +10,14 @@ from circular_progressbar import Analysis_page
 from new_window_task import New_MainWindow_task
 from calendar_page import Calendar_page
 import sys
-import ZODB , ZODB.FileStorage
-import transaction
 
-############################################################################################################
-
-# task1 = class_module.Task("Math", "Do exercise 1-5", "2024-2-26", "20:00")
-# task2 = class_module.Task("Physics", "Do exercise 1-5", "2024-2-26", "20:00", True)
-# task3 = class_module.Task("Chemistry", "Do exercise 1-5", "2024-2-27", "20:00")
-# task4 = class_module.Task("English", "Do exercise 1-5", "2024-2-27", "20:00", True)
-# task5 = class_module.Task("History", "Do exercise 1-5", "2024-2-28", "20:00")
-# task6 = class_module.Task("Biology", "Do exercise 1-5", "2024-2-28", "20:00", True)
-
-# # MultiTask(name_topic, detail, due_date)
-# multi_task1 = class_module.MultiTask("Study", "Do exercise", "2024-2-26", "20:00")
-# multi_task1.add_task(task1)
-# multi_task1.add_task(task2)
-# multi_task1.add_task(task3)
-# multi_task1.add_task(task4)
-
-# user = class_module.User("Arm", "123", "armfiba@gmail.com")
-# user.add_task(task1)
-# user.add_task(task2)
-# user.add_task(task3)
-# user.add_task(task4)
-# user.add_task(task5)
-# user.add_task(task6)
-# user.add_task(multi_task1)
-
-# user = root.user['Arm']
-
-
-
-############################################################################################################
-
-
-
-class Sidebar(QMainWindow, Ui_MainWindow):
+class Sidebar(QMainWindow, Ui_MainWindow,QtCore.QObject):
+    abouttoclose = Signal()
+    logoutsignal = Signal()
+    
     def __init__(self, user):
         super().__init__()
-        self.setupUi(self) 
+        self.setupUi(self)
         self.user = user
         self.user_tasks = self.user.get_user_tasks()
         self.categorized_task = class_module.Task_handlers(self.user.get_user_tasks())
@@ -71,6 +41,17 @@ class Sidebar(QMainWindow, Ui_MainWindow):
         self.historyMiniButton.clicked.connect(self.switch_to_history)
         self.taskButton.clicked.connect(self.switch_to_view_task)
         self.taskMiniButton.clicked.connect(self.switch_to_view_task)
+        self.settingButton.clicked.connect(self.logout)
+        self.logoutMiniButton.clicked.connect(self.logout)
+    
+    def logout(self):
+        reply = QMessageBox.question(
+            self, "Confirm Logout", "Are you sure you want to logout?",
+            QMessageBox.Yes | QMessageBox.No, QMessageBox.No
+        )
+        if reply == QMessageBox.Yes:
+            self.logoutsignal.emit()
+            self.close()
 
     def switch_to_home(self):
         # self.update_ui()
@@ -108,19 +89,27 @@ class Sidebar(QMainWindow, Ui_MainWindow):
 
         
     def switch_to_today(self):
-        self.new_MainWindow_task_page = New_MainWindow_task(self, self.categorized_task.get_today_tasks(), "Today")
+        self.new_MainWindow_task_page = New_MainWindow_task(self, self.user, self.categorized_task.get_today_tasks(), "Today")
         self.new_MainWindow_task_page.show()
         
 
     def switch_to_urgent(self):
-        self.new_MainWindow_task_page = New_MainWindow_task(self, self.categorized_task.get_urgent_tasks(), "Urgent")
+        self.new_MainWindow_task_page = New_MainWindow_task(self, self.user, self.categorized_task.get_urgent_tasks(), "Urgent")
         self.new_MainWindow_task_page.show()
         self.home_page.update_ui()
 
     def switch_to_completed(self):
-        self.new_MainWindow_task_page = New_MainWindow_task(self, self.categorized_task.get_completed_tasks(), "Completed")
+        self.new_MainWindow_task_page = New_MainWindow_task(self, self.user, self.categorized_task.get_completed_tasks(), "Completed")
         self.new_MainWindow_task_page.show()
         self.home_page.update_ui()
+    
+    def closeEvent(self, event):
+        if self.sender() == self.logoutMiniButton or self.sender() == self.settingButton:  # Check if logout button triggered close
+            self.logoutsignal.emit()
+        else:
+            self.abouttoclose.emit()  # Emit aboutToClose for regular close
+        super().closeEvent(event)
+        
 
     
 
