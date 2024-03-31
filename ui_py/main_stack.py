@@ -956,7 +956,7 @@ class Ui_MainWindow(object):
         self.scrollArea_6.setWidgetResizable(True)
         self.scrollAreaWidgetContents_6 = QWidget()
         self.scrollAreaWidgetContents_6.setObjectName(u"scrollAreaWidgetContents_6")
-        self.scrollAreaWidgetContents_6.setGeometry(QRect(0, 0, 876, 530))
+        self.scrollAreaWidgetContents_6.setGeometry(QRect(0, 0, 306, 199))
         self.gridLayout_36 = QGridLayout(self.scrollAreaWidgetContents_6)
         self.gridLayout_36.setSpacing(0)
         self.gridLayout_36.setObjectName(u"gridLayout_36")
@@ -1373,6 +1373,13 @@ class Ui_MainWindow(object):
         self.scrollAreaWidgetContents_5.setGeometry(QRect(0, 0, 862, 534))
         self.gridLayout_25 = QGridLayout(self.scrollAreaWidgetContents_5)
         self.gridLayout_25.setObjectName(u"gridLayout_25")
+        self.history_frame = QFrame(self.scrollAreaWidgetContents_5)
+        self.history_frame.setObjectName(u"history_frame")
+        self.history_frame.setFrameShape(QFrame.StyledPanel)
+        self.history_frame.setFrameShadow(QFrame.Raised)
+
+        self.gridLayout_25.addWidget(self.history_frame, 0, 0, 1, 1)
+
         self.scrollArea_5.setWidget(self.scrollAreaWidgetContents_5)
 
         self.gridLayout_24.addWidget(self.scrollArea_5, 0, 0, 1, 1)
@@ -1653,7 +1660,7 @@ class Ui_MainWindow(object):
         self.scrollArea_4.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 874, 424))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 98, 28))
         self.gridLayout_28 = QGridLayout(self.scrollAreaWidgetContents_2)
         self.gridLayout_28.setSpacing(0)
         self.gridLayout_28.setObjectName(u"gridLayout_28")
@@ -2476,7 +2483,7 @@ class Ui_MainWindow(object):
         self.logoutMiniButton.toggled.connect(self.settingButton.setChecked)
         self.settingButton.toggled.connect(self.logoutMiniButton.setChecked)
 
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(2)
         self.stackedWidget_2.setCurrentIndex(0)
 
 
