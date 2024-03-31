@@ -9,6 +9,7 @@ from main_task_page import Task_page
 from circular_progressbar import Analysis_page
 from new_window_task import New_MainWindow_task
 from calendar_page import Calendar_page
+from history_page import History_page
 import sys
 
 class Sidebar(QMainWindow, Ui_MainWindow,QtCore.QObject):
@@ -72,6 +73,7 @@ class Sidebar(QMainWindow, Ui_MainWindow,QtCore.QObject):
 
     def switch_to_history(self):
         # self.update_ui()
+        self.history_page = History_page(self, self.user)
         self.stackedWidget.setCurrentIndex(2)
 
     def switch_to_view_task(self):

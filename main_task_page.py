@@ -1,11 +1,8 @@
-import sys
 from PySide6.QtWidgets import *
 from PySide6.QtCore import *
 from class_module import MultiTask
 from new_window_create import New_MainWindow_create, New_MainWindow_edit
 from new_window_task import New_MainWindow_task
-import ZODB, ZODB.FileStorage
-import transaction
 from specialObject import ClickableTaskFrame
 from ui_py.main_stack import Ui_MainWindow
 from class_module import Task_handlers
