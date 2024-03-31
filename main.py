@@ -4,19 +4,20 @@ from PySide6.QtCore import *
 from PySide6 import QtCore
 from ui_py.main_stack import Ui_MainWindow
 import class_module
-from main_home_page import Home_page
-from main_task_page import Task_page
+from home_page import Home_page
+from task_page import Task_page
 from circular_progressbar import Analysis_page
 from new_window_task import New_MainWindow_task
 from calendar_page import Calendar_page
 from history_page import History_page
 import sys
+import editdistance
 
 class Sidebar(QMainWindow, Ui_MainWindow,QtCore.QObject):
     abouttoclose = Signal()
     logoutsignal = Signal()
     
-    def __init__(self, user):
+    def __init__(self, user: class_module.User):
         super().__init__()
         self.setupUi(self)
         self.user = user
@@ -112,16 +113,6 @@ class Sidebar(QMainWindow, Ui_MainWindow,QtCore.QObject):
         self.new_MainWindow_task_page = New_MainWindow_task(self, self.user, self.categorized_task.get_completed_tasks(), "Completed")
         self.new_MainWindow_task_page.show()
         # self.home_page.update_ui()
-        self.home_page.update_ui()
-    
-    def closeEvent(self, event):
-        if self.sender() == self.logoutMiniButton or self.sender() == self.settingButton:  # Check if logout button triggered close
-            self.logoutsignal.emit()
-        else:
-            self.abouttoclose.emit()  # Emit aboutToClose for regular close
-        super().closeEvent(event)
-        
-
     
     def closeEvent(self, event):
         if self.sender() == self.logoutMiniButton or self.sender() == self.settingButton:  # Check if logout button triggered close

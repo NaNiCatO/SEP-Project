@@ -408,7 +408,7 @@ magin-left: 3px</string>
                              <string/>
                             </property>
                             <property name="icon">
-                             <iconset resource="SEP_Project/resources.qrc">
+                             <iconset>
                               <normaloff>:/icons_v2/search.svg</normaloff>:/icons_v2/search.svg</iconset>
                             </property>
                             <property name="iconSize">
@@ -518,7 +518,7 @@ border-radius:15px;*/
                           <string/>
                          </property>
                          <property name="pixmap">
-                          <pixmap resource="SEP_Project/resources.qrc">:/icons_v2/last-24-hours-svgrepo-com.svg</pixmap>
+                          <pixmap>:/icons_v2/last-24-hours-svgrepo-com.svg</pixmap>
                          </property>
                          <property name="scaledContents">
                           <bool>true</bool>
@@ -625,7 +625,7 @@ border-radius:15px;
                           <string/>
                          </property>
                          <property name="pixmap">
-                          <pixmap resource="SEP_Project/resources.qrc">:/icons/important-dates-svgrepo-com.svg</pixmap>
+                          <pixmap>:/icons/important-dates-svgrepo-com.svg</pixmap>
                          </property>
                          <property name="scaledContents">
                           <bool>true</bool>
@@ -733,7 +733,7 @@ border-radius:15px;
                           <string/>
                          </property>
                          <property name="pixmap">
-                          <pixmap resource="SEP_Project/resources.qrc">:/icons_v2/refresh-cw.svg</pixmap>
+                          <pixmap>:/icons_v2/refresh-cw.svg</pixmap>
                          </property>
                          <property name="scaledContents">
                           <bool>true</bool>
@@ -841,7 +841,7 @@ border-radius:15px;
                           <string/>
                          </property>
                          <property name="pixmap">
-                          <pixmap resource="SEP_Project/resources.qrc">:/icons_v2/urgent-svgrepo-com.svg</pixmap>
+                          <pixmap>:/icons_v2/urgent-svgrepo-com.svg</pixmap>
                          </property>
                          <property name="scaledContents">
                           <bool>true</bool>
@@ -995,7 +995,7 @@ border-radius: 10px
                              <string>View more</string>
                             </property>
                             <property name="icon">
-                             <iconset resource="SEP_Project/resources.qrc">
+                             <iconset>
                               <normaloff>:/icons_v2/arrow-right.svg</normaloff>:/icons_v2/arrow-right.svg</iconset>
                             </property>
                             <property name="iconSize">
@@ -1082,8 +1082,8 @@ QScrollBar::sub-line:vertical {
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>258</width>
-                            <height>359</height>
+                            <width>262</width>
+                            <height>383</height>
                            </rect>
                           </property>
                           <layout class="QGridLayout" name="gridLayout_5">
@@ -1208,7 +1208,7 @@ border-radius: 10px
                              <string>View more</string>
                             </property>
                             <property name="icon">
-                             <iconset resource="SEP_Project/resources.qrc">
+                             <iconset>
                               <normaloff>:/icons/assets/icons/arrow-right.svg</normaloff>:/icons/assets/icons/arrow-right.svg</iconset>
                             </property>
                             <property name="iconSize">
@@ -1295,8 +1295,8 @@ QScrollBar::sub-line:vertical {
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>259</width>
-                            <height>358</height>
+                            <width>262</width>
+                            <height>378</height>
                            </rect>
                           </property>
                           <layout class="QGridLayout" name="gridLayout_4">
@@ -1420,7 +1420,7 @@ border-radius: 10px
                              <string>View more</string>
                             </property>
                             <property name="icon">
-                             <iconset resource="SEP_Project/resources.qrc">
+                             <iconset>
                               <normaloff>:/icons_v2/arrow-right.svg</normaloff>:/icons_v2/arrow-right.svg</iconset>
                             </property>
                             <property name="iconSize">
@@ -1508,8 +1508,8 @@ QScrollBar::sub-line:vertical {
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>258</width>
-                            <height>358</height>
+                            <width>262</width>
+                            <height>378</height>
                            </rect>
                           </property>
                           <layout class="QVBoxLayout" name="verticalLayout_15">
@@ -1736,8 +1736,8 @@ background-color: transparent;
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>885</width>
-                      <height>514</height>
+                      <width>322</width>
+                      <height>199</height>
                      </rect>
                     </property>
                     <layout class="QGridLayout" name="gridLayout_36">
@@ -2386,8 +2386,8 @@ QScrollBar::sub-line:vertical {
                         <rect>
                          <x>0</x>
                          <y>0</y>
-                         <width>871</width>
-                         <height>512</height>
+                         <width>98</width>
+                         <height>28</height>
                         </rect>
                        </property>
                        <layout class="QGridLayout" name="gridLayout_25">
@@ -2737,7 +2737,7 @@ magin-left: 3px</string>
                           <string>Ongoing Task</string>
                          </property>
                          <property name="icon">
-                          <iconset resource="SEP_Project/resources.qrc">
+                          <iconset>
                            <normaloff>:/icons_v2/refresh-cw.svg</normaloff>:/icons_v2/refresh-cw.svg</iconset>
                          </property>
                         </widget>
@@ -2748,7 +2748,7 @@ magin-left: 3px</string>
                           <string>Complete Task</string>
                          </property>
                          <property name="icon">
-                          <iconset resource="SEP_Project/resources.qrc">
+                          <iconset>
                            <normaloff>:/icons_v2/check-circle.svg</normaloff>:/icons_v2/check-circle.svg</iconset>
                          </property>
                         </widget>
@@ -2759,7 +2759,7 @@ magin-left: 3px</string>
                           <string>Late Task</string>
                          </property>
                          <property name="icon">
-                          <iconset resource="SEP_Project/resources.qrc">
+                          <iconset>
                            <normaloff>:/icons_v2/late.png</normaloff>:/icons_v2/late.png</iconset>
                          </property>
                         </widget>
@@ -2872,8 +2872,8 @@ QScrollBar::sub-line:vertical {
                         <rect>
                          <x>0</x>
                          <y>0</y>
-                         <width>883</width>
-                         <height>408</height>
+                         <width>98</width>
+                         <height>28</height>
                         </rect>
                        </property>
                        <layout class="QGridLayout" name="gridLayout_28">
@@ -4106,7 +4106,7 @@ border-radius: 1px solid #1e1e1e;</string>
              <string>Home</string>
             </property>
             <property name="icon">
-             <iconset resource="SEP_Project/resources.qrc">
+             <iconset>
               <normaloff>:/icons_v2/home.svg</normaloff>:/icons_v2/home.svg</iconset>
             </property>
             <property name="iconSize">
@@ -4138,7 +4138,7 @@ border-radius: 1px solid #1e1e1e;</string>
              <string>Analysis</string>
             </property>
             <property name="icon">
-             <iconset resource="SEP_Project/resources.qrc">
+             <iconset>
               <normaloff>:/icons_v2/pie-chart.svg</normaloff>:/icons_v2/pie-chart.svg</iconset>
             </property>
             <property name="iconSize">
@@ -4176,7 +4176,7 @@ border-radius: 1px solid #1e1e1e;</string>
              <string>Calendar</string>
             </property>
             <property name="icon">
-             <iconset resource="SEP_Project/resources.qrc">
+             <iconset>
               <normaloff>:/icons/assets/icons/calendar.svg</normaloff>:/icons/assets/icons/calendar.svg</iconset>
             </property>
             <property name="iconSize">
@@ -4205,7 +4205,7 @@ border-radius: 1px solid #1e1e1e;</string>
              <string>History</string>
             </property>
             <property name="icon">
-             <iconset resource="SEP_Project/resources.qrc">
+             <iconset>
               <normaloff>:/icons_v2/history-svgrepo-com.svg</normaloff>:/icons_v2/history-svgrepo-com.svg</iconset>
             </property>
             <property name="iconSize">
@@ -4240,7 +4240,7 @@ border-radius: 1px solid #1e1e1e;</string>
              <string>Task</string>
             </property>
             <property name="icon">
-             <iconset resource="SEP_Project/resources.qrc">
+             <iconset>
               <normaloff>:/icons_v2/clipboard.svg</normaloff>:/icons_v2/clipboard.svg</iconset>
             </property>
             <property name="iconSize">
@@ -4273,7 +4273,7 @@ border-radius: 1px solid #1e1e1e;</string>
              <string>Logout</string>
             </property>
             <property name="icon">
-             <iconset resource="SEP_Project/resources.qrc">
+             <iconset>
               <normaloff>:/icons_v2/settings.svg</normaloff>:/icons_v2/settings.svg</iconset>
             </property>
             <property name="iconSize">
@@ -4420,7 +4420,7 @@ background_color: #FAC898;
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="SEP_Project/resources.qrc">
+             <iconset>
               <normaloff>:/icons_v2/home.svg</normaloff>:/icons_v2/home.svg</iconset>
             </property>
             <property name="iconSize">
@@ -4438,7 +4438,7 @@ background_color: #FAC898;
            </widget>
           </item>
           <item row="1" column="0">
-           <widget class="QPushButton" name="historyMiniButton">
+           <widget class="QPushButton" name="analysisMiniButton">
             <property name="font">
              <font>
               <pointsize>15</pointsize>
@@ -4448,7 +4448,7 @@ background_color: #FAC898;
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="SEP_Project/resources.qrc">
+             <iconset>
               <normaloff>:/icons_v2/pie-chart.svg</normaloff>:/icons_v2/pie-chart.svg</iconset>
             </property>
             <property name="iconSize">
@@ -4466,7 +4466,7 @@ background_color: #FAC898;
            </widget>
           </item>
           <item row="2" column="0">
-           <widget class="QPushButton" name="taskMiniButton">
+           <widget class="QPushButton" name="calendarMiniButton">
             <property name="font">
              <font>
               <pointsize>15</pointsize>
@@ -4476,7 +4476,7 @@ background_color: #FAC898;
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="SEP_Project/resources.qrc">
+             <iconset>
               <normaloff>:/icons/assets/icons/calendar.svg</normaloff>:/icons/assets/icons/calendar.svg</iconset>
             </property>
             <property name="iconSize">
@@ -4494,7 +4494,7 @@ background_color: #FAC898;
            </widget>
           </item>
           <item row="3" column="0">
-           <widget class="QPushButton" name="calendarMiniButton">
+           <widget class="QPushButton" name="historyMiniButton">
             <property name="font">
              <font>
               <pointsize>15</pointsize>
@@ -4504,7 +4504,7 @@ background_color: #FAC898;
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="SEP_Project/resources.qrc">
+             <iconset>
               <normaloff>:/icons_v2/history-svgrepo-com.svg</normaloff>:/icons_v2/history-svgrepo-com.svg</iconset>
             </property>
             <property name="iconSize">
@@ -4522,7 +4522,7 @@ background_color: #FAC898;
            </widget>
           </item>
           <item row="4" column="0">
-           <widget class="QPushButton" name="analysisMiniButton">
+           <widget class="QPushButton" name="taskMiniButton">
             <property name="font">
              <font>
               <pointsize>15</pointsize>
@@ -4532,7 +4532,7 @@ background_color: #FAC898;
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="SEP_Project/resources.qrc">
+             <iconset>
               <normaloff>:/icons_v2/clipboard.svg</normaloff>:/icons_v2/clipboard.svg</iconset>
             </property>
             <property name="iconSize">
@@ -4555,7 +4555,7 @@ background_color: #FAC898;
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="SEP_Project/resources.qrc">
+             <iconset>
               <normaloff>:/icons_v2/settings.svg</normaloff>:/icons_v2/settings.svg</iconset>
             </property>
             <property name="iconSize">
@@ -4868,7 +4868,7 @@ border : 1px solid #1e1e1e;
    </hints>
   </connection>
   <connection>
-   <sender>historyMiniButton</sender>
+   <sender>analysisMiniButton</sender>
    <signal>toggled(bool)</signal>
    <receiver>analysisButton</receiver>
    <slot>setChecked(bool)</slot>
@@ -4886,7 +4886,7 @@ border : 1px solid #1e1e1e;
   <connection>
    <sender>calendarButton</sender>
    <signal>toggled(bool)</signal>
-   <receiver>taskMiniButton</receiver>
+   <receiver>calendarMiniButton</receiver>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -4900,7 +4900,7 @@ border : 1px solid #1e1e1e;
    </hints>
   </connection>
   <connection>
-   <sender>analysisMiniButton</sender>
+   <sender>taskMiniButton</sender>
    <signal>toggled(bool)</signal>
    <receiver>taskButton</receiver>
    <slot>setChecked(bool)</slot>
@@ -4918,7 +4918,7 @@ border : 1px solid #1e1e1e;
   <connection>
    <sender>taskButton</sender>
    <signal>toggled(bool)</signal>
-   <receiver>analysisMiniButton</receiver>
+   <receiver>taskMiniButton</receiver>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -4948,7 +4948,7 @@ border : 1px solid #1e1e1e;
    </hints>
   </connection>
   <connection>
-   <sender>taskMiniButton</sender>
+   <sender>calendarMiniButton</sender>
    <signal>toggled(bool)</signal>
    <receiver>calendarButton</receiver>
    <slot>setChecked(bool)</slot>
@@ -4966,7 +4966,7 @@ border : 1px solid #1e1e1e;
   <connection>
    <sender>analysisButton</sender>
    <signal>toggled(bool)</signal>
-   <receiver>historyMiniButton</receiver>
+   <receiver>analysisMiniButton</receiver>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -4980,7 +4980,7 @@ border : 1px solid #1e1e1e;
    </hints>
   </connection>
   <connection>
-   <sender>calendarMiniButton</sender>
+   <sender>historyMiniButton</sender>
    <signal>toggled(bool)</signal>
    <receiver>historyButton</receiver>
    <slot>setChecked(bool)</slot>
@@ -4998,7 +4998,7 @@ border : 1px solid #1e1e1e;
   <connection>
    <sender>historyButton</sender>
    <signal>toggled(bool)</signal>
-   <receiver>calendarMiniButton</receiver>
+   <receiver>historyMiniButton</receiver>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
