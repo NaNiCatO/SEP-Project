@@ -28,6 +28,7 @@ class Sidebar(QMainWindow, Ui_MainWindow,QtCore.QObject):
 
         self.setup_home_page()
         self.task_page = Task_page(self, self.user)
+        self.history_page = History_page(self, self.user)
         self.analyse_page = Analysis_page(self, self.categorized_task)
 
         self.arr_update = [self.home_page, self.task_page]
@@ -73,7 +74,7 @@ class Sidebar(QMainWindow, Ui_MainWindow,QtCore.QObject):
 
     def switch_to_history(self):
         # self.update_ui()
-        self.history_page = History_page(self, self.user)
+        self.history_page.display_history()
         self.stackedWidget.setCurrentIndex(2)
 
     def switch_to_view_task(self):

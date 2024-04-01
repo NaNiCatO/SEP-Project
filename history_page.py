@@ -13,17 +13,28 @@ class History_page():
         self.user = user
         self.history = self.user.get_history()
         self.container_layout = QVBoxLayout(self.ui.history_frame)
-        self.display_history()
+        
+        self.ui.history_frame.setStyleSheet(stylesheet)
         
     def display_history(self):
+        # delete previous labels from layout
+        for i in reversed(range(self.container_layout.count())):
+            widget = self.container_layout.itemAt(i).widget()
+            widget.deleteLater()
+        
         for date in self.history:
+            date_label = QLabel(f"{date}")
+            date_label.setObjectName("date-label")  # Assign class name
+            date_label.setStyleSheet("color: blue;")  # Optional inline style
+
+            self.container_layout.addWidget(date_label)
             for event, details in self.history[date].items():
                 if event == "Create Account":
-                    text = f"{date} \t Create Account: {details[0][0]}"  # Username from first tuple
+                    text = f"<font color='darkgreen'>Create Account</font>: {details[0][0]}"  # Username from first tuple
                 elif event == "Create":
-                    text = f"{date} \t Create Task:"
+                    text = f"Create Task:"
                     for task in details:
-                        text += f"\n\t\t- {task[0]}"
+                        text += f"\n\t- {task[0]}"
                 elif event in ("topic", "detail", "due_date", "urgent"):
                     text_map = {
                         "topic": "Change Task Name:",
@@ -31,41 +42,77 @@ class History_page():
                         "due_date": "Change Task Due Date:",
                         "urgent": "Change Task Urgency:",
                     }
-                    text = f"{date} \t {text_map[event]} "
+                    text = f"{text_map[event]} "
                     for task in details:
                         old_value, new_value = task[1], task[2]
-                        text += f"\n\t\t- Task {task[0]}: {old_value} to {new_value}"
+                        text += f"\n\t- Task {task[0]}: {old_value} to {new_value}"
                 elif event == "Completed":
-                    text = f"{date} \t Task Completed:"
+                    text = f"Task Completed:"
                     for task in details:
-                        text += f"\n\t\t- {task}"
+                        text += f"\n\t- {task}"
                 elif event == "Uncompleted":
-                    text = f"{date} \t Task Uncompleted:"
+                    text = f"Task Uncompleted:"
                     for task in details:
-                        text += f"\n\t\t- {task}"
+                        text += f"\n\t- {task}"
                 elif event == "Delete":
-                    text = f"{date} \t Task Deleted:"
+                    text = f"Task Deleted:"
                     for task in details:
-                        text += f"\n\t\t- {task}"
+                        text += f"\n\t- {task}"
                 elif event == "Create Subtask":
-                    text = f"{date} \t Create Subtask:"
+                    text = f"Create Subtask:"
                     for task in details:
-                        text += f"\n\t\t- Create Task {task[0]} in task {task[1]}"
+                        text += f"\n\t- Create Task {task[1]} in task {task[0]}"
                         
                 elif event == "Delete Subtask":
-                    text = f"{date} \t Delete Subtask:"
+                    text = f"Delete Subtask:"
                     for task in details:
-                        text += f"\n\t\t- Delete Task {task[0]} from task {task[1]}"
+                        text += f"\n\t- Delete Task {task[1]} from task {task[0]}"
+                
+                
+                    
 
                 # Create label and add to layout
-                self.event_label = QLabel(text)
-                self.container_layout.addWidget(self.event_label)
+                event_label = QLabel(text)
+                event_label.setAlignment(Qt.AlignLeft | Qt.AlignTop)
+                self.container_layout.addWidget(event_label)
 
-                    
-                    
-                    
+stylesheet = """
+        /* History frame styling */
+        #history_frame {
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 5px;  /* Add rounded corners */
+            padding: 15px;
+        }
 
-        
-        
-                
-            
+        /* Event label styling */
+        QLabel {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            color: #444;
+            line-height: 1.5;  /* Increase line spacing for readability */
+        }
+
+        /* Date label styling (targets first child) */
+        QLabel:first-child {
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Topic label styling (change color to light green) */
+        QLabel:contains("Change Task Name:") {
+            color: lightgreen;  /* Or #90EE90 for light green */
+        }
+
+        /* Task list styling */
+        .task-list {
+            margin-left: 20px;  /* Indent task list for better hierarchy */
+            list-style: none;  /* Remove default bullet points */
+            padding-left: 0;  /* Remove default list padding */
+        }
+
+        /* Task list item styling */
+        .task-list-item {
+            margin-bottom: 5px;  /* Add space between task items */
+        }
+        """
