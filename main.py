@@ -11,7 +11,7 @@ from new_window_task import New_MainWindow_task
 from calendar_page import Calendar_page
 from history_page import History_page
 import sys
-import editdistance
+# import editdistance
 
 class Sidebar(QMainWindow, Ui_MainWindow,QtCore.QObject):
     abouttoclose = Signal()
@@ -45,6 +45,11 @@ class Sidebar(QMainWindow, Ui_MainWindow,QtCore.QObject):
         self.historyMiniButton.clicked.connect(self.switch_to_history)
         self.taskButton.clicked.connect(self.switch_to_view_task)
         self.taskMiniButton.clicked.connect(self.switch_to_view_task)
+
+        # self.pushButton.clicked.connect(self.search)
+        # self.lineEdit.returnPressed.connect(self.search)
+
+     
         self.settingButton.clicked.connect(self.logout)
         self.logoutMiniButton.clicked.connect(self.logout)
     
@@ -57,11 +62,7 @@ class Sidebar(QMainWindow, Ui_MainWindow,QtCore.QObject):
             self.logoutsignal.emit()
             self.close()
 
-        self.pushButton.clicked.connect(self.search)
-        self.lineEdit.returnPressed.connect(self.search)
 
-        self.pushButton.clicked.connect(self.search)
-        self.lineEdit.returnPressed.connect(self.search)
 
     def switch_to_home(self):
         # self.update_ui()
@@ -122,31 +123,31 @@ class Sidebar(QMainWindow, Ui_MainWindow,QtCore.QObject):
         super().closeEvent(event)
         
 
-    def search(self):
-        text = self.lineEdit.text()
-        if text == "":
-            return
-        print(text)
-        tasks = find_similar_words(text, self.user.get_user_tasks())
-        self.new_MainWindow_task_page = New_MainWindow_task(self, tasks, text)
-        self.new_MainWindow_task_page.show()
+    # def search(self):
+    #     text = self.lineEdit.text()
+    #     if text == "":
+    #         return
+    #     print(text)
+    #     tasks = find_similar_words(text, self.user.get_user_tasks())
+    #     self.new_MainWindow_task_page = New_MainWindow_task(self, tasks, text)
+    #     self.new_MainWindow_task_page.show()
 
     
-def find_similar_words(word, word_list):
-    if len(word) < 3:
-        max_distance = 0
-    else:
-        max_distance = 2
-    similar_words = []
-    for candidate in word_list:
-        distance = editdistance.eval(word, candidate.get_name_topic())
-        if distance <= max_distance:
-            similar_words.append(candidate)
-        elif all(char in candidate.get_name_topic() for char in word):
-            similar_words.append(candidate)
-    # Sort by distance (ascending order)
-    similar_words.sort(key=lambda x: editdistance.eval(word, x.get_name_topic()))  # Sort directly using editdistance
-    return similar_words
+# def find_similar_words(word, word_list):
+#     if len(word) < 3:
+#         max_distance = 0
+#     else:
+#         max_distance = 2
+#     similar_words = []
+#     for candidate in word_list:
+#         distance = editdistance.eval(word, candidate.get_name_topic())
+#         if distance <= max_distance:
+#             similar_words.append(candidate)
+#         elif all(char in candidate.get_name_topic() for char in word):
+#             similar_words.append(candidate)
+#     # Sort by distance (ascending order)
+#     similar_words.sort(key=lambda x: editdistance.eval(word, x.get_name_topic()))  # Sort directly using editdistance
+#     return similar_words
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
