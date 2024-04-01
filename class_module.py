@@ -98,6 +98,7 @@ class Task(persistent.Persistent):
         self.urgent = urgent
         self.is_completed = False
         self.start_date = datetime.datetime.today()
+        self.is_complete_in_history = False
 
     def get_name_topic(self) :
         return self.name_topic

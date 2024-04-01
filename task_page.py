@@ -6,6 +6,7 @@ from new_window_task import New_MainWindow_task
 from specialObject import ClickableTaskFrame
 from ui_py.main_stack import Ui_MainWindow
 from class_module import Task_handlers
+from datetime import datetime
 
 
 
@@ -93,6 +94,7 @@ class Task_page():
     def clicked(self, task):
         if self.mode == "Delete Task":
             self.ui.user.remove_task(task)
+            self.user.add_history(datetime.now().strftime('%Y-%m-%d'), "Delete", task)
             self.update_ui()
             print(f"Deleted task: {task.name_topic}")
         elif self.mode == "Edit Task":
@@ -144,6 +146,11 @@ class Task_page():
     def radio_button_clicked(self, task):
         def on_toggled(checked):
             task.is_completed = checked
+            if task.is_complete_in_history:
+                pass
+            else:
+                self.user.add_history(datetime.now().strftime('%Y-%m-%d'), "Completed", task)
+                task.is_complete_in_history = True
             print(f"Task {task.name_topic} is_completed = {task.is_completed}")
         return on_toggled
     
