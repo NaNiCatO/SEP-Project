@@ -50,12 +50,12 @@ class History_page():
                 elif event == "Create Subtask":
                     text = f"{date} \t Create Subtask:"
                     for task in details:
-                        text += f"\n\t\t- Create Task {task[0]} in task {task[1]}"
+                        text += f"\n\t\t- Create Task {task[1]} in task {task[0]}"
                         
                 elif event == "Delete Subtask":
                     text = f"{date} \t Delete Subtask:"
                     for task in details:
-                        text += f"\n\t\t- Delete Task {task[0]} from task {task[1]}"
+                        text += f"\n\t\t- Delete Task {task[1]} from task {task[0]}"
 
                 # Create label and add to layout
                 self.event_label = QLabel(text)
