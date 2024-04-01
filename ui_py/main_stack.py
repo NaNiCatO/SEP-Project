@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'interface24feb.ui'
+## Form generated from reading UI file 'interface31Mar.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.6.0
 ##
@@ -81,12 +81,12 @@ class Ui_MainWindow(object):
 "\n"
 "#analysisButton, #calendarButton, #historyButton, #taskButton,#logoutButton{\n"
 "text-align: left;\n"
-"paddding-left: 5px;\n"
+"\n"
 "}\n"
 "\n"
-"#fra"
-                        "me10{\n"
-"background_color: #ffffff;\n"
+"#frame10{\n"
+"backgroun"
+                        "d-color: #ffffff;\n"
 "}\n"
 "\n"
 "QPushButton:checked{\n"
@@ -186,7 +186,7 @@ class Ui_MainWindow(object):
         self.menuButton.setMaximumSize(QSize(30, 30))
         self.menuButton.setSizeIncrement(QSize(10, 10))
         self.menuButton.setStyleSheet(u"image: url(:/icons/assets/icons/align-justify.svg);\n"
-"magin-left: 3px")
+"")
         self.menuButton.setIconSize(QSize(18, 18))
         self.menuButton.setCheckable(True)
         self.homeHeader = QLabel(self.mainMenuButton)
@@ -212,24 +212,32 @@ class Ui_MainWindow(object):
         self.searchFrame.setFrameShape(QFrame.StyledPanel)
         self.searchFrame.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_5 = QHBoxLayout(self.searchFrame)
-        self.horizontalLayout_5.setSpacing(0)
+        self.horizontalLayout_5.setSpacing(5)
         self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
-        self.horizontalLayout_5.setContentsMargins(0, 0, 0, 0)
-        self.searchicon = QLabel(self.searchFrame)
-        self.searchicon.setObjectName(u"searchicon")
-        self.searchicon.setMinimumSize(QSize(30, 30))
-        self.searchicon.setMaximumSize(QSize(30, 30))
-        self.searchicon.setStyleSheet(u"")
-        self.searchicon.setPixmap(QPixmap(u":/icons_v2/search.svg"))
-        self.searchicon.setScaledContents(True)
+        self.horizontalLayout_5.setContentsMargins(5, 5, 5, 5)
+        self.pushButton = QPushButton(self.searchFrame)
+        self.pushButton.setObjectName(u"pushButton")
+        icon = QIcon()
+        icon.addFile(u":/icons_v2/search.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton.setIcon(icon)
+        self.pushButton.setIconSize(QSize(24, 24))
 
-        self.horizontalLayout_5.addWidget(self.searchicon)
+        self.horizontalLayout_5.addWidget(self.pushButton)
 
         self.lineEdit = QLineEdit(self.searchFrame)
         self.lineEdit.setObjectName(u"lineEdit")
         self.lineEdit.setStyleSheet(u"")
 
         self.horizontalLayout_5.addWidget(self.lineEdit)
+
+        self.pushButton_2 = QPushButton(self.searchFrame)
+        self.pushButton_2.setObjectName(u"pushButton_2")
+        icon1 = QIcon()
+        icon1.addFile(u":/icons_v2/mic.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton_2.setIcon(icon1)
+        self.pushButton_2.setIconSize(QSize(24, 24))
+
+        self.horizontalLayout_5.addWidget(self.pushButton_2)
 
 
         self.horizontalLayout_4.addWidget(self.searchFrame, 0, Qt.AlignTop)
@@ -254,7 +262,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_7 = QHBoxLayout(self.cardFrame)
         self.horizontalLayout_7.setSpacing(20)
         self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
-        self.horizontalLayout_7.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_7.setContentsMargins(10, 0, 0, 0)
         self.todayCard = QFrame(self.cardFrame)
         self.todayCard.setObjectName(u"todayCard")
         self.todayCard.setMinimumSize(QSize(180, 80))
@@ -492,9 +500,9 @@ class Ui_MainWindow(object):
 
         self.todayButton = QPushButton(self.frame_9)
         self.todayButton.setObjectName(u"todayButton")
-        icon = QIcon()
-        icon.addFile(u":/icons_v2/arrow-right.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.todayButton.setIcon(icon)
+        icon2 = QIcon()
+        icon2.addFile(u":/icons_v2/arrow-right.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.todayButton.setIcon(icon2)
         self.todayButton.setIconSize(QSize(24, 24))
 
         self.horizontalLayout_14.addWidget(self.todayButton)
@@ -505,13 +513,23 @@ class Ui_MainWindow(object):
         self.scrollArea = QScrollArea(self.widget)
         self.scrollArea.setObjectName(u"scrollArea")
         self.scrollArea.setMinimumSize(QSize(228, 0))
-        self.scrollArea.setStyleSheet(u"#scrollArea QWidget {\n"
+        self.scrollArea.setStyleSheet(u"\n"
+"#scrollArea QWidget {\n"
 "    background-color: transparent;\n"
 "}\n"
+"\n"
+"#scrollArea QWidget {\n"
+"    background-color: transparent;\n"
+"}\n"
+"\n"
 "QScrollArea {\n"
 "    background-color: #ffffff;\n"
 "    border: 1px solid #cccccc;\n"
 "    border-radius: 5px;\n"
+"}\n"
+"\n"
+"QScrollArea QWidget::item {\n"
+"    border-bottom: 1px solid #cccccc; /* Add a border bottom to create a line break */\n"
 "}\n"
 "\n"
 "QScrollBar:vertical {\n"
@@ -542,7 +560,8 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "QScrollBar::sub-line:vertical {\n"
-"    height: 0px;\n"
+""
+                        "    height: 0px;\n"
 "    subcontrol-position: top;\n"
 "    subcontrol-origin: margin;\n"
 "}\n"
@@ -553,7 +572,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 226, 28))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 257, 377))
         self.gridLayout_5 = QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout_5.setObjectName(u"gridLayout_5")
         self.todayMainTask = QFrame(self.scrollAreaWidgetContents)
@@ -610,9 +629,9 @@ class Ui_MainWindow(object):
 
         self.urgentButton = QPushButton(self.frame_11)
         self.urgentButton.setObjectName(u"urgentButton")
-        icon1 = QIcon()
-        icon1.addFile(u":/icons/assets/icons/arrow-right.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.urgentButton.setIcon(icon1)
+        icon3 = QIcon()
+        icon3.addFile(u":/icons/assets/icons/arrow-right.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.urgentButton.setIcon(icon3)
         self.urgentButton.setIconSize(QSize(24, 24))
 
         self.horizontalLayout_15.addWidget(self.urgentButton)
@@ -628,15 +647,18 @@ class Ui_MainWindow(object):
 "    background-color: transparent;\n"
 "}\n"
 "\n"
-"\n"
-"\n"
 "#scrollArea QWidget {\n"
 "    background-color: transparent;\n"
 "}\n"
+"\n"
 "QScrollArea {\n"
 "    background-color: #ffffff;\n"
 "    border: 1px solid #cccccc;\n"
 "    border-radius: 5px;\n"
+"}\n"
+"\n"
+"QScrollArea QWidget::item {\n"
+"    border-bottom: 1px solid #cccccc; /* Add a border bottom to create a line break */\n"
 "}\n"
 "\n"
 "QScrollBar:vertical {\n"
@@ -667,7 +689,8 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "QScrollBar::sub-line:vertical {\n"
-"    height: 0px;\n"
+""
+                        "    height: 0px;\n"
 "    subcontrol-position: top;\n"
 "    subcontrol-origin: margin;\n"
 "}\n"
@@ -678,7 +701,7 @@ class Ui_MainWindow(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollAreaWidgetContents_3 = QWidget()
         self.scrollAreaWidgetContents_3.setObjectName(u"scrollAreaWidgetContents_3")
-        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 226, 28))
+        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 257, 372))
         self.gridLayout_4 = QGridLayout(self.scrollAreaWidgetContents_3)
         self.gridLayout_4.setObjectName(u"gridLayout_4")
         self.urgentMainTask = QFrame(self.scrollAreaWidgetContents_3)
@@ -735,7 +758,7 @@ class Ui_MainWindow(object):
 
         self.completedButton = QPushButton(self.frame_18)
         self.completedButton.setObjectName(u"completedButton")
-        self.completedButton.setIcon(icon)
+        self.completedButton.setIcon(icon2)
         self.completedButton.setIconSize(QSize(24, 24))
 
         self.horizontalLayout_16.addWidget(self.completedButton)
@@ -746,24 +769,23 @@ class Ui_MainWindow(object):
         self.scrollArea_3 = QScrollArea(self.widget_3)
         self.scrollArea_3.setObjectName(u"scrollArea_3")
         self.scrollArea_3.setMinimumSize(QSize(228, 0))
-        self.scrollArea_3.setStyleSheet(u"#scrollArea QWidget {\n"
-"    background-color: transparent;\n"
-"}\n"
-"\n"
-"\n"
-"\n"
+        self.scrollArea_3.setStyleSheet(u"\n"
 "#scrollArea_3 QWidget {\n"
 "    background-color: transparent;\n"
 "}\n"
 "\n"
-"\n"
 "#scrollArea QWidget {\n"
 "    background-color: transparent;\n"
 "}\n"
+"\n"
 "QScrollArea {\n"
 "    background-color: #ffffff;\n"
 "    border: 1px solid #cccccc;\n"
 "    border-radius: 5px;\n"
+"}\n"
+"\n"
+"QScrollArea QWidget::item {\n"
+"    border-bottom: 1px solid #cccccc; /* Add a border bottom to create a line break */\n"
 "}\n"
 "\n"
 "QScrollBar:vertical {\n"
@@ -794,9 +816,9 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "QScrollBar::sub-line:vertical {\n"
-"    height: 0px;\n"
-"    subcontrol-position: top;"
-                        "\n"
+""
+                        "    height: 0px;\n"
+"    subcontrol-position: top;\n"
 "    subcontrol-origin: margin;\n"
 "}\n"
 "\n"
@@ -807,7 +829,7 @@ class Ui_MainWindow(object):
         self.scrollArea_3.setWidgetResizable(True)
         self.scrollAreaWidgetContents_4 = QWidget()
         self.scrollAreaWidgetContents_4.setObjectName(u"scrollAreaWidgetContents_4")
-        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 226, 28))
+        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 257, 372))
         self.verticalLayout_15 = QVBoxLayout(self.scrollAreaWidgetContents_4)
         self.verticalLayout_15.setObjectName(u"verticalLayout_15")
         self.completedMainTask = QFrame(self.scrollAreaWidgetContents_4)
@@ -919,8 +941,8 @@ class Ui_MainWindow(object):
 "    border-radius: 5px;\n"
 "    /*background: qlineargradient(spread:pad, x1:0, y1:0.5, x2:1, y2:0.5, stop:0 #f0792b, stop:0.5 #ffa163, stop:1 #edb28c);*/\n"
 "	background-color: #f0792b;\n"
-"    cursor: pointer;\n"
-"    transition: background-color 0.3s ease;\n"
+"    \n"
+"    \n"
 "}\n"
 "\n"
 "#create_Button:hover , #delete_Button:hover , #edit_Button:hover {\n"
@@ -956,7 +978,7 @@ class Ui_MainWindow(object):
         self.scrollArea_6.setWidgetResizable(True)
         self.scrollAreaWidgetContents_6 = QWidget()
         self.scrollAreaWidgetContents_6.setObjectName(u"scrollAreaWidgetContents_6")
-        self.scrollAreaWidgetContents_6.setGeometry(QRect(0, 0, 306, 199))
+        self.scrollAreaWidgetContents_6.setGeometry(QRect(0, 0, 354, 199))
         self.gridLayout_36 = QGridLayout(self.scrollAreaWidgetContents_6)
         self.gridLayout_36.setSpacing(0)
         self.gridLayout_36.setObjectName(u"gridLayout_36")
@@ -974,6 +996,9 @@ class Ui_MainWindow(object):
         self.calendarWidget.setStyleSheet(u"\n"
 "#calendarWidget QWidget{\n"
 "alternate-background-color: #fec89a;\n"
+"\n"
+"\n"
+"\n"
 "}\n"
 "\n"
 "#qt_calendar_navigationbar{\n"
@@ -982,6 +1007,8 @@ class Ui_MainWindow(object):
 "border-bottom: 0px;\n"
 "border-top-left-radius: 5px;\n"
 "border-top-right-radius: 5px;\n"
+"border : 2px solid #1e1e1e; \n"
+"\n"
 "}\n"
 "\n"
 "#qt_calendar_prevmonth, #qt_calendar_nextmonth{\n"
@@ -995,15 +1022,17 @@ class Ui_MainWindow(object):
 "background-color: transparent;\n"
 "padding: 5px;\n"
 "\n"
+"\n"
 "}\n"
 "\n"
 "#qt_calendar_prevmonth{\n"
-"marigin-right: 5px;\n"
+"\n"
 "	image: url(:/icons/assets/icons/arrow-left.svg);\n"
+"\n"
 "}\n"
 "\n"
 "#qt_calendar_nextmonth{\n"
-"marigin-right: 5px;\n"
+"\n"
 "	\n"
 "	image: url(:/icons/assets/icons/arrow-right.svg);\n"
 "}\n"
@@ -1015,10 +1044,10 @@ class Ui_MainWindow(object):
 "\n"
 "#qt_calendar_nextmonth:pressd,#qt_calendar_prevmonth:pressd{\n"
 "background-color: #fcd5ce;\n"
-"}\n"
+""
+                        "}\n"
 "\n"
-"#qt_calend"
-                        "ar_yearbutton{\n"
+"#qt_calendar_yearbutton{\n"
 "color: #000;\n"
 "margin: 5px;\n"
 "border-radius: 5px;\n"
@@ -1030,12 +1059,13 @@ class Ui_MainWindow(object):
 "width: 110px;\n"
 "color: #000;\n"
 "font-size: 13px;\n"
-"margin: 5px 0;\n"
+"margin: 5px 10px;\n"
 "border-radius: 5px;\n"
-"padding: 0px 2px;\n"
+"padding: 0px 0px;\n"
+"\n"
 "}\n"
 "\n"
-"#qt_calendar_yearbutton:hover, #qt_calendar_monthbutton:hover{\n"
+"#qt_calendar_prevmonth:hover,#qt_calendar_nextmonth:hover,#qt_calendar_yearbutton:hover, #qt_calendar_monthbutton:hover{\n"
 "background-color: #55aaff;\n"
 "}\n"
 "\n"
@@ -1052,19 +1082,19 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "#qt_calendar_yearedit::down-button{\n"
-"	image: url(:/icons/icons_black/arrow-right.svg);\n"
-"subcontrol-position:right;\n"
-"}\n"
-"\n"
-"#qt_calendar_yearedit::up-button{\n"
-"	image: url(:/icons/icons_black/arrow-right.svg);\n"
+"	image: url(:/icons/assets/icons/arrow-down.svg);\n"
 "subcontrol-position:left;\n"
 "}\n"
 "\n"
-"#qt_calendar_yearedit::down-button,#qt_calendar_yearedit::up-button{\n"
+"#qt_calendar_yearedit::up-button{\n"
+"	image: url(:/icons/assets/icons/arrow-up.svg);\n"
+"subcontrol-position:right;\n"
+"}\n"
+"\n"
+"#qt_calen"
+                        "dar_yearedit::down-button,#qt_calendar_yearedit::up-button{\n"
 "width:10px;\n"
-"paddi"
-                        "ng: 0px 5px;\n"
+"padding: 0px 5px;\n"
 "border-radius: 3px;\n"
 "}\n"
 "\n"
@@ -1073,7 +1103,7 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "#calendarWidgetQToolButton QMenu{\n"
-"background-color: #fff;\n"
+"background-color: #ffffff;\n"
 "}\n"
 "\n"
 "#calendarWidgetQToolButton QMenu::item{\n"
@@ -1086,9 +1116,10 @@ class Ui_MainWindow(object):
 "\n"
 "#calendarWidgetQToolButton QToolButtin::menu-indicator{\n"
 "nosubcontrol-origin: margin;\n"
-"sbucontrol-position:right center;\n"
+"subcontrol-position:right center;\n"
 "margin-top: 10px;\n"
 "width:20px;\n"
+"\n"
 "\n"
 "}\n"
 "\n"
@@ -1097,18 +1128,23 @@ class Ui_MainWindow(object):
 "border-top:0px;\n"
 "border-bottom-left-radius: 5px;\n"
 "border-bottom-right-radius: 5px;\n"
+"border : 2px solid #1e1e1e; \n"
+"\n"
 "\n"
 "}\n"
 "\n"
 "#qt_calendar_calendarview::item:hover{\n"
 "border-radius: 5px;\n"
 "background-color: #cdd1d1;\n"
+"\n"
 "}\n"
 "\n"
-"#qt_calendar_calendarview::item:selected{\n"
+"#qt_calendar_calen"
+                        "darview::item:selected{\n"
 "border-radius: 5px;\n"
 "color:#1e1e1e;\n"
 "background-color: #ffddd2;\n"
+"\n"
 "\n"
 "}\n"
 "\n"
@@ -1161,7 +1197,7 @@ class Ui_MainWindow(object):
         self.menuButton_8.setMaximumSize(QSize(30, 30))
         self.menuButton_8.setSizeIncrement(QSize(10, 10))
         self.menuButton_8.setStyleSheet(u"image: url(:/icons/assets/icons/align-justify.svg);\n"
-"magin-left: 3px")
+"")
         self.menuButton_8.setIconSize(QSize(18, 18))
         self.menuButton_8.setCheckable(True)
 
@@ -1218,8 +1254,7 @@ class Ui_MainWindow(object):
 "    border-radius: 5px;\n"
 "    /*background: qlineargradient(spread:pad, x1:0, y1:0.5, x2:1, y2:0.5, stop:0 #f0792b, stop:0.5 #ffa163, stop:1 #edb28c);*/\n"
 "	background-color: #f0792b;\n"
-"    cursor: pointer;\n"
-"    transition: background-color 0.3s ease;\n"
+"   \n"
 "}\n"
 "\n"
 "#create_Button:hover , #delete_Button:hover , #edit_Button:hover {\n"
@@ -1249,8 +1284,7 @@ class Ui_MainWindow(object):
 "#detailHeadline{\n"
 "margin-right: 35px;\n"
 "}\n"
-""
-                        "\n"
+"\n"
 "#topicNameHeadline{\n"
 "margin-right: 3px;\n"
 "}\n"
@@ -1282,7 +1316,7 @@ class Ui_MainWindow(object):
         self.menuButton_6.setMaximumSize(QSize(30, 30))
         self.menuButton_6.setSizeIncrement(QSize(10, 10))
         self.menuButton_6.setStyleSheet(u"image: url(:/icons/assets/icons/align-justify.svg);\n"
-"magin-left: 3px")
+"")
         self.menuButton_6.setIconSize(QSize(18, 18))
         self.menuButton_6.setCheckable(True)
 
@@ -1311,7 +1345,7 @@ class Ui_MainWindow(object):
         self.gridLayout_23 = QGridLayout(self.frame_22)
         self.gridLayout_23.setSpacing(0)
         self.gridLayout_23.setObjectName(u"gridLayout_23")
-        self.gridLayout_23.setContentsMargins(6, 0, 6, 12)
+        self.gridLayout_23.setContentsMargins(6, 12, 6, 12)
         self.frame_23 = QFrame(self.frame_22)
         self.frame_23.setObjectName(u"frame_23")
         self.frame_23.setFrameShape(QFrame.StyledPanel)
@@ -1322,13 +1356,23 @@ class Ui_MainWindow(object):
         self.gridLayout_24.setContentsMargins(0, 0, 0, 0)
         self.scrollArea_5 = QScrollArea(self.frame_23)
         self.scrollArea_5.setObjectName(u"scrollArea_5")
-        self.scrollArea_5.setStyleSheet(u"#scrollArea QWidget {\n"
+        self.scrollArea_5.setStyleSheet(u"\n"
+"#scrollArea_5 QWidget {\n"
 "    background-color: transparent;\n"
 "}\n"
+"\n"
+"#scrollArea QWidget {\n"
+"    background-color: transparent;\n"
+"}\n"
+"\n"
 "QScrollArea {\n"
 "    background-color: #ffffff;\n"
 "    border: 1px solid #cccccc;\n"
 "    border-radius: 5px;\n"
+"}\n"
+"\n"
+"QScrollArea QWidget::item {\n"
+"    border-bottom: 1px solid #cccccc; /* Add a border bottom to create a line break */\n"
 "}\n"
 "\n"
 "QScrollBar:vertical {\n"
@@ -1359,7 +1403,8 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "QScrollBar::sub-line:vertical {\n"
-"    height: 0px;\n"
+""
+                        "    height: 0px;\n"
 "    subcontrol-position: top;\n"
 "    subcontrol-origin: margin;\n"
 "}\n"
@@ -1370,7 +1415,7 @@ class Ui_MainWindow(object):
         self.scrollArea_5.setWidgetResizable(True)
         self.scrollAreaWidgetContents_5 = QWidget()
         self.scrollAreaWidgetContents_5.setObjectName(u"scrollAreaWidgetContents_5")
-        self.scrollAreaWidgetContents_5.setGeometry(QRect(0, 0, 862, 534))
+        self.scrollAreaWidgetContents_5.setGeometry(QRect(0, 0, 98, 28))
         self.gridLayout_25 = QGridLayout(self.scrollAreaWidgetContents_5)
         self.gridLayout_25.setObjectName(u"gridLayout_25")
         self.history_frame = QFrame(self.scrollAreaWidgetContents_5)
@@ -1422,8 +1467,7 @@ class Ui_MainWindow(object):
 "    border-radius: 5px;\n"
 "    /*background: qlineargradient(spread:pad, x1:0, y1:0.5, x2:1, y2:0.5, stop:0 #f0792b, stop:0.5 #ffa163, stop:1 #edb28c);*/\n"
 "	background-color: #f0792b;\n"
-"    cursor: pointer;\n"
-"    transition: background-color 0.3s ease;\n"
+"    \n"
 "}\n"
 "\n"
 "#create_Button:hover , #delete_Button:hover , #edit_Button:hover {\n"
@@ -1461,7 +1505,7 @@ class Ui_MainWindow(object):
         self.menuButton_5.setMaximumSize(QSize(30, 30))
         self.menuButton_5.setSizeIncrement(QSize(10, 10))
         self.menuButton_5.setStyleSheet(u"image: url(:/icons/assets/icons/align-justify.svg);\n"
-"magin-left: 3px")
+"")
         self.menuButton_5.setIconSize(QSize(18, 18))
         self.menuButton_5.setCheckable(True)
 
@@ -1534,9 +1578,6 @@ class Ui_MainWindow(object):
 "	background-color: #f0792b;\n"
 "\n"
 "	\n"
-"\n"
-"    cursor: pointer;\n"
-"    transition: background-color 0.3s ease;\n"
 "}\n"
 "\n"
 "\n"
@@ -1565,25 +1606,25 @@ class Ui_MainWindow(object):
         self.horizontalLayout_19.setObjectName(u"horizontalLayout_19")
         self.ongoing_Task_Button = QPushButton(self.frame_40)
         self.ongoing_Task_Button.setObjectName(u"ongoing_Task_Button")
-        icon2 = QIcon()
-        icon2.addFile(u":/icons_v2/refresh-cw.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.ongoing_Task_Button.setIcon(icon2)
+        icon4 = QIcon()
+        icon4.addFile(u":/icons_v2/refresh-cw.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.ongoing_Task_Button.setIcon(icon4)
 
         self.horizontalLayout_19.addWidget(self.ongoing_Task_Button)
 
         self.complete_Task_Button = QPushButton(self.frame_40)
         self.complete_Task_Button.setObjectName(u"complete_Task_Button")
-        icon3 = QIcon()
-        icon3.addFile(u":/icons_v2/check-circle.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.complete_Task_Button.setIcon(icon3)
+        icon5 = QIcon()
+        icon5.addFile(u":/icons_v2/check-circle.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.complete_Task_Button.setIcon(icon5)
 
         self.horizontalLayout_19.addWidget(self.complete_Task_Button)
 
         self.late_Task_Button = QPushButton(self.frame_40)
         self.late_Task_Button.setObjectName(u"late_Task_Button")
-        icon4 = QIcon()
-        icon4.addFile(u":/icons_v2/late.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.late_Task_Button.setIcon(icon4)
+        icon6 = QIcon()
+        icon6.addFile(u":/icons_v2/late.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.late_Task_Button.setIcon(icon6)
 
         self.horizontalLayout_19.addWidget(self.late_Task_Button)
 
@@ -1612,13 +1653,23 @@ class Ui_MainWindow(object):
         self.gridLayout_12.setContentsMargins(0, 0, 0, 0)
         self.scrollArea_4 = QScrollArea(self.frame_37)
         self.scrollArea_4.setObjectName(u"scrollArea_4")
-        self.scrollArea_4.setStyleSheet(u"#scrollArea QWidget {\n"
+        self.scrollArea_4.setStyleSheet(u"\n"
+"#scrollArea_4 QWidget {\n"
 "    background-color: transparent;\n"
 "}\n"
+"\n"
+"#scrollArea QWidget {\n"
+"    background-color: transparent;\n"
+"}\n"
+"\n"
 "QScrollArea {\n"
 "    background-color: #ffffff;\n"
 "    border: 1px solid #cccccc;\n"
 "    border-radius: 5px;\n"
+"}\n"
+"\n"
+"QScrollArea QWidget::item {\n"
+"    border-bottom: 1px solid #cccccc; /* Add a border bottom to create a line break */\n"
 "}\n"
 "\n"
 "QScrollBar:vertical {\n"
@@ -1649,7 +1700,8 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "QScrollBar::sub-line:vertical {\n"
-"    height: 0px;\n"
+""
+                        "    height: 0px;\n"
 "    subcontrol-position: top;\n"
 "    subcontrol-origin: margin;\n"
 "}\n"
@@ -1780,7 +1832,7 @@ class Ui_MainWindow(object):
         self.menuButton_3.setMaximumSize(QSize(30, 30))
         self.menuButton_3.setSizeIncrement(QSize(10, 10))
         self.menuButton_3.setStyleSheet(u"image: url(:/icons/assets/icons/align-justify.svg);\n"
-"magin-left: 3px")
+"")
         self.menuButton_3.setIconSize(QSize(18, 18))
         self.menuButton_3.setCheckable(True)
 
@@ -1819,7 +1871,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.subcardFrame_3.sizePolicy().hasHeightForWidth())
         self.subcardFrame_3.setSizePolicy(sizePolicy)
         self.subcardFrame_3.setMaximumSize(QSize(16777215, 16777215))
-        self.subcardFrame_3.setStyleSheet(u"background-color: #ffff;")
+        self.subcardFrame_3.setStyleSheet(u"background-color: #ffffff;")
         self.horizontalLayout_40 = QHBoxLayout(self.subcardFrame_3)
         self.horizontalLayout_40.setObjectName(u"horizontalLayout_40")
         self.left_content = QWidget(self.subcardFrame_3)
@@ -1886,7 +1938,7 @@ class Ui_MainWindow(object):
         self.frame_33.setSizePolicy(sizePolicy3)
         self.frame_33.setStyleSheet(u"#frame_33 {\n"
 "    background-color: #ffcd69;\n"
-"    border:;\n"
+"    \n"
 "    border-radius: 102px;\n"
 "}\n"
 "")
@@ -1901,7 +1953,7 @@ class Ui_MainWindow(object):
         self.frame_34.setMinimumSize(QSize(180, 180))
         self.frame_34.setStyleSheet(u"#frame_34 {\n"
 "    background-color: #ffffff;\n"
-"    border:;\n"
+"\n"
 "    border-radius: 90px;\n"
 "}\n"
 "")
@@ -2057,7 +2109,7 @@ class Ui_MainWindow(object):
         self.frame_35 = QFrame(self.right_content_detail1)
         self.frame_35.setObjectName(u"frame_35")
         self.frame_35.setMaximumSize(QSize(16777215, 50))
-        self.frame_35.setStyleSheet(u"item-align:center;")
+        self.frame_35.setStyleSheet(u"")
         self.frame_35.setFrameShape(QFrame.StyledPanel)
         self.frame_35.setFrameShadow(QFrame.Raised)
         self.verticalLayout_13 = QVBoxLayout(self.frame_35)
@@ -2106,7 +2158,7 @@ class Ui_MainWindow(object):
         self.frame_36 = QFrame(self.right_content_detail2)
         self.frame_36.setObjectName(u"frame_36")
         self.frame_36.setMaximumSize(QSize(16777215, 50))
-        self.frame_36.setStyleSheet(u"item-align:center;")
+        self.frame_36.setStyleSheet(u"")
         self.frame_36.setFrameShape(QFrame.StyledPanel)
         self.frame_36.setFrameShadow(QFrame.Raised)
         self.verticalLayout_16 = QVBoxLayout(self.frame_36)
@@ -2202,6 +2254,7 @@ class Ui_MainWindow(object):
         font6.setPointSize(15)
         self.frame_14.setFont(font6)
         self.frame_14.setToolTipDuration(0)
+        self.frame_14.setStyleSheet(u"")
         self.frame_14.setFrameShape(QFrame.StyledPanel)
         self.frame_14.setFrameShadow(QFrame.Raised)
         self.gridLayout_10 = QGridLayout(self.frame_14)
@@ -2213,9 +2266,9 @@ class Ui_MainWindow(object):
         font7.setPointSize(15)
         font7.setBold(True)
         self.homeButton.setFont(font7)
-        icon5 = QIcon()
-        icon5.addFile(u":/icons_v2/home.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.homeButton.setIcon(icon5)
+        icon7 = QIcon()
+        icon7.addFile(u":/icons_v2/home.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.homeButton.setIcon(icon7)
         self.homeButton.setIconSize(QSize(24, 24))
         self.homeButton.setCheckable(True)
         self.homeButton.setAutoExclusive(True)
@@ -2226,9 +2279,9 @@ class Ui_MainWindow(object):
         self.analysisButton.setObjectName(u"analysisButton")
         self.analysisButton.setFont(font7)
         self.analysisButton.setStyleSheet(u"")
-        icon6 = QIcon()
-        icon6.addFile(u":/icons_v2/pie-chart.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.analysisButton.setIcon(icon6)
+        icon8 = QIcon()
+        icon8.addFile(u":/icons_v2/pie-chart.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.analysisButton.setIcon(icon8)
         self.analysisButton.setIconSize(QSize(24, 24))
         self.analysisButton.setCheckable(True)
         self.analysisButton.setAutoExclusive(True)
@@ -2240,9 +2293,9 @@ class Ui_MainWindow(object):
         self.calendarButton.setMinimumSize(QSize(0, 0))
         self.calendarButton.setFont(font7)
         self.calendarButton.setStyleSheet(u"")
-        icon7 = QIcon()
-        icon7.addFile(u":/icons/assets/icons/calendar.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.calendarButton.setIcon(icon7)
+        icon9 = QIcon()
+        icon9.addFile(u":/icons/assets/icons/calendar.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.calendarButton.setIcon(icon9)
         self.calendarButton.setIconSize(QSize(24, 24))
         self.calendarButton.setCheckable(True)
         self.calendarButton.setAutoExclusive(True)
@@ -2252,9 +2305,9 @@ class Ui_MainWindow(object):
         self.historyButton = QPushButton(self.frame_14)
         self.historyButton.setObjectName(u"historyButton")
         self.historyButton.setFont(font7)
-        icon8 = QIcon()
-        icon8.addFile(u":/icons_v2/history-svgrepo-com.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.historyButton.setIcon(icon8)
+        icon10 = QIcon()
+        icon10.addFile(u":/icons_v2/history-svgrepo-com.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.historyButton.setIcon(icon10)
         self.historyButton.setIconSize(QSize(24, 24))
         self.historyButton.setCheckable(True)
         self.historyButton.setAutoExclusive(True)
@@ -2269,9 +2322,9 @@ class Ui_MainWindow(object):
         sizePolicy4.setHeightForWidth(self.taskButton.sizePolicy().hasHeightForWidth())
         self.taskButton.setSizePolicy(sizePolicy4)
         self.taskButton.setFont(font7)
-        icon9 = QIcon()
-        icon9.addFile(u":/icons_v2/clipboard.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.taskButton.setIcon(icon9)
+        icon11 = QIcon()
+        icon11.addFile(u":/icons_v2/clipboard.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.taskButton.setIcon(icon11)
         self.taskButton.setIconSize(QSize(24, 24))
         self.taskButton.setCheckable(True)
         self.taskButton.setAutoExclusive(True)
@@ -2281,9 +2334,11 @@ class Ui_MainWindow(object):
         self.settingButton = QPushButton(self.frame_14)
         self.settingButton.setObjectName(u"settingButton")
         self.settingButton.setFont(font7)
-        icon10 = QIcon()
-        icon10.addFile(u":/icons_v2/settings.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.settingButton.setIcon(icon10)
+        self.settingButton.setStyleSheet(u"padding-right:25px;\n"
+"")
+        icon12 = QIcon()
+        icon12.addFile(u":/icons_v2/settings.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.settingButton.setIcon(icon12)
         self.settingButton.setIconSize(QSize(24, 24))
         self.settingButton.setCheckable(True)
         self.settingButton.setAutoExclusive(True)
@@ -2317,7 +2372,7 @@ class Ui_MainWindow(object):
         self.frame_10.setMinimumSize(QSize(0, 0))
         self.frame_10.setMaximumSize(QSize(60, 1000))
         self.frame_10.setStyleSheet(u"#frame_10{\n"
-"background_color: #FAC898;\n"
+"background-color: #FAC898;\n"
 "}")
         self.frame_10.setFrameShape(QFrame.StyledPanel)
         self.frame_10.setFrameShadow(QFrame.Raised)
@@ -2337,56 +2392,56 @@ class Ui_MainWindow(object):
         self.homeMiniButton = QPushButton(self.frame_16)
         self.homeMiniButton.setObjectName(u"homeMiniButton")
         self.homeMiniButton.setFont(font6)
-        self.homeMiniButton.setIcon(icon5)
+        self.homeMiniButton.setIcon(icon7)
         self.homeMiniButton.setIconSize(QSize(24, 24))
         self.homeMiniButton.setCheckable(True)
         self.homeMiniButton.setAutoExclusive(True)
 
         self.gridLayout_27.addWidget(self.homeMiniButton, 0, 0, 1, 1)
 
-        self.historyMiniButton = QPushButton(self.frame_16)
-        self.historyMiniButton.setObjectName(u"historyMiniButton")
-        self.historyMiniButton.setFont(font6)
-        self.historyMiniButton.setIcon(icon6)
-        self.historyMiniButton.setIconSize(QSize(24, 24))
-        self.historyMiniButton.setCheckable(True)
-        self.historyMiniButton.setAutoExclusive(True)
-
-        self.gridLayout_27.addWidget(self.historyMiniButton, 1, 0, 1, 1)
-
-        self.taskMiniButton = QPushButton(self.frame_16)
-        self.taskMiniButton.setObjectName(u"taskMiniButton")
-        self.taskMiniButton.setFont(font6)
-        self.taskMiniButton.setIcon(icon7)
-        self.taskMiniButton.setIconSize(QSize(24, 24))
-        self.taskMiniButton.setCheckable(True)
-        self.taskMiniButton.setAutoExclusive(True)
-
-        self.gridLayout_27.addWidget(self.taskMiniButton, 2, 0, 1, 1)
-
-        self.calendarMiniButton = QPushButton(self.frame_16)
-        self.calendarMiniButton.setObjectName(u"calendarMiniButton")
-        self.calendarMiniButton.setFont(font6)
-        self.calendarMiniButton.setIcon(icon8)
-        self.calendarMiniButton.setIconSize(QSize(24, 24))
-        self.calendarMiniButton.setCheckable(True)
-        self.calendarMiniButton.setAutoExclusive(True)
-
-        self.gridLayout_27.addWidget(self.calendarMiniButton, 3, 0, 1, 1)
-
         self.analysisMiniButton = QPushButton(self.frame_16)
         self.analysisMiniButton.setObjectName(u"analysisMiniButton")
         self.analysisMiniButton.setFont(font6)
-        self.analysisMiniButton.setIcon(icon9)
+        self.analysisMiniButton.setIcon(icon8)
         self.analysisMiniButton.setIconSize(QSize(24, 24))
         self.analysisMiniButton.setCheckable(True)
         self.analysisMiniButton.setAutoExclusive(True)
 
-        self.gridLayout_27.addWidget(self.analysisMiniButton, 4, 0, 1, 1)
+        self.gridLayout_27.addWidget(self.analysisMiniButton, 1, 0, 1, 1)
+
+        self.calendarMiniButton = QPushButton(self.frame_16)
+        self.calendarMiniButton.setObjectName(u"calendarMiniButton")
+        self.calendarMiniButton.setFont(font6)
+        self.calendarMiniButton.setIcon(icon9)
+        self.calendarMiniButton.setIconSize(QSize(24, 24))
+        self.calendarMiniButton.setCheckable(True)
+        self.calendarMiniButton.setAutoExclusive(True)
+
+        self.gridLayout_27.addWidget(self.calendarMiniButton, 2, 0, 1, 1)
+
+        self.historyMiniButton = QPushButton(self.frame_16)
+        self.historyMiniButton.setObjectName(u"historyMiniButton")
+        self.historyMiniButton.setFont(font6)
+        self.historyMiniButton.setIcon(icon10)
+        self.historyMiniButton.setIconSize(QSize(24, 24))
+        self.historyMiniButton.setCheckable(True)
+        self.historyMiniButton.setAutoExclusive(True)
+
+        self.gridLayout_27.addWidget(self.historyMiniButton, 3, 0, 1, 1)
+
+        self.taskMiniButton = QPushButton(self.frame_16)
+        self.taskMiniButton.setObjectName(u"taskMiniButton")
+        self.taskMiniButton.setFont(font6)
+        self.taskMiniButton.setIcon(icon11)
+        self.taskMiniButton.setIconSize(QSize(24, 24))
+        self.taskMiniButton.setCheckable(True)
+        self.taskMiniButton.setAutoExclusive(True)
+
+        self.gridLayout_27.addWidget(self.taskMiniButton, 4, 0, 1, 1)
 
         self.logoutMiniButton = QPushButton(self.frame_16)
         self.logoutMiniButton.setObjectName(u"logoutMiniButton")
-        self.logoutMiniButton.setIcon(icon10)
+        self.logoutMiniButton.setIcon(icon12)
         self.logoutMiniButton.setIconSize(QSize(24, 24))
         self.logoutMiniButton.setCheckable(True)
         self.logoutMiniButton.setAutoExclusive(True)
@@ -2468,22 +2523,22 @@ class Ui_MainWindow(object):
         self.menuButton_5.toggled.connect(self.frame_10.setHidden)
         self.menuButton_6.toggled.connect(self.frame_5.setVisible)
         self.menuButton_6.toggled.connect(self.frame_10.setHidden)
-        self.historyMiniButton.toggled.connect(self.analysisButton.setChecked)
-        self.calendarButton.toggled.connect(self.taskMiniButton.setChecked)
-        self.analysisMiniButton.toggled.connect(self.taskButton.setChecked)
-        self.taskButton.toggled.connect(self.analysisMiniButton.setChecked)
+        self.analysisMiniButton.toggled.connect(self.analysisButton.setChecked)
+        self.calendarButton.toggled.connect(self.calendarMiniButton.setChecked)
+        self.taskMiniButton.toggled.connect(self.taskButton.setChecked)
+        self.taskButton.toggled.connect(self.taskMiniButton.setChecked)
         self.homeMiniButton.toggled.connect(self.homeButton.setChecked)
-        self.taskMiniButton.toggled.connect(self.calendarButton.setChecked)
-        self.analysisButton.toggled.connect(self.historyMiniButton.setChecked)
-        self.calendarMiniButton.toggled.connect(self.historyButton.setChecked)
-        self.historyButton.toggled.connect(self.calendarMiniButton.setChecked)
+        self.calendarMiniButton.toggled.connect(self.calendarButton.setChecked)
+        self.analysisButton.toggled.connect(self.analysisMiniButton.setChecked)
+        self.historyMiniButton.toggled.connect(self.historyButton.setChecked)
+        self.historyButton.toggled.connect(self.historyMiniButton.setChecked)
         self.homeButton.toggled.connect(self.homeMiniButton.setChecked)
         self.menuButton_8.toggled.connect(self.frame_5.setVisible)
         self.menuButton_8.toggled.connect(self.frame_10.setHidden)
         self.logoutMiniButton.toggled.connect(self.settingButton.setChecked)
         self.settingButton.toggled.connect(self.logoutMiniButton.setChecked)
 
-        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget.setCurrentIndex(0)
         self.stackedWidget_2.setCurrentIndex(0)
 
 
@@ -2494,8 +2549,9 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.menuButton.setText("")
         self.homeHeader.setText(QCoreApplication.translate("MainWindow", u"Home", None))
-        self.searchicon.setText("")
+        self.pushButton.setText("")
         self.lineEdit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Search Task", None))
+        self.pushButton_2.setText("")
         self.todayTaskBG.setText("")
         self.todayHeader.setText(QCoreApplication.translate("MainWindow", u"Today Task", None))
         self.todayTask.setText(QCoreApplication.translate("MainWindow", u"variable", None))
@@ -2542,10 +2598,10 @@ class Ui_MainWindow(object):
         self.taskButton.setText(QCoreApplication.translate("MainWindow", u"Task", None))
         self.settingButton.setText(QCoreApplication.translate("MainWindow", u"Logout", None))
         self.homeMiniButton.setText("")
+        self.analysisMiniButton.setText("")
+        self.calendarMiniButton.setText("")
         self.historyMiniButton.setText("")
         self.taskMiniButton.setText("")
-        self.calendarMiniButton.setText("")
-        self.analysisMiniButton.setText("")
         self.logoutMiniButton.setText("")
         self.toDoHeader_2.setText(QCoreApplication.translate("MainWindow", u"ToDo", None))
     # retranslateUi
