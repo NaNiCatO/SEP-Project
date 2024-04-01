@@ -1,7 +1,7 @@
 from PySide6.QtWidgets import *
 from PySide6.QtCore import *
 from class_module import MultiTask
-from PySide6.QtGui import QCloseEvent, QMouseEvent
+
 
 from specialObject import ClickableTaskFrame
 import sys
