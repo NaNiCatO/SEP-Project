@@ -68,11 +68,11 @@ text-align: left;
 
 #analysisButton, #calendarButton, #historyButton, #taskButton,#logoutButton{
 text-align: left;
-paddding-left: 5px;
+
 }
 
 #frame10{
-background_color: #ffffff;
+background-color: #ffffff;
 }
 
 QPushButton:checked{
@@ -316,7 +316,7 @@ background-color: #F5FAFE;
                        </property>
                        <property name="styleSheet">
                         <string notr="true">image: url(:/icons/assets/icons/align-justify.svg);
-magin-left: 3px</string>
+</string>
                        </property>
                        <property name="text">
                         <string/>
@@ -376,7 +376,7 @@ magin-left: 3px</string>
                          <property name="frameShadow">
                           <enum>QFrame::Raised</enum>
                          </property>
-                         <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="0,0">
+                         <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="0,0,0">
                           <property name="spacing">
                            <number>5</number>
                           </property>
@@ -393,6 +393,23 @@ magin-left: 3px</string>
                            <number>5</number>
                           </property>
                           <item>
+                           <widget class="QPushButton" name="pushButton">
+                            <property name="text">
+                             <string/>
+                            </property>
+                            <property name="icon">
+                             <iconset resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">
+                              <normaloff>:/icons_v2/search.svg</normaloff>:/icons_v2/search.svg</iconset>
+                            </property>
+                            <property name="iconSize">
+                             <size>
+                              <width>24</width>
+                              <height>24</height>
+                             </size>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
                            <widget class="QLineEdit" name="lineEdit">
                             <property name="styleSheet">
                              <string notr="true"/>
@@ -403,13 +420,13 @@ magin-left: 3px</string>
                            </widget>
                           </item>
                           <item>
-                           <widget class="QPushButton" name="pushButton">
+                           <widget class="QPushButton" name="pushButton_2">
                             <property name="text">
                              <string/>
                             </property>
                             <property name="icon">
-                             <iconset>
-                              <normaloff>:/icons_v2/search.svg</normaloff>:/icons_v2/search.svg</iconset>
+                             <iconset resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">
+                              <normaloff>:/icons_v2/mic.svg</normaloff>:/icons_v2/mic.svg</iconset>
                             </property>
                             <property name="iconSize">
                              <size>
@@ -518,7 +535,7 @@ border-radius:15px;*/
                           <string/>
                          </property>
                          <property name="pixmap">
-                          <pixmap>:/icons_v2/last-24-hours-svgrepo-com.svg</pixmap>
+                          <pixmap resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">:/icons_v2/last-24-hours-svgrepo-com.svg</pixmap>
                          </property>
                          <property name="scaledContents">
                           <bool>true</bool>
@@ -625,7 +642,7 @@ border-radius:15px;
                           <string/>
                          </property>
                          <property name="pixmap">
-                          <pixmap>:/icons/important-dates-svgrepo-com.svg</pixmap>
+                          <pixmap resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">:/icons/important-dates-svgrepo-com.svg</pixmap>
                          </property>
                          <property name="scaledContents">
                           <bool>true</bool>
@@ -733,7 +750,7 @@ border-radius:15px;
                           <string/>
                          </property>
                          <property name="pixmap">
-                          <pixmap>:/icons_v2/refresh-cw.svg</pixmap>
+                          <pixmap resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">:/icons_v2/refresh-cw.svg</pixmap>
                          </property>
                          <property name="scaledContents">
                           <bool>true</bool>
@@ -841,7 +858,7 @@ border-radius:15px;
                           <string/>
                          </property>
                          <property name="pixmap">
-                          <pixmap>:/icons_v2/urgent-svgrepo-com.svg</pixmap>
+                          <pixmap resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">:/icons_v2/urgent-svgrepo-com.svg</pixmap>
                          </property>
                          <property name="scaledContents">
                           <bool>true</bool>
@@ -995,7 +1012,7 @@ border-radius: 10px
                              <string>View more</string>
                             </property>
                             <property name="icon">
-                             <iconset>
+                             <iconset resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">
                               <normaloff>:/icons_v2/arrow-right.svg</normaloff>:/icons_v2/arrow-right.svg</iconset>
                             </property>
                             <property name="iconSize">
@@ -1082,8 +1099,8 @@ QScrollBar::sub-line:vertical {
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>262</width>
-                            <height>383</height>
+                            <width>257</width>
+                            <height>377</height>
                            </rect>
                           </property>
                           <layout class="QGridLayout" name="gridLayout_5">
@@ -1208,7 +1225,7 @@ border-radius: 10px
                              <string>View more</string>
                             </property>
                             <property name="icon">
-                             <iconset>
+                             <iconset resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">
                               <normaloff>:/icons/assets/icons/arrow-right.svg</normaloff>:/icons/assets/icons/arrow-right.svg</iconset>
                             </property>
                             <property name="iconSize">
@@ -1295,8 +1312,8 @@ QScrollBar::sub-line:vertical {
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>262</width>
-                            <height>378</height>
+                            <width>257</width>
+                            <height>372</height>
                            </rect>
                           </property>
                           <layout class="QGridLayout" name="gridLayout_4">
@@ -1420,7 +1437,7 @@ border-radius: 10px
                              <string>View more</string>
                             </property>
                             <property name="icon">
-                             <iconset>
+                             <iconset resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">
                               <normaloff>:/icons_v2/arrow-right.svg</normaloff>:/icons_v2/arrow-right.svg</iconset>
                             </property>
                             <property name="iconSize">
@@ -1508,8 +1525,8 @@ QScrollBar::sub-line:vertical {
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>262</width>
-                            <height>378</height>
+                            <width>257</width>
+                            <height>372</height>
                            </rect>
                           </property>
                           <layout class="QVBoxLayout" name="verticalLayout_15">
@@ -1655,8 +1672,8 @@ background-color: #d9d9d9;
     border-radius: 5px;
     /*background: qlineargradient(spread:pad, x1:0, y1:0.5, x2:1, y2:0.5, stop:0 #f0792b, stop:0.5 #ffa163, stop:1 #edb28c);*/
 	background-color: #f0792b;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    
+    
 }
 
 #create_Button:hover , #delete_Button:hover , #edit_Button:hover {
@@ -1736,7 +1753,7 @@ background-color: transparent;
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>322</width>
+                      <width>354</width>
                       <height>199</height>
                      </rect>
                     </property>
@@ -1786,6 +1803,9 @@ background-color: transparent;
                            <string notr="true">
 #calendarWidget QWidget{
 alternate-background-color: #fec89a;
+
+
+
 }
 
 #qt_calendar_navigationbar{
@@ -1794,6 +1814,8 @@ border: 2px solid #f8edeb;
 border-bottom: 0px;
 border-top-left-radius: 5px;
 border-top-right-radius: 5px;
+border : 2px solid #1e1e1e; 
+
 }
 
 #qt_calendar_prevmonth, #qt_calendar_nextmonth{
@@ -1807,15 +1829,17 @@ border-radius: 5px;
 background-color: transparent;
 padding: 5px;
 
+
 }
 
 #qt_calendar_prevmonth{
-marigin-right: 5px;
+
 	image: url(:/icons/assets/icons/arrow-left.svg);
+
 }
 
 #qt_calendar_nextmonth{
-marigin-right: 5px;
+
 	
 	image: url(:/icons/assets/icons/arrow-right.svg);
 }
@@ -1841,12 +1865,13 @@ padding: 0 10px;
 width: 110px;
 color: #000;
 font-size: 13px;
-margin: 5px 0;
+margin: 5px 10px;
 border-radius: 5px;
-padding: 0px 2px;
+padding: 0px 0px;
+
 }
 
-#qt_calendar_yearbutton:hover, #qt_calendar_monthbutton:hover{
+#qt_calendar_prevmonth:hover,#qt_calendar_nextmonth:hover,#qt_calendar_yearbutton:hover, #qt_calendar_monthbutton:hover{
 background-color: #55aaff;
 }
 
@@ -1863,13 +1888,13 @@ font-size: 13px;
 }
 
 #qt_calendar_yearedit::down-button{
-	image: url(:/icons/icons_black/arrow-right.svg);
-subcontrol-position:right;
+	image: url(:/icons/assets/icons/arrow-down.svg);
+subcontrol-position:left;
 }
 
 #qt_calendar_yearedit::up-button{
-	image: url(:/icons/icons_black/arrow-right.svg);
-subcontrol-position:left;
+	image: url(:/icons/assets/icons/arrow-up.svg);
+subcontrol-position:right;
 }
 
 #qt_calendar_yearedit::down-button,#qt_calendar_yearedit::up-button{
@@ -1883,7 +1908,7 @@ background-color: #55aaff;
 }
 
 #calendarWidgetQToolButton QMenu{
-background-color: #fff;
+background-color: #ffffff;
 }
 
 #calendarWidgetQToolButton QMenu::item{
@@ -1896,9 +1921,10 @@ background-color: #55aaff;
 
 #calendarWidgetQToolButton QToolButtin::menu-indicator{
 nosubcontrol-origin: margin;
-sbucontrol-position:right center;
+subcontrol-position:right center;
 margin-top: 10px;
 width:20px;
+
 
 }
 
@@ -1907,18 +1933,22 @@ border: 2px solid #fcd5ce;
 border-top:0px;
 border-bottom-left-radius: 5px;
 border-bottom-right-radius: 5px;
+border : 2px solid #1e1e1e; 
+
 
 }
 
 #qt_calendar_calendarview::item:hover{
 border-radius: 5px;
 background-color: #cdd1d1;
+
 }
 
 #qt_calendar_calendarview::item:selected{
 border-radius: 5px;
 color:#1e1e1e;
 background-color: #ffddd2;
+
 
 }
 
@@ -2013,7 +2043,7 @@ background-color: #ffddd2;
                       </property>
                       <property name="styleSheet">
                        <string notr="true">image: url(:/icons/assets/icons/align-justify.svg);
-magin-left: 3px</string>
+</string>
                       </property>
                       <property name="text">
                        <string/>
@@ -2103,8 +2133,7 @@ background-color: #F5FAFE;
     border-radius: 5px;
     /*background: qlineargradient(spread:pad, x1:0, y1:0.5, x2:1, y2:0.5, stop:0 #f0792b, stop:0.5 #ffa163, stop:1 #edb28c);*/
 	background-color: #f0792b;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+   
 }
 
 #create_Button:hover , #delete_Button:hover , #edit_Button:hover {
@@ -2221,7 +2250,7 @@ margin-right: 3px;
                       </property>
                       <property name="styleSheet">
                        <string notr="true">image: url(:/icons/assets/icons/align-justify.svg);
-magin-left: 3px</string>
+</string>
                       </property>
                       <property name="text">
                        <string/>
@@ -2456,8 +2485,7 @@ background-color: #F5FAFE;
     border-radius: 5px;
     /*background: qlineargradient(spread:pad, x1:0, y1:0.5, x2:1, y2:0.5, stop:0 #f0792b, stop:0.5 #ffa163, stop:1 #edb28c);*/
 	background-color: #f0792b;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    
 }
 
 #create_Button:hover , #delete_Button:hover , #edit_Button:hover {
@@ -2550,7 +2578,7 @@ background-color: transparent;
                       </property>
                       <property name="styleSheet">
                        <string notr="true">image: url(:/icons/assets/icons/align-justify.svg);
-magin-left: 3px</string>
+</string>
                       </property>
                       <property name="text">
                        <string/>
@@ -2678,9 +2706,6 @@ magin-left: 3px</string>
 	background-color: #f0792b;
 
 	
-
-    cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
 
@@ -2737,7 +2762,7 @@ magin-left: 3px</string>
                           <string>Ongoing Task</string>
                          </property>
                          <property name="icon">
-                          <iconset>
+                          <iconset resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">
                            <normaloff>:/icons_v2/refresh-cw.svg</normaloff>:/icons_v2/refresh-cw.svg</iconset>
                          </property>
                         </widget>
@@ -2748,7 +2773,7 @@ magin-left: 3px</string>
                           <string>Complete Task</string>
                          </property>
                          <property name="icon">
-                          <iconset>
+                          <iconset resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">
                            <normaloff>:/icons_v2/check-circle.svg</normaloff>:/icons_v2/check-circle.svg</iconset>
                          </property>
                         </widget>
@@ -2759,7 +2784,7 @@ magin-left: 3px</string>
                           <string>Late Task</string>
                          </property>
                          <property name="icon">
-                          <iconset>
+                          <iconset resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">
                            <normaloff>:/icons_v2/late.png</normaloff>:/icons_v2/late.png</iconset>
                          </property>
                         </widget>
@@ -3154,7 +3179,7 @@ QScrollBar::sub-line:vertical {
                          </property>
                          <property name="styleSheet">
                           <string notr="true">image: url(:/icons/assets/icons/align-justify.svg);
-magin-left: 3px</string>
+</string>
                          </property>
                          <property name="text">
                           <string/>
@@ -3230,7 +3255,7 @@ magin-left: 3px</string>
                     </size>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">background-color: #ffff;</string>
+                    <string notr="true">background-color: #ffffff;</string>
                    </property>
                    <layout class="QHBoxLayout" name="horizontalLayout_40">
                     <item>
@@ -3389,7 +3414,7 @@ border-radius: 10px
                                <property name="styleSheet">
                                 <string notr="true">#frame_33 {
     background-color: #ffcd69;
-    border:;
+    
     border-radius: 102px;
 }
 </string>
@@ -3418,7 +3443,7 @@ border-radius: 10px
                                   <property name="styleSheet">
                                    <string notr="true">#frame_34 {
     background-color: #ffffff;
-    border:;
+
     border-radius: 90px;
 }
 </string>
@@ -3736,7 +3761,7 @@ border-radius: 10px*/
                              </size>
                             </property>
                             <property name="styleSheet">
-                             <string notr="true">item-align:center;</string>
+                             <string notr="true"/>
                             </property>
                             <property name="frameShape">
                              <enum>QFrame::StyledPanel</enum>
@@ -3855,7 +3880,7 @@ border-radius: 10px*/
                              </size>
                             </property>
                             <property name="styleSheet">
-                             <string notr="true">item-align:center;</string>
+                             <string notr="true"/>
                             </property>
                             <property name="frameShape">
                              <enum>QFrame::StyledPanel</enum>
@@ -4106,7 +4131,7 @@ border-radius: 1px solid #1e1e1e;</string>
              <string>Home</string>
             </property>
             <property name="icon">
-             <iconset>
+             <iconset resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">
               <normaloff>:/icons_v2/home.svg</normaloff>:/icons_v2/home.svg</iconset>
             </property>
             <property name="iconSize">
@@ -4138,7 +4163,7 @@ border-radius: 1px solid #1e1e1e;</string>
              <string>Analysis</string>
             </property>
             <property name="icon">
-             <iconset>
+             <iconset resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">
               <normaloff>:/icons_v2/pie-chart.svg</normaloff>:/icons_v2/pie-chart.svg</iconset>
             </property>
             <property name="iconSize">
@@ -4176,7 +4201,7 @@ border-radius: 1px solid #1e1e1e;</string>
              <string>Calendar</string>
             </property>
             <property name="icon">
-             <iconset>
+             <iconset resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">
               <normaloff>:/icons/assets/icons/calendar.svg</normaloff>:/icons/assets/icons/calendar.svg</iconset>
             </property>
             <property name="iconSize">
@@ -4205,7 +4230,7 @@ border-radius: 1px solid #1e1e1e;</string>
              <string>History</string>
             </property>
             <property name="icon">
-             <iconset>
+             <iconset resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">
               <normaloff>:/icons_v2/history-svgrepo-com.svg</normaloff>:/icons_v2/history-svgrepo-com.svg</iconset>
             </property>
             <property name="iconSize">
@@ -4240,7 +4265,7 @@ border-radius: 1px solid #1e1e1e;</string>
              <string>Task</string>
             </property>
             <property name="icon">
-             <iconset>
+             <iconset resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">
               <normaloff>:/icons_v2/clipboard.svg</normaloff>:/icons_v2/clipboard.svg</iconset>
             </property>
             <property name="iconSize">
@@ -4273,7 +4298,7 @@ border-radius: 1px solid #1e1e1e;</string>
              <string>Logout</string>
             </property>
             <property name="icon">
-             <iconset>
+             <iconset resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">
               <normaloff>:/icons_v2/settings.svg</normaloff>:/icons_v2/settings.svg</iconset>
             </property>
             <property name="iconSize">
@@ -4357,7 +4382,7 @@ border-radius: 1px solid #1e1e1e;</string>
       </property>
       <property name="styleSheet">
        <string notr="true">#frame_10{
-background_color: #FAC898;
+background-color: #FAC898;
 }</string>
       </property>
       <property name="frameShape">
@@ -4420,7 +4445,7 @@ background_color: #FAC898;
              <string/>
             </property>
             <property name="icon">
-             <iconset>
+             <iconset resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">
               <normaloff>:/icons_v2/home.svg</normaloff>:/icons_v2/home.svg</iconset>
             </property>
             <property name="iconSize">
@@ -4448,7 +4473,7 @@ background_color: #FAC898;
              <string/>
             </property>
             <property name="icon">
-             <iconset>
+             <iconset resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">
               <normaloff>:/icons_v2/pie-chart.svg</normaloff>:/icons_v2/pie-chart.svg</iconset>
             </property>
             <property name="iconSize">
@@ -4476,7 +4501,7 @@ background_color: #FAC898;
              <string/>
             </property>
             <property name="icon">
-             <iconset>
+             <iconset resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">
               <normaloff>:/icons/assets/icons/calendar.svg</normaloff>:/icons/assets/icons/calendar.svg</iconset>
             </property>
             <property name="iconSize">
@@ -4504,7 +4529,7 @@ background_color: #FAC898;
              <string/>
             </property>
             <property name="icon">
-             <iconset>
+             <iconset resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">
               <normaloff>:/icons_v2/history-svgrepo-com.svg</normaloff>:/icons_v2/history-svgrepo-com.svg</iconset>
             </property>
             <property name="iconSize">
@@ -4532,7 +4557,7 @@ background_color: #FAC898;
              <string/>
             </property>
             <property name="icon">
-             <iconset>
+             <iconset resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">
               <normaloff>:/icons_v2/clipboard.svg</normaloff>:/icons_v2/clipboard.svg</iconset>
             </property>
             <property name="iconSize">
@@ -4555,7 +4580,7 @@ background_color: #FAC898;
              <string/>
             </property>
             <property name="icon">
-             <iconset>
+             <iconset resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">
               <normaloff>:/icons_v2/settings.svg</normaloff>:/icons_v2/settings.svg</iconset>
             </property>
             <property name="iconSize">
@@ -4734,9 +4759,7 @@ border : 1px solid #1e1e1e;
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <resources>
-  <include location="SEP_Project/resources.qrc"/>
-  <include location="SEP_Project/resources.qrc"/>
-  <include location="SEP_Project/resources.qrc"/>
+  <include location="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc"/>
  </resources>
  <connections>
   <connection>
