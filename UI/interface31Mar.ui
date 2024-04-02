@@ -383,7 +383,7 @@ background-color: #F5FAFE;
                              <string/>
                             </property>
                             <property name="icon">
-                             <iconset resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">
+                             <iconset resource="../SEP_Project/resources.qrc">
                               <normaloff>:/icons_v2/search.svg</normaloff>:/icons_v2/search.svg</iconset>
                             </property>
                             <property name="iconSize">
@@ -410,7 +410,7 @@ background-color: #F5FAFE;
                              <string/>
                             </property>
                             <property name="icon">
-                             <iconset resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">
+                             <iconset resource="../SEP_Project/resources.qrc">
                               <normaloff>:/icons_v2/mic.svg</normaloff>:/icons_v2/mic.svg</iconset>
                             </property>
                             <property name="iconSize">
@@ -520,7 +520,7 @@ border-radius:15px;*/
                           <string/>
                          </property>
                          <property name="pixmap">
-                          <pixmap resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">:/icons_v2/last-24-hours-svgrepo-com.svg</pixmap>
+                          <pixmap resource="../SEP_Project/resources.qrc">:/icons_v2/last-24-hours-svgrepo-com.svg</pixmap>
                          </property>
                          <property name="scaledContents">
                           <bool>true</bool>
@@ -627,7 +627,7 @@ border-radius:15px;
                           <string/>
                          </property>
                          <property name="pixmap">
-                          <pixmap resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">:/icons/important-dates-svgrepo-com.svg</pixmap>
+                          <pixmap resource="../SEP_Project/resources.qrc">:/icons/important-dates-svgrepo-com.svg</pixmap>
                          </property>
                          <property name="scaledContents">
                           <bool>true</bool>
@@ -735,7 +735,7 @@ border-radius:15px;
                           <string/>
                          </property>
                          <property name="pixmap">
-                          <pixmap resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">:/icons_v2/refresh-cw.svg</pixmap>
+                          <pixmap resource="../SEP_Project/resources.qrc">:/icons_v2/refresh-cw.svg</pixmap>
                          </property>
                          <property name="scaledContents">
                           <bool>true</bool>
@@ -843,7 +843,7 @@ border-radius:15px;
                           <string/>
                          </property>
                          <property name="pixmap">
-                          <pixmap resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">:/icons_v2/urgent-svgrepo-com.svg</pixmap>
+                          <pixmap resource="../SEP_Project/resources.qrc">:/icons_v2/urgent-svgrepo-com.svg</pixmap>
                          </property>
                          <property name="scaledContents">
                           <bool>true</bool>
@@ -997,7 +997,7 @@ border-radius: 10px
                              <string>View more</string>
                             </property>
                             <property name="icon">
-                             <iconset resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">
+                             <iconset resource="../SEP_Project/resources.qrc">
                               <normaloff>:/icons_v2/arrow-right.svg</normaloff>:/icons_v2/arrow-right.svg</iconset>
                             </property>
                             <property name="iconSize">
@@ -1084,8 +1084,8 @@ QScrollBar::sub-line:vertical {
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>263</width>
-                            <height>349</height>
+                            <width>262</width>
+                            <height>367</height>
                            </rect>
                           </property>
                           <layout class="QGridLayout" name="gridLayout_5">
@@ -1210,7 +1210,7 @@ border-radius: 10px
                              <string>View more</string>
                             </property>
                             <property name="icon">
-                             <iconset resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">
+                             <iconset resource="../SEP_Project/resources.qrc">
                               <normaloff>:/icons/assets/icons/arrow-right.svg</normaloff>:/icons/assets/icons/arrow-right.svg</iconset>
                             </property>
                             <property name="iconSize">
@@ -1297,8 +1297,8 @@ QScrollBar::sub-line:vertical {
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>264</width>
-                            <height>348</height>
+                            <width>263</width>
+                            <height>362</height>
                            </rect>
                           </property>
                           <layout class="QGridLayout" name="gridLayout_4">
@@ -1422,7 +1422,7 @@ border-radius: 10px
                              <string>View more</string>
                             </property>
                             <property name="icon">
-                             <iconset resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">
+                             <iconset resource="../SEP_Project/resources.qrc">
                               <normaloff>:/icons_v2/arrow-right.svg</normaloff>:/icons_v2/arrow-right.svg</iconset>
                             </property>
                             <property name="iconSize">
@@ -1510,8 +1510,8 @@ QScrollBar::sub-line:vertical {
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>263</width>
-                            <height>348</height>
+                            <width>262</width>
+                            <height>362</height>
                            </rect>
                           </property>
                           <layout class="QVBoxLayout" name="verticalLayout_15">
@@ -1738,8 +1738,8 @@ background-color: transparent;
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>882</width>
-                      <height>494</height>
+                      <width>354</width>
+                      <height>199</height>
                      </rect>
                     </property>
                     <layout class="QGridLayout" name="gridLayout_36">
@@ -2124,7 +2124,7 @@ border : 2px solid #1e1e1e;
                           <string/>
                          </property>
                          <property name="icon">
-                          <iconset resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">
+                          <iconset resource="../SEP_Project/resources.qrc">
                            <normaloff>:/icons_v2/search.svg</normaloff>:/icons_v2/search.svg</iconset>
                          </property>
                          <property name="iconSize">
@@ -2151,7 +2151,7 @@ border : 2px solid #1e1e1e;
                           <string/>
                          </property>
                          <property name="icon">
-                          <iconset resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">
+                          <iconset resource="../SEP_Project/resources.qrc">
                            <normaloff>:/icons_v2/mic.svg</normaloff>:/icons_v2/mic.svg</iconset>
                          </property>
                          <property name="iconSize">
@@ -2427,7 +2427,7 @@ margin-right: 3px;
                           <string/>
                          </property>
                          <property name="icon">
-                          <iconset resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">
+                          <iconset resource="../SEP_Project/resources.qrc">
                            <normaloff>:/icons_v2/search.svg</normaloff>:/icons_v2/search.svg</iconset>
                          </property>
                          <property name="iconSize">
@@ -2454,7 +2454,7 @@ margin-right: 3px;
                           <string/>
                          </property>
                          <property name="icon">
-                          <iconset resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">
+                          <iconset resource="../SEP_Project/resources.qrc">
                            <normaloff>:/icons_v2/mic.svg</normaloff>:/icons_v2/mic.svg</iconset>
                          </property>
                          <property name="iconSize">
@@ -2614,8 +2614,8 @@ QScrollBar::sub-line:vertical {
                         <rect>
                          <x>0</x>
                          <y>0</y>
-                         <width>871</width>
-                         <height>494</height>
+                         <width>98</width>
+                         <height>28</height>
                         </rect>
                        </property>
                        <layout class="QGridLayout" name="gridLayout_25">
@@ -2861,7 +2861,7 @@ border : 2px solid #1e1e1e;
                           <string/>
                          </property>
                          <property name="icon">
-                          <iconset resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">
+                          <iconset resource="../SEP_Project/resources.qrc">
                            <normaloff>:/icons_v2/search.svg</normaloff>:/icons_v2/search.svg</iconset>
                          </property>
                          <property name="iconSize">
@@ -2888,7 +2888,7 @@ border : 2px solid #1e1e1e;
                           <string/>
                          </property>
                          <property name="icon">
-                          <iconset resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">
+                          <iconset resource="../SEP_Project/resources.qrc">
                            <normaloff>:/icons_v2/mic.svg</normaloff>:/icons_v2/mic.svg</iconset>
                          </property>
                          <property name="iconSize">
@@ -3057,7 +3057,7 @@ border : 2px solid #1e1e1e;
                           <string>Ongoing Task</string>
                          </property>
                          <property name="icon">
-                          <iconset resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">
+                          <iconset resource="../SEP_Project/resources.qrc">
                            <normaloff>:/icons_v2/refresh-cw.svg</normaloff>:/icons_v2/refresh-cw.svg</iconset>
                          </property>
                         </widget>
@@ -3068,7 +3068,7 @@ border : 2px solid #1e1e1e;
                           <string>Complete Task</string>
                          </property>
                          <property name="icon">
-                          <iconset resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">
+                          <iconset resource="../SEP_Project/resources.qrc">
                            <normaloff>:/icons_v2/check-circle.svg</normaloff>:/icons_v2/check-circle.svg</iconset>
                          </property>
                         </widget>
@@ -3079,7 +3079,7 @@ border : 2px solid #1e1e1e;
                           <string>Late Task</string>
                          </property>
                          <property name="icon">
-                          <iconset resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">
+                          <iconset resource="../SEP_Project/resources.qrc">
                            <normaloff>:/icons_v2/late.png</normaloff>:/icons_v2/late.png</iconset>
                          </property>
                         </widget>
@@ -3192,8 +3192,8 @@ QScrollBar::sub-line:vertical {
                         <rect>
                          <x>0</x>
                          <y>0</y>
-                         <width>883</width>
-                         <height>390</height>
+                         <width>98</width>
+                         <height>28</height>
                         </rect>
                        </property>
                        <layout class="QGridLayout" name="gridLayout_28">
@@ -3546,7 +3546,7 @@ QScrollBar::sub-line:vertical {
                              <string/>
                             </property>
                             <property name="icon">
-                             <iconset resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">
+                             <iconset resource="../SEP_Project/resources.qrc">
                               <normaloff>:/icons_v2/search.svg</normaloff>:/icons_v2/search.svg</iconset>
                             </property>
                             <property name="iconSize">
@@ -3573,7 +3573,7 @@ QScrollBar::sub-line:vertical {
                              <string/>
                             </property>
                             <property name="icon">
-                             <iconset resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">
+                             <iconset resource="../SEP_Project/resources.qrc">
                               <normaloff>:/icons_v2/mic.svg</normaloff>:/icons_v2/mic.svg</iconset>
                             </property>
                             <property name="iconSize">
@@ -4448,7 +4448,7 @@ border-radius: 1px solid #1e1e1e;</string>
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>57</width>
+            <width>101</width>
             <height>29</height>
            </rect>
           </property>
@@ -4532,7 +4532,7 @@ border-radius: 1px solid #1e1e1e;</string>
              <string>Home</string>
             </property>
             <property name="icon">
-             <iconset resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">
+             <iconset resource="../SEP_Project/resources.qrc">
               <normaloff>:/icons_v2/home.svg</normaloff>:/icons_v2/home.svg</iconset>
             </property>
             <property name="iconSize">
@@ -4564,7 +4564,7 @@ border-radius: 1px solid #1e1e1e;</string>
              <string>Analysis</string>
             </property>
             <property name="icon">
-             <iconset resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">
+             <iconset resource="../SEP_Project/resources.qrc">
               <normaloff>:/icons_v2/pie-chart.svg</normaloff>:/icons_v2/pie-chart.svg</iconset>
             </property>
             <property name="iconSize">
@@ -4602,7 +4602,7 @@ border-radius: 1px solid #1e1e1e;</string>
              <string>Calendar</string>
             </property>
             <property name="icon">
-             <iconset resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">
+             <iconset resource="../SEP_Project/resources.qrc">
               <normaloff>:/icons/assets/icons/calendar.svg</normaloff>:/icons/assets/icons/calendar.svg</iconset>
             </property>
             <property name="iconSize">
@@ -4631,7 +4631,7 @@ border-radius: 1px solid #1e1e1e;</string>
              <string>History</string>
             </property>
             <property name="icon">
-             <iconset resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">
+             <iconset resource="../SEP_Project/resources.qrc">
               <normaloff>:/icons_v2/history-svgrepo-com.svg</normaloff>:/icons_v2/history-svgrepo-com.svg</iconset>
             </property>
             <property name="iconSize">
@@ -4666,7 +4666,7 @@ border-radius: 1px solid #1e1e1e;</string>
              <string>Task</string>
             </property>
             <property name="icon">
-             <iconset resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">
+             <iconset resource="../SEP_Project/resources.qrc">
               <normaloff>:/icons_v2/clipboard.svg</normaloff>:/icons_v2/clipboard.svg</iconset>
             </property>
             <property name="iconSize">
@@ -4699,7 +4699,7 @@ border-radius: 1px solid #1e1e1e;</string>
              <string>Logout</string>
             </property>
             <property name="icon">
-             <iconset resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">
+             <iconset resource="../SEP_Project/resources.qrc">
               <normaloff>:/icons_v2/settings.svg</normaloff>:/icons_v2/settings.svg</iconset>
             </property>
             <property name="iconSize">
@@ -4846,7 +4846,7 @@ background-color: #FAC898;
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">
+             <iconset resource="../SEP_Project/resources.qrc">
               <normaloff>:/icons_v2/home.svg</normaloff>:/icons_v2/home.svg</iconset>
             </property>
             <property name="iconSize">
@@ -4874,7 +4874,7 @@ background-color: #FAC898;
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">
+             <iconset resource="../SEP_Project/resources.qrc">
               <normaloff>:/icons_v2/pie-chart.svg</normaloff>:/icons_v2/pie-chart.svg</iconset>
             </property>
             <property name="iconSize">
@@ -4902,7 +4902,7 @@ background-color: #FAC898;
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">
+             <iconset resource="../SEP_Project/resources.qrc">
               <normaloff>:/icons/assets/icons/calendar.svg</normaloff>:/icons/assets/icons/calendar.svg</iconset>
             </property>
             <property name="iconSize">
@@ -4930,7 +4930,7 @@ background-color: #FAC898;
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">
+             <iconset resource="../SEP_Project/resources.qrc">
               <normaloff>:/icons_v2/history-svgrepo-com.svg</normaloff>:/icons_v2/history-svgrepo-com.svg</iconset>
             </property>
             <property name="iconSize">
@@ -4958,7 +4958,7 @@ background-color: #FAC898;
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">
+             <iconset resource="../SEP_Project/resources.qrc">
               <normaloff>:/icons_v2/clipboard.svg</normaloff>:/icons_v2/clipboard.svg</iconset>
             </property>
             <property name="iconSize">
@@ -4981,7 +4981,7 @@ background-color: #FAC898;
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc">
+             <iconset resource="../SEP_Project/resources.qrc">
               <normaloff>:/icons_v2/settings.svg</normaloff>:/icons_v2/settings.svg</iconset>
             </property>
             <property name="iconSize">
@@ -5160,6 +5160,7 @@ border : 1px solid #1e1e1e;
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <resources>
+  <include location="../SEP_Project/resources.qrc"/>
   <include location="../Documents/GitHub/SEP-Project/SEP_Project/resources.qrc"/>
  </resources>
  <connections>

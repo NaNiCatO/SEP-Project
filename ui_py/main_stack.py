@@ -21,6 +21,7 @@ from PySide6.QtWidgets import (QApplication, QCalendarWidget, QFrame, QGridLayou
     QStackedWidget, QStatusBar, QVBoxLayout, QWidget)
 import ui_py.resources_rc
 
+
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
@@ -564,7 +565,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 263, 349))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 262, 367))
         self.gridLayout_5 = QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout_5.setObjectName(u"gridLayout_5")
         self.todayMainTask = QFrame(self.scrollAreaWidgetContents)
@@ -693,7 +694,7 @@ class Ui_MainWindow(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollAreaWidgetContents_3 = QWidget()
         self.scrollAreaWidgetContents_3.setObjectName(u"scrollAreaWidgetContents_3")
-        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 264, 348))
+        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 263, 362))
         self.gridLayout_4 = QGridLayout(self.scrollAreaWidgetContents_3)
         self.gridLayout_4.setObjectName(u"gridLayout_4")
         self.urgentMainTask = QFrame(self.scrollAreaWidgetContents_3)
@@ -821,7 +822,7 @@ class Ui_MainWindow(object):
         self.scrollArea_3.setWidgetResizable(True)
         self.scrollAreaWidgetContents_4 = QWidget()
         self.scrollAreaWidgetContents_4.setObjectName(u"scrollAreaWidgetContents_4")
-        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 263, 348))
+        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 262, 362))
         self.verticalLayout_15 = QVBoxLayout(self.scrollAreaWidgetContents_4)
         self.verticalLayout_15.setObjectName(u"verticalLayout_15")
         self.completedMainTask = QFrame(self.scrollAreaWidgetContents_4)
@@ -970,7 +971,7 @@ class Ui_MainWindow(object):
         self.scrollArea_6.setWidgetResizable(True)
         self.scrollAreaWidgetContents_6 = QWidget()
         self.scrollAreaWidgetContents_6.setObjectName(u"scrollAreaWidgetContents_6")
-        self.scrollAreaWidgetContents_6.setGeometry(QRect(0, 0, 882, 494))
+        self.scrollAreaWidgetContents_6.setGeometry(QRect(0, 0, 354, 199))
         self.gridLayout_36 = QGridLayout(self.scrollAreaWidgetContents_6)
         self.gridLayout_36.setSpacing(0)
         self.gridLayout_36.setObjectName(u"gridLayout_36")
@@ -1506,7 +1507,7 @@ class Ui_MainWindow(object):
         self.scrollArea_5.setWidgetResizable(True)
         self.scrollAreaWidgetContents_5 = QWidget()
         self.scrollAreaWidgetContents_5.setObjectName(u"scrollAreaWidgetContents_5")
-        self.scrollAreaWidgetContents_5.setGeometry(QRect(0, 0, 871, 494))
+        self.scrollAreaWidgetContents_5.setGeometry(QRect(0, 0, 98, 28))
         self.gridLayout_25 = QGridLayout(self.scrollAreaWidgetContents_5)
         self.gridLayout_25.setObjectName(u"gridLayout_25")
         self.history_frame = QFrame(self.scrollAreaWidgetContents_5)
@@ -1849,7 +1850,7 @@ class Ui_MainWindow(object):
         self.scrollArea_4.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 883, 390))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 98, 28))
         self.gridLayout_28 = QGridLayout(self.scrollAreaWidgetContents_2)
         self.gridLayout_28.setSpacing(0)
         self.gridLayout_28.setObjectName(u"gridLayout_28")
@@ -2415,7 +2416,7 @@ class Ui_MainWindow(object):
         self.toDoHeader = QLabel(self.frame_7)
         self.toDoHeader.setObjectName(u"toDoHeader")
         self.toDoHeader.setEnabled(True)
-        self.toDoHeader.setGeometry(QRect(0, 0, 57, 29))
+        self.toDoHeader.setGeometry(QRect(0, 0, 101, 29))
         self.toDoHeader.setMinimumSize(QSize(0, 0))
         self.toDoHeader.setMaximumSize(QSize(16777215, 16777215))
         font5 = QFont()

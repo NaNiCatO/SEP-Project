@@ -167,15 +167,21 @@ class Sidebar(QMainWindow, Ui_MainWindow,QtCore.QObject):
         elif text.lower().startswith("create"):
             name, detail, due_date, time = creating_task(text)
             if "multitask" in text:
-                self.create_task = New_MainWindow_create(self, self.user, self.categorized_task.get_today_tasks())
+                self.create_task = New_MainWindow_create(self, self.user)
+                self.create_task.sub_task_check_box.setChecked(True)
             self.create_task = New_MainWindow_create(self, self.user)
-            self.create_task.topic_lineEdit.setText(name)
-            self.create_task.detail_lineEdit.setText(detail)
-            self.create_task.calendarWidget.setSelectedDate(date_formatter(due_date.strip()))
-            self.create_task.timeEdit.setTime(QTime.fromString(time, "hh:mm"))
-            self.create_task.show()
+            if name:
+                self.create_task.topic_lineEdit.setText(name)
+            if detail:
+                self.create_task.detail_lineEdit.setText(detail)
+            if due_date:
+                self.create_task.calendarWidget.setSelectedDate(date_formatter(due_date.strip()))
+            if time:
+                self.create_task.timeEdit.setTime(QTime.fromString(time, "hh:mm"))
             if "urgent" in text:
                 self.create_task.urgent_task_check_box.setChecked(True)
+            self.create_task.show()
+
 
     
 def find_similar_words(word, word_list):
@@ -235,6 +241,8 @@ def creating_task(input_str:str):
         name_index = input_str.find("task")
     elif "name" in input_str:
         name_index = input_str.find("name")
+    else:
+        name_index = None
     name_gap = 5
 
     if "detail" in input_str:
@@ -243,6 +251,8 @@ def creating_task(input_str:str):
     elif "details" in input_str:
         detail_index = input_str.find("details")
         detail_gap = 8
+    else:
+        detail_index = None
    
 
     if "due date" in input_str:
@@ -251,6 +261,8 @@ def creating_task(input_str:str):
     elif "date" in input_str:
         due_date_index = input_str.find("date")
         due_date_gap = 5
+    else:
+        due_date_index = None
 
 
     if "time" in input_str:
@@ -259,12 +271,29 @@ def creating_task(input_str:str):
     elif "at" in input_str:
         time_index = input_str.find("at")
         time_gap = 3
+    else:
+        time_index = None
 
+    if name_index :
+        name = input_str[name_index + name_gap: detail_index]
+    else:
+        name = None
 
-    name = input_str[name_index + name_gap: detail_index]
-    detail = input_str[detail_index + detail_gap: due_date_index]
-    due_date = input_str[due_date_index + due_date_gap: time_index]
-    time = input_str[time_index + time_gap:time_index + time_gap + 5]
+    if detail_index:
+        detail = input_str[detail_index + detail_gap: due_date_index]
+    else:
+        detail = None
+
+    if due_date_index:
+        due_date = input_str[due_date_index + due_date_gap: time_index]
+    else:
+        due_date = None
+
+    if time_index:
+        time = input_str[time_index + time_gap:time_index + time_gap + 5]
+    else:
+        time = None
+
     print(name, detail, due_date, time)
 
     return name, detail, due_date, time
