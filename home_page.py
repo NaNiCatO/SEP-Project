@@ -177,6 +177,7 @@ class MainWindow(QMainWindow):
         if isinstance(task_frame, ClickableTaskFrame):
             task = task_frame.task
             print(f"Clicked on task: {task.name_topic}")
+            print(f"Task description: {task.due_date}")
     
 
 

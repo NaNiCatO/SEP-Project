@@ -104,6 +104,7 @@ class Task_page():
                 self.new_window.show()
 
         print(f"Clicked on task: {task.name_topic}")
+        print(f"Task description: {task.due_date}")
         
 
     def update_ui(self):
