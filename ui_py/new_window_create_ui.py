@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'create_task.ui'
+## Form generated from reading UI file 'new_window_create.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.6.0
 ##
@@ -17,19 +17,19 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QAbstractButton, QApplication, QCalendarWidget, QCheckBox,
     QDialogButtonBox, QFrame, QGridLayout, QHBoxLayout,
-    QLabel, QLineEdit, QSizePolicy, QTimeEdit,
-    QVBoxLayout, QWidget)
-import ui_py.icons_rc
+    QLabel, QLineEdit, QPushButton, QSizePolicy,
+    QTimeEdit, QVBoxLayout, QWidget)
+import ui_py.resources_rc
 
 class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
-        Form.resize(697, 444)
-        self.gridLayout = QGridLayout(Form)
-        self.gridLayout.setSpacing(0)
-        self.gridLayout.setObjectName(u"gridLayout")
-        self.gridLayout.setContentsMargins(0, 0, 0, 0)
+        Form.resize(731, 444)
+        self.verticalLayout_3 = QVBoxLayout(Form)
+        self.verticalLayout_3.setSpacing(0)
+        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
         self.main_create_task_frame = QFrame(Form)
         self.main_create_task_frame.setObjectName(u"main_create_task_frame")
         self.main_create_task_frame.setStyleSheet(u"*{\n"
@@ -158,6 +158,11 @@ class Ui_Form(object):
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.frame_6 = QFrame(self.frame_2)
         self.frame_6.setObjectName(u"frame_6")
+        sizePolicy1 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Preferred)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.frame_6.sizePolicy().hasHeightForWidth())
+        self.frame_6.setSizePolicy(sizePolicy1)
         self.frame_6.setFrameShape(QFrame.StyledPanel)
         self.frame_6.setFrameShadow(QFrame.Raised)
         self.gridLayout_7 = QGridLayout(self.frame_6)
@@ -238,11 +243,11 @@ class Ui_Form(object):
 
         self.timeEdit = QTimeEdit(self.frame_17)
         self.timeEdit.setObjectName(u"timeEdit")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.timeEdit.sizePolicy().hasHeightForWidth())
-        self.timeEdit.setSizePolicy(sizePolicy1)
+        sizePolicy2 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.timeEdit.sizePolicy().hasHeightForWidth())
+        self.timeEdit.setSizePolicy(sizePolicy2)
         self.timeEdit.setMinimumSize(QSize(200, 0))
         self.timeEdit.setStyleSheet(u"QTimeEdit {\n"
 "    background-color: #f0f0f0; \n"
@@ -272,7 +277,6 @@ class Ui_Form(object):
 "    subcontrol-position: bottom right; \n"
 "}\n"
 "")
-        self.timeEdit.setLocale(QLocale(QLocale.English, QLocale.UnitedStates))
 
         self.horizontalLayout_9.addWidget(self.timeEdit)
 
@@ -305,16 +309,33 @@ class Ui_Form(object):
         self.frame_13.setObjectName(u"frame_13")
         self.frame_13.setFrameShape(QFrame.StyledPanel)
         self.frame_13.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_5 = QVBoxLayout(self.frame_13)
-        self.verticalLayout_5.setSpacing(0)
-        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
-        self.verticalLayout_5.setContentsMargins(0, 0, 0, 0)
-        self.frame_11 = QFrame(self.frame_13)
+        self.gridLayout_5 = QGridLayout(self.frame_13)
+        self.gridLayout_5.setSpacing(0)
+        self.gridLayout_5.setObjectName(u"gridLayout_5")
+        self.gridLayout_5.setContentsMargins(0, 0, 0, 0)
+        self.frame_16 = QFrame(self.frame_13)
+        self.frame_16.setObjectName(u"frame_16")
+        self.frame_16.setFrameShape(QFrame.StyledPanel)
+        self.frame_16.setFrameShadow(QFrame.Raised)
+        self.gridLayout_8 = QGridLayout(self.frame_16)
+        self.gridLayout_8.setObjectName(u"gridLayout_8")
+        self.gridLayout_8.setContentsMargins(0, -1, -1, -1)
+        self.frame_22 = QFrame(self.frame_16)
+        self.frame_22.setObjectName(u"frame_22")
+        self.frame_22.setFrameShape(QFrame.StyledPanel)
+        self.frame_22.setFrameShadow(QFrame.Raised)
+        self.gridLayout_9 = QGridLayout(self.frame_22)
+        self.gridLayout_9.setSpacing(0)
+        self.gridLayout_9.setObjectName(u"gridLayout_9")
+        self.gridLayout_9.setContentsMargins(0, 0, 0, 0)
+        self.frame_11 = QFrame(self.frame_22)
         self.frame_11.setObjectName(u"frame_11")
         self.frame_11.setFrameShape(QFrame.StyledPanel)
         self.frame_11.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_7 = QHBoxLayout(self.frame_11)
-        self.horizontalLayout_7.setSpacing(6)
+#ifndef Q_OS_MAC
+        self.horizontalLayout_7.setSpacing(-1)
+#endif
         self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
         self.horizontalLayout_7.setContentsMargins(12, 0, 0, 0)
         self.subTaskHeadline = QLabel(self.frame_11)
@@ -330,22 +351,33 @@ class Ui_Form(object):
         self.horizontalLayout_7.addWidget(self.sub_task_check_box, 0, Qt.AlignLeft)
 
 
-        self.verticalLayout_5.addWidget(self.frame_11, 0, Qt.AlignLeft)
+        self.gridLayout_9.addWidget(self.frame_11, 0, 0, 1, 1, Qt.AlignLeft)
 
-        self.frame_14 = QFrame(self.frame_13)
+
+        self.gridLayout_8.addWidget(self.frame_22, 0, 0, 1, 1)
+
+        self.frame_21 = QFrame(self.frame_16)
+        self.frame_21.setObjectName(u"frame_21")
+        self.frame_21.setFrameShape(QFrame.StyledPanel)
+        self.frame_21.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_6 = QVBoxLayout(self.frame_21)
+        self.verticalLayout_6.setSpacing(0)
+        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
+        self.verticalLayout_6.setContentsMargins(0, 0, 0, 0)
+        self.frame_14 = QFrame(self.frame_21)
         self.frame_14.setObjectName(u"frame_14")
         self.frame_14.setFrameShape(QFrame.StyledPanel)
         self.frame_14.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_8 = QHBoxLayout(self.frame_14)
-        self.horizontalLayout_8.setSpacing(1)
+        self.horizontalLayout_8.setSpacing(0)
         self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
         self.horizontalLayout_8.setContentsMargins(0, 0, 0, 0)
-        self.subTaskHeadline_2 = QLabel(self.frame_14)
-        self.subTaskHeadline_2.setObjectName(u"subTaskHeadline_2")
-        self.subTaskHeadline_2.setStyleSheet(u"margin-left: 20px;")
-        self.subTaskHeadline_2.setMargin(5)
+        self.urgentTaskHeadline = QLabel(self.frame_14)
+        self.urgentTaskHeadline.setObjectName(u"urgentTaskHeadline")
+        self.urgentTaskHeadline.setStyleSheet(u"margin-left: 20px;")
+        self.urgentTaskHeadline.setMargin(5)
 
-        self.horizontalLayout_8.addWidget(self.subTaskHeadline_2, 0, Qt.AlignLeft)
+        self.horizontalLayout_8.addWidget(self.urgentTaskHeadline, 0, Qt.AlignHCenter)
 
         self.urgent_task_check_box = QCheckBox(self.frame_14)
         self.urgent_task_check_box.setObjectName(u"urgent_task_check_box")
@@ -353,7 +385,72 @@ class Ui_Form(object):
         self.horizontalLayout_8.addWidget(self.urgent_task_check_box)
 
 
-        self.verticalLayout_5.addWidget(self.frame_14, 0, Qt.AlignLeft)
+        self.verticalLayout_6.addWidget(self.frame_14)
+
+
+        self.gridLayout_8.addWidget(self.frame_21, 0, 1, 1, 1)
+
+
+        self.gridLayout_5.addWidget(self.frame_16, 0, 0, 1, 1)
+
+        self.frame_18 = QFrame(self.frame_13)
+        self.frame_18.setObjectName(u"frame_18")
+        self.frame_18.setStyleSheet(u"")
+        self.frame_18.setFrameShape(QFrame.StyledPanel)
+        self.frame_18.setFrameShadow(QFrame.Raised)
+        self.gridLayout = QGridLayout(self.frame_18)
+        self.gridLayout.setSpacing(0)
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.gridLayout.setContentsMargins(0, 0, 0, 0)
+        self.frame_20 = QFrame(self.frame_18)
+        self.frame_20.setObjectName(u"frame_20")
+        self.frame_20.setFrameShape(QFrame.StyledPanel)
+        self.frame_20.setFrameShadow(QFrame.Raised)
+        self.gridLayout_6 = QGridLayout(self.frame_20)
+        self.gridLayout_6.setObjectName(u"gridLayout_6")
+        self.gridLayout_6.setContentsMargins(0, -1, -1, -1)
+        self.frame_19 = QFrame(self.frame_20)
+        self.frame_19.setObjectName(u"frame_19")
+        self.frame_19.setFrameShape(QFrame.StyledPanel)
+        self.frame_19.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_5 = QVBoxLayout(self.frame_19)
+        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
+        self.voiceButton = QPushButton(self.frame_19)
+        self.voiceButton.setObjectName(u"voiceButton")
+        sizePolicy3 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
+        sizePolicy3.setHorizontalStretch(0)
+        sizePolicy3.setVerticalStretch(0)
+        sizePolicy3.setHeightForWidth(self.voiceButton.sizePolicy().hasHeightForWidth())
+        self.voiceButton.setSizePolicy(sizePolicy3)
+        self.voiceButton.setStyleSheet(u"#voiceButton {\n"
+"    width: 50px;\n"
+"    height : 50px;\n"
+"    font-size: 16px;\n"
+"    font-weight: bold;\n"
+"    color: #ffffff;\n"
+"    border: none;\n"
+"    border-radius: 25px; \n"
+"    background-color: #f0792b;\n"
+"}\n"
+"\n"
+"#voiceButton:hover {\n"
+"    background-color: #ff6347;\n"
+"}\n"
+"")
+        icon = QIcon()
+        icon.addFile(u":/icons_v2/mic.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.voiceButton.setIcon(icon)
+
+        self.verticalLayout_5.addWidget(self.voiceButton)
+
+
+        self.gridLayout_6.addWidget(self.frame_19, 0, 0, 1, 1, Qt.AlignHCenter)
+
+
+        self.gridLayout.addWidget(self.frame_20, 0, 0, 1, 1, Qt.AlignLeft)
+
+
+        self.gridLayout_5.addWidget(self.frame_18, 1, 0, 1, 1)
 
 
         self.horizontalLayout_3.addWidget(self.frame_13)
@@ -385,6 +482,8 @@ class Ui_Form(object):
         self.gridLayout_2.setContentsMargins(0, 0, 0, 0)
         self.calendarWidget = QCalendarWidget(self.frame_4)
         self.calendarWidget.setObjectName(u"calendarWidget")
+        sizePolicy.setHeightForWidth(self.calendarWidget.sizePolicy().hasHeightForWidth())
+        self.calendarWidget.setSizePolicy(sizePolicy)
         self.calendarWidget.setStyleSheet(u"\n"
 "#calendarWidget QWidget{\n"
 "alternate-background-color: #fec89a;\n"
@@ -397,15 +496,12 @@ class Ui_Form(object):
 "border-top-left-radius: 5px;\n"
 "border-top-right-radius: 5px;\n"
 "\n"
+"\n"
 "}\n"
 "\n"
 "#qt_calendar_prevmonth, #qt_calendar_nextmonth{\n"
 "border: none;\n"
 "qproperty-icon: none;\n"
-"min-width: 13px;\n"
-"max-width: 13px;\n"
-"min-height: 13px;\n"
-"max-height: 13px;\n"
 "border-radius: 5px;\n"
 "background-color: transparent;\n"
 "padding: 5px;\n"
@@ -414,29 +510,29 @@ class Ui_Form(object):
 "}\n"
 "\n"
 "#qt_calendar_prevmonth{\n"
-"marigin-right: 5px;\n"
-"	image: url(:/icons/icons_black/arrow-right.svg);\n"
+"	image: url(:/icons/assets/icons/arrow-left.svg);\n"
+"subcontrol-position:left;\n"
 "}\n"
 "\n"
 "#qt_calendar_nextmonth{\n"
-"marigin-right: 5px;\n"
-"	image: url(:/icons/icons_black/arrow-right.svg);\n"
+"	image: url(:/icons/assets/icons/arrow-right.svg);\n"
+"subcontrol-position:right;\n"
 "}\n"
 "\n"
 "#qt_calendar_nextmonth:hover,#qt_calendar_prevmonth:hover{\n"
+"/*\n"
 "background-color: #f8edeb;\n"
 "margin-right: 10px;\n"
-"\n"
-"\n"
+"*/\n"
 "}\n"
 "\n"
 "#qt_calendar_nextmonth:pressd,#qt_calendar_prevmonth:pressd{\n"
-"background-color: #f"
-                        "cd5ce;\n"
+"background-color: #fcd5ce;\n"
 "}\n"
 "\n"
 "#qt_calendar_yearbutton{\n"
-"color: #000;\n"
+"color: #000;"
+                        "\n"
 "margin: 5px;\n"
 "border-radius: 5px;\n"
 "font-size: 13px;\n"
@@ -463,28 +559,28 @@ class Ui_Form(object):
 "}\n"
 "\n"
 "#qt_calendar_yearedit{\n"
-"min-width: 53px;\n"
+"min-width: 70px;\n"
 "color: #1e1e1e;\n"
 "background: transparent;\n"
-"font-size: 13px;\n"
+"font-size: 12px;\n"
+"padding:5px;\n"
 "\n"
 "}\n"
 "\n"
 "#qt_calendar_yearedit::down-button{\n"
-"	image: url(:/icons/icons_black/arrow-right.svg);\n"
-"subcontrol-position:right;\n"
+"	image: url(:/icons/assets/icons/arrow-down.svg);\n"
+"subcontrol-position:left;\n"
 "}\n"
 "\n"
 "#qt_calendar_yearedit::up-button{\n"
-"	image: url(:/icons/icons_black/arrow-right.svg);\n"
-"subcontrol-position:left;\n"
-"\n"
+"		image: url(:/icons/assets/icons/arrow-up.svg);\n"
+"subcontrol-position:right;\n"
 "}\n"
 "\n"
-"#qt_calendar_yearedit::down-button,#qt_calend"
-                        "ar_yearedit::up-button{\n"
+"#qt_calendar_yearedit::down-button,#qt_calendar_yearedit::up-button{\n"
 "width:10px;\n"
-"padding: 0px 5px;\n"
+"padding:"
+                        " 0px 5px;\n"
 "border-radius: 3px;\n"
 "\n"
 "}\n"
@@ -509,7 +605,7 @@ class Ui_Form(object):
 "\n"
 "#calendarWidgetQToolButton QToolButtin::menu-indicator{\n"
 "nosubcontrol-origin: margin;\n"
-"sbucontrol-position:right center;\n"
+"subcontrol-position:right center;\n"
 "margin-top: 10px;\n"
 "width:20px;\n"
 "\n"
@@ -530,11 +626,11 @@ class Ui_Form(object):
 "\n"
 "#qt_calendar_calendarview::item:selected{\n"
 "border-radius: 5px;\n"
-"c"
-                        "olor:#1e1e1e;\n"
+"color:#1e1e1e;\n"
 "background-color: #ffddd2;\n"
 "\n"
-"}\n"
+""
+                        "}\n"
 "\n"
 "\n"
 "\n"
@@ -620,7 +716,7 @@ class Ui_Form(object):
         self.gridLayout_11.addWidget(self.frame_15, 1, 0, 1, 1)
 
 
-        self.gridLayout.addWidget(self.main_create_task_frame, 0, 0, 1, 1)
+        self.verticalLayout_3.addWidget(self.main_create_task_frame)
 
 
         self.retranslateUi(Form)
@@ -636,15 +732,8 @@ class Ui_Form(object):
         self.label.setText(QCoreApplication.translate("Form", u"Time         ", None))
         self.subTaskHeadline.setText(QCoreApplication.translate("Form", u"Sub Task  ", None))
         self.sub_task_check_box.setText("")
-        self.subTaskHeadline_2.setText(QCoreApplication.translate("Form", u"Urgent task", None))
+        self.urgentTaskHeadline.setText(QCoreApplication.translate("Form", u"Urgent task", None))
         self.urgent_task_check_box.setText("")
+        self.voiceButton.setText("")
     # retranslateUi
 
-if __name__ == "__main__":
-    import sys
-    app = QApplication(sys.argv)
-    Form = QWidget()
-    ui = Ui_Form()
-    ui.setupUi(Form)
-    Form.show()
-    sys.exit(app.exec_())

@@ -6,14 +6,17 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>697</width>
+    <width>731</width>
     <height>444</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
+  <layout class="QVBoxLayout" name="verticalLayout_3">
+   <property name="spacing">
+    <number>0</number>
+   </property>
    <property name="leftMargin">
     <number>0</number>
    </property>
@@ -26,10 +29,7 @@
    <property name="bottomMargin">
     <number>0</number>
    </property>
-   <property name="spacing">
-    <number>0</number>
-   </property>
-   <item row="0" column="0">
+   <item>
     <widget class="QFrame" name="main_create_task_frame">
      <property name="styleSheet">
       <string notr="true">*{
@@ -243,6 +243,12 @@ margin-right: 3px;
                </property>
                <item>
                 <widget class="QFrame" name="frame_6">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
                  <property name="frameShape">
                   <enum>QFrame::StyledPanel</enum>
                  </property>
@@ -438,9 +444,6 @@ QTimeEdit::down-button {
 }
 </string>
                           </property>
-                          <property name="locale">
-                           <locale language="English" country="UnitedStates"/>
-                          </property>
                          </widget>
                         </item>
                        </layout>
@@ -508,10 +511,7 @@ QTimeEdit::down-button {
                        <property name="frameShadow">
                         <enum>QFrame::Raised</enum>
                        </property>
-                       <layout class="QVBoxLayout" name="verticalLayout_5">
-                        <property name="spacing">
-                         <number>0</number>
-                        </property>
+                       <layout class="QGridLayout" name="gridLayout_5">
                         <property name="leftMargin">
                          <number>0</number>
                         </property>
@@ -524,65 +524,184 @@ QTimeEdit::down-button {
                         <property name="bottomMargin">
                          <number>0</number>
                         </property>
-                        <item alignment="Qt::AlignLeft">
-                         <widget class="QFrame" name="frame_11">
+                        <property name="spacing">
+                         <number>0</number>
+                        </property>
+                        <item row="0" column="0">
+                         <widget class="QFrame" name="frame_16">
                           <property name="frameShape">
                            <enum>QFrame::StyledPanel</enum>
                           </property>
                           <property name="frameShadow">
                            <enum>QFrame::Raised</enum>
                           </property>
-                          <layout class="QHBoxLayout" name="horizontalLayout_7">
-                           <property name="spacing">
-                            <number>6</number>
-                           </property>
+                          <layout class="QGridLayout" name="gridLayout_8">
                            <property name="leftMargin">
-                            <number>12</number>
-                           </property>
-                           <property name="topMargin">
                             <number>0</number>
                            </property>
-                           <property name="rightMargin">
-                            <number>0</number>
-                           </property>
-                           <property name="bottomMargin">
-                            <number>0</number>
-                           </property>
-                           <item alignment="Qt::AlignLeft">
-                            <widget class="QLabel" name="subTaskHeadline">
-                             <property name="styleSheet">
-                              <string notr="true">margin-left: 10px;</string>
+                           <item row="0" column="0">
+                            <widget class="QFrame" name="frame_22">
+                             <property name="frameShape">
+                              <enum>QFrame::StyledPanel</enum>
                              </property>
-                             <property name="text">
-                              <string>Sub Task  </string>
+                             <property name="frameShadow">
+                              <enum>QFrame::Raised</enum>
                              </property>
-                             <property name="margin">
-                              <number>5</number>
-                             </property>
+                             <layout class="QGridLayout" name="gridLayout_9">
+                              <property name="leftMargin">
+                               <number>0</number>
+                              </property>
+                              <property name="topMargin">
+                               <number>0</number>
+                              </property>
+                              <property name="rightMargin">
+                               <number>0</number>
+                              </property>
+                              <property name="bottomMargin">
+                               <number>0</number>
+                              </property>
+                              <property name="spacing">
+                               <number>0</number>
+                              </property>
+                              <item row="0" column="0" alignment="Qt::AlignLeft">
+                               <widget class="QFrame" name="frame_11">
+                                <property name="frameShape">
+                                 <enum>QFrame::StyledPanel</enum>
+                                </property>
+                                <property name="frameShadow">
+                                 <enum>QFrame::Raised</enum>
+                                </property>
+                                <layout class="QHBoxLayout" name="horizontalLayout_7">
+                                 <property name="spacing">
+                                  <number>-1</number>
+                                 </property>
+                                 <property name="leftMargin">
+                                  <number>12</number>
+                                 </property>
+                                 <property name="topMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="rightMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="bottomMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <item alignment="Qt::AlignLeft">
+                                  <widget class="QLabel" name="subTaskHeadline">
+                                   <property name="styleSheet">
+                                    <string notr="true">margin-left: 10px;</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>Sub Task  </string>
+                                   </property>
+                                   <property name="margin">
+                                    <number>5</number>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item alignment="Qt::AlignLeft">
+                                  <widget class="QCheckBox" name="sub_task_check_box">
+                                   <property name="text">
+                                    <string/>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                             </layout>
                             </widget>
                            </item>
-                           <item alignment="Qt::AlignLeft">
-                            <widget class="QCheckBox" name="sub_task_check_box">
-                             <property name="text">
-                              <string/>
+                           <item row="0" column="1">
+                            <widget class="QFrame" name="frame_21">
+                             <property name="frameShape">
+                              <enum>QFrame::StyledPanel</enum>
                              </property>
+                             <property name="frameShadow">
+                              <enum>QFrame::Raised</enum>
+                             </property>
+                             <layout class="QVBoxLayout" name="verticalLayout_6">
+                              <property name="spacing">
+                               <number>0</number>
+                              </property>
+                              <property name="leftMargin">
+                               <number>0</number>
+                              </property>
+                              <property name="topMargin">
+                               <number>0</number>
+                              </property>
+                              <property name="rightMargin">
+                               <number>0</number>
+                              </property>
+                              <property name="bottomMargin">
+                               <number>0</number>
+                              </property>
+                              <item>
+                               <widget class="QFrame" name="frame_14">
+                                <property name="frameShape">
+                                 <enum>QFrame::StyledPanel</enum>
+                                </property>
+                                <property name="frameShadow">
+                                 <enum>QFrame::Raised</enum>
+                                </property>
+                                <layout class="QHBoxLayout" name="horizontalLayout_8">
+                                 <property name="spacing">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="leftMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="topMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="rightMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="bottomMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <item alignment="Qt::AlignHCenter">
+                                  <widget class="QLabel" name="urgentTaskHeadline">
+                                   <property name="styleSheet">
+                                    <string notr="true">margin-left: 20px;</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>Urgent task</string>
+                                   </property>
+                                   <property name="margin">
+                                    <number>5</number>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QCheckBox" name="urgent_task_check_box">
+                                   <property name="text">
+                                    <string/>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                             </layout>
                             </widget>
                            </item>
                           </layout>
                          </widget>
                         </item>
-                        <item alignment="Qt::AlignLeft">
-                         <widget class="QFrame" name="frame_14">
+                        <item row="1" column="0">
+                         <widget class="QFrame" name="frame_18">
+                          <property name="styleSheet">
+                           <string notr="true"/>
+                          </property>
                           <property name="frameShape">
                            <enum>QFrame::StyledPanel</enum>
                           </property>
                           <property name="frameShadow">
                            <enum>QFrame::Raised</enum>
                           </property>
-                          <layout class="QHBoxLayout" name="horizontalLayout_8">
-                           <property name="spacing">
-                            <number>1</number>
-                           </property>
+                          <layout class="QGridLayout" name="gridLayout">
                            <property name="leftMargin">
                             <number>0</number>
                            </property>
@@ -595,24 +714,68 @@ QTimeEdit::down-button {
                            <property name="bottomMargin">
                             <number>0</number>
                            </property>
-                           <item alignment="Qt::AlignLeft">
-                            <widget class="QLabel" name="subTaskHeadline_2">
-                             <property name="styleSheet">
-                              <string notr="true">margin-left: 20px;</string>
+                           <property name="spacing">
+                            <number>0</number>
+                           </property>
+                           <item row="0" column="0" alignment="Qt::AlignLeft">
+                            <widget class="QFrame" name="frame_20">
+                             <property name="frameShape">
+                              <enum>QFrame::StyledPanel</enum>
                              </property>
-                             <property name="text">
-                              <string>Urgent task</string>
+                             <property name="frameShadow">
+                              <enum>QFrame::Raised</enum>
                              </property>
-                             <property name="margin">
-                              <number>5</number>
-                             </property>
-                            </widget>
-                           </item>
-                           <item>
-                            <widget class="QCheckBox" name="urgent_task_check_box">
-                             <property name="text">
-                              <string/>
-                             </property>
+                             <layout class="QGridLayout" name="gridLayout_6">
+                              <property name="leftMargin">
+                               <number>0</number>
+                              </property>
+                              <item row="0" column="0" alignment="Qt::AlignHCenter">
+                               <widget class="QFrame" name="frame_19">
+                                <property name="frameShape">
+                                 <enum>QFrame::StyledPanel</enum>
+                                </property>
+                                <property name="frameShadow">
+                                 <enum>QFrame::Raised</enum>
+                                </property>
+                                <layout class="QVBoxLayout" name="verticalLayout_5">
+                                 <item>
+                                  <widget class="QPushButton" name="voiceButton">
+                                   <property name="sizePolicy">
+                                    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                                     <horstretch>0</horstretch>
+                                     <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">#voiceButton {
+    width: 50px;
+    height : 50px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    border: none;
+    border-radius: 25px; 
+    background-color: #f0792b;
+}
+
+#voiceButton:hover {
+    background-color: #ff6347;
+}
+</string>
+                                   </property>
+                                   <property name="text">
+                                    <string/>
+                                   </property>
+                                   <property name="icon">
+                                    <iconset resource="../SEP_Project/resources.qrc">
+                                     <normaloff>:/icons_v2/mic.svg</normaloff>:/icons_v2/mic.svg</iconset>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                             </layout>
                             </widget>
                            </item>
                           </layout>
@@ -680,6 +843,12 @@ QTimeEdit::down-button {
                   </property>
                   <item row="0" column="0">
                    <widget class="QCalendarWidget" name="calendarWidget">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
                     <property name="styleSheet">
                      <string notr="true">
 #calendarWidget QWidget{
@@ -693,15 +862,12 @@ border-bottom: 0px;
 border-top-left-radius: 5px;
 border-top-right-radius: 5px;
 
+
 }
 
 #qt_calendar_prevmonth, #qt_calendar_nextmonth{
 border: none;
 qproperty-icon: none;
-min-width: 13px;
-max-width: 13px;
-min-height: 13px;
-max-height: 13px;
 border-radius: 5px;
 background-color: transparent;
 padding: 5px;
@@ -710,20 +876,20 @@ padding: 5px;
 }
 
 #qt_calendar_prevmonth{
-marigin-right: 5px;
-	image: url(:/icons/icons_black/arrow-right.svg);
+	image: url(:/icons/assets/icons/arrow-left.svg);
+subcontrol-position:left;
 }
 
 #qt_calendar_nextmonth{
-marigin-right: 5px;
-	image: url(:/icons/icons_black/arrow-right.svg);
+	image: url(:/icons/assets/icons/arrow-right.svg);
+subcontrol-position:right;
 }
 
 #qt_calendar_nextmonth:hover,#qt_calendar_prevmonth:hover{
+/*
 background-color: #f8edeb;
 margin-right: 10px;
-
-
+*/
 }
 
 #qt_calendar_nextmonth:pressd,#qt_calendar_prevmonth:pressd{
@@ -758,22 +924,22 @@ background-color: rgba(235,235,235,100);
 }
 
 #qt_calendar_yearedit{
-min-width: 53px;
+min-width: 70px;
 color: #1e1e1e;
 background: transparent;
-font-size: 13px;
+font-size: 12px;
+padding:5px;
 
 }
 
 #qt_calendar_yearedit::down-button{
-	image: url(:/icons/icons_black/arrow-right.svg);
-subcontrol-position:right;
+	image: url(:/icons/assets/icons/arrow-down.svg);
+subcontrol-position:left;
 }
 
 #qt_calendar_yearedit::up-button{
-	image: url(:/icons/icons_black/arrow-right.svg);
-subcontrol-position:left;
-
+		image: url(:/icons/assets/icons/arrow-up.svg);
+subcontrol-position:right;
 }
 
 #qt_calendar_yearedit::down-button,#qt_calendar_yearedit::up-button{
@@ -803,7 +969,7 @@ background-color: #55aaff;
 
 #calendarWidgetQToolButton QToolButtin::menu-indicator{
 nosubcontrol-origin: margin;
-sbucontrol-position:right center;
+subcontrol-position:right center;
 margin-top: 10px;
 width:20px;
 
@@ -925,7 +1091,7 @@ QDialog QLabel {
   </layout>
  </widget>
  <resources>
-  <include location="../icons.qrc"/>
+  <include location="../SEP_Project/resources.qrc"/>
  </resources>
  <connections/>
 </ui>
