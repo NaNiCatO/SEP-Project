@@ -94,7 +94,7 @@ class Sidebar(QMainWindow, Ui_MainWindow,QtCore.QObject):
 
     def switch_to_calendar(self):
         # self.update_ui()
-        self.calendar_page = Calendar_page(self, self.categorized_task)
+        self.calendar_page = Calendar_page(self, self.user, self.categorized_task)
         self.stackedWidget.setCurrentIndex(1)
 
     def switch_to_history(self):
@@ -109,7 +109,7 @@ class Sidebar(QMainWindow, Ui_MainWindow,QtCore.QObject):
         self.stackedWidget.setCurrentIndex(3)
 
     def setup_home_page(self):
-        self.home_page = Home_page(self, self.categorized_task)
+        self.home_page = Home_page(self, self.user, self.categorized_task)
         self.todayButton.clicked.connect(self.switch_to_today)
         self.urgentButton.clicked.connect(self.switch_to_urgent)
         self.completedButton.clicked.connect(self.switch_to_completed)

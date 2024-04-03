@@ -31,6 +31,7 @@ class User(persistent.Persistent):
     
     def get_date_today(self) :
         return datetime.datetime.today().strftime('%Y-%m-%d')
+    
 
     
     def add_history(self, date, event, task , old_data = None , new_data = None) :

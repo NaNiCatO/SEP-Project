@@ -24,11 +24,16 @@ class New_MainWindow_task(QMainWindow, Ui_MainWindow):
         self.mode = "View Task"
         self.setupUi(self)
         self.container_layout = QVBoxLayout(self.frame)
-
-        if self.name:
-            self.homeHeader_5.setText(f"Task Name: {name}")
-        else:
-            self.homeHeader_5.setText(f"Task Name: {self.task.name_topic}")
+        
+        
+        try:
+            datetime.strptime(str(name), '%Y-%m-%d')
+            self.homeHeader_5.setText(f"Task Due By: {name}")
+        except ValueError:
+            if self.name:
+                self.homeHeader_5.setText(f"Task Name: {name}")
+            else:
+                self.homeHeader_5.setText(f"Task Name: {self.task.name_topic}")
 
         self.create_Button.clicked.connect(self.create_task)
         self.delete_Button.clicked.connect(self.delete_task)

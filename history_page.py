@@ -92,42 +92,42 @@ class History_page():
                 
 
 stylesheet = """
-        /* History frame styling */
-        #history_frame {
-            background-color: #f5f5f5;
-            border: 1px solid #ddd;
-            border-radius: 5px;  /* Add rounded corners */
-            padding: 15px;
-        }
+/* History frame styling */
+#history_frame {
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 5px;  /* Add rounded corners */
+    padding: 15px;
+}
 
-        /* Event label styling */
-        QLabel {
-            font-family: Arial, sans-serif;
-            font-size: 14px;
-            color: #444;
-            line-height: 1.5;  /* Increase line spacing for readability */
-        }
+/* Event label styling */
+QLabel {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #444;
+    line-height: 1.5;  /* Increase line spacing for readability */
+}
 
-        /* Date label styling (targets first child) */
-        QLabel:first-child {
-            font-weight: bold;
-            color: #333;
-        }
+/* Date label styling (targets first child) */
+QLabel:first-child {
+    font-weight: bold;
+    color: #333;
+}
 
-        /* Topic label styling (change color to light green) */
-        QLabel:contains("Change Task Name:") {
-            color: lightgreen;  /* Or #90EE90 for light green */
-        }
+/* Topic label styling (change color to light green) */
+QLabel:contains("Change Task Name:") {
+    color: lightgreen;  /* Or #90EE90 for light green */
+}
 
-        /* Task list styling */
-        .task-list {
-            margin-left: 20px;  /* Indent task list for better hierarchy */
-            list-style: none;  /* Remove default bullet points */
-            padding-left: 0;  /* Remove default list padding */
-        }
+/* Task list styling */
+.task-list {
+    margin-left: 20px;  /* Indent task list for better hierarchy */
+    list-style: none;  /* Remove default bullet points */
+    padding-left: 0;  /* Remove default list padding */
+}
 
-        /* Task list item styling */
-        .task-list-item {
-            margin-bottom: 5px;  /* Add space between task items */
-        }
-        """
+/* Task list item styling */
+.task-list-item {
+    margin-bottom: 5px;  /* Add space between task items */
+}
+"""

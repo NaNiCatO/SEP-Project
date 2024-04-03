@@ -14,9 +14,10 @@ type_task = class_module.Task_handlers(user.get_user_tasks())
 type_task.update_tasks()
 
 class Home_page():
-    def __init__(self, ui : Ui_MainWindow, tasks=None):
+    def __init__(self, ui : Ui_MainWindow, user, tasks=None):
         self.ui = ui
         self.tasks = tasks
+        self.user = user
         self.container_layout_arr = [QVBoxLayout(self.ui.todayMainTask), QVBoxLayout(self.ui.urgentMainTask), QVBoxLayout(self.ui.completedMainTask)]
 
         today_tasks = self.tasks.get_today_tasks()
@@ -65,7 +66,7 @@ class Home_page():
     def clicked(self, task):
         print(f"Clicked on task: {task.name_topic}")
         if isinstance(task, MultiTask):
-            self.new_window = New_MainWindow_task(self.ui, task, task.name_topic)
+            self.new_window = New_MainWindow_task(self.ui, self.user, task, task.name_topic)
             self.new_window.show()
 
 
