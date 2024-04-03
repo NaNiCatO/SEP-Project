@@ -21,6 +21,7 @@ from PySide6.QtWidgets import (QApplication, QCalendarWidget, QFrame, QGridLayou
     QStackedWidget, QStatusBar, QVBoxLayout, QWidget)
 import ui_py.resources_rc
 
+
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
@@ -50,7 +51,7 @@ class Ui_MainWindow(object):
 "background-color: transparent;\n"
 "}\n"
 "\n"
-"#searchFrame{\n"
+"#searchFrame,#searchFrame_2,#searchFrame_3,#searchFrame_4,#searchFrame_5,#searchFrame_6{\n"
 "background-color: none;\n"
 "border-radius: 10px;\n"
 "border : 2px solid #1e1e1e;\n"
@@ -79,14 +80,14 @@ class Ui_MainWindow(object):
 "text-align: left;\n"
 "}\n"
 "\n"
-"#analysisButton, #calendarButton, #historyButton, #taskButton,#logoutButton{\n"
+"#analysisButton, #calendarButton, #historyButton, #taskButton,#logo"
+                        "utButton{\n"
 "text-align: left;\n"
 "\n"
 "}\n"
 "\n"
 "#frame10{\n"
-"backgroun"
-                        "d-color: #ffffff;\n"
+"background-color: #ffffff;\n"
 "}\n"
 "\n"
 "QPushButton:checked{\n"
@@ -114,16 +115,6 @@ class Ui_MainWindow(object):
         self.gridLayout_6.setSpacing(0)
         self.gridLayout_6.setObjectName(u"gridLayout_6")
         self.gridLayout_6.setContentsMargins(0, 0, 0, 0)
-        self.profileContent = QWidget(self.centralwidget)
-        self.profileContent.setObjectName(u"profileContent")
-        self.profileContent.setMinimumSize(QSize(0, 0))
-        self.verticalLayout_6 = QVBoxLayout(self.profileContent)
-        self.verticalLayout_6.setSpacing(0)
-        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
-        self.verticalLayout_6.setContentsMargins(0, 0, 0, 0)
-
-        self.gridLayout_6.addWidget(self.profileContent, 0, 3, 1, 1)
-
         self.homeMain = QWidget(self.centralwidget)
         self.homeMain.setObjectName(u"homeMain")
         sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
@@ -179,6 +170,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.setContentsMargins(0, 0, 0, 10)
         self.mainMenuButton = QWidget(self.headerFrame)
         self.mainMenuButton.setObjectName(u"mainMenuButton")
+        self.mainMenuButton.setMinimumSize(QSize(295, 0))
         self.menuButton = QPushButton(self.mainMenuButton)
         self.menuButton.setObjectName(u"menuButton")
         self.menuButton.setGeometry(QRect(12, 14, 30, 30))
@@ -191,7 +183,8 @@ class Ui_MainWindow(object):
         self.menuButton.setCheckable(True)
         self.homeHeader = QLabel(self.mainMenuButton)
         self.homeHeader.setObjectName(u"homeHeader")
-        self.homeHeader.setGeometry(QRect(50, 20, 45, 19))
+        self.homeHeader.setGeometry(QRect(50, 20, 110, 19))
+        self.homeHeader.setMinimumSize(QSize(110, 0))
         font = QFont()
         font.setPointSize(16)
         font.setBold(True)
@@ -207,7 +200,7 @@ class Ui_MainWindow(object):
         self.searchFrame = QFrame(self.mainSearchFrame)
         self.searchFrame.setObjectName(u"searchFrame")
         self.searchFrame.setMinimumSize(QSize(240, 0))
-        self.searchFrame.setStyleSheet(u"background-color:#fff;\n"
+        self.searchFrame.setStyleSheet(u"background-color:#ffffff;\n"
 "")
         self.searchFrame.setFrameShape(QFrame.StyledPanel)
         self.searchFrame.setFrameShadow(QFrame.Raised)
@@ -262,7 +255,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_7 = QHBoxLayout(self.cardFrame)
         self.horizontalLayout_7.setSpacing(20)
         self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
-        self.horizontalLayout_7.setContentsMargins(10, 0, 0, 0)
+        self.horizontalLayout_7.setContentsMargins(10, 10, 0, 0)
         self.todayCard = QFrame(self.cardFrame)
         self.todayCard.setObjectName(u"todayCard")
         self.todayCard.setMinimumSize(QSize(180, 80))
@@ -354,7 +347,7 @@ class Ui_MainWindow(object):
         self.urgentTask = QLabel(self.frame_4)
         self.urgentTask.setObjectName(u"urgentTask")
 
-        self.verticalLayout_5.addWidget(self.urgentTask)
+        self.verticalLayout_5.addWidget(self.urgentTask, 0, Qt.AlignHCenter)
 
 
         self.horizontalLayout_9.addWidget(self.frame_4, 0, Qt.AlignLeft)
@@ -399,12 +392,12 @@ class Ui_MainWindow(object):
         self.allTaskHeader.setObjectName(u"allTaskHeader")
         self.allTaskHeader.setFont(font)
 
-        self.verticalLayout_4.addWidget(self.allTaskHeader)
+        self.verticalLayout_4.addWidget(self.allTaskHeader, 0, Qt.AlignHCenter)
 
         self.allTask = QLabel(self.frame_3)
         self.allTask.setObjectName(u"allTask")
 
-        self.verticalLayout_4.addWidget(self.allTask, 0, Qt.AlignLeft|Qt.AlignTop)
+        self.verticalLayout_4.addWidget(self.allTask, 0, Qt.AlignHCenter|Qt.AlignTop)
 
 
         self.horizontalLayout_10.addWidget(self.frame_3)
@@ -449,12 +442,12 @@ class Ui_MainWindow(object):
         self.cancleHeader.setObjectName(u"cancleHeader")
         self.cancleHeader.setFont(font)
 
-        self.verticalLayout_14.addWidget(self.cancleHeader)
+        self.verticalLayout_14.addWidget(self.cancleHeader, 0, Qt.AlignHCenter)
 
         self.cancelTask = QLabel(self.frame_8)
         self.cancelTask.setObjectName(u"cancelTask")
 
-        self.verticalLayout_14.addWidget(self.cancelTask, 0, Qt.AlignLeft|Qt.AlignTop)
+        self.verticalLayout_14.addWidget(self.cancelTask, 0, Qt.AlignHCenter|Qt.AlignTop)
 
 
         self.horizontalLayout_11.addWidget(self.frame_8)
@@ -572,7 +565,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 257, 377))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 262, 367))
         self.gridLayout_5 = QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout_5.setObjectName(u"gridLayout_5")
         self.todayMainTask = QFrame(self.scrollAreaWidgetContents)
@@ -701,7 +694,7 @@ class Ui_MainWindow(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollAreaWidgetContents_3 = QWidget()
         self.scrollAreaWidgetContents_3.setObjectName(u"scrollAreaWidgetContents_3")
-        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 257, 372))
+        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 263, 362))
         self.gridLayout_4 = QGridLayout(self.scrollAreaWidgetContents_3)
         self.gridLayout_4.setObjectName(u"gridLayout_4")
         self.urgentMainTask = QFrame(self.scrollAreaWidgetContents_3)
@@ -829,7 +822,7 @@ class Ui_MainWindow(object):
         self.scrollArea_3.setWidgetResizable(True)
         self.scrollAreaWidgetContents_4 = QWidget()
         self.scrollAreaWidgetContents_4.setObjectName(u"scrollAreaWidgetContents_4")
-        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 257, 372))
+        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 262, 362))
         self.verticalLayout_15 = QVBoxLayout(self.scrollAreaWidgetContents_4)
         self.verticalLayout_15.setObjectName(u"verticalLayout_15")
         self.completedMainTask = QFrame(self.scrollAreaWidgetContents_4)
@@ -1183,15 +1176,18 @@ class Ui_MainWindow(object):
 "")
         self.frame_52.setFrameShape(QFrame.StyledPanel)
         self.frame_52.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_22 = QHBoxLayout(self.frame_52)
-        self.horizontalLayout_22.setSpacing(0)
-        self.horizontalLayout_22.setObjectName(u"horizontalLayout_22")
-        self.horizontalLayout_22.setContentsMargins(0, 0, 0, 0)
-        self.mainMenuButton_7 = QWidget(self.frame_52)
-        self.mainMenuButton_7.setObjectName(u"mainMenuButton_7")
-        self.horizontalLayout_38 = QHBoxLayout(self.mainMenuButton_7)
-        self.horizontalLayout_38.setObjectName(u"horizontalLayout_38")
-        self.menuButton_8 = QPushButton(self.mainMenuButton_7)
+        self.horizontalLayout_23 = QHBoxLayout(self.frame_52)
+        self.horizontalLayout_23.setSpacing(0)
+        self.horizontalLayout_23.setObjectName(u"horizontalLayout_23")
+        self.horizontalLayout_23.setContentsMargins(0, 0, 0, 12)
+        self.frame_45 = QFrame(self.frame_52)
+        self.frame_45.setObjectName(u"frame_45")
+        self.frame_45.setMinimumSize(QSize(320, 0))
+        self.frame_45.setFrameShape(QFrame.StyledPanel)
+        self.frame_45.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_21 = QHBoxLayout(self.frame_45)
+        self.horizontalLayout_21.setObjectName(u"horizontalLayout_21")
+        self.menuButton_8 = QPushButton(self.frame_45)
         self.menuButton_8.setObjectName(u"menuButton_8")
         self.menuButton_8.setMinimumSize(QSize(30, 30))
         self.menuButton_8.setMaximumSize(QSize(30, 30))
@@ -1201,23 +1197,70 @@ class Ui_MainWindow(object):
         self.menuButton_8.setIconSize(QSize(18, 18))
         self.menuButton_8.setCheckable(True)
 
-        self.horizontalLayout_38.addWidget(self.menuButton_8, 0, Qt.AlignHCenter)
+        self.horizontalLayout_21.addWidget(self.menuButton_8)
 
-        self.homeHeader_8 = QLabel(self.mainMenuButton_7)
+        self.homeHeader_8 = QLabel(self.frame_45)
         self.homeHeader_8.setObjectName(u"homeHeader_8")
         self.homeHeader_8.setFont(font)
 
-        self.horizontalLayout_38.addWidget(self.homeHeader_8)
+        self.horizontalLayout_21.addWidget(self.homeHeader_8)
 
 
-        self.horizontalLayout_22.addWidget(self.mainMenuButton_7, 0, Qt.AlignLeft)
+        self.horizontalLayout_23.addWidget(self.frame_45)
+
+        self.frame_41 = QFrame(self.frame_52)
+        self.frame_41.setObjectName(u"frame_41")
+        self.frame_41.setStyleSheet(u"background-color:none;")
+        self.frame_41.setFrameShape(QFrame.StyledPanel)
+        self.frame_41.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_19 = QVBoxLayout(self.frame_41)
+        self.verticalLayout_19.setObjectName(u"verticalLayout_19")
+        self.searchFrame_6 = QFrame(self.frame_41)
+        self.searchFrame_6.setObjectName(u"searchFrame_6")
+        self.searchFrame_6.setMinimumSize(QSize(240, 0))
+        self.searchFrame_6.setStyleSheet(u"#searchFrame_6{\n"
+"background-color: #ffffff;\n"
+"border-radius: 10px;\n"
+"border : 2px solid #1e1e1e;\n"
+"}")
+        self.searchFrame_6.setFrameShape(QFrame.StyledPanel)
+        self.searchFrame_6.setFrameShadow(QFrame.Raised)
+        self.gridLayout_52 = QGridLayout(self.searchFrame_6)
+        self.gridLayout_52.setObjectName(u"gridLayout_52")
+        self.gridLayout_52.setContentsMargins(5, 5, 5, 5)
+        self.calendar_search_button = QPushButton(self.searchFrame_6)
+        self.calendar_search_button.setObjectName(u"calendar_search_button")
+        self.calendar_search_button.setIcon(icon)
+        self.calendar_search_button.setIconSize(QSize(24, 24))
+
+        self.gridLayout_52.addWidget(self.calendar_search_button, 0, 0, 1, 1)
+
+        self.calendar_line_edit = QLineEdit(self.searchFrame_6)
+        self.calendar_line_edit.setObjectName(u"calendar_line_edit")
+        self.calendar_line_edit.setStyleSheet(u"")
+
+        self.gridLayout_52.addWidget(self.calendar_line_edit, 0, 1, 1, 1)
+
+        self.calendar_mic_button = QPushButton(self.searchFrame_6)
+        self.calendar_mic_button.setObjectName(u"calendar_mic_button")
+        self.calendar_mic_button.setIcon(icon1)
+        self.calendar_mic_button.setIconSize(QSize(24, 24))
+
+        self.gridLayout_52.addWidget(self.calendar_mic_button, 0, 2, 1, 1)
+
+
+        self.verticalLayout_19.addWidget(self.searchFrame_6)
+
+
+        self.horizontalLayout_23.addWidget(self.frame_41)
 
         self.frame_53 = QFrame(self.frame_52)
         self.frame_53.setObjectName(u"frame_53")
+        self.frame_53.setMinimumSize(QSize(320, 0))
         self.frame_53.setFrameShape(QFrame.StyledPanel)
         self.frame_53.setFrameShadow(QFrame.Raised)
 
-        self.horizontalLayout_22.addWidget(self.frame_53)
+        self.horizontalLayout_23.addWidget(self.frame_53)
 
 
         self.gridLayout_30.addWidget(self.frame_52, 0, 0, 1, 1)
@@ -1305,7 +1348,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_13 = QHBoxLayout(self.viewTaskHeafer)
         self.horizontalLayout_13.setSpacing(0)
         self.horizontalLayout_13.setObjectName(u"horizontalLayout_13")
-        self.horizontalLayout_13.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_13.setContentsMargins(0, 0, 0, 10)
         self.mainMenuButton_5 = QWidget(self.viewTaskHeafer)
         self.mainMenuButton_5.setObjectName(u"mainMenuButton_5")
         self.horizontalLayout_36 = QHBoxLayout(self.mainMenuButton_5)
@@ -1330,6 +1373,55 @@ class Ui_MainWindow(object):
 
 
         self.horizontalLayout_13.addWidget(self.mainMenuButton_5, 0, Qt.AlignLeft)
+
+        self.frame_42 = QFrame(self.viewTaskHeafer)
+        self.frame_42.setObjectName(u"frame_42")
+        self.frame_42.setFrameShape(QFrame.StyledPanel)
+        self.frame_42.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_18 = QVBoxLayout(self.frame_42)
+        self.verticalLayout_18.setObjectName(u"verticalLayout_18")
+        self.searchFrame_3 = QFrame(self.frame_42)
+        self.searchFrame_3.setObjectName(u"searchFrame_3")
+        self.searchFrame_3.setMinimumSize(QSize(240, 0))
+        self.searchFrame_3.setStyleSheet(u"background-color:#fff;\n"
+"")
+        self.searchFrame_3.setFrameShape(QFrame.StyledPanel)
+        self.searchFrame_3.setFrameShadow(QFrame.Raised)
+        self.gridLayout_48 = QGridLayout(self.searchFrame_3)
+        self.gridLayout_48.setObjectName(u"gridLayout_48")
+        self.gridLayout_48.setContentsMargins(5, 5, 5, 5)
+        self.history_search_button = QPushButton(self.searchFrame_3)
+        self.history_search_button.setObjectName(u"history_search_button")
+        self.history_search_button.setIcon(icon)
+        self.history_search_button.setIconSize(QSize(24, 24))
+
+        self.gridLayout_48.addWidget(self.history_search_button, 0, 0, 1, 1)
+
+        self.history_line_edit_ = QLineEdit(self.searchFrame_3)
+        self.history_line_edit_.setObjectName(u"history_line_edit_")
+        self.history_line_edit_.setStyleSheet(u"")
+
+        self.gridLayout_48.addWidget(self.history_line_edit_, 0, 1, 1, 1)
+
+        self.history_mic_button = QPushButton(self.searchFrame_3)
+        self.history_mic_button.setObjectName(u"history_mic_button")
+        self.history_mic_button.setIcon(icon1)
+        self.history_mic_button.setIconSize(QSize(24, 24))
+
+        self.gridLayout_48.addWidget(self.history_mic_button, 0, 2, 1, 1)
+
+
+        self.verticalLayout_18.addWidget(self.searchFrame_3)
+
+
+        self.horizontalLayout_13.addWidget(self.frame_42, 0, Qt.AlignHCenter)
+
+        self.frame_43 = QFrame(self.viewTaskHeafer)
+        self.frame_43.setObjectName(u"frame_43")
+        self.frame_43.setFrameShape(QFrame.StyledPanel)
+        self.frame_43.setFrameShadow(QFrame.Raised)
+
+        self.horizontalLayout_13.addWidget(self.frame_43)
 
 
         self.gridLayout_15.addWidget(self.viewTaskHeafer, 0, 0, 1, 1)
@@ -1494,7 +1586,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout = QHBoxLayout(self.frame_20)
         self.horizontalLayout.setSpacing(0)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout.setContentsMargins(0, 0, 0, 10)
         self.mainMenuButton_4 = QWidget(self.frame_20)
         self.mainMenuButton_4.setObjectName(u"mainMenuButton_4")
         self.horizontalLayout_35 = QHBoxLayout(self.mainMenuButton_4)
@@ -1519,6 +1611,52 @@ class Ui_MainWindow(object):
 
 
         self.horizontalLayout.addWidget(self.mainMenuButton_4, 0, Qt.AlignLeft)
+
+        self.frame_44 = QFrame(self.frame_20)
+        self.frame_44.setObjectName(u"frame_44")
+        self.frame_44.setStyleSheet(u"background-color:none;")
+        self.frame_44.setFrameShape(QFrame.StyledPanel)
+        self.frame_44.setFrameShadow(QFrame.Raised)
+        self.gridLayout_50 = QGridLayout(self.frame_44)
+        self.gridLayout_50.setObjectName(u"gridLayout_50")
+        self.searchFrame_4 = QFrame(self.frame_44)
+        self.searchFrame_4.setObjectName(u"searchFrame_4")
+        self.searchFrame_4.setMinimumSize(QSize(240, 0))
+        self.searchFrame_4.setStyleSheet(u"#searchFrame_4{\n"
+"background-color: #ffffff;\n"
+"border-radius: 10px;\n"
+"border : 2px solid #1e1e1e;\n"
+"}")
+        self.searchFrame_4.setFrameShape(QFrame.StyledPanel)
+        self.searchFrame_4.setFrameShadow(QFrame.Raised)
+        self.gridLayout_49 = QGridLayout(self.searchFrame_4)
+        self.gridLayout_49.setObjectName(u"gridLayout_49")
+        self.gridLayout_49.setContentsMargins(5, 5, 5, 5)
+        self.view_search_button = QPushButton(self.searchFrame_4)
+        self.view_search_button.setObjectName(u"view_search_button")
+        self.view_search_button.setIcon(icon)
+        self.view_search_button.setIconSize(QSize(24, 24))
+
+        self.gridLayout_49.addWidget(self.view_search_button, 0, 0, 1, 1)
+
+        self.view_line_edit = QLineEdit(self.searchFrame_4)
+        self.view_line_edit.setObjectName(u"view_line_edit")
+        self.view_line_edit.setStyleSheet(u"")
+
+        self.gridLayout_49.addWidget(self.view_line_edit, 0, 1, 1, 1)
+
+        self.view_mic_button = QPushButton(self.searchFrame_4)
+        self.view_mic_button.setObjectName(u"view_mic_button")
+        self.view_mic_button.setIcon(icon1)
+        self.view_mic_button.setIconSize(QSize(24, 24))
+
+        self.gridLayout_49.addWidget(self.view_mic_button, 0, 2, 1, 1)
+
+
+        self.gridLayout_50.addWidget(self.searchFrame_4, 0, 0, 1, 1)
+
+
+        self.horizontalLayout.addWidget(self.frame_44, 0, Qt.AlignHCenter)
 
         self.frame_21 = QFrame(self.frame_20)
         self.frame_21.setObjectName(u"frame_21")
@@ -1849,10 +1987,43 @@ class Ui_MainWindow(object):
 
         self.mainSearchFrame_3 = QWidget(self.headerFrame_3)
         self.mainSearchFrame_3.setObjectName(u"mainSearchFrame_3")
-        self.horizontalLayout_32 = QHBoxLayout(self.mainSearchFrame_3)
-        self.horizontalLayout_32.setObjectName(u"horizontalLayout_32")
+        self.horizontalLayout_20 = QHBoxLayout(self.mainSearchFrame_3)
+        self.horizontalLayout_20.setObjectName(u"horizontalLayout_20")
+        self.searchFrame_5 = QFrame(self.mainSearchFrame_3)
+        self.searchFrame_5.setObjectName(u"searchFrame_5")
+        self.searchFrame_5.setMinimumSize(QSize(240, 0))
+        self.searchFrame_5.setStyleSheet(u"background-color:#fff;\n"
+"")
+        self.searchFrame_5.setFrameShape(QFrame.StyledPanel)
+        self.searchFrame_5.setFrameShadow(QFrame.Raised)
+        self.gridLayout_51 = QGridLayout(self.searchFrame_5)
+        self.gridLayout_51.setObjectName(u"gridLayout_51")
+        self.gridLayout_51.setContentsMargins(5, 5, 5, 5)
+        self.analysis_search_button = QPushButton(self.searchFrame_5)
+        self.analysis_search_button.setObjectName(u"analysis_search_button")
+        self.analysis_search_button.setIcon(icon)
+        self.analysis_search_button.setIconSize(QSize(24, 24))
 
-        self.horizontalLayout_30.addWidget(self.mainSearchFrame_3)
+        self.gridLayout_51.addWidget(self.analysis_search_button, 0, 0, 1, 1)
+
+        self.analysis_line_edit = QLineEdit(self.searchFrame_5)
+        self.analysis_line_edit.setObjectName(u"analysis_line_edit")
+        self.analysis_line_edit.setStyleSheet(u"")
+
+        self.gridLayout_51.addWidget(self.analysis_line_edit, 0, 1, 1, 1)
+
+        self.analysis_mic_button = QPushButton(self.searchFrame_5)
+        self.analysis_mic_button.setObjectName(u"analysis_mic_button")
+        self.analysis_mic_button.setIcon(icon1)
+        self.analysis_mic_button.setIconSize(QSize(24, 24))
+
+        self.gridLayout_51.addWidget(self.analysis_mic_button, 0, 2, 1, 1)
+
+
+        self.horizontalLayout_20.addWidget(self.searchFrame_5)
+
+
+        self.horizontalLayout_30.addWidget(self.mainSearchFrame_3, 0, Qt.AlignHCenter)
 
         self.mainAccountFrame_3 = QWidget(self.headerFrame_3)
         self.mainAccountFrame_3.setObjectName(u"mainAccountFrame_3")
@@ -2214,6 +2385,16 @@ class Ui_MainWindow(object):
 
         self.gridLayout_6.addWidget(self.homeMain, 0, 2, 1, 1)
 
+        self.profileContent = QWidget(self.centralwidget)
+        self.profileContent.setObjectName(u"profileContent")
+        self.profileContent.setMinimumSize(QSize(0, 0))
+        self.verticalLayout_6 = QVBoxLayout(self.profileContent)
+        self.verticalLayout_6.setSpacing(0)
+        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
+        self.verticalLayout_6.setContentsMargins(0, 0, 0, 0)
+
+        self.gridLayout_6.addWidget(self.profileContent, 0, 3, 1, 1)
+
         self.frame_5 = QFrame(self.centralwidget)
         self.frame_5.setObjectName(u"frame_5")
         self.frame_5.setMaximumSize(QSize(16777215, 16777215))
@@ -2228,14 +2409,14 @@ class Ui_MainWindow(object):
         self.verticalLayout_9.setContentsMargins(0, 0, 0, 0)
         self.frame_7 = QFrame(self.frame_5)
         self.frame_7.setObjectName(u"frame_7")
-        self.frame_7.setMinimumSize(QSize(50, 32))
+        self.frame_7.setMinimumSize(QSize(110, 32))
         self.frame_7.setMaximumSize(QSize(16777215, 16777215))
         self.frame_7.setFrameShape(QFrame.StyledPanel)
         self.frame_7.setFrameShadow(QFrame.Raised)
         self.toDoHeader = QLabel(self.frame_7)
         self.toDoHeader.setObjectName(u"toDoHeader")
         self.toDoHeader.setEnabled(True)
-        self.toDoHeader.setGeometry(QRect(0, 0, 57, 29))
+        self.toDoHeader.setGeometry(QRect(0, 0, 101, 29))
         self.toDoHeader.setMinimumSize(QSize(0, 0))
         self.toDoHeader.setMaximumSize(QSize(16777215, 16777215))
         font5 = QFont()
@@ -2492,7 +2673,7 @@ class Ui_MainWindow(object):
         self.toDoHeader_2.setEnabled(True)
         self.toDoHeader_2.setMinimumSize(QSize(0, 0))
         self.toDoHeader_2.setMaximumSize(QSize(16777215, 16777215))
-        self.toDoHeader_2.setFont(font5)
+        self.toDoHeader_2.setFont(font2)
 
         self.gridLayout_22.addWidget(self.toDoHeader_2, 0, 0, 1, 1)
 
@@ -2572,10 +2753,19 @@ class Ui_MainWindow(object):
         self.completedButton.setText(QCoreApplication.translate("MainWindow", u"View more", None))
         self.menuButton_8.setText("")
         self.homeHeader_8.setText(QCoreApplication.translate("MainWindow", u"Calendar", None))
+        self.calendar_search_button.setText("")
+        self.calendar_line_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Search Task", None))
+        self.calendar_mic_button.setText("")
         self.menuButton_6.setText("")
         self.homeHeader_6.setText(QCoreApplication.translate("MainWindow", u"History", None))
+        self.history_search_button.setText("")
+        self.history_line_edit_.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Search Task", None))
+        self.history_mic_button.setText("")
         self.menuButton_5.setText("")
         self.homeHeader_5.setText(QCoreApplication.translate("MainWindow", u"View Task", None))
+        self.view_search_button.setText("")
+        self.view_line_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Search Task", None))
+        self.view_mic_button.setText("")
         self.delete_Button.setText(QCoreApplication.translate("MainWindow", u"Delete", None))
         self.edit_Button.setText(QCoreApplication.translate("MainWindow", u"Edit", None))
         self.create_Button.setText(QCoreApplication.translate("MainWindow", u"Create", None))
@@ -2584,6 +2774,9 @@ class Ui_MainWindow(object):
         self.late_Task_Button.setText(QCoreApplication.translate("MainWindow", u"Late Task", None))
         self.menuButton_3.setText("")
         self.homeHeader_3.setText(QCoreApplication.translate("MainWindow", u"Analysis", None))
+        self.analysis_search_button.setText("")
+        self.analysis_line_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Search Task", None))
+        self.analysis_mic_button.setText("")
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"Remaining Task", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"varaible", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"Normal Task", None))

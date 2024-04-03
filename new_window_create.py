@@ -141,8 +141,8 @@ class New_MainWindow_edit(QWidget, Ui_Form):
         event.accept()
 
 
-if __name__ == "__main__":
-    app = QApplication(sys.argv)
-    window = New_MainWindow_create(user)
-    window.show()
-    sys.exit(app.exec())
+# if __name__ == "__main__":
+#     app = QApplication(sys.argv)
+#     window = New_MainWindow_create(user)
+#     window.show()
+#     sys.exit(app.exec())
