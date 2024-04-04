@@ -7,6 +7,11 @@ from ui_py.main_stack import Ui_MainWindow
 from new_window_task import New_MainWindow_task
 import datetime
 
+light_blue = QColor(173, 216, 230)
+orange = QColor(255, 165, 0)
+light_red = QColor(255, 106, 106)
+grey = QColor(192, 192, 192)
+# grey but lighter = QColor(236, 236, 236)
 
 class Calendar_page():
     def __init__(self, ui: Ui_MainWindow, user,  task: Task_handlers):
@@ -14,14 +19,13 @@ class Calendar_page():
         self.calendar = QCalendarWidget(self.ui)
         self.task = task
         self.user = user
-        self.all_task = self.task.get_urgent_tasks() + self.task.get_today_tasks() + self.task.get_upcoming_tasks()
+        self.all_task = self.user.get_user_tasks()
         self.ui.stackedWidget.addWidget(self.calendar)
         self.calendar.show()
         self.highlight_dates()
         
         self.ui.calendarWidget.clicked.connect(self.show_task)
         
-
     def highlight_dates(self):
         for task in self.all_task:
             date = task.due_date
@@ -34,13 +38,15 @@ class Calendar_page():
     def highlight_format(self, task):
         text_format = self.calendar.dateTextFormat(QDate())
         if task.urgent:
-            text_format.setBackground(Qt.red)
+            text_format.setBackground(orange)
+        elif task.is_completed:
+            text_format.setBackground(Qt.green)
         elif task.get_day_left() < datetime.timedelta(days=0):
-            text_format.setBackground(Qt.blue)
+            text_format.setBackground(light_red)
         elif task.get_day_left() < datetime.timedelta(days=3):
             text_format.setBackground(Qt.yellow)
         else:
-            text_format.setBackground(Qt.green)
+            text_format.setBackground(grey)
 
         return text_format
 
