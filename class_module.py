@@ -3,6 +3,7 @@ from email.message import EmailMessage
 import smtplib
 import ssl
 import persistent
+import base64
 
 
 class User(persistent.Persistent):
@@ -76,7 +77,8 @@ class User(persistent.Persistent):
         self.email = new_email
 
     def login(self, password) :
-        if self.password == password :
+        decode_pass = base64.b64decode(self.password).decode('utf-8')
+        if decode_pass == password :
             return True
         return False
 
