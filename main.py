@@ -166,9 +166,6 @@ class Sidebar(QMainWindow, Ui_MainWindow,QtCore.QObject):
                 self.switch_to_view_task()
         elif text.lower().startswith("create"):
             name, detail, due_date, time = creating_task(text)
-            if "multitask" in text:
-                self.create_task = New_MainWindow_create(self, self.user)
-                self.create_task.sub_task_check_box.setChecked(True)
             self.create_task = New_MainWindow_create(self, self.user)
             if name:
                 self.create_task.topic_lineEdit.setText(name)
@@ -180,6 +177,8 @@ class Sidebar(QMainWindow, Ui_MainWindow,QtCore.QObject):
                 self.create_task.timeEdit.setTime(QTime.fromString(time, "hh:mm"))
             if "urgent" in text:
                 self.create_task.urgent_task_check_box.setChecked(True)
+            if "multitask" in text or "subtask" in text:
+                self.create_task.sub_task_check_box.setChecked(True)
             self.create_task.show()
 
 
@@ -239,11 +238,16 @@ def date_formatter(text):
 def creating_task(input_str:str):
     if "task" in input_str:
         name_index = input_str.find("task")
+        name_gap = 5
     elif "name" in input_str:
         name_index = input_str.find("name")
+        name_gap = 5
+    elif "topic" in input_str:
+        name_index = input_str.find("topic")
+        name_gap = 6
     else:
         name_index = None
-    name_gap = 5
+
 
     if "detail" in input_str:
         detail_index = input_str.find("detail")
@@ -274,22 +278,22 @@ def creating_task(input_str:str):
     else:
         time_index = None
 
-    if name_index :
+    if name_index != None:
         name = input_str[name_index + name_gap: detail_index]
     else:
         name = None
 
-    if detail_index:
+    if detail_index != None:
         detail = input_str[detail_index + detail_gap: due_date_index]
     else:
         detail = None
 
-    if due_date_index:
+    if due_date_index != None:
         due_date = input_str[due_date_index + due_date_gap: time_index]
     else:
         due_date = None
 
-    if time_index:
+    if time_index != None:
         time = input_str[time_index + time_gap:time_index + time_gap + 5]
     else:
         time = None

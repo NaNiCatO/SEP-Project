@@ -277,6 +277,7 @@ class Ui_Form(object):
 "    subcontrol-position: bottom right; \n"
 "}\n"
 "")
+        self.timeEdit.setLocale(QLocale(QLocale.English, QLocale.UnitedStates))
 
         self.horizontalLayout_9.addWidget(self.timeEdit)
 
@@ -333,9 +334,7 @@ class Ui_Form(object):
         self.frame_11.setFrameShape(QFrame.StyledPanel)
         self.frame_11.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_7 = QHBoxLayout(self.frame_11)
-#ifndef Q_OS_MAC
-        self.horizontalLayout_7.setSpacing(-1)
-#endif
+        self.horizontalLayout_7.setSpacing(6)
         self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
         self.horizontalLayout_7.setContentsMargins(12, 0, 0, 0)
         self.subTaskHeadline = QLabel(self.frame_11)

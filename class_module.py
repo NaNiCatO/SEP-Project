@@ -209,7 +209,7 @@ class Notification(persistent.Persistent):
         self.app_email = app_email
         self.app_password = app_password
     
-    def send_email(self, user , subject, message) :
+    def send_email(self, user, subject, message) :
         msg = EmailMessage()
         msg['Subject'] = subject
         msg['From'] = self.app_email

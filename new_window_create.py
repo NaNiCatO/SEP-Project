@@ -6,6 +6,8 @@ import class_module
 from datetime import datetime
 import ZODB, ZODB.FileStorage
 import transaction
+import speech_recognition as sr
+from datetime import datetime
 
 class New_MainWindow_create(QWidget, Ui_Form):
     update_ui_signal = Signal()
@@ -19,6 +21,7 @@ class New_MainWindow_create(QWidget, Ui_Form):
         self.setupUi(self)
         self.confirm_button.accepted.connect(self.accept)
         self.confirm_button.rejected.connect(self.reject)
+        self.voiceButton.clicked.connect(self.voice_input)
 
     def accept(self):
         name_topic = self.topic_lineEdit.text()
@@ -59,6 +62,24 @@ class New_MainWindow_create(QWidget, Ui_Form):
         
         event.accept()
 
+    def voice_input(self):
+        text:str = recognize_speech()
+        name, detail, due_date, time = creating_task(text)
+        if name:
+            self.topic_lineEdit.setText(name)
+        if detail:
+            self.detail_lineEdit.setText(detail)
+        if due_date:
+            self.calendarWidget.setSelectedDate(date_formatter(due_date.strip()))
+        if time:
+            self.timeEdit.setTime(QTime.fromString(time, "hh:mm"))
+        if "urgent" in text:
+            self.urgent_task_check_box.setChecked(True)
+        if "multitask" in text or "subtask" in text:
+            self.sub_task_check_box.setChecked(True)
+        
+
+
 class New_MainWindow_edit(QWidget, Ui_Form):
     update_ui = Signal()
     
@@ -72,6 +93,7 @@ class New_MainWindow_edit(QWidget, Ui_Form):
         self.set_values()
         self.confirm_button.accepted.connect(self.accept)
         self.confirm_button.rejected.connect(self.reject)
+        self.voiceButton.clicked.connect(self.voice_input)
 
     def set_values(self):
         self.topic_lineEdit.setText(self.task.name_topic)
@@ -133,12 +155,134 @@ class New_MainWindow_edit(QWidget, Ui_Form):
     def reject(self):
         self.close()
 
+    def voice_input(self):
+        text:str = recognize_speech()
+        name, detail, due_date, time = creating_task(text)
+        if name:
+            self.topic_lineEdit.setText(name)
+        if detail:
+            self.detail_lineEdit.setText(detail)
+        if due_date:
+            self.calendarWidget.setSelectedDate(date_formatter(due_date.strip()))
+        if time:
+            self.timeEdit.setTime(QTime.fromString(time, "hh:mm"))
+        if "urgent" in text:
+            self.urgent_task_check_box.setChecked(True)
+        if "multitask" in text or "subtask" in text:
+            self.sub_task_check_box.setChecked(True)
+
     def closeEvent(self, event):
         print("UI is closed")
         self.ui.categorized_task.update_tasks()
         for i in self.ui.arr_update:
             i.update_ui()
         event.accept()
+
+
+def recognize_speech():
+    recognizer = sr.Recognizer()
+    with sr.Microphone() as source:
+        print("Speak something...")
+        audio = recognizer.listen(source)
+
+    try:
+        # Use Google Speech Recognition to convert speech to text
+        text = recognizer.recognize_google(audio)
+        print("You said:", text)
+        return text
+    except sr.UnknownValueError:
+        print("Google Speech Recognition could not understand audio")
+    except sr.RequestError as e:
+        print("Could not request results from Google Speech Recognition service; {0}".format(e))
+
+
+def date_formatter(text):
+    formats = ["%dth %B %Y", "%B %d, %Y", "%B %dth %Y", "%B %d %Y"]  # Add more formats if users might use variations
+
+    for format_str in formats:
+        try:
+            # Try parsing the spoken date with each format
+            desired_date = datetime.strptime(text, format_str)
+            break  # Exit the loop if parsing is successful
+        except ValueError:
+            pass  # If parsing fails with this format, try the next one
+
+    if desired_date:  # Check if parsing was successful with any format
+    # Convert datetime to QDate and set the calendar date (as before)
+        qt_date = QDate(desired_date.year, desired_date.month, desired_date.day)
+        print(f"Setting the date to {qt_date.toString()}")
+        return qt_date
+    else:
+        print("Sorry, I couldn't understand the date format. Please try again.")
+
+def creating_task(input_str:str):
+    if "task" in input_str:
+        name_index = input_str.find("task")
+        name_gap = 5
+    elif "name" in input_str:
+        name_index = input_str.find("name")
+        name_gap = 5
+    elif "topic" in input_str:
+        name_index = input_str.find("topic")
+        name_gap = 6
+    else:
+        name_index = None
+
+
+    if "detail" in input_str:
+        detail_index = input_str.find("detail")
+        detail_gap = 7
+    elif "details" in input_str:
+        detail_index = input_str.find("details")
+        detail_gap = 8
+    else:
+        detail_index = None
+   
+
+    if "due date" in input_str:
+        due_date_index = input_str.find("due")
+        due_date_gap = 9
+    elif "date" in input_str:
+        due_date_index = input_str.find("date")
+        due_date_gap = 5
+    else:
+        due_date_index = None
+
+
+    if "time" in input_str:
+        time_index = input_str.find("time")
+        time_gap = 5
+    elif "at" in input_str:
+        time_index = input_str.find("at")
+        time_gap = 3
+    else:
+        time_index = None
+
+    if name_index != None:
+        name = input_str[name_index + name_gap: detail_index]
+    else:
+        name = None
+
+    if detail_index != None:
+        detail = input_str[detail_index + detail_gap: due_date_index]
+    else:
+        detail = None
+
+    if due_date_index != None:
+        due_date = input_str[due_date_index + due_date_gap: time_index]
+    else:
+        due_date = None
+
+    if time_index != None:
+        time = input_str[time_index + time_gap:time_index + time_gap + 5]
+    else:
+        time = None
+
+    print(name, detail, due_date, time)
+
+    return name, detail, due_date, time
+
+
 
 
 # if __name__ == "__main__":
