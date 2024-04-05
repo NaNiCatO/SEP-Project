@@ -139,6 +139,8 @@ class MultiTask(Task, persistent.Persistent) :
                     self.progress += 100/len(self.tasks)
         if self.progress == 100 :
             self.is_completed = True
+        else:
+            self.is_completed = False
 
     def get_task(self, name_topic) :
         for task in self.tasks :
@@ -213,7 +215,7 @@ class Notification(persistent.Persistent):
         self.app_email = app_email
         self.app_password = app_password
     
-    def send_email(self, user , subject, message) :
+    def send_email(self, user, subject, message) :
         msg = EmailMessage()
         msg['Subject'] = subject
         msg['From'] = self.app_email

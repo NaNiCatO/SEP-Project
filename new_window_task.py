@@ -6,6 +6,7 @@ import class_module
 from new_window_create import New_MainWindow_create, New_MainWindow_edit
 from specialObject import ClickableTaskFrame
 from datetime import datetime
+from class_module import MultiTask
 
 class New_MainWindow_task(QMainWindow, Ui_MainWindow):
     def __init__(self, ui, user, task, name=None):
@@ -50,11 +51,15 @@ class New_MainWindow_task(QMainWindow, Ui_MainWindow):
             self.name_desc_layout.addWidget(self.task_label_description)
 
             self.percentage_layout = QVBoxLayout()
-            self.radio_button = QRadioButton("Complete")
-            self.radio_button.toggled.connect(self.radio_button_clicked(task))
-            self.radio_button.setStyleSheet(stylesheet)
-            self.radio_button.setChecked(task.is_completed)
-            self.percentage_layout.addWidget(self.radio_button)
+            if isinstance(task, MultiTask):
+                self.task_label_percentage = QLabel(f"{task.progress}%")
+                self.percentage_layout.addWidget(self.task_label_percentage)
+            else:
+                self.radio_button = QRadioButton("Complete")
+                self.radio_button.toggled.connect(self.radio_button_clicked(task))
+                self.radio_button.setStyleSheet(stylesheet)
+                self.radio_button.setChecked(task.is_completed)
+                self.percentage_layout.addWidget(self.radio_button)
 
             self.task_frame_layout.addLayout(self.name_desc_layout)
             self.task_frame_layout.addLayout(self.percentage_layout)
@@ -92,8 +97,6 @@ class New_MainWindow_task(QMainWindow, Ui_MainWindow):
                 self.homeHeader_5.setText(f"Task Name: {self.task.name_topic} : {self.mode}")
 
     def update_ui(self):
-        
-              
         for i in reversed(range(self.container_layout.count())):
             self.container_layout.itemAt(i).widget().setParent(None)
 
@@ -108,11 +111,15 @@ class New_MainWindow_task(QMainWindow, Ui_MainWindow):
             self.name_desc_layout.addWidget(self.task_label_description)
 
             self.percentage_layout = QVBoxLayout()
-            self.radio_button = QRadioButton("Complete")
-            self.radio_button.toggled.connect(self.radio_button_clicked(task))
-            self.radio_button.setStyleSheet(stylesheet)
-            self.radio_button.setChecked(task.is_completed)
-            self.percentage_layout.addWidget(self.radio_button)
+            if isinstance(task, MultiTask):
+                self.task_label_percentage = QLabel(f"{task.progress}%")
+                self.percentage_layout.addWidget(self.task_label_percentage)
+            else:
+                self.radio_button = QRadioButton("Complete")
+                self.radio_button.toggled.connect(self.radio_button_clicked(task))
+                self.radio_button.setStyleSheet(stylesheet)
+                self.radio_button.setChecked(task.is_completed)
+                self.percentage_layout.addWidget(self.radio_button)
 
             self.task_frame_layout.addLayout(self.name_desc_layout)
             self.task_frame_layout.addLayout(self.percentage_layout)
@@ -136,6 +143,13 @@ class New_MainWindow_task(QMainWindow, Ui_MainWindow):
             else:
                 self.new_window = New_MainWindow_edit(self.ui, self.user, task)
             self.new_window.show()
+        else:
+            if isinstance(task, MultiTask):
+                self.new_window = New_MainWindow_task(self.ui, self.user, task, task.name_topic)
+                self.new_window.show()
+
+        print(f"Clicked on task: {task.name_topic}")
+        print(f"Task description: {task.due_date}")
 
 
     def radio_button_clicked(self, task):
